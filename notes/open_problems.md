@@ -64,7 +64,7 @@ Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or*
 
 Does Gauss-style composition of forms admit a dynamical realization on paired flywheels (or on ideal classes of a quaternion order) that recovers classical composition in a suitable reduction? Require associativity up to gauge equivalence and compatibility with Ch. 4 gauge actions.
 
-**Sandbox:** `compose_flywheels`, `composition_table`, `is_associative_up_to_equivalence`, `class_group_analogue`. Current experiments often show low closure/associativity — document failures (Ch. 8 Labs 8.D–8.G).
+**Sandbox:** `compose_flywheels`, `composition_table`, `is_associative_up_to_equivalence`, `class_group_analogue` (Ch. 8); algebraic side in `qga/lib/quaternion_algebra.py` (Ch. 9: `QuaternionAlgebra`, `HurwitzOrder`, `left_ideal_class_group`). Current flux-composition experiments often show low closure/associativity — document failures (Ch. 8 Labs 8.D–8.G). Use ideal theory (Ch. 9) to seek a rigorous law.
 
 ---
 

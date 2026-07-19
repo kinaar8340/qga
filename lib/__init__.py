@@ -9,6 +9,15 @@ from .composition import (
     is_associative_up_to_equivalence,
     reduce_composition,
 )
+from .quaternion_algebra import (
+    HurwitzOrder,
+    IdealClassGroupResult,
+    LipschitzOrder,
+    QuaternionAlgebra,
+    form_ideal_dictionary_entry,
+    hilbert_symbol,
+    left_ideal_class_group,
+)
 from .flux_topograph import (
     FluxTopograph,
     apply_gauge_to_topograph,
@@ -48,6 +57,10 @@ from .hopf_lattice import (
 __all__ = [
     "FluxTopograph",
     "HURWITZ_UNITS",
+    "HurwitzOrder",
+    "IdealClassGroupResult",
+    "LipschitzOrder",
+    "QuaternionAlgebra",
     "adjacency_equivariance_score",
     "apply_gauge_sequence",
     "apply_gauge_step",
@@ -66,9 +79,12 @@ __all__ = [
     "discrete_flux_cycle",
     "enumerate_reduced",
     "equivalence_distance",
+    "form_ideal_dictionary_entry",
+    "hilbert_symbol",
     "hopf_project_points",
     "identity_candidate",
     "is_associative_up_to_equivalence",
+    "left_ideal_class_group",
     "left_multiply",
     "magic_island_score",
     "nearest_index_map",

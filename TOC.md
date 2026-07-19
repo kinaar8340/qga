@@ -166,12 +166,15 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 ### Chapter 9 — Quaternion Algebras and Ideal Theory
 
-9.1 Quaternion algebras over \(\mathbb{Q}\)  
-9.2 Ramification and unique factorization properties (Hurwitz)  
-9.3 Correspondence between forms and ideals (generalizing Hatcher Ch. 8)  
-9.4 Back-applications to lattice stability  
-9.5 Open problems at the arithmetic–topology interface  
-9.6 Exercises and computational labs  
+*(Phase 7 draft complete — algebraic foundation for OP6)*
+
+9.1 Quaternion algebras over \(\mathbb{Q}\) (ramification)  
+9.2 Orders: Lipschitz, Hurwitz, maximal  
+9.3 Ideal theory and class groups  
+9.4 From ideals to flux topographs / flywheels (**Model** bridge)  
+9.5 First computational labs  
+  **Open Problem 6** continued · Exercises 9.A–9.I · Forward link to Ch. 10  
+
 
 ---
 

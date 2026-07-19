@@ -153,3 +153,19 @@ python scripts/generate_ch8_figures.py
 | `aux8_1_composition_table.png` | Numerical composition table |
 
 Composition helpers (OP6): `qga/lib/composition.py`.
+
+## Chapter 9 — generated for this book
+
+```bash
+python scripts/generate_ch9_figures.py
+```
+
+| Book figure | Description |
+|-------------|-------------|
+| `fig9_1_quaternion_algebra.png` | Ramification of \((-1,-1/Q)\) |
+| `fig9_2_hurwitz_order.png` | Hurwitz units + order comparison |
+| `fig9_3_ideal_class_group.png` | Ideal class group schematic |
+| `fig9_4_ideal_to_flywheel.png` | Model dictionary pipeline |
+| `aux9_1_ramification_table.png` | Hilbert symbols table |
+
+Algebra helpers: `qga/lib/quaternion_algebra.py`.

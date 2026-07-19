@@ -115,4 +115,16 @@ Regenerate: `python scripts/generate_ch7_figures.py` (prefer kingdom venv).
 
 Regenerate: `python scripts/generate_ch8_figures.py`.
 
+## Chapter 9 (Phase 7)
+
+| ID | File | Caption (short) | Source |
+|----|------|-----------------|--------|
+| Fig. 9.1 | `figures/fig9_1_quaternion_algebra.png` | Ramification diagram | generated |
+| Fig. 9.2 | `figures/fig9_2_hurwitz_order.png` | Hurwitz units / orders | generated |
+| Fig. 9.3 | `figures/fig9_3_ideal_class_group.png` | Ideal class group | generated |
+| Fig. 9.4 | `figures/fig9_4_ideal_to_flywheel.png` | Ideal → flywheel bridge | generated |
+| Aux A9.1 | `figures/aux9_1_ramification_table.png` | Hilbert symbol table | generated |
+
+Regenerate: `python scripts/generate_ch9_figures.py`.
+
 Full license note: `figures/ATTRIBUTION.md`.
