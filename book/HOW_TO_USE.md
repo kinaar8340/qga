@@ -166,13 +166,30 @@ Keep *Topology of Numbers* open beside this book. Full map: root `HATCHER_MAP.md
 
 ---
 
-## 8. Suggested first hour
+## 8. Appendices (expanded back matter)
+
+Long listings and reference material live in appendices so the main chapters stay readable:
+
+| App | Content |
+|-----|---------|
+| **A** | Terminology and notation |
+| **B** | Open Problems OP1–OP6 (full statements) |
+| **C** | Laboratory code reference (full listings) |
+| **D** | Table T4 validation protocols (full) |
+| **E** | Figure atlas |
+| **F** | Hatcher parallel dictionary |
+
+Chapters keep short lab “calls” and point here for copy-paste scripts.
+
+---
+
+## 9. Suggested first hour
 
 1. Read the Preface and this page.  
 2. Open Chapter 0; confirm figures render under `book/figures/`.  
 3. Run `from lib.hopf_lattice import HURWITZ_UNITS` (expect 24).  
 4. Optionally open the Gradio Hopf Visualizer and match panels to Figures 0.1–0.3 / Chapter 2.  
-5. When ready for research edges, skim `notes/open_problems.md` (OP1–OP6).
+5. When ready for research edges, skim **Appendix B** (or `notes/open_problems.md`).
 
 ---
 

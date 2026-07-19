@@ -287,90 +287,22 @@ Topologically this is the unique nontrivial double cover of \(SO(3)\). Paths in 
 
 ## 1.7 First computational examples and labs
 
-The book’s companion API (thin portal layer over `flux_hopf_lib`) lives at:
+Core API: `kingdom.core.quaternion` (see also Appendix C §C.1).
 
-```text
-kingdom.core.quaternion.Quaternion
-kingdom.core.quaternion.rodrigues_rotation
-```
+**Labs (short form).** Full listings: **Appendix C**.
 
-Core methods used in this chapter:
-
-| Method / constructor | Role |
-|----------------------|------|
-| `Quaternion(w, x, y, z)` | \(w+xi+yj+zk\) |
-| `.multiply(other)` | Hamilton product |
-| `.conjugate()`, `.inverse()`, `.normalize()` | algebra |
-| `.norm()` | length \(\lvert q\rvert=\sqrt{N(q)}\) |
-| `.from_axis_angle(axis, theta)` | unit quaternion for a rotation |
-| `.as_array()` / `.from_array` (upstream) | NumPy interop |
-| `.chordal_distance(other)` (upstream) | distance on \(S^3\) with \(q\sim -q\) option |
-| `.hopf_image()`, `.from_hopf_coords(...)` | **preview of Ch. 2** — optional here |
-
-### Lab 1.A — Multiplication table by machine
-
-Construct \(i=(0,1,0,0)\), \(j=(0,0,1,0)\), \(k=(0,0,0,1)\) and verify \(ij=k\), \(ji=-k\), \(i^2=-1\).
+- **1.A** Verify \(ij=k\), \(ji=-k\), \(i^2=-1\) with `Quaternion`.
+- **1.B** Check \(N(q_1q_2)=N(q_1)N(q_2)\) numerically (residual \(\sim 10^{-14}\)).
+- **1.C** Enumerate small Lipschitz norms.
+- **1.D** Confirm \(q\) and \(-q\) induce the same conjugation action on a pure vector.
+- **1.E** Optional: `from_hopf_coords` / `hopf_image` (preview of Ch. 2).
 
 ```python
 from kingdom.core.quaternion import Quaternion
-
-i = Quaternion(0, 1, 0, 0)
-j = Quaternion(0, 0, 1, 0)
-k = Quaternion(0, 0, 0, 1)
-print(i.multiply(j))  # ~ (0,0,0,1) = k
-print(j.multiply(i))  # ~ (0,0,0,-1) = -k
-print(i.multiply(i))  # ~ (-1,0,0,0)
+i, j = Quaternion(0,1,0,0), Quaternion(0,0,1,0)
+print(i.multiply(j))  # k
 ```
 
-### Lab 1.B — Norm multiplicativity
-
-```python
-import numpy as np
-from kingdom.core.quaternion import Quaternion
-
-rng = np.random.default_rng(0)
-def rand_q():
-    a = rng.normal(size=4)
-    return Quaternion(*a)
-
-q1, q2 = rand_q(), rand_q()
-prod = q1.multiply(q2)
-n1 = q1.norm() ** 2
-n2 = q2.norm() ** 2
-np_ = prod.norm() ** 2
-print(n1, n2, np_, abs(np_ - n1 * n2))
-```
-
-Expect a residual on the order of \(10^{-14}\) or better.
-
-### Lab 1.C — Lipschitz norms and four squares
-
-Enumerate small Lipschitz quaternions and collect the set of norms \(N(q)=w^2+x^2+y^2+z^2\) for \(|w|,|x|,|y|,|z|\le N_{\max}\). Check that every integer from \(0\) to some bound appears (Lagrange guarantees eventual completeness; your bound is a computational observation).
-
-### Lab 1.D — Double cover
-
-```python
-import numpy as np
-from kingdom.core.quaternion import Quaternion
-
-q = Quaternion.from_axis_angle(np.array([0.0, 0.0, 1.0]), np.pi / 3)
-mq = Quaternion(-q.w, -q.x, -q.y, -q.z)
-# conjugation action on a pure vector v = (0,1,0,0) ~ i
-v = Quaternion(0, 1, 0, 0)
-rq = q.multiply(v).multiply(q.inverse())
-rm = mq.multiply(v).multiply(mq.inverse())
-print(rq, rm)  # same rotated pure quaternion
-```
-
-### Lab 1.E — Optional Hopf peek
-
-```python
-q = Quaternion.from_hopf_coords(eta=0.3, xi1=0.1, xi2=0.5)
-print(q.norm())       # ~ 1
-print(q.hopf_image()) # point on S^2
-```
-
-Treat this as a **preview**, not a substitute for Chapter 2.
 
 ---
 

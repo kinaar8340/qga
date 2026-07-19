@@ -88,61 +88,40 @@ Magic Islands (Chapters 5–6) appear as regions of high periodicity, controlled
 
 ## 10.4 Summary of Open Problems
 
-| # | Problem | Home | Status | Next action |
-|---|---------|------|--------|-------------|
-| OP1 | Canonical quaternionic Farey structure | Ch. 3 | Open — `candidate_adjacency` | Prove Farey reduction |
-| OP2 | Flux topograph axioms | Ch. 5 | Open — `flux_topograph` | Formal axiom system |
-| OP3 | Class number ↔ Magic Island | Ch. 6 | Open — heuristic | Predictive invariant |
-| OP4 | \(Z\to\) flywheel uniqueness | Ch. 7 / 10 | Open | Classify gauge ambiguity |
-| OP5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open | Execute Table T4 |
-| OP6 | Composition of flywheels (Gauss lift) | Ch. 8–9 | Open — low sandbox closure; algebra ready | Ideal-theoretic law |
+| # | Problem | Home | Status (one line) |
+|---|---------|------|-------------------|
+| OP1 | Canonical quaternionic Farey | Ch. 3 | Open — `candidate_adjacency` |
+| OP2 | Flux topograph axioms | Ch. 5 | Open — `flux_topograph` |
+| OP3 | Class number ↔ Magic Island | Ch. 6 | Open — heuristic |
+| OP4 | \(Z\to\) flywheel uniqueness | Ch. 7 / 10 | Open |
+| OP5 | \(350/\pi\) first principles / falsify | Ch. 10 | Open — Table T4 |
+| OP6 | Flywheel composition (Gauss lift) | Ch. 8–9 | Open — low sandbox closure |
 
-Helpers: `lib.validation.open_problems_status_table()`. Progress on any one problem strengthens the others.
+**Full statements, sandboxes, success criteria, and dependency sketch:** **Appendix B**.  
+Helpers: `lib.validation.open_problems_status_table()`.
 
 ---
 
 ## 10.5 Validation protocols (Table T4)
 
-A pre-registered validation checklist for major hypotheses is defined in the book helper and summarized here.
+A pre-registered validation checklist for major hypotheses. **Full protocol, hypothesis catalog, and statistical helpers:** **Appendix D**.
 
-### Core elements
+**Eight elements (names only):** null definition · data sources · test statistic · multiple testing · power · falsification · pre-registration · reproducibility.
 
-| ID | Element |
-|----|---------|
-| T4.1 | Null hypothesis definition (with \(\alpha\)) |
-| T4.2 | Data sources and preprocessing |
-| T4.3 | Test statistic |
-| T4.4 | Multiple-testing correction |
-| T4.5 | Power analysis |
-| T4.6 | Falsification criteria |
-| T4.7 | Pre-registration (timestamped commit / registry) |
-| T4.8 | Reproducibility (code, seeds, environment) |
-
-```text
+```python
 from lib.validation import table_t4_checklist, default_hypotheses, run_table_t4_demo
-table_t4_checklist()
-default_hypotheses()   # 350/π, Z-map, Magic Island association
+print(len(table_t4_checklist()), [h.name for h in default_hypotheses()])
+demo = run_table_t4_demo(seed=1, alpha=0.01)  # toy null — not evidence for 350/π
+print(demo["decision"], demo["disclaimer"])
 ```
 
 ![Figure 10.4 — Validation protocol flowchart.](figures/fig10_4_validation_flowchart.png)
 
-*Figure 10.4.* High-level Table T4 decision tree.
+*Figure 10.4.* High-level Table T4 decision tree (details in Appendix D).
 
-### Worked demo (not a claim of confirmation)
+**Claim type.** Existence of the protocol and helpers: **Software fact**. “Hypothesis \(X\) passed T4”: **Hypothesis** until the full checklist is executed and reviewed.
 
-```python
-from lib.validation import run_table_t4_demo, combine_p_values_fisher, bonferroni_threshold
-
-# Replace with real pre-registered per-domain p-values when available
-demo = run_table_t4_demo(seed=1, alpha=0.01)
-print(demo["bonferroni_threshold"], demo["fisher"], demo["decision"])
-```
-
-Under the **null toy** generator, expect frequent `fail_to_reject_H0`. Using real domain \(p\)-values without pre-registration does **not** count as T4 success.
-
-**Claim type.** Existence of the protocol and helpers: **project / **Software fact****. “Hypothesis \(X\) passed T4”: **Hypothesis** until the full checklist is executed and reviewed.
-
-**Open Problem 5.** Derive \(W_g=350/\pi\) from lattice geometry, **or** falsify multi-domain recurrence via pre-registered tests following Table T4.
+**Open Problem 5.** Derive \(W_g=350/\pi\) from lattice geometry, **or** falsify multi-domain recurrence via pre-registered tests (Appendix D / Table T4).
 
 ---
 
@@ -172,11 +151,11 @@ The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal 
 
 ## Exercises (final chapter)
 
-**10.A (hand).** Choose one Open Problem (preferably OP1, OP2, or OP6) and write a one-page research proposal: sandbox, diagnostic, and success criterion.
+**10.A (hand).** Using **Appendix B**, choose OP1, OP2, or OP6 and write a one-page research proposal: sandbox, diagnostic, and success criterion.
 
-**10.B (code).** Run `run_table_t4_demo` under the null toy generator and with a hand-chosen list of \(p\)-values. Report Bonferroni threshold, Fisher combined \(p\), and decision. State clearly that toy data are not evidence for \(350/\pi\).
+**10.B (code).** Using **Appendix D** / `run_table_t4_demo`, run under the null toy generator and with hand-chosen \(p\)-values. Report Bonferroni threshold, Fisher combined \(p\), and decision. Toy data are **not** evidence for \(350/\pi\).
 
-**10.C (code).** Using `proximity_to_wg`, measure closeness of a small list of observed constants (from notes or portal docs) to \(350/\pi\). Interpret only as a diagnostic, not a significance test.
+**10.C (code).** Using `proximity_to_wg` (Appendix D), measure closeness of a few constants to \(350/\pi\). Diagnostic only, not a significance test.
 
 **10.D (forward).** If OP6 were solved with an associative law from ideal multiplication, what new prediction about Magic Islands or the \(Z\mapsto\) map could be tested under Table T4?
 
@@ -190,18 +169,13 @@ The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal 
 
 ```text
 qga/lib/validation.py
-  WG_350_OVER_PI, table_t4_checklist, default_hypotheses,
-  run_table_t4_demo, combine_p_values_fisher, bonferroni_threshold,
-  proximity_to_wg, open_problems_status_table
-
-kingdom/observations/
-kingdom.core.constants.WG_FROM_350_OVER_PI
-kingdom.core.flux_flywheel
-qga/lib/flux_topograph.py · composition.py · quaternion_algebra.py
+Appendix B (Open Problems) · Appendix D (Table T4 full)
+Appendix C §C.4 (lab listings)
+kingdom/observations/ · kingdom.core.flux_flywheel
 ```
 
-**Figures:** `scripts/generate_ch10_figures.py`  
-**Related portal:** Observations tab; Flux Flywheel; future validation dashboard.
+**Figures:** `scripts/generate_ch10_figures.py` · **Appendix E** (atlas)  
+**Related portal:** Observations tab; Flux Flywheel.
 
 ---
 

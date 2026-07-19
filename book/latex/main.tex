@@ -94,21 +94,17 @@ lifted here to \(S^3\), the Hopf fibration, and flux lattices.
 
 % ---------- Back matter ----------
 \backmatter
+\appendix
+% Numbered as Appendix A, B, ... via \chapter after \appendix
+% Our converter emits \chapter*{...} for kind=front; use chapter* style files
+% but force appendix numbering with explicit titles in the MD (# Appendix A — ...)
 
-\chapter*{Open Problems}
-\addcontentsline{toc}{chapter}{Open Problems}
-\label{ch:open-problems}
-\noindent
-The living research edges of the project (see also \texttt{notes/open\_problems.md} in the repository):
-
-\begin{enumerate}[leftmargin=*]
-  \item \textbf{OP1 --- Canonical quaternionic Farey structure} (Ch.~\ref{ch:ch03_lattice}).
-  \item \textbf{OP2 --- Flux topograph axioms} (Ch.~\ref{ch:ch05_topographs}).
-  \item \textbf{OP3 --- Class number \(\leftrightarrow\) Magic Island} (Ch.~\ref{ch:ch06_classification}).
-  \item \textbf{OP4 --- \(Z\to\) flywheel uniqueness} (Ch.~\ref{ch:ch07_z_map} / Ch.~\ref{ch:ch10_observations}).
-  \item \textbf{OP5 --- \(350/\pi\) first principles or falsification} (Ch.~\ref{ch:ch10_observations}, Table~T4).
-  \item \textbf{OP6 --- Composition of flywheels (Gauss lift)} (Ch.~\ref{ch:ch08_class_group}--\ref{ch:ch09_algebras}).
-\end{enumerate}
+\input{chapters/app_a_terminology}
+\input{chapters/app_b_open_problems}
+\input{chapters/app_c_labs}
+\input{chapters/app_d_validation}
+\input{chapters/app_e_figures}
+\input{chapters/app_f_hatcher}
 
 \chapter*{Bibliography (seed)}
 \addcontentsline{toc}{chapter}{Bibliography (seed)}

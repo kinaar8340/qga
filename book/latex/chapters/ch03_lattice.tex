@@ -327,131 +327,35 @@ See also \texttt{notes/open\_problems.md} (OP1 status tracking).
 \section{3.6 Software map and first computational labs}
 \label{ch:ch03_lattice:3-6-software-map-and-first-computational-labs}
 
-\subsection{What exists where}
-\label{ch:ch03_lattice:what-exists-where}
-
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\begin{tabular}{@{}lp{0.55\textwidth}@{}}
 \toprule
-Component & Location & Role \\
+Component & Location \\
 \midrule
-\texttt{LatticeConfig} & \texttt{kingdom.core.lattice} & Parameters (sites, layers, gauge strength, ...) \\
-\texttt{TwoGyroLattice}, \texttt{run\_lattice\_comparison}, \texttt{build\_lattice\_figure} & \texttt{kingdom.simulations.lattice} & Dynamical gauged lattice demo / Gradio Lattice Simulator \\
-Hurwitz units, angle lattice, candidate adjacency, left/right mult. & \texttt{qga/lib/hopf\_lattice.py} & \textbf{Book pedagogy} for ??3.1--3.4 and OP1 experiments \\
-Hopf map / fibers & \texttt{kingdom.core.hopf} & Projection primitives (Ch. 2) \\
+\texttt{LatticeConfig} & \texttt{kingdom.core.lattice} \\
+\texttt{TwoGyroLattice} & \texttt{kingdom.simulations.lattice} \\
+Hurwitz / adjacency / gauge & \texttt{lib/hopf\_lattice.py} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 
-\textbf{Honest gap.} There is not yet a production function named \texttt{build\_hurwitz\_lattice\_sample} inside Kingdom Come. Until OP1 stabilizes a rule set, the book ships the pedagogical module above; a future PR can promote winners into \texttt{kingdom.core.lattice}.
+\textbf{Honest gap.} No production \texttt{build\_hurwitz\_lattice\_sample} in Kingdom Come yet --- pedagogy lives in \texttt{lib/}.
 
-\subsection{Lab 3.A --- Hurwitz units and Hopf projection}
-\label{ch:ch03_lattice:lab-3-a-hurwitz-units-and-hopf-projection}
+\textbf{Labs (short form).} Full code: \textbf{Appendix C ?C.2}.
+
+\begin{itemize}
+\item \textbf{3.A} 24 Hurwitz units; Hopf project; count base points.
+\item \textbf{3.B} \texttt{sample\_angle\_lattice} + \texttt{candidate\_adjacency} (OP1 sandbox).
+\item \textbf{3.C} Left \(	imes i\): base \textbf{set} invariant, total-space points move (see Lab 4.A).
+\item \textbf{3.D} \texttt{run\_lattice\_comparison} stable vs chaotic.
+\item \textbf{3.E} Toy \texttt{discrete\_flux\_cycle}.
+\end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
 from lib.hopf_lattice import HURWITZ_UNITS, hopf_project_points
-import numpy as np
-
-print(len(HURWITZ_UNITS))
-print(np.allclose(np.sum(HURWITZ_UNITS**2, axis=1), 1.0))
-base = hopf_project_points(HURWITZ_UNITS)  # classical complex Hopf (default)
-print("base norms ~1:", np.allclose(np.linalg.norm(base, axis=1), 1.0, atol=1e-6))
-print("approx distinct base points:", len(np.unique(np.round(base, 5), axis=0)))
-# optional: portal real form (Ch. 2 convention note)
-base_kc = hopf_project_points(HURWITZ_UNITS, convention="kc")
-\end{lstlisting}
-
-\subsection{Lab 3.B --- Angle lattice and candidate adjacency (OP1 sandbox)}
-\label{ch:ch03_lattice:lab-3-b-angle-lattice-and-candidate-adjacency-op1-sandbox}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-
-pts = sample_angle_lattice(n_eta=3, n_xi1=8, n_xi2=8)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5)
-print(len(pts), "points;", len(along), "along-fiber edges;", len(inter), "inter-fiber edges")
-\end{lstlisting}
-
-Vary \texttt{base\_angle\_thresh} and phase bins; record how the graph changes. This \emph{is} OP1 experimental work.
-
-\subsection{Lab 3.C --- Left and right gauge actions}
-\label{ch:ch03_lattice:lab-3-c-left-and-right-gauge-actions}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.hopf_lattice import HURWITZ_UNITS, left_multiply, right_multiply, hopf_project_points
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-base0 = hopf_project_points(HURWITZ_UNITS)
-moved = left_multiply(HURWITZ_UNITS, i)
-baseL = hopf_project_points(moved)
-
-# The *set* of base points is invariant (permutation of ??) -- expected symmetry signature
-rounded0 = np.round(base0, decimals=6)
-roundedL = np.round(baseL, decimals=6)
-same_set = np.array_equal(
-    np.sort(rounded0, axis=0),
-    np.sort(roundedL, axis=0),
-)
-print("Base point set is invariant under left multiplication by i:", same_set)
-
-# Non-triviality: total-space points are permuted (even if some base images stay put)
-print("Any total-space point moved (index-wise)?",
-      not np.allclose(moved, HURWITZ_UNITS))
-print("Any base coordinate moved (index-wise)?", not np.allclose(base0, baseL))
-
-# right phase-like unit
-th = np.pi / 5
-u = np.array([np.cos(th / 2), 0.0, 0.0, np.sin(th / 2)])
-moved_R = right_multiply(HURWITZ_UNITS, u)
-baseR = hopf_project_points(moved_R)
-print("Right phase: total-space move?", not np.allclose(moved_R, HURWITZ_UNITS))
-print("Right phase: index-wise base move?", not np.allclose(base0, baseR))
-\end{lstlisting}
-
-\textbf{Note.} Because left multiplication by a Hurwitz unit is a group action on the finite set \(\Lambda_0\), the projected base points are merely permuted. A sorted comparison of base coordinates therefore returns (approximately) equal---that is the expected signature of a \textbf{symmetry}, not a failure of the code. Chapter 4 Lab 4.A develops this fully (including the case where index-wise base images stay put while total-space points still move).
-
-\subsection{Lab 3.D --- Lattice Simulator (portal / dynamical Model)}
-\label{ch:ch03_lattice:lab-3-d-lattice-simulator-portal-dynamical-model}
-
-\begin{lstlisting}[style=qga,language=python]
-# requires kingdom + deps (plotly, numpy)
-from kingdom.core.lattice import LatticeConfig
-from kingdom.simulations.lattice import TwoGyroLattice, run_lattice_comparison
-
-stable, chaotic = run_lattice_comparison(frames=80, n_sites=48)
-print("stable identity score:", stable.stability_score, "bursts:", stable.total_bursts)
-print("chaotic identity score:", chaotic.stability_score, "bursts:", chaotic.total_bursts)
-\end{lstlisting}
-
-In the Gradio \textbf{Lattice Simulator} tab, compare stable vs chaotic gauge pointer traces and identity preservation (Aux A3.1).
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux3_1_lattice_simulator_still.png}
-  \caption{Auxiliary Figure A3.1 --- Lattice Simulator still.}
-  \label{fig:aux3-1-lattice-simulator-still}
-\end{figure}
-
-\begin{quote}\small\textit{Auxiliary Figure A3.1.* Two-gyro gauged lattice: gauge pointer, mean twist, and identity preservation for stable vs chaotic modes (\texttt{kingdom.simulations.lattice}).}\end{quote}
-
-\subsection{Lab 3.E --- Toy flux on a cycle}
-\label{ch:ch03_lattice:lab-3-e-toy-flux-on-a-cycle}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency, discrete_flux_cycle
-
-pts = sample_angle_lattice(2, 4, 6)
-along, _ = candidate_adjacency(pts)
-# take a few along-fiber edges as a proto-cycle
-Phi = discrete_flux_cycle(along[:6], value=1)
-print("oriented edges with flux:", len(Phi) // 2)
+print(len(HURWITZ_UNITS), hopf_project_points(HURWITZ_UNITS).shape)
 \end{lstlisting}
 
 \bigskip

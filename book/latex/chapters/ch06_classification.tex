@@ -218,82 +218,19 @@ See \texttt{notes/open\_problems.md}. Depends on OP1 (adjacency) and OP2 (topogr
 \section{6.4 First computational labs}
 \label{ch:ch06_classification:6-4-first-computational-labs}
 
-\begin{lstlisting}[style=qga]
-qga/lib/flux_topograph.py
-  classify_topograph_type, enumerate_reduced, reduced_representative,
-  magic_island_score, equivalence_distance, class_number_analogue,
-  standard_gauge_set
+Helpers: \texttt{lib/flux\_topograph.py} \(\cdot\) \textbf{Appendix C ?C.3}.
 
-kingdom.core.flux_flywheel.map_z_to_flywheel[_extended]
-kingdom.viz.magic_island
-\end{lstlisting}
-
-\subsection{Lab 6.A --- Classify a flux topograph}
-\label{ch:ch06_classification:lab-6-a-classify-a-flux-topograph}
+\begin{itemize}
+\item \textbf{6.A} \texttt{classify\_topograph\_type}.
+\item \textbf{6.B} \texttt{enumerate\_reduced} / \texttt{class\_number\_analogue} (use modest lattices).
+\item \textbf{6.C} Portal \texttt{stability\_score} vs \(Z\) (no \texttt{magic\_flag}).
+\item \textbf{6.D} \texttt{equivalence\_distance} after left multiplication.
+\end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph, classify_topograph_type
-
-pts = sample_angle_lattice(n_eta=3, n_xi1=10, n_xi2=10)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5, fiber_phase_bins=10)
-topo = build_flux_topograph(pts, edges=along + inter, functional="hopf_height")
-t = classify_topograph_type(topo)
-print("type:", t["type"], "| reason:", t["reason"])
-print("periodicity:", t["best_period_found"], "| sep edges:", t["n_separator_edges"])
-\end{lstlisting}
-
-\subsection{Lab 6.B --- Enumerate reduced configurations}
-\label{ch:ch06_classification:lab-6-b-enumerate-reduced-configurations}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.flux_topograph import enumerate_reduced, class_number_analogue
-
-reduced = enumerate_reduced(topo, dedup_tol=0.05)
-print("number of reduced representatives:", len(reduced))
-for r in reduced:
-    print(" ", r["classification"]["type"], "island_score=", r["magic_island_score"]["score"])
-
-cn = class_number_analogue(topo, dedup_tol=0.05)
-print("class_number_analogue:", cn["class_number_analogue"], cn["by_type"])
-\end{lstlisting}
-
-Use modest lattices (\texttt{n\_eta\textbackslash{}(\textbackslash{}leq\textbackslash{})3}, \texttt{n\_xi\textbackslash{}(\textbackslash{}leq\textbackslash{})10})---enumeration explores a bounded gauge orbit.
-
-\subsection{Lab 6.C --- Magic Island detection (portal Model)}
-\label{ch:ch06_classification:lab-6-c-magic-island-detection-portal-model}
-
-\begin{lstlisting}[style=qga,language=python]
-# PYTHONPATH: kingdom/src + flux_hopf_lib/src
-from kingdom.core.flux_flywheel import map_z_to_flywheel
-
-scores = []
-for z in range(1, 51):
-    m = map_z_to_flywheel(z)
-    scores.append((z, m["stability_score"], m.get("is_noble_gas", False), m["stability_class"]))
-
-high = [s for s in scores if s[1] >= 7.0]
-print("high-stability Z values:", high)
-\end{lstlisting}
-
-There is still \textbf{no} \texttt{magic\_flag} key---use \texttt{stability\_score}, \texttt{is\_noble\_gas}, and \texttt{stability\_class} as in Chapter 5.
-
-\subsection{Lab 6.D --- Equivalence check under gauge action}
-\label{ch:ch06_classification:lab-6-d-equivalence-check-under-gauge-action}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.flux_topograph import equivalence_distance, apply_gauge_to_topograph
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-topo_g = apply_gauge_to_topograph(topo, [("L", i)], recompute_functional=True)
-d = equivalence_distance(topo, topo_g)
-print("equivalence distance after gauge:", d)
-# combined ~ 0 for geometric functionals on the same multiset geometry
+from lib.flux_topograph import classify_topograph_type, class_number_analogue
+# build topo as in Appendix C ?C.3
+# print(classify_topograph_type(topo)["type"])
 \end{lstlisting}
 
 \bigskip

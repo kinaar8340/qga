@@ -144,112 +144,19 @@ In `TwoGyroLattice`, each frame applies left/right rotors and a global right-typ
 
 ## 4.5 First computational labs
 
-```text
-qga/lib/hopf_lattice.py
-  left_multiply, right_multiply, phase_unit,
-  apply_gauge_sequence, orbit_of_point,
-  permutes_hurwitz_units, adjacency_equivariance_score,
-  discrete_flux_cycle, transform_flux
+Helpers: `lib/hopf_lattice.py` · dynamics: `TwoGyroLattice` · **Appendix C §C.2**.
 
-kingdom.core.lattice.LatticeConfig
-kingdom.simulations.lattice.TwoGyroLattice   # step_frame(), not step()
-```
-
-### Lab 4.A — Discrete gauge actions on Hurwitz units
+- **4.A** `permutes_hurwitz_units`; base-set invariance vs total-space motion.
+- **4.B** `orbit_of_point` under a left/right sequence.
+- **4.C** `step_frame()` identity preservation (stable vs chaotic).
+- **4.D** Flux push-forward + `adjacency_equivariance_score` (OP1).
 
 ```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.hopf_lattice import (
-    HURWITZ_UNITS, left_multiply, hopf_project_points, permutes_hurwitz_units,
-)
+from lib.hopf_lattice import HURWITZ_UNITS, permutes_hurwitz_units
 import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-print("left permutes units?", permutes_hurwitz_units(i, side="L"))
-print("right permutes units?", permutes_hurwitz_units(i, side="R"))
-
-base0 = hopf_project_points(HURWITZ_UNITS)
-moved = left_multiply(HURWITZ_UNITS, i)
-baseL = hopf_project_points(moved)
-
-# 1) The *set* of base points is invariant (permutation of Λ₀)
-rounded0 = np.round(base0, decimals=6)
-roundedL = np.round(baseL, decimals=6)
-same_set = np.array_equal(
-    np.sort(rounded0, axis=0),
-    np.sort(roundedL, axis=0),
-)
-print("Base point set is invariant under left multiplication by i:", same_set)
-
-# 2) The action is still non-trivial on the total space (points are permuted)
-print("Any total-space point moved (index-wise)?",
-      not np.allclose(moved, HURWITZ_UNITS))
-print("max total-space displacement (index-wise):",
-      np.max(np.linalg.norm(moved - HURWITZ_UNITS, axis=1)))
-
-# 3) Index-wise base images may or may not change (depends on unit and fiber)
-print("Any base coordinate moved (index-wise)?", not np.allclose(base0, baseL))
+print(permutes_hurwitz_units(np.array([0.,1.,0.,0.]), side="L"))
 ```
 
-**Note.** Because left multiplication by a Hurwitz unit is a group action on the finite set \(\Lambda_0\), the projected base points are merely **permuted**. A sorted comparison of base coordinates therefore returns (approximately) equal—that is the expected signature of a **symmetry**, not a bug. Non-triviality shows up clearly in the **total space**: index-wise quaternions move (a permutation of the 24 units). Index-wise base coordinates may stay put for some units (e.g. left multiplication by \(i\) can preserve \(h(q)\) along certain fibers) even while the underlying lattice points are swapped—another reminder that the Hopf map collapses whole circles.
-
-### Lab 4.B — Generate an orbit under a gauge sequence
-
-```python
-from lib.hopf_lattice import HURWITZ_UNITS, orbit_of_point, phase_unit
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-j = np.array([0.0, 0.0, 1.0, 0.0])
-seq = [("R", phase_unit(np.pi / 3)), ("L", i), ("R", phase_unit(np.pi / 3)), ("L", j)]
-orbit = orbit_of_point(HURWITZ_UNITS[3], seq, max_periods=24, tol=1e-6)
-print("orbit sample count (incl. start):", len(orbit))
-print("return distance:", np.linalg.norm(orbit[-1] - orbit[0]))
-```
-
-### Lab 4.C — Dynamical gauge evolution (portal)
-
-```python
-from kingdom.core.lattice import LatticeConfig
-from kingdom.simulations.lattice import TwoGyroLattice
-
-config = LatticeConfig(n_sites=48, gauge_strength=0.7, frames=60)
-lattice = TwoGyroLattice(config, mode="stable")
-for _ in range(60):
-    lattice.step_frame()  # note: step_frame, not step
-print("final identity preservation:", lattice.identity_preservation[-1])
-print("final gauge pointer:", lattice.pointer_history[-1])
-```
-
-Compare with `mode="chaotic"` or `run_lattice_comparison`. Observe periodic versus disordered long-term behavior in the Gradio **Lattice Simulator** tab.
-
-### Lab 4.D — Symmetry action on a toy flux cycle
-
-```python
-from lib.hopf_lattice import (
-    sample_angle_lattice, candidate_adjacency, discrete_flux_cycle,
-    left_multiply, nearest_index_map, transform_flux,
-)
-import numpy as np
-
-pts = sample_angle_lattice(n_eta=2, n_xi1=6, n_xi2=8)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.55, fiber_phase_bins=8)
-edges = along[:8] if along else inter[:8]
-Phi = discrete_flux_cycle(edges, value=1)
-i = np.array([0.0, 1.0, 0.0, 0.0])
-moved = left_multiply(pts, i)
-# index map: each old vertex index -> nearest image index in moved cloud
-# (for pure left mult. with shared indexing, map is identity on indices)
-imap = {k: k for k in range(len(pts))}
-Phi2 = transform_flux(Phi, imap)
-print("flux edges:", len(Phi) // 2, "→", len(Phi2) // 2)
-# OP1: does adjacency type survive?
-from lib.hopf_lattice import adjacency_equivariance_score
-print(adjacency_equivariance_score(pts, i, side="L", base_angle_thresh=0.55, fiber_phase_bins=8))
-```
 
 ---
 

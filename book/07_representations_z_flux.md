@@ -136,75 +136,19 @@ The portal renders each \(Z\) with shell-like clouds whose geometry is tied to t
 
 ## 7.5 First computational labs
 
-```text
-kingdom.core.flux_flywheel.map_z_to_flywheel
-kingdom.core.flux_flywheel.map_z_to_flywheel_extended
-qga/lib/flux_topograph.stability_landscape_z
-kingdom.viz.magic_island
-kingdom.viz.electron_cloud
-```
+Portal: `map_z_to_flywheel[_extended]` · `stability_landscape_z` · **Appendix C §C.3**.
 
-### Lab 7.A — Basic \(Z\) map
+- **7.A** Scores for \(Z\in\{2,10,26,79,118\}\).
+- **7.B** `stability_landscape_z(z_range=(1,50))` high islands.
+- **7.C** Noble vs neighbors (\(Z=10,11,12\)).
+- **7.D** Gradio Flux Flywheel / Aux A7.1.
+- **7.E** Extended fields He vs Fe.
 
 ```python
-# PYTHONPATH: kingdom/src + flux_hopf_lib/src
-from kingdom.core.flux_flywheel import map_z_to_flywheel, map_z_to_flywheel_extended
-
-for z in [2, 10, 26, 79, 118]:
-    m = map_z_to_flywheel(z)
-    print(
-        z,
-        "score=", m["stability_score"],
-        "class=", m["stability_class"],
-        "noble=", m.get("is_noble_gas"),
-    )
-    ext = map_z_to_flywheel_extended(z)
-    print(
-        "   alignment_stability_pts=", ext.get("alignment_stability_pts"),
-        "model_vs_reality=", ext.get("model_vs_reality_alignment"),
-    )
+from kingdom.core.flux_flywheel import map_z_to_flywheel
+print(map_z_to_flywheel(2)["stability_score"], map_z_to_flywheel(2).get("is_noble_gas"))
 ```
 
-### Lab 7.B — Magic Island sweep
-
-```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.flux_topograph import stability_landscape_z
-
-landscape = stability_landscape_z(z_range=(1, 50))
-high = [r for r in landscape if (r["stability_score"] or 0) >= 7.5]
-print("high-stability Z:", [(r["Z"], r["stability_score"], r["is_noble_gas"]) for r in high])
-```
-
-### Lab 7.C — Noble vs non-noble neighbors
-
-```python
-for z in [10, 11, 12]:
-    m = map_z_to_flywheel(z)
-    print(z, m["stability_score"], m["stability_class"], m.get("is_noble_gas"))
-```
-
-Compare Ne (\(Z=10\)) with Na / Mg. Record score drops and class-string changes.
-
-### Lab 7.D — Flux-derived electron cloud (visual)
-
-Open the Gradio **Flux Flywheel** tab, slide \(Z\) through 2, 10, 26, 79. Alternatively use `kingdom.viz.electron_cloud.build_electron_cloud_figure` if running local Plotly. Compare Aux A7.1 stills with the live clouds.
-
-### Lab 7.E — Extended He vs Fe fields
-
-```python
-for z in [2, 26]:
-    ext = map_z_to_flywheel_extended(z)
-    keys = [
-        "stability_score", "is_noble_gas", "alignment_stability_pts",
-        "real_ionization_energy_eV", "ie_model_implied_eV",
-        "model_vs_reality_alignment",
-    ]
-    print({k: ext.get(k) for k in keys})
-```
 
 ---
 

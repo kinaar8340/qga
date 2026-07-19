@@ -22,8 +22,9 @@
 14. ~~Chapter 10 — Observations, Hypotheses, and Validation (OP5 / Table T4).~~ **Done** (`book/10_observations_emergent.md`, `lib/validation.py`, Ch. 10 figures).  
 15. ~~Consistency polish across chapters.~~ **Done** (footers, TOC, `HOW_TO_USE.md`, claim labels).  
 16. ~~LaTeX conversion.~~ **Done** (`book/latex/`, `scripts/md_to_latex.py`, `scripts/build_latex.sh`, ~119 pp PDF).  
-17. Optional: Gradio Book Mode / appendices A–F / bibliography expansion.  
-18. **Manuscript draft complete through Chapter 10** (Markdown + LaTeX PDF).
+17. ~~Appendix expansion (labs, OP, T4, Hatcher dictionary).~~ **Done** (`book/A_…`–`F_…`; chapters trimmed).  
+18. Optional: Gradio Book Mode / bibliography expansion / typography polish.  
+19. **Manuscript draft complete through Chapter 10** (Markdown + LaTeX PDF + appendices).
 
 ## Later production (optional)
 

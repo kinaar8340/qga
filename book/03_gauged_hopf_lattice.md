@@ -209,113 +209,27 @@ See also `notes/open_problems.md` (OP1 status tracking).
 
 ## 3.6 Software map and first computational labs
 
-### What exists where
+| Component | Location |
+|-----------|----------|
+| `LatticeConfig` | `kingdom.core.lattice` |
+| `TwoGyroLattice` | `kingdom.simulations.lattice` |
+| Hurwitz / adjacency / gauge | `lib/hopf_lattice.py` |
 
-| Component | Location | Role |
-|-----------|----------|------|
-| `LatticeConfig` | `kingdom.core.lattice` | Parameters (sites, layers, gauge strength, …) |
-| `TwoGyroLattice`, `run_lattice_comparison`, `build_lattice_figure` | `kingdom.simulations.lattice` | Dynamical gauged lattice demo / Gradio Lattice Simulator |
-| Hurwitz units, angle lattice, candidate adjacency, left/right mult. | `qga/lib/hopf_lattice.py` | **Book pedagogy** for §§3.1–3.4 and OP1 experiments |
-| Hopf map / fibers | `kingdom.core.hopf` | Projection primitives (Ch. 2) |
+**Honest gap.** No production `build_hurwitz_lattice_sample` in Kingdom Come yet — pedagogy lives in `lib/`.
 
-**Honest gap.** There is not yet a production function named `build_hurwitz_lattice_sample` inside Kingdom Come. Until OP1 stabilizes a rule set, the book ships the pedagogical module above; a future PR can promote winners into `kingdom.core.lattice`.
+**Labs (short form).** Full code: **Appendix C §C.2**.
 
-### Lab 3.A — Hurwitz units and Hopf projection
+- **3.A** 24 Hurwitz units; Hopf project; count base points.
+- **3.B** `sample_angle_lattice` + `candidate_adjacency` (OP1 sandbox).
+- **3.C** Left \(	imes i\): base **set** invariant, total-space points move (see Lab 4.A).
+- **3.D** `run_lattice_comparison` stable vs chaotic.
+- **3.E** Toy `discrete_flux_cycle`.
 
 ```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
 from lib.hopf_lattice import HURWITZ_UNITS, hopf_project_points
-import numpy as np
-
-print(len(HURWITZ_UNITS))
-print(np.allclose(np.sum(HURWITZ_UNITS**2, axis=1), 1.0))
-base = hopf_project_points(HURWITZ_UNITS)  # classical complex Hopf (default)
-print("base norms ~1:", np.allclose(np.linalg.norm(base, axis=1), 1.0, atol=1e-6))
-print("approx distinct base points:", len(np.unique(np.round(base, 5), axis=0)))
-# optional: portal real form (Ch. 2 convention note)
-base_kc = hopf_project_points(HURWITZ_UNITS, convention="kc")
+print(len(HURWITZ_UNITS), hopf_project_points(HURWITZ_UNITS).shape)
 ```
 
-### Lab 3.B — Angle lattice and candidate adjacency (OP1 sandbox)
-
-```python
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-
-pts = sample_angle_lattice(n_eta=3, n_xi1=8, n_xi2=8)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5)
-print(len(pts), "points;", len(along), "along-fiber edges;", len(inter), "inter-fiber edges")
-```
-
-Vary `base_angle_thresh` and phase bins; record how the graph changes. This *is* OP1 experimental work.
-
-### Lab 3.C — Left and right gauge actions
-
-```python
-from lib.hopf_lattice import HURWITZ_UNITS, left_multiply, right_multiply, hopf_project_points
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-base0 = hopf_project_points(HURWITZ_UNITS)
-moved = left_multiply(HURWITZ_UNITS, i)
-baseL = hopf_project_points(moved)
-
-# The *set* of base points is invariant (permutation of Λ₀) — expected symmetry signature
-rounded0 = np.round(base0, decimals=6)
-roundedL = np.round(baseL, decimals=6)
-same_set = np.array_equal(
-    np.sort(rounded0, axis=0),
-    np.sort(roundedL, axis=0),
-)
-print("Base point set is invariant under left multiplication by i:", same_set)
-
-# Non-triviality: total-space points are permuted (even if some base images stay put)
-print("Any total-space point moved (index-wise)?",
-      not np.allclose(moved, HURWITZ_UNITS))
-print("Any base coordinate moved (index-wise)?", not np.allclose(base0, baseL))
-
-# right phase-like unit
-th = np.pi / 5
-u = np.array([np.cos(th / 2), 0.0, 0.0, np.sin(th / 2)])
-moved_R = right_multiply(HURWITZ_UNITS, u)
-baseR = hopf_project_points(moved_R)
-print("Right phase: total-space move?", not np.allclose(moved_R, HURWITZ_UNITS))
-print("Right phase: index-wise base move?", not np.allclose(base0, baseR))
-```
-
-**Note.** Because left multiplication by a Hurwitz unit is a group action on the finite set \(\Lambda_0\), the projected base points are merely permuted. A sorted comparison of base coordinates therefore returns (approximately) equal—that is the expected signature of a **symmetry**, not a failure of the code. Chapter 4 Lab 4.A develops this fully (including the case where index-wise base images stay put while total-space points still move).
-
-### Lab 3.D — Lattice Simulator (portal / dynamical Model)
-
-```python
-# requires kingdom + deps (plotly, numpy)
-from kingdom.core.lattice import LatticeConfig
-from kingdom.simulations.lattice import TwoGyroLattice, run_lattice_comparison
-
-stable, chaotic = run_lattice_comparison(frames=80, n_sites=48)
-print("stable identity score:", stable.stability_score, "bursts:", stable.total_bursts)
-print("chaotic identity score:", chaotic.stability_score, "bursts:", chaotic.total_bursts)
-```
-
-In the Gradio **Lattice Simulator** tab, compare stable vs chaotic gauge pointer traces and identity preservation (Aux A3.1).
-
-![Auxiliary Figure A3.1 — Lattice Simulator still.](figures/aux3_1_lattice_simulator_still.png)
-
-*Auxiliary Figure A3.1.* Two-gyro gauged lattice: gauge pointer, mean twist, and identity preservation for stable vs chaotic modes (`kingdom.simulations.lattice`).
-
-### Lab 3.E — Toy flux on a cycle
-
-```python
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency, discrete_flux_cycle
-
-pts = sample_angle_lattice(2, 4, 6)
-along, _ = candidate_adjacency(pts)
-# take a few along-fiber edges as a proto-cycle
-Phi = discrete_flux_cycle(along[:6], value=1)
-print("oriented edges with flux:", len(Phi) // 2)
-```
 
 ---
 

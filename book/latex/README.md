@@ -43,13 +43,15 @@ Figures are resolved via `figures/` → symlink to `book/figures/`.
 
 ```
 book/latex/
-├── main.tex          # Master document (parts, includes)
+├── main.tex          # Master document (parts, includes, appendices)
 ├── preamble.tex      # Packages, macros, listings style
-├── chapters/         # Generated chapter .tex files
+├── chapters/         # Generated chapter + appendix .tex files
 ├── figures/          # Symlink → ../figures
 ├── main.pdf          # Build product
 └── README.md         # This file
 ```
+
+Appendices A–F are generated from `book/A_*.md` … `book/F_*.md` (terminology, open problems, lab code, Table T4, figure atlas, Hatcher dictionary).
 
 ## Cross-references
 

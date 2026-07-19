@@ -141,80 +141,20 @@ left_ideal_class_group(...)     # algebraic side (Hurwitz: order 1)
 
 ## 9.5 First computational labs
 
-```text
-qga/lib/quaternion_algebra.py
-qga/lib/composition.py
-qga/lib/flux_topograph.py
-```
+Helpers: `lib/quaternion_algebra.py` · **Appendix C §C.4**.
 
-### Lab 9.A — Construct a small quaternion algebra
-
-```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.quaternion_algebra import QuaternionAlgebra
-
-A = QuaternionAlgebra(-1, -1)
-print(A.presentation())
-print("ramified:", A.ramified_places())
-print("definite:", A.is_definite())
-
-B = QuaternionAlgebra(2, 3)
-print(B.presentation(), "ramified:", B.ramified_places(), "definite:", B.is_definite())
-```
-
-### Lab 9.B — Hurwitz order and its units
+- **9.A** `QuaternionAlgebra(-1,-1).ramified_places()`.
+- **9.B** Hurwitz: 24 units, Euclidean, maximal.
+- **9.C** `left_ideal_class_group` → class number 1 (cited classical).
+- **9.D** Compare algebraic order 1 vs Model `class_group_analogue` order.
+- **9.E** Hilbert symbols table.
 
 ```python
-from lib.quaternion_algebra import HurwitzOrder, LipschitzOrder
-
-O = HurwitzOrder()
-print("n_units:", O.n_units())           # 24
-print("euclidean:", O.is_euclidean())    # True
-print("maximal:", O.is_maximal())        # True
-print("half unit in order:", O.contains([0.5, 0.5, 0.5, 0.5]))
-
-L = LipschitzOrder()
-print("Lipschitz units:", L.n_units(), "euclidean:", L.is_euclidean())
+from lib.quaternion_algebra import QuaternionAlgebra, HurwitzOrder, left_ideal_class_group
+print(QuaternionAlgebra(-1, -1).ramified_places())
+print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 ```
 
-### Lab 9.C — Ideal class number (Hurwitz)
-
-```python
-from lib.quaternion_algebra import left_ideal_class_group
-
-cg = left_ideal_class_group(O, bound=100)
-print("class number:", cg.order)
-print("method:", cg.method)
-print(cg.notes)
-```
-
-### Lab 9.D — Bridge to Model class_number_analogue
-
-```python
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph
-from lib.composition import class_group_analogue
-
-pts = sample_angle_lattice(n_eta=2, n_xi1=6, n_xi2=6)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.55, fiber_phase_bins=6)
-topo = build_flux_topograph(pts, edges=along + inter, functional="hopf_height")
-cg_model = class_group_analogue(topo, dedup_tol=0.1, samples=8)
-print("Model order:", cg_model["order"], "structure:", cg_model["structure"])
-print("Algebraic Hurwitz class number:", cg.order)
-# Expect: algebraic order 1 vs Model order often > 1 — different objects
-```
-
-### Lab 9.E — Hilbert symbols table
-
-```python
-from lib.quaternion_algebra import hilbert_symbol
-
-for a, b in [(-1, -1), (2, 3), (-1, 3)]:
-    print((a, b), {p: hilbert_symbol(a, b, p) for p in [2, 3, 5, "inf"]})
-```
 
 ---
 

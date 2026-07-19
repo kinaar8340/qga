@@ -161,20 +161,18 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 ---
 
-### Appendix / Back Matter
+### Appendices
 
-**A** Nonstandard terminology  
-**B** Notation sheet  
-**C** Farey / topograph refresher (pointer to Hatcher)  
-**D** Four-square and Hurwitz Euclidean sketches  
-**E** Figure atlas (`book/FIGURES.md`)  
-**F** Observational data provenance  
+| App | File | Content |
+|-----|------|---------|
+| **A** | `book/A_terminology_notation.md` | Terminology and notation |
+| **B** | `book/B_open_problems.md` | Open Problems OP1–OP6 (full) |
+| **C** | `book/C_lab_code_reference.md` | Laboratory code reference |
+| **D** | `book/D_validation_t4.md` | Table T4 validation protocols (full) |
+| **E** | `book/E_figure_atlas.md` | Figure atlas |
+| **F** | `book/F_hatcher_dictionary.md` | Hatcher parallel dictionary |
 
-**Open Problems** — `notes/open_problems.md`  
-**HATCHER_MAP** — parallel reading guide  
-**Tables** T1–T6 (stability, islands, separators, T4 correlations, dictionary, modules)  
-**Bibliography · Indices**  
-**Figure attributions** — `book/figures/ATTRIBUTION.md`  
+Also: `notes/open_problems.md` (dev tracking) · `HATCHER_MAP.md` · `book/FIGURES.md` · bibliography seed in LaTeX back matter.  
 
 ---
 

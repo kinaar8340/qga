@@ -140,77 +140,22 @@ Formalize the axioms of a flux topograph so that:
 
 ## 5.5 First computational labs
 
-```text
-qga/lib/flux_topograph.py
-qga/lib/hopf_lattice.py
-kingdom.core.flux_flywheel   # map_z_to_flywheel, map_z_to_flywheel_extended
-kingdom.viz.magic_island     # heatmap (portal)
-```
+Helpers: `lib/flux_topograph.py` · portal: `map_z_to_flywheel` · **Appendix C §C.3**.
 
-### Lab 5.A — Build a simple flux topograph
+- **5.A** `build_flux_topograph` + `detect_separators`.
+- **5.B** `periodicity_score` under a gauge sequence.
+- **5.C** Z-stability via `map_z_to_flywheel` (no `magic_flag` — use `stability_score` / `is_noble_gas`).
+- **5.D** `separator_equivariance_score` (OP2 diagnostic).
 
 ```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
+from lib.flux_topograph import build_flux_topograph, detect_separators
 from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph, detect_separators, arithmetic_progression_residuals
-
-pts = sample_angle_lattice(n_eta=4, n_xi1=12, n_xi2=12)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5, fiber_phase_bins=12)
-topo = build_flux_topograph(pts, edges=along + inter, functional="hopf_height")
-seps = detect_separators(topo, mode="sign")
-print("separator components:", len(seps))
-print("separator edges:", sum(len(c) for c in seps))
-print("jump stats:", arithmetic_progression_residuals(topo))
+pts = sample_angle_lattice(3, 8, 8)
+along, inter = candidate_adjacency(pts)
+topo = build_flux_topograph(pts, edges=along+inter, functional="hopf_height")
+print(len(detect_separators(topo)))
 ```
 
-### Lab 5.B — Periodicity under a gauge sequence
-
-```python
-from lib.flux_topograph import periodicity_score
-from lib.hopf_lattice import phase_unit
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-seq = [("L", i), ("R", phase_unit(np.pi / 2))]
-score = periodicity_score(topo, seq, max_periods=8)
-print(score)
-# period_found > 0 means approximate return within tol
-```
-
-### Lab 5.C — Magic Island / Z-stability (portal Model)
-
-There is **no** `magic_flag` key in the current API. Use `stability_score`, `stability_class`, and `is_noble_gas`:
-
-```python
-# PYTHONPATH must include kingdom/src and flux_hopf_lib/src
-from kingdom.core.flux_flywheel import map_z_to_flywheel, map_z_to_flywheel_extended
-
-for z in [2, 10, 26, 79, 118]:
-    m = map_z_to_flywheel(z)
-    print(
-        z,
-        "score=", m["stability_score"],
-        "class=", m["stability_class"],
-        "noble=", m.get("is_noble_gas"),
-    )
-    # extended adds chemistry-facing validation fields
-    ext = map_z_to_flywheel_extended(z)
-    print("   alignment_stability_pts=", ext.get("alignment_stability_pts"))
-```
-
-High scores near noble gases (e.g. \(Z=2,10\)) illustrate Magic Island–adjacent locks in the working Model.
-
-### Lab 5.D — Gauge action on separators (OP2 diagnostic)
-
-```python
-from lib.flux_topograph import separator_equivariance_score
-
-print(separator_equivariance_score(topo, [("L", i)]))
-# edge_count_ratio ~ 1 suggests separator mass is roughly preserved
-```
 
 ---
 

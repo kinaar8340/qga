@@ -221,80 +221,22 @@ This is the direct analogue of Hatcher's requirement that topographs transform p
 \section{5.5 First computational labs}
 \label{ch:ch05_topographs:5-5-first-computational-labs}
 
-\begin{lstlisting}[style=qga]
-qga/lib/flux_topograph.py
-qga/lib/hopf_lattice.py
-kingdom.core.flux_flywheel   # map_z_to_flywheel, map_z_to_flywheel_extended
-kingdom.viz.magic_island     # heatmap (portal)
-\end{lstlisting}
+Helpers: \texttt{lib/flux\_topograph.py} \(\cdot\) portal: \texttt{map\_z\_to\_flywheel} \(\cdot\) \textbf{Appendix C ?C.3}.
 
-\subsection{Lab 5.A --- Build a simple flux topograph}
-\label{ch:ch05_topographs:lab-5-a-build-a-simple-flux-topograph}
+\begin{itemize}
+\item \textbf{5.A} \texttt{build\_flux\_topograph} + \texttt{detect\_separators}.
+\item \textbf{5.B} \texttt{periodicity\_score} under a gauge sequence.
+\item \textbf{5.C} Z-stability via \texttt{map\_z\_to\_flywheel} (no \texttt{magic\_flag} --- use \texttt{stability\_score} / \texttt{is\_noble\_gas}).
+\item \textbf{5.D} \texttt{separator\_equivariance\_score} (OP2 diagnostic).
+\end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
+from lib.flux_topograph import build_flux_topograph, detect_separators
 from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph, detect_separators, arithmetic_progression_residuals
-
-pts = sample_angle_lattice(n_eta=4, n_xi1=12, n_xi2=12)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5, fiber_phase_bins=12)
-topo = build_flux_topograph(pts, edges=along + inter, functional="hopf_height")
-seps = detect_separators(topo, mode="sign")
-print("separator components:", len(seps))
-print("separator edges:", sum(len(c) for c in seps))
-print("jump stats:", arithmetic_progression_residuals(topo))
-\end{lstlisting}
-
-\subsection{Lab 5.B --- Periodicity under a gauge sequence}
-\label{ch:ch05_topographs:lab-5-b-periodicity-under-a-gauge-sequence}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.flux_topograph import periodicity_score
-from lib.hopf_lattice import phase_unit
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-seq = [("L", i), ("R", phase_unit(np.pi / 2))]
-score = periodicity_score(topo, seq, max_periods=8)
-print(score)
-# period_found > 0 means approximate return within tol
-\end{lstlisting}
-
-\subsection{Lab 5.C --- Magic Island / Z-stability (portal Model)}
-\label{ch:ch05_topographs:lab-5-c-magic-island-z-stability-portal-model}
-
-There is \textbf{no} \texttt{magic\_flag} key in the current API. Use \texttt{stability\_score}, \texttt{stability\_class}, and \texttt{is\_noble\_gas}:
-
-\begin{lstlisting}[style=qga,language=python]
-# PYTHONPATH must include kingdom/src and flux_hopf_lib/src
-from kingdom.core.flux_flywheel import map_z_to_flywheel, map_z_to_flywheel_extended
-
-for z in [2, 10, 26, 79, 118]:
-    m = map_z_to_flywheel(z)
-    print(
-        z,
-        "score=", m["stability_score"],
-        "class=", m["stability_class"],
-        "noble=", m.get("is_noble_gas"),
-    )
-    # extended adds chemistry-facing validation fields
-    ext = map_z_to_flywheel_extended(z)
-    print("   alignment_stability_pts=", ext.get("alignment_stability_pts"))
-\end{lstlisting}
-
-High scores near noble gases (e.g. \(Z=2,10\)) illustrate Magic Island--adjacent locks in the working Model.
-
-\subsection{Lab 5.D --- Gauge action on separators (OP2 diagnostic)}
-\label{ch:ch05_topographs:lab-5-d-gauge-action-on-separators-op2-diagnostic}
-
-\begin{lstlisting}[style=qga,language=python]
-from lib.flux_topograph import separator_equivariance_score
-
-print(separator_equivariance_score(topo, [("L", i)]))
-# edge_count_ratio ~ 1 suggests separator mass is roughly preserved
+pts = sample_angle_lattice(3, 8, 8)
+along, inter = candidate_adjacency(pts)
+topo = build_flux_topograph(pts, edges=along+inter, functional="hopf_height")
+print(len(detect_separators(topo)))
 \end{lstlisting}
 
 \bigskip

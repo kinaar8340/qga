@@ -137,79 +137,19 @@ See `notes/open_problems.md`. Depends on OP1 (adjacency) and OP2 (topograph axio
 
 ## 6.4 First computational labs
 
-```text
-qga/lib/flux_topograph.py
-  classify_topograph_type, enumerate_reduced, reduced_representative,
-  magic_island_score, equivalence_distance, class_number_analogue,
-  standard_gauge_set
+Helpers: `lib/flux_topograph.py` · **Appendix C §C.3**.
 
-kingdom.core.flux_flywheel.map_z_to_flywheel[_extended]
-kingdom.viz.magic_island
-```
-
-### Lab 6.A — Classify a flux topograph
+- **6.A** `classify_topograph_type`.
+- **6.B** `enumerate_reduced` / `class_number_analogue` (use modest lattices).
+- **6.C** Portal `stability_score` vs \(Z\) (no `magic_flag`).
+- **6.D** `equivalence_distance` after left multiplication.
 
 ```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph, classify_topograph_type
-
-pts = sample_angle_lattice(n_eta=3, n_xi1=10, n_xi2=10)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.5, fiber_phase_bins=10)
-topo = build_flux_topograph(pts, edges=along + inter, functional="hopf_height")
-t = classify_topograph_type(topo)
-print("type:", t["type"], "| reason:", t["reason"])
-print("periodicity:", t["best_period_found"], "| sep edges:", t["n_separator_edges"])
+from lib.flux_topograph import classify_topograph_type, class_number_analogue
+# build topo as in Appendix C §C.3
+# print(classify_topograph_type(topo)["type"])
 ```
 
-### Lab 6.B — Enumerate reduced configurations
-
-```python
-from lib.flux_topograph import enumerate_reduced, class_number_analogue
-
-reduced = enumerate_reduced(topo, dedup_tol=0.05)
-print("number of reduced representatives:", len(reduced))
-for r in reduced:
-    print(" ", r["classification"]["type"], "island_score=", r["magic_island_score"]["score"])
-
-cn = class_number_analogue(topo, dedup_tol=0.05)
-print("class_number_analogue:", cn["class_number_analogue"], cn["by_type"])
-```
-
-Use modest lattices (`n_eta≤3`, `n_xi≤10`)—enumeration explores a bounded gauge orbit.
-
-### Lab 6.C — Magic Island detection (portal Model)
-
-```python
-# PYTHONPATH: kingdom/src + flux_hopf_lib/src
-from kingdom.core.flux_flywheel import map_z_to_flywheel
-
-scores = []
-for z in range(1, 51):
-    m = map_z_to_flywheel(z)
-    scores.append((z, m["stability_score"], m.get("is_noble_gas", False), m["stability_class"]))
-
-high = [s for s in scores if s[1] >= 7.0]
-print("high-stability Z values:", high)
-```
-
-There is still **no** `magic_flag` key—use `stability_score`, `is_noble_gas`, and `stability_class` as in Chapter 5.
-
-### Lab 6.D — Equivalence check under gauge action
-
-```python
-from lib.flux_topograph import equivalence_distance, apply_gauge_to_topograph
-import numpy as np
-
-i = np.array([0.0, 1.0, 0.0, 0.0])
-topo_g = apply_gauge_to_topograph(topo, [("L", i)], recompute_functional=True)
-d = equivalence_distance(topo, topo_g)
-print("equivalence distance after gauge:", d)
-# combined ~ 0 for geometric functionals on the same multiset geometry
-```
 
 ---
 

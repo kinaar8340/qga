@@ -107,77 +107,20 @@ Magic Islands can be viewed as **distinguished classes** (or clusters of classes
 
 ## 8.4 First computational labs
 
-```text
-qga/lib/composition.py
-  compose_flywheels, reduce_composition, composition_table,
-  is_associative_up_to_equivalence, class_group_analogue
+Helpers: `lib/composition.py` · **Appendix C §C.4**.
 
-qga/lib/flux_topograph.py
-kingdom.core.flux_flywheel   # optional Z-stability comparison
-```
-
-### Lab 8.A — Toy composition of two topographs
+- **8.A** `compose_flywheels` + `reduce_composition`.
+- **8.B** `composition_table` / `closure_fraction`.
+- **8.C** `class_group_analogue` order and structure.
+- **8.D** `is_associative_up_to_equivalence` (expect low scores — OP6 data).
+- **8.E** Optional: compare composition methods.
 
 ```python
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.hopf_lattice import sample_angle_lattice, candidate_adjacency
-from lib.flux_topograph import build_flux_topograph
 from lib.composition import compose_flywheels, reduce_composition
-
-pts = sample_angle_lattice(n_eta=2, n_xi1=6, n_xi2=6)
-along, inter = candidate_adjacency(pts, base_angle_thresh=0.55, fiber_phase_bins=6)
-edges = along + inter
-topo1 = build_flux_topograph(pts, edges=edges, functional="hopf_height")
-topo2 = build_flux_topograph(pts, edges=edges, functional="hopf_y1")
-
-composed = compose_flywheels(topo1, topo2, method="value_sum")
-reduced = reduce_composition(composed)
-print("composed type:", reduced["classification"]["type"])
-print("island score:", reduced["magic_island_score"]["score"])
+# build t1, t2 as in Appendix C §C.4
+# print(reduce_composition(compose_flywheels(t1, t2))["classification"]["type"])
 ```
 
-### Lab 8.B — Small composition table
-
-```python
-from lib.flux_topograph import class_number_analogue
-from lib.composition import composition_table
-
-cn = class_number_analogue(topo1, dedup_tol=0.1)
-reps = [r["topograph"] for r in cn["reduced"]]
-table = composition_table(reps, method="value_sum", dedup_tol=0.1)
-print("order:", table["order"], "closure_fraction:", table["closure_fraction"])
-print(table["table"])
-```
-
-### Lab 8.C — Class-group analogue size
-
-```python
-from lib.composition import class_group_analogue
-
-cg = class_group_analogue(topo1, dedup_tol=0.1, samples=10)
-print("class_number_analogue / order:", cg["order"])
-print("structure hint:", cg["structure"])
-print("associativity:", cg["associativity"])
-```
-
-### Lab 8.D — Associativity diagnostic (OP6)
-
-```python
-from lib.composition import is_associative_up_to_equivalence
-
-assoc = is_associative_up_to_equivalence(reps, method="value_sum", samples=20, tol=0.1)
-print("associativity score:", assoc["associativity_score"])
-print("mean distance:", assoc["mean_distance"])
-```
-
-Expect scores \(\ll 1\) on the current sandbox—**document** them for OP6.
-
-### Lab 8.E — Method comparison (optional)
-
-Repeat Lab 8.A with `method="point_mult"` and `method="value_bilinear"`. Do types and island scores change?
 
 ---
 

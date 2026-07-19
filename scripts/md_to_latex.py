@@ -33,6 +33,13 @@ CHAPTERS = [
     ("08_class_group.md", "ch08_class_group", "chapter"),
     ("09_quaternion_algebras.md", "ch09_algebras", "chapter"),
     ("10_observations_emergent.md", "ch10_observations", "chapter"),
+    # Appendices (unnumbered chapters in back matter)
+    ("A_terminology_notation.md", "app_a_terminology", "appendix"),
+    ("B_open_problems.md", "app_b_open_problems", "appendix"),
+    ("C_lab_code_reference.md", "app_c_labs", "appendix"),
+    ("D_validation_t4.md", "app_d_validation", "appendix"),
+    ("E_figure_atlas.md", "app_e_figures", "appendix"),
+    ("F_hatcher_dictionary.md", "app_f_hatcher", "appendix"),
 ]
 
 
@@ -356,15 +363,25 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
             if level == 1:
                 if first_heading:
                     first_heading = False
+                    plain = escape_text(re.sub(r"\*\*|__|`", "", title))
                     if kind == "front":
                         out.append(rf"\chapter*{{{title_tex}}}")
                         out.append(rf"\label{{{label_base}}}")
-                        out.append(r"\addcontentsline{toc}{chapter}{" + re.sub(r"\\[a-zA-Z]+\{([^}]*)\}", r"\1", title_tex).replace("\\", "") + "}")
-                        # simpler addcontentsline with plain title
-                        out[-1] = rf"\addcontentsline{{toc}}{{chapter}}{{{escape_text(re.sub(r'\*\*|__|`', '', title))}}}"
-                        out.append(r"\markboth{" + escape_text(re.sub(r"\*\*|__", "", title)) + "}{}")
+                        out.append(rf"\addcontentsline{{toc}}{{chapter}}{{{plain}}}")
+                        out.append(rf"\markboth{{{plain}}}{{}}")
+                    elif kind == "appendix":
+                        # Title already contains "Appendix A — ..."; book class will prefix "Appendix A"
+                        # Strip leading "Appendix X — " to avoid "Appendix A Appendix A — ..."
+                        short = re.sub(
+                            r"^Appendix\s+[A-Z]\s*[\u2014\u2013—–-]+\s*",
+                            "",
+                            title,
+                            flags=re.I,
+                        )
+                        short_tex = convert_inline(short)
+                        out.append(rf"\chapter{{{short_tex}}}")
+                        out.append(rf"\label{{{label_base}}}")
                     else:
-                        # strip "Chapter N — " for \chapter title? keep full
                         out.append(rf"\chapter{{{title_tex}}}")
                         out.append(rf"\label{{{label_base}}}")
                 else:

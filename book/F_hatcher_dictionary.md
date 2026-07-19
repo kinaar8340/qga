@@ -1,0 +1,51 @@
+# Appendix F — Hatcher Parallel Dictionary
+
+Condensed from root `HATCHER_MAP.md` for print. Use the free TN PDF:  
+https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf
+
+---
+
+## F.1 Chapter map
+
+| Hatcher *Topology of Numbers* | This book (QGA) | Lift |
+|------------------------------|-----------------|------|
+| Ch. 0 Preview | Ch. 0 | Pythagorean → four squares → Hopf glimpse |
+| *(none)* | Ch. 1–2 | Quaternions; Hopf fibration |
+| Ch. 1 Farey diagram | Ch. 3 | Gauged Hopf lattice; OP1 |
+| Ch. 2 Continued fractions | Ch. 3–4 | Phase walks; lattice paths |
+| Ch. 3 Symmetries of Farey | Ch. 4 | Left/right multiplications; LFT comparison |
+| Ch. 4 Quadratic forms / topographs | Ch. 5 | Flux topographs; OP2 |
+| Ch. 5 Classification of forms | Ch. 6 | Types, reduced configs, Magic Islands; OP3 |
+| Ch. 6 Representations | Ch. 7 | \(Z\mapsto\) map; OP4 |
+| Ch. 7 Class group | Ch. 8 | Composition; class-group analogue; OP6 |
+| Ch. 8 Quadratic fields | Ch. 9 | Quaternion algebras; ideal theory |
+| *(applications)* | Ch. 10 | Observations; Table T4; OP5 |
+
+---
+
+## F.2 Concept dictionary
+
+| Hatcher | QGA |
+|---------|-----|
+| Farey edge / mediant | Lattice adjacency / candidate mediant (Model) |
+| Continued-fraction zigzag | Fiber phase walk; gauge sequence |
+| Linear fractional transformation | Unit quaternion left/right multiplication |
+| Conway topograph | Flux topograph |
+| Separator line | Separator structure / surface |
+| Reduced form | Reduced flux configuration |
+| Class number | `class_number_analogue` / island counts (Model) |
+| Gauss composition | `compose_flywheels` (Model; OP6) |
+| Ideal class group | Quaternion order ideal class group (Theorem) + Model bridge |
+| Representation by forms | Representation by norms + \(Z\mapsto\) flux configs |
+
+---
+
+## F.3 What is deliberately not 1:1
+
+- No reuse of Hatcher’s prose, figures, or exercises.  
+- “Quaternionic Farey” is **defined** for the gauged Hopf lattice (OP1), not assumed unique.  
+- Physics / observation chapters are extra floors, not TN theorems.
+
+---
+
+*Manuscript · Appendix F · Hatcher Parallel Dictionary.*
