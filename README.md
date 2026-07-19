@@ -40,7 +40,7 @@ qga/
 ## Status
 
 - **Scaffold + TOC + mapping:** done  
-- **Manuscript body:** Preface + Ch. 0; Parts I–II; **Part III complete draft** (Ch. 5–7 topographs, classification, Z-map); Ch. 8–10 stubs
+- **Manuscript body:** Preface + Ch. 0; Parts I–III complete drafts; **Ch. 8 Composition & Class Groups** (OP6 + `lib/composition.py`); Ch. 9–10 stubs
 - **Code/figures:** Ch. 0 assets vendored under `book/figures/`; live code remains in Kingdom Come and related repos  
 
 ## Quick links

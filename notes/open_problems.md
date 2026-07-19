@@ -10,7 +10,7 @@ Each problem has a **home chapter** where it is introduced or attacked, a **stat
 | 3 | Class number ↔ Magic Island correspondence | Ch. 6 | Open — sandbox `classify_topograph_type` / `class_number_analogue` | — |
 | 4 | \(Z\to\) flywheel uniqueness (up to gauge) | Ch. 7 / 10 | Open — map defined in Ch. 7; uniqueness open | — |
 | 5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open — hypothesis layer | — |
-| 6 | Composition of flywheels (Gauss lift) | Ch. 8 | Open | — |
+| 6 | Composition of flywheels (Gauss lift) | Ch. 8 | Open — sandbox `qga/lib/composition.py` | — |
 
 **Status vocabulary:** `Open` · `In progress` · `Partial result` · `Resolved` · `Deferred`
 
@@ -60,9 +60,11 @@ Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or*
 
 ### OP6 — Composition of flywheels
 **Home:** Chapter 8  
-**Status:** Open  
+**Status:** Open — sandbox `qga/lib/composition.py`  
 
-Does Gauss-style composition of forms admit a dynamical realization on paired flywheels (or on ideal classes of a quaternion order) that recovers classical composition in a suitable reduction?
+Does Gauss-style composition of forms admit a dynamical realization on paired flywheels (or on ideal classes of a quaternion order) that recovers classical composition in a suitable reduction? Require associativity up to gauge equivalence and compatibility with Ch. 4 gauge actions.
+
+**Sandbox:** `compose_flywheels`, `composition_table`, `is_associative_up_to_equivalence`, `class_group_analogue`. Current experiments often show low closure/associativity — document failures (Ch. 8 Labs 8.D–8.G).
 
 ---
 

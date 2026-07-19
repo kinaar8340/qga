@@ -152,14 +152,17 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 ### Part IV — Arithmetic Depth (Class Groups and Algebras)
 
-### Chapter 8 — Composition and Class Groups
+### Chapter 8 — Composition and Class Groups in the Quaternionic Setting
 
-8.1 Gauss-style composition lifted to flywheels and quaternion norms  
-8.2 Ideal class groups of quaternion orders  
-8.3 Finite abelian groups and topological interpretations  
-8.4 Genus-style characters (bridge)  
-8.5 Exercises and computational labs  
-  **Open Problem 6** — Composition of flywheels  
+*(Phase 6 draft complete — centers Open Problem 6)*
+
+8.1 Gauss composition — classical reminder  
+8.2 Lifting composition to flux configurations and flywheels  
+8.3 Class-group analogues  
+8.4 First computational labs  
+  **Open Problem 6** — Composition of flywheels / Gauss lift  
+  Exercises 8.A–8.I · Forward link to Ch. 9  
+
 
 ### Chapter 9 — Quaternion Algebras and Ideal Theory
 

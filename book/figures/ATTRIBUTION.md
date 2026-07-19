@@ -137,3 +137,19 @@ Classification helpers (OP3): `classify_topograph_type`, `enumerate_reduced`, `c
 | `aux_z_map_au.png` | Au still (with He/Fe from Ch. 0) |
 
 Stills from `kingdom/z_knowns/frame_0002.png`, `frame_0026.png`, `frame_0079.png`.
+
+## Chapter 8 — generated for this book
+
+```bash
+python scripts/generate_ch8_figures.py
+```
+
+| Book figure | Description |
+|-------------|-------------|
+| `fig8_1_gauss_composition.png` | Classical Gauss composition pipeline |
+| `fig8_2_flywheel_composition.png` | Compose two topographs + reduce |
+| `fig8_3_class_group_analogue.png` | Class nodes + composition table |
+| `fig8_4_island_from_class.png` | Island from class-group schematic |
+| `aux8_1_composition_table.png` | Numerical composition table |
+
+Composition helpers (OP6): `qga/lib/composition.py`.

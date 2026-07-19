@@ -15,7 +15,7 @@ https://github.com/kinaar8340/kingdom_come.
 | Ch. 4 Quadratic forms (topograph, periodicity, Pell) | **Part III** · Ch. 5 Forms & flux topographs *(draft complete)* | Norm forms; flux topographs; **OP2** |
 | Ch. 5 Classification of quadratic forms | Part III · Ch. 6 Classification & Magic Islands *(draft complete)* | Reduced configs; stability regions; **OP3** |
 | Ch. 6 Representations by quadratic forms | Part III · Ch. 7 \(Z\mapsto\) flux map *(draft complete)* | Norms vs flux configs; `map_z_to_flywheel`; **OP4** |
-| Ch. 7 Class group for quadratic forms | **Part IV** · Ch. 8 Composition & class groups | Gauss lift; ideal classes; **OP6** |
+| Ch. 7 Class group for quadratic forms | **Part IV** · Ch. 8 Composition & class groups *(draft complete)* | Gauss lift; ideal classes; **OP6** |
 | Ch. 8 Quadratic fields | Part IV · Ch. 9 Quaternion algebras | Hurwitz; form↔ideal; lattice back-applications |
 | *(applications layer)* | **Part V** · Ch. 10 Observations & validation | \(350/\pi\), QVPIC, SC, pulsars, Pi Cycle, TLS; **OP5** |
 

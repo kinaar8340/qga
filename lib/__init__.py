@@ -1,5 +1,14 @@
 """Pedagogical helpers for the QGA book (not a replacement for kingdom)."""
 
+from .composition import (
+    class_group_analogue,
+    compose_flywheels,
+    compose_topographs,
+    composition_table,
+    identity_candidate,
+    is_associative_up_to_equivalence,
+    reduce_composition,
+)
 from .flux_topograph import (
     FluxTopograph,
     apply_gauge_to_topograph,
@@ -47,13 +56,19 @@ __all__ = [
     "build_flux_topograph",
     "candidate_adjacency",
     "chordal_distance_s3",
+    "class_group_analogue",
     "class_number_analogue",
     "classify_topograph_type",
+    "compose_flywheels",
+    "compose_topographs",
+    "composition_table",
     "detect_separators",
     "discrete_flux_cycle",
     "enumerate_reduced",
     "equivalence_distance",
     "hopf_project_points",
+    "identity_candidate",
+    "is_associative_up_to_equivalence",
     "left_multiply",
     "magic_island_score",
     "nearest_index_map",
@@ -61,6 +76,7 @@ __all__ = [
     "periodicity_score",
     "permutes_hurwitz_units",
     "phase_unit",
+    "reduce_composition",
     "reduced_representative",
     "right_multiply",
     "sample_angle_lattice",

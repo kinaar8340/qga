@@ -17,7 +17,8 @@
 9. ~~Part III: Chapter 5 — Flux Topographs (OP2).~~ **Done** (`book/05_forms_topographs.md`, `lib/flux_topograph.py`, Ch. 5 figures).  
 10. ~~Chapter 6 — Classification and Magic Islands (OP3).~~ **Done** (`book/06_classification.md`, classification API, Ch. 6 figures).  
 11. ~~Chapter 7 — The \(Z\mapsto\) Flux Map (OP4).~~ **Done** (`book/07_representations_z_flux.md`, Ch. 7 figures, `stability_landscape_z` range API).  
-12. Part IV: Chapter 8 — Composition and Class Groups (OP6).  
+12. ~~Part IV: Chapter 8 — Composition and Class Groups (OP6).~~ **Done** (`book/08_class_group.md`, `lib/composition.py`, Ch. 8 figures).  
+13. Chapter 9 — Quaternion Algebras and Ideal Theory.  
 
 ## Phase 2 — Hatcher lift core
 

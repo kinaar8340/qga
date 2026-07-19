@@ -103,4 +103,16 @@ Regenerate: `python scripts/generate_ch6_figures.py`.
 
 Regenerate: `python scripts/generate_ch7_figures.py` (prefer kingdom venv).
 
+## Chapter 8 (Phase 6)
+
+| ID | File | Caption (short) | Source |
+|----|------|-----------------|--------|
+| Fig. 8.1 | `figures/fig8_1_gauss_composition.png` | Classical Gauss composition | generated |
+| Fig. 8.2 | `figures/fig8_2_flywheel_composition.png` | Flywheel/topograph composition | generated |
+| Fig. 8.3 | `figures/fig8_3_class_group_analogue.png` | Class-group analogue | generated |
+| Fig. 8.4 | `figures/fig8_4_island_from_class.png` | Island from class data | generated |
+| Aux A8.1 | `figures/aux8_1_composition_table.png` | Composition table | generated |
+
+Regenerate: `python scripts/generate_ch8_figures.py`.
+
 Full license note: `figures/ATTRIBUTION.md`.
