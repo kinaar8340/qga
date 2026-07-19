@@ -71,7 +71,7 @@ Binary quadratic forms and sums of two squares already sit next door to **Lagran
 | 2–8 | Parts I–V full chapter drafts (Ch. 1–10) — **done** |
 | 9 | Consistency polish (footers, `HOW_TO_USE.md`, TOC, labels) — **done** |
 | 10 | LaTeX book PDF (`book/latex/`) — **done** (~119 pages) |
-| 11 | Optional: Gradio Book Mode, appendices expansion, bibliography |
+| 11 | Gradio Book Mode (kingdom portal) — **done**; optional bibliography / typography |
 
 ---
 

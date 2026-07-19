@@ -145,7 +145,7 @@ The six Open Problems are the main research edges. Advances on **OP1** (canonica
 
 Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress.
 
-The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal remain open for extension—including optional Gradio “Book Mode” and future composition / validation dashboards.
+The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal remain open for extension. **Book Mode** is live in the portal (chapter map → Hopf / Lattice / Flux / Observations mini demos and tab jumps; see `HOW_TO_USE.md` §6). Future work includes fuller composition / validation dashboards.
 
 ---
 

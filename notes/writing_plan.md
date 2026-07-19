@@ -23,12 +23,13 @@
 15. ~~Consistency polish across chapters.~~ **Done** (footers, TOC, `HOW_TO_USE.md`, claim labels).  
 16. ~~LaTeX conversion.~~ **Done** (`book/latex/`, `scripts/md_to_latex.py`, `scripts/build_latex.sh`, ~119 pp PDF).  
 17. ~~Appendix expansion (labs, OP, T4, Hatcher dictionary).~~ **Done** (`book/A_…`–`F_…`; chapters trimmed).  
-18. Optional: Gradio Book Mode / bibliography expansion / typography polish.  
-19. **Manuscript draft complete through Chapter 10** (Markdown + LaTeX PDF + appendices).
+18. ~~Gradio Book Mode.~~ **Done** (`kingdom/app/pages/book_mode.py` + Book Mode tab in `app/app.py`).  
+19. **Manuscript draft complete through Chapter 10** (Markdown + LaTeX PDF + appendices + portal Book Mode).  
+20. Optional: bibliography expansion / typography polish.
 
 ## Later production (optional)
 
-- Convert Markdown → LaTeX (`book/latex/`).
-- Gradio “Book Mode” linking sections to live widgets.
-- Expand appendices A–F and bibliography.
+- Convert Markdown → LaTeX (`book/latex/`) — done; rebuild as needed.
+- ~~Gradio “Book Mode” linking sections to live widgets.~~ **Done** (kingdom portal).
+- Expand bibliography / typography polish.
 

@@ -144,11 +144,30 @@ Naming pattern: `fig{N}_{k}_…` for main figures, `aux{N}_{k}_…` for auxiliar
 
 | Portal tab | Primary chapters |
 |------------|------------------|
+| **Book Mode** | **0–10 map** (chapter picker → jump + mini demos) |
 | Hopf Visualizer | 0, 2 |
 | Lattice Simulator | 3–4 |
 | Flux Flywheel | 0, 5–7, 10 |
 | Observations | 10 |
-| The Model / theory | Preface, 0 |
+| The Model / theory | Preface, 0, 8–9 (narrative; labs offline) |
+
+### 6.1 Book Mode (interactive companion)
+
+In the Kingdom Come portal, open the **Book Mode** tab (between Help and Hopf Visualizer):
+
+1. Choose a manuscript chapter from the dropdown — summary, claim focus, and linked live tab appear.
+2. Press **Open linked live tab** to jump the main tab bar to Hopf / Lattice / Flux / Observations / Home.
+3. Use the Part subtabs for **mini demos** (Classic Hopf snapshot, short lattice comparison, Flux Flywheel at a chosen \(Z\)) without leaving Book Mode.
+
+| Book Part | Live widgets |
+|-----------|----------------|
+| I Foundations (Ch. 1–2) | Hopf Visualizer |
+| II Farey lift (Ch. 3–4) | Lattice Simulator |
+| III Forms / \(Z\)-map (Ch. 5–7) | Flux Flywheel |
+| IV Arithmetic (Ch. 8–9) | Home · The Model (+ `lib/composition`, `lib/quaternion_algebra`) |
+| V Observations (Ch. 10) | Observations |
+
+Source of the map: `kingdom/app/pages/book_mode.py`. Portal: https://github.com/kinaar8340/kingdom_come · Space: https://huggingface.co/spaces/kinaar111/kingdom
 
 ---
 
