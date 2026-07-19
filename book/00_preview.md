@@ -2,21 +2,21 @@
 
 This chapter is a guided tour, not a full development. By the end you should see a single chain of ideas:
 
-\[
-\text{Pythagorean triples}
-\;\longrightarrow\;
+\begin{align*}
+&\text{Pythagorean triples}
+\;\to\;
 \text{sums of two squares}
-\;\longrightarrow\;
+\;\to\;
 \text{four squares / quaternions}
-\;\longrightarrow\;
-S^3
-\;\longrightarrow\;
+\;\to\;
+S^3 \\
+&\qquad\to\;
 \text{Hopf fibration}
-\;\longrightarrow\;
+\;\to\;
 \text{gauged lattice \& flux flywheels}
-\;\longrightarrow\;
+\;\to\;
 \text{\(Z\mapsto\) flux map (model)}
-\]
+\end{align*}
 
 and know which links are classical mathematics and which are working models or hypotheses from Kingdom Come.
 
