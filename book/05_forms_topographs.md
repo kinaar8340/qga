@@ -26,7 +26,7 @@ This chapter lifts Conway’s topographs of binary quadratic forms (Hatcher Chap
 |-------|------|
 | Classical topograph properties (periodicity, arithmetic progression rule, reduced forms) from Hatcher | **Theorem** (classical; cited) |
 | Flux topographs, separator structures, Magic Islands, gauge equivariance of candidate constructions | **Model** (core of OP2) |
-| `qga/lib/flux_topograph.py`, `kingdom.core.flux_flywheel` APIs | Software facts |
+| `qga/lib/flux_topograph.py`, `kingdom.core.flux_flywheel` APIs | **Software fact** |
 
 ---
 
@@ -106,9 +106,9 @@ They are the narrative generalization of finite class number and reduced forms i
 
 ![Figure 5.3 — Magic Island stability region.](figures/fig5_3_magic_island.png)
 
-*Figure 5.3.* Left: schematic island in parameter space. Right: Kingdom Come Model `stability_score` vs \(Z\) (gold lines mark noble-gas \(Z\)). Software fact for the right panel; physical interpretation remains **Model**.
+*Figure 5.3.* Left: schematic island in parameter space. Right: Kingdom Come Model `stability_score` vs \(Z\) (gold lines mark noble-gas \(Z\)). **Software fact** for the right panel; physical interpretation remains **Model**.
 
-**Claim type.** Visual and software properties of Magic Islands in the portal: **Model** + software facts. Classical reduced forms / class number: **Theorem** (Hatcher). Correspondence between the two: **Open** (OP3).
+**Claim type.** Visual and software properties of Magic Islands in the portal: **Model** + **Software fact**. Classical reduced forms / class number: **Theorem** (Hatcher). Correspondence between the two: **Open** (OP3).
 
 ---
 
@@ -263,4 +263,4 @@ With flux topographs in hand, we are ready for the classification theory that tu
 
 ---
 
-*Part III, Chapter 5 draft. Figures in `book/figures/`. Core of Open Problem 2 stated. Helper: `qga/lib/flux_topograph.py`.*
+*Manuscript · Part III · Chapter 5 · Figures in `book/figures/` · Helpers: `lib/flux_topograph.py` · OP2.*

@@ -27,7 +27,7 @@ This chapter builds the algebraic and geometric language used everywhere later i
 |-------|------|
 | Algebra of \(\mathbb{H}\); \(N(q_1 q_2)=N(q_1)N(q_2)\); four-square theorem; \(\mathrm{Spin}(3)\to SO(3)\) double cover | **Theorem** (classical) |
 | Preferring the Hurwitz order as the primary integer lattice for later flux/lattice work | **Model** choice |
-| Kingdom Come / `flux_hopf_lib` APIs and demos | Software facts |
+| Kingdom Come / `flux_hopf_lib` APIs and demos | **Software fact** |
 
 ---
 
@@ -418,4 +418,4 @@ With the algebraic and geometric language of quaternions in hand—product, conj
 
 ---
 
-*Part I, Chapter 1 draft. Figures: generated diagrams in `book/figures/`.*
+*Manuscript · Part I · Chapter 1 · Figures in `book/figures/` · Labs: `kingdom.core.quaternion`.*

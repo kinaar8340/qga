@@ -67,12 +67,10 @@ Binary quadratic forms and sums of two squares already sit next door to **Lagran
 | Phase | Deliverable |
 |-------|-------------|
 | 0 | TOC, Hatcher map, synopsis (scaffold) — **done** |
-| 1 | Preface + Ch. 0 + 5 figures + feedback polish — **done** |
-| 2 | Part I: Ch. 1–2 full draft + computational labs |
-| 3 | Part II–III: Ch. 3–6 (lattice, symmetries, forms, Magic Islands) |
-| 4 | Part III–IV: Ch. 7–9 (\(Z\)-map, class groups, algebras) |
-| 5 | Part V: Ch. 10 + tables + OP validation protocols |
-| 6 | LaTeX book build, figure pipeline, companion Gradio “book mode” |
+| 1 | Preface + Ch. 0 + figures + feedback polish — **done** |
+| 2–8 | Parts I–V full chapter drafts (Ch. 1–10) — **done** |
+| 9 | Consistency polish (footers, `HOW_TO_USE.md`, TOC, labels) — **done** |
+| 10 | Optional: LaTeX build, Gradio Book Mode, appendices expansion |
 
 ---
 

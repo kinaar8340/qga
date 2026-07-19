@@ -26,7 +26,7 @@ This chapter supplies the rigorous algebraic foundation for the class-group anal
 |-------|------|
 | Quaternion algebras, Hilbert symbols, Hurwitz Euclidean property, Hurwitz class number 1 | **Theorem** (classical) |
 | Dictionary between ideal classes and flux topographs / Magic Islands | **Model** |
-| `qga/lib/quaternion_algebra.py` helpers (including toy class-number reports) | Software facts |
+| `qga/lib/quaternion_algebra.py` helpers (including toy class-number reports) | **Software fact** |
 
 ---
 
@@ -61,7 +61,7 @@ QuaternionAlgebra(a, b)
 
 *Auxiliary Figure A9.1.* Hilbert symbols for several \((a,b)\) at small places; red \(-1\) marks ramification.
 
-**Claim type.** Classification by ramification sets and Hilbert symbols: **Theorem** (classical). Implementation in the book helper: software fact (pedagogical, not a full number-theory library).
+**Claim type.** Classification by ramification sets and Hilbert symbols: **Theorem** (classical). Implementation in the book helper: **Software fact** (pedagogical, not a full number-theory library).
 
 ---
 
@@ -265,4 +265,4 @@ With the ideal-theoretic foundation in place, the full construction is ready for
 
 ---
 
-*Part IV, Chapter 9 draft. Figures in `book/figures/`. Algebraic foundation for OP6 and beyond. Helpers in `qga/lib/quaternion_algebra.py`.*
+*Manuscript · Part IV · Chapter 9 · Figures in `book/figures/` · Helpers: `lib/quaternion_algebra.py`.*

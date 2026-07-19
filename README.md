@@ -46,7 +46,8 @@ qga/
 
 ## Quick links
 
-- [Table of Contents](TOC.md)  
+- [Table of Contents](TOC.md)
+- [How to Use the Figures and Code](book/HOW_TO_USE.md)  
 - [Hatcher mapping](HATCHER_MAP.md)  
 - [Synopsis & assessment](SYNOPSIS.md)  
 - Hatcher TN: https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf  

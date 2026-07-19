@@ -195,7 +195,7 @@ The portal’s element tour renders each \(Z\) with shell clouds and a flux ring
 
 *Auxiliary Figure A0.2 — Iron (\(Z=26\)).* Same tour format at iron: a mid-table configuration where real-world nuclear and chemical specialness can later be checked against model metrics (stability, ionization-energy anchors, magnetic-moment proxies in Chapters 7 and 10). Source: `z_knowns/frame_0026.png`.
 
-**Claim type:** the existence of a coded map \(Z\mapsto\) configuration is a software fact. Interpreting it as *the* emergence mechanism of the periodic table is a **Model**. Quantitative alignment with experiment is an empirical research program (Chapters 7 and 10), not a free theorem.
+**Claim type:** the existence of a coded map \(Z\mapsto\) configuration is a **Software fact**. Interpreting it as *the* emergence mechanism of the periodic table is a **Model**. Quantitative alignment with experiment is an empirical research program (Chapters 7 and 10), not a free theorem.
 
 ### The \(350/\pi\) signature (**Hypothesis**)
 
@@ -261,7 +261,7 @@ Part I   Ch. 1–2    Quaternions & Hopf            ← foundations (new floor)
 2. **Part II (Ch. 3–4)** constructs the gauged Hopf lattice and its symmetries—the Farey lift (Open Problem 1).  
 3. **Part III (Ch. 5–7)** develops forms, flux topographs, Magic Islands, and the \(Z\)-map as representation theory (Open Problems 2–4).  
 4. **Part IV (Ch. 8–9)** treats composition, class groups, and quaternion algebras (Open Problem 6).  
-5. **Part V (Ch. 10)** isolates observations, QVPIC, superconductors, cosmology-scale language, and validation protocols—including a full accounting of \(350/\pi\) (Open Problem 5).
+5. **Part V (Ch. 10)** collects multi-domain observations (\(350/\pi\), \(Z\mapsto\) correlations, Magic Islands), states validation protocols (Table T4), and summarizes Open Problems OP1–OP6 (Open Problem 5).
 
 If you are impatient for physics, read 0 → 2 → 3 (flywheel sections) → 7 → 10, then return to fill the arithmetic spine. If you are a number theorist first, read 0–9 with Hatcher open, and treat Chapter 10 as a speculative appendix until the checklists are green.
 
@@ -298,4 +298,4 @@ kingdom.viz.hopf_plotly      # portal-style multi-panel figures
 
 ---
 
-*Phase 1 draft complete for Chapter 0. Next: Chapter 1 (quaternions) or formal lattice axioms in Chapter 3.*
+*Manuscript · Chapter 0 · Preview · Figures in `book/figures/`.*

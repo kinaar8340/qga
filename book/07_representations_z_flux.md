@@ -25,10 +25,10 @@ This chapter connects the classified flux topographs and Magic Islands of Chapte
 | Claim | Type |
 |-------|------|
 | Four-square theorem and classical representation by norms (Ch. 1) | **Theorem** |
-| Existence and implementation of the coded \(Z \mapsto\) map | Software fact |
+| Existence and implementation of the coded \(Z \mapsto\) map | **Software fact** |
 | Map as representation theory; Magic Islands as periodic-table proxy; physical emergence | **Model** |
 | Any claim that topology *derives* real chemistry as a law of nature | **Hypothesis** (Ch. 10 validation) |
-| `map_z_to_flywheel[_extended]` metrics | Software facts |
+| `map_z_to_flywheel[_extended]` metrics | **Software fact** |
 
 ---
 
@@ -62,7 +62,7 @@ The map is built on the gauged Hopf lattice and flux-topograph language of previ
 
 *Figure 7.1.* Pipeline: atomic number → lattice / gauge data → flux flywheel + topograph → scored metrics.
 
-**Claim type.** Reproducible coded map: **software fact**. Interpreting outputs as *the* emergence mechanism of the periodic table: **Model**.
+**Claim type.** Reproducible coded map: **Software fact**. Interpreting outputs as *the* emergence mechanism of the periodic table: **Model**.
 
 ### Book helper
 
@@ -113,7 +113,7 @@ High `stability_score` near \(Z=2,10,18,\ldots\) illustrates island structure in
 
 *Figure 7.3.* Portal data: `stability_score` vs atomic number. Gold: noble-gas \(Z\); green: Fe; dashed: high-stability threshold used in labs.
 
-**Claim type.** Curve and peaks as outputs of `map_z_to_flywheel`: **software facts**. Physical explanation of real chemistry/nuclear magic numbers: **Model** / **Hypothesis** pending Chapter 10 protocols.
+**Claim type.** Curve and peaks as outputs of `map_z_to_flywheel`: **Software fact**. Physical explanation of real chemistry/nuclear magic numbers: **Model** / **Hypothesis** pending Chapter 10 protocols.
 
 **Open Problem 4 (shared with Ch. 10).**  
 Up to gauge, is the map \(Z\mapsto\) flywheel configuration unique under stated axioms? If not, classify the ambiguity and its chemical consequences. See `notes/open_problems.md`.
@@ -254,4 +254,4 @@ With the representation bridge in place, we are ready for the ideal-class-group 
 
 ---
 
-*Part III, Chapter 7 draft. Figures in `book/figures/`. Completes the Ch. 5–7 representation arc.*
+*Manuscript · Part III · Chapter 7 · Figures in `book/figures/` · Portal: `map_z_to_flywheel` · OP4.*

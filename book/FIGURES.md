@@ -1,6 +1,6 @@
 # Book figures index
 
-## Chapter 0 (Phase 1)
+## Chapter 0
 
 | ID | File | Caption (short) | Source (Kingdom Come) |
 |----|------|-----------------|------------------------|
@@ -17,7 +17,7 @@
 | Aux A0.1 | `figures/aux_z_map_he.png` | Helium \(Z=2\) closed-shell baseline | `z_knowns/frame_0002.png` |
 | Aux A0.2 | `figures/aux_z_map_fe.png` | Iron \(Z=26\) mid-table contrast | `z_knowns/frame_0026.png` |
 
-## Chapter 1 (Phase 2)
+## Chapter 1
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -29,7 +29,7 @@
 
 Regenerate: `python scripts/generate_ch1_figures.py`.
 
-## Chapter 2 (Phase 2)
+## Chapter 2
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -42,7 +42,7 @@ Regenerate: `python scripts/generate_ch1_figures.py`.
 
 Regenerate: `python scripts/generate_ch2_figures.py` (requires `flux_hopf_lib` or `kingdom` on path).
 
-## Chapter 3 (Phase 3)
+## Chapter 3
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -55,7 +55,7 @@ Regenerate: `python scripts/generate_ch2_figures.py` (requires `flux_hopf_lib` o
 
 Regenerate: `python scripts/generate_ch3_figures.py` (use kingdom venv for Aux A3.1).
 
-## Chapter 4 (Phase 3)
+## Chapter 4
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -67,7 +67,7 @@ Regenerate: `python scripts/generate_ch3_figures.py` (use kingdom venv for Aux A
 
 Regenerate: `python scripts/generate_ch4_figures.py`.
 
-## Chapter 5 (Phase 4)
+## Chapter 5
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -79,7 +79,7 @@ Regenerate: `python scripts/generate_ch4_figures.py`.
 
 Regenerate: `python scripts/generate_ch5_figures.py`.
 
-## Chapter 6 (Phase 4)
+## Chapter 6
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -91,7 +91,7 @@ Regenerate: `python scripts/generate_ch5_figures.py`.
 
 Regenerate: `python scripts/generate_ch6_figures.py`.
 
-## Chapter 7 (Phase 5)
+## Chapter 7
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -103,7 +103,7 @@ Regenerate: `python scripts/generate_ch6_figures.py`.
 
 Regenerate: `python scripts/generate_ch7_figures.py` (prefer kingdom venv).
 
-## Chapter 8 (Phase 6)
+## Chapter 8
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -115,7 +115,7 @@ Regenerate: `python scripts/generate_ch7_figures.py` (prefer kingdom venv).
 
 Regenerate: `python scripts/generate_ch8_figures.py`.
 
-## Chapter 9 (Phase 7)
+## Chapter 9
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|
@@ -127,7 +127,7 @@ Regenerate: `python scripts/generate_ch8_figures.py`.
 
 Regenerate: `python scripts/generate_ch9_figures.py`.
 
-## Chapter 10 (Phase 8 — final)
+## Chapter 10
 
 | ID | File | Caption (short) | Source |
 |----|------|-----------------|--------|

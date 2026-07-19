@@ -68,7 +68,7 @@ via `map_z_to_flywheel` / `map_z_to_flywheel_extended`. Outputs show peaks near 
 
 *Figure 10.2.* Portal `stability_score` vs an IE proxy across \(Z\). **Correlation is not causation**; ablation and out-of-sample tests are required (Table T4).
 
-**Claim type.** Reproducible curves from the current implementation: **software facts**. Physical emergence of the periodic table: **Model** / **Hypothesis**.
+**Claim type.** Reproducible curves from the current implementation: **Software fact**. Physical emergence of the periodic table: **Model** / **Hypothesis**.
 
 **Open Problem 4 (recap).** Up to gauge, is the \(Z\mapsto\) flywheel map unique under stated axioms? See Chapter 7 and `notes/open_problems.md`.
 
@@ -140,7 +140,7 @@ print(demo["bonferroni_threshold"], demo["fisher"], demo["decision"])
 
 Under the **null toy** generator, expect frequent `fail_to_reject_H0`. Using real domain \(p\)-values without pre-registration does **not** count as T4 success.
 
-**Claim type.** Existence of the protocol and helpers: **project / software fact**. “Hypothesis \(X\) passed T4”: **Hypothesis** until the full checklist is executed and reviewed.
+**Claim type.** Existence of the protocol and helpers: **project / **Software fact****. “Hypothesis \(X\) passed T4”: **Hypothesis** until the full checklist is executed and reviewed.
 
 **Open Problem 5.** Derive \(W_g=350/\pi\) from lattice geometry, **or** falsify multi-domain recurrence via pre-registered tests following Table T4.
 
@@ -213,4 +213,4 @@ Whether the Model survives empirical scrutiny is now a question for systematic v
 
 ---
 
-*Final chapter (Chapter 10) draft. Figures in `book/figures/`. Validation protocols and outlook. **Manuscript complete through Chapter 10.***
+*Manuscript · Part V · Chapter 10 (final) · Figures in `book/figures/` · Helpers: `lib/validation.py` · OP5 · Table T4.*

@@ -26,7 +26,7 @@ This chapter classifies flux topographs on the gauged Hopf lattice, enumerates r
 |-------|------|
 | Classical classification of quadratic forms and topographs (Hatcher Ch. 5) | **Theorem** (cited) |
 | Flux topograph types, equivalence, reduced configurations, Magic Islands | **Model** (core of OP3; depends on OP2) |
-| `qga/lib/flux_topograph.py` classification helpers; Kingdom Come `stability_score` | Software facts |
+| `qga/lib/flux_topograph.py` classification helpers; Kingdom Come `stability_score` | **Software fact** |
 
 ---
 
@@ -117,7 +117,7 @@ In the Kingdom Come Model, Magic Islands appear as pockets where `stability_scor
 
 ![Auxiliary Figure A6.1 — Z-sweep for island peaks.](figures/aux6_1_island_sweep.png)
 
-*Auxiliary Figure A6.1.* Portal Model `stability_score` vs \(Z\) (gold: noble-gas \(Z\); dashed: high-stability threshold). Software fact for the curve; island interpretation remains **Model**.
+*Auxiliary Figure A6.1.* Portal Model `stability_score` vs \(Z\) (gold: noble-gas \(Z\); dashed: high-stability threshold). **Software fact** for the curve; island interpretation remains **Model**.
 
 ### Heuristic island score
 
@@ -258,4 +258,4 @@ With classification in hand, we are ready to bridge number theory and the emerge
 
 ---
 
-*Part III, Chapter 6 draft. Figures in `book/figures/`. Core of Open Problem 3 stated. Classification helpers in `qga/lib/flux_topograph.py`.*
+*Manuscript · Part III · Chapter 6 · Figures in `book/figures/` · Helpers: `lib/flux_topograph.py` · OP3.*

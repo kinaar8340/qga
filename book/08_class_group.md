@@ -26,7 +26,7 @@ This chapter lifts Gauss composition of binary quadratic forms and the ideal cla
 |-------|------|
 | Classical Gauss composition and ideal class groups (Hatcher Ch. 7–8) | **Theorem** (cited) |
 | Composition of flux configurations / flywheels; class-group analogues | **Model** (core of OP6) |
-| `qga/lib/composition.py` helpers | Software facts |
+| `qga/lib/composition.py` helpers | **Software fact** |
 
 ---
 
@@ -64,7 +64,7 @@ reduce_composition(composed) → topograph, classification, magic_island_score
 
 *Figure 8.2.* \(\Phi_1\), \(\Phi_2\), and \(\mathrm{reduce}(\Phi_1*\Phi_2)\) for the pedagogical `value_sum` method.
 
-**Honest status.** On current candidate adjacency and modest angle lattices, composition tables often show **poor closure** and **low associativity scores** (software fact from the sandbox). That is not a failure of the chapter—it is the experimental content of **Open Problem 6**.
+**Honest status.** On current candidate adjacency and modest angle lattices, composition tables often show **poor closure** and **low associativity scores** (**Software fact** from the sandbox). That is not a failure of the chapter—it is the experimental content of **Open Problem 6**.
 
 **Open Problem 6 (core of this chapter).**  
 Does a well-defined, associative composition law exist on equivalence classes of flux configurations / flywheels that:
@@ -226,4 +226,4 @@ With composition and class-group language in place, we are ready for the ideal-t
 
 ---
 
-*Part IV, Chapter 8 draft. Figures in `book/figures/`. Core of Open Problem 6 stated. Helpers in `qga/lib/composition.py`.*
+*Manuscript · Part IV · Chapter 8 · Figures in `book/figures/` · Helpers: `lib/composition.py` · OP6.*

@@ -28,7 +28,7 @@ This chapter defines the Hopf fibration from first principles and rebuilds the v
 |-------|------|
 | Hopf fibration definition, fiber structure, linking (Hopf invariant \(=1\)); double cover \(\mathrm{Spin}(3)\to SO(3)\) from Ch. 1 | **Theorem** (classical differential topology / geometry) |
 | Interpreting the Hopf fibration as a higher-dimensional “Farey analogue” for the gauged lattice | **Model** |
-| Kingdom Come visualizations and `kingdom.core.hopf` / `flux_hopf_lib` implementations | Software facts |
+| Kingdom Come visualizations and `kingdom.core.hopf` / `flux_hopf_lib` implementations | **Software fact** |
 
 ---
 
@@ -87,7 +87,7 @@ with \(\eta\in[0,\pi/2]\) (or a practical subrange) and \(\xi_1,\xi_2\in[0,2\pi)
 
 *Figure 2.1.* From total space \(S^3\) (unit quaternions) to base \(S^2\). The map is smooth and surjective; every base point has a circle’s worth of preimages.
 
-**API note (software fact).** Call signatures in code are component-wise, not “pass a Quaternion object” to `hopf_map`:
+**API note (Software fact).** Call signatures in code are component-wise, not “pass a Quaternion object” to `hopf_map`:
 
 ```text
 hopf_map(x1, x2, x3, x4)           → (y1, y2, y3)
@@ -146,7 +146,7 @@ The Gradio **Hopf Visualizer** defaults to multi-panel **2D** views (xy, xz, pha
 
 *Figure 2.3.* Rebuild of Figure 0.2. Composed stereographic fibers, planar projections, and base points on \(S^2\), with one fiber highlighted—the same visual language as the portal’s Classic Hopf preset.
 
-**Sampling API (software fact).** `sample_fiber(eta, xi1, n_points=...)` returns a **dictionary**, not a bare list of quaternions:
+**Sampling API (Software fact).** `sample_fiber(eta, xi1, n_points=...)` returns a **dictionary**, not a bare list of quaternions:
 \[
 \{\texttt{eta},\;\texttt{xi1},\;\texttt{xi2},\;
 \texttt{x1..x4},\;\texttt{y1..y3},\;
@@ -362,4 +362,4 @@ With the algebraic language of quaternions and the bundle geometry of the Hopf f
 
 ---
 
-*Part I, Chapter 2 draft. Figures: generated diagrams in `book/figures/`.*
+*Manuscript · Part I · Chapter 2 · Figures in `book/figures/` · Labs: `kingdom.core.hopf`.*

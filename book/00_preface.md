@@ -33,31 +33,34 @@ It is also **not** a claim that every numerical coincidence listed in Kingdom Co
 
 ## Companion software and figures
 
-Interactive experiments live in the Kingdom Come repository and Hugging Face Space. Static figures in early chapters are pulled from that project’s asset library so the manuscript and the portal stay visually continuous.
+Interactive experiments live in the Kingdom Come repository and Hugging Face Space. Pedagogical lattice/topograph/composition/algebra/validation helpers live in this book’s `lib/` package. Static figures are under `book/figures/` (see attribution there).
 
 | Resource | Location |
 |----------|----------|
-| Book manuscript | `~/Projects/qga/` |
+| Book manuscript (this repo) | `~/Projects/qga/` · [github.com/kinaar8340/qga](https://github.com/kinaar8340/qga) |
 | Kingdom Come source / portal | `~/Projects/kingdom/` · [github.com/kinaar8340/kingdom_come](https://github.com/kinaar8340/kingdom_come) |
 | Shared Hopf / quaternion core | `flux_hopf_lib` |
-| Chapter 0 figures | `book/figures/` (see attribution there) |
+| Figures | `book/figures/` |
+| How to run labs | [`book/HOW_TO_USE.md`](HOW_TO_USE.md) |
 
-Module pointers at the end of each chapter name the Python entry points used to regenerate demos (`kingdom.core.quaternion`, `hopf`, `lattice`, `flux_flywheel`, and so on).
+Module pointers at the end of each chapter name the Python entry points used in labs (`kingdom.core.*`, `lib.*`, and figure generators under `scripts/`).
 
 ## How to read
 
-- **Pure geometry and arithmetic.** Chapters 0–9; treat Chapter 10 as optional color.  
-- **TOE narrative first.** Chapter 0 → Chapter 2 → Chapter 3 (lattice and flywheels) → Chapter 7 → Chapter 10.  
-- **Coming from Hatcher.** Keep TN open beside this book; use the root file `HATCHER_MAP.md` as a parallel syllabus.  
-- **Coming from the Gradio app.** The Preview chapter is the “Home + Hopf Visualizer + Flux Flywheel” tour in prose.
+- **Pure geometry and arithmetic.** Chapters 0–9; treat Chapter 10 as optional (observations and validation).  
+- **Model / portal narrative first.** Chapter 0 → Chapter 2 → Chapter 3 (lattice and flywheels) → Chapter 7 → Chapter 10.  
+- **Coming from Hatcher.** Keep TN open beside this book; use root `HATCHER_MAP.md` as a parallel syllabus.  
+- **Coming from the Gradio app.** The Preview chapter is the “Home + Hopf Visualizer + Flux Flywheel” tour in prose; see also `HOW_TO_USE.md`.  
+- **Open problems.** Living list in `notes/open_problems.md` (OP1–OP6).
 
-Claim labels used throughout:
+Claim labels used throughout (see also `HOW_TO_USE.md`):
 
 | Label | Meaning |
 |-------|---------|
 | **Theorem** | Proved here or classical |
-| **Model** | Consistent mathematical or physical model, not claimed as nature’s unique law |
-| **Hypothesis** | Observational or TOE claim needing validation |
+| **Model** | Consistent mathematical or physical construction, not claimed as nature’s unique law |
+| **Hypothesis** | Observational claim needing validation or falsification (Chapter 10 / Table T4) |
+| **Software fact** | True of the current code or portal implementation |
 
 ## Acknowledgments
 
@@ -65,4 +68,4 @@ Allen Hatcher’s freely available *Topology of Numbers* made geometric elementa
 
 ---
 
-*Phase 1 draft + feedback polish (mission statement; aligned with five-part TOC). Figures: Kingdom Come assets in `book/figures/`.*
+*Manuscript · Preface · Full draft (Parts I–V through Chapter 10). Figures: `book/figures/`.*

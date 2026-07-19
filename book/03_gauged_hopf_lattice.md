@@ -29,8 +29,8 @@ This chapter discretizes the Hopf fibration. We place a lattice inside the total
 | Existence of the Hurwitz order, 24 units, Euclidean property (Ch. 1) | **Theorem** |
 | Hopf fibration structure and linking (Ch. 2) | **Theorem** |
 | Specific discrete adjacency / mediant rules; “the” gauged Hopf lattice as Farey lift | **Model** (Open Problem 1) |
-| Flux flywheels as protected circulating configurations; dynamical two-gyro demos | **Model** + software facts |
-| `kingdom.core.lattice.LatticeConfig`, `kingdom.simulations.lattice.TwoGyroLattice`, book helper `qga/lib/hopf_lattice.py` | Software facts |
+| Flux flywheels as protected circulating configurations; dynamical two-gyro demos | **Model** + **Software fact** |
+| `kingdom.core.lattice.LatticeConfig`, `kingdom.simulations.lattice.TwoGyroLattice`, book helper `qga/lib/hopf_lattice.py` | **Software fact** |
 
 ---
 
@@ -371,4 +371,4 @@ With the gauged Hopf lattice constructed, we are ready to examine its symmetries
 
 ---
 
-*Part II, Chapter 3 draft. Figures in `book/figures/`. Open Problem 1 stated with research target. Pedagogical lattice code in `qga/lib/hopf_lattice.py`.*
+*Manuscript · Part II · Chapter 3 · Figures in `book/figures/` · Helpers: `lib/hopf_lattice.py` · OP1.*
