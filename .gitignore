@@ -38,4 +38,20 @@ htmlcov/
 # Jupyter
 .ipynb_checkpoints/
 
+# LaTeX build artifacts (keep main.pdf optional — tracked for convenience)
+book/latex/*.aux
+book/latex/*.log
+book/latex/*.toc
+book/latex/*.out
+book/latex/*.lof
+book/latex/*.lot
+book/latex/*.fls
+book/latex/*.fdb_latexmk
+book/latex/*.synctex.gz
+book/latex/*.nav
+book/latex/*.snm
+book/latex/*.vrb
+# generated chapter .tex is regenerated from Markdown; track for offline builds
+# book/latex/chapters/*.tex  # tracked
+
 # Note: do NOT ignore top-level lib/ — it is the QGA pedagogical package

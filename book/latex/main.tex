@@ -1,0 +1,126 @@
+% =============================================================================
+% Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics
+% Master LaTeX document
+%
+% Build (from this directory):
+%   ../scripts/build_latex.sh
+% or:
+%   python3 ../../scripts/md_to_latex.py
+%   pdflatex -interaction=nonstopmode main.tex
+%   pdflatex -interaction=nonstopmode main.tex
+% =============================================================================
+\documentclass[11pt,oneside,openany]{book}
+
+\input{preamble}
+
+\title{%
+  \textbf{\Huge\booktitle}\\[0.6em]
+  \Large\booksubtitle
+}
+\author{Aaron Michael Kinder\\
+  \texttt{https://github.com/kinaar8340/qga}}
+\date{Manuscript draft · \today}
+
+\begin{document}
+
+% ---------- Front matter ----------
+\frontmatter
+\pagenumbering{roman}
+
+\begin{titlepage}
+  \centering
+  \vspace*{2.5cm}
+  {\Huge\bfseries\booktitle\par}
+  \vspace{1em}
+  {\Large\booksubtitle\par}
+  \vspace{0.8em}
+  {\large Extending Allen Hatcher's visual number theory\\
+   via quaternions and the Hopf fibration\par}
+  \vspace{2.5cm}
+  {\Large Aaron Michael Kinder\par}
+  \vspace{0.5cm}
+  {\large Short name: \bookshort\par}
+  \vfill
+  {\large Companion software: Kingdom Come portal\\
+  \url{https://github.com/kinaar8340/kingdom_come}\\[0.4em]
+  Book repository: \url{https://github.com/kinaar8340/qga}\par}
+  \vspace{1.5cm}
+  {\large Manuscript draft · \today\par}
+\end{titlepage}
+\thispagestyle{empty}
+\clearpage
+\setcounter{page}{1}
+
+\chapter*{Epigraph}
+\addcontentsline{toc}{chapter}{Epigraph}
+\begin{quote}
+\itshape
+Make the integers visible.\\
+--- the geometric method of Hatcher's \emph{Topology of Numbers},\\
+lifted here to \(S^3\), the Hopf fibration, and flux lattices.
+\end{quote}
+
+\tableofcontents
+
+% Front-matter chapters (unnumbered)
+\input{chapters/preface}
+\input{chapters/how_to_use}
+
+% ---------- Main matter ----------
+\mainmatter
+% Chapter 0 = Preview (match Markdown numbering)
+\setcounter{chapter}{-1}
+
+\part{Foundations}
+\input{chapters/ch00_preview}
+\input{chapters/ch01_quaternions}
+\input{chapters/ch02_hopf}
+
+\part{The Gauged Hopf Lattice (The Farey Lift)}
+\input{chapters/ch03_lattice}
+\input{chapters/ch04_symmetries}
+
+\part{Forms, Topographs, and Representations}
+\input{chapters/ch05_topographs}
+\input{chapters/ch06_classification}
+\input{chapters/ch07_z_map}
+
+\part{Arithmetic Depth}
+\input{chapters/ch08_class_group}
+\input{chapters/ch09_algebras}
+
+\part{Observations and Models}
+\input{chapters/ch10_observations}
+
+% ---------- Back matter ----------
+\backmatter
+
+\chapter*{Open Problems}
+\addcontentsline{toc}{chapter}{Open Problems}
+\label{ch:open-problems}
+\noindent
+The living research edges of the project (see also \texttt{notes/open\_problems.md} in the repository):
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{OP1 --- Canonical quaternionic Farey structure} (Ch.~\ref{ch:ch03_lattice}).
+  \item \textbf{OP2 --- Flux topograph axioms} (Ch.~\ref{ch:ch05_topographs}).
+  \item \textbf{OP3 --- Class number \(\leftrightarrow\) Magic Island} (Ch.~\ref{ch:ch06_classification}).
+  \item \textbf{OP4 --- \(Z\to\) flywheel uniqueness} (Ch.~\ref{ch:ch07_z_map} / Ch.~\ref{ch:ch10_observations}).
+  \item \textbf{OP5 --- \(350/\pi\) first principles or falsification} (Ch.~\ref{ch:ch10_observations}, Table~T4).
+  \item \textbf{OP6 --- Composition of flywheels (Gauss lift)} (Ch.~\ref{ch:ch08_class_group}--\ref{ch:ch09_algebras}).
+\end{enumerate}
+
+\chapter*{Bibliography (seed)}
+\addcontentsline{toc}{chapter}{Bibliography (seed)}
+\begin{itemize}[leftmargin=*]
+  \item Allen Hatcher, \emph{Topology of Numbers}, AMS, 2022.
+        Free PDF: \url{https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf}.
+  \item Classical quaternion arithmetic: Hurwitz; Conway--Smith, \emph{On Quaternions and Octonions}.
+  \item Quaternion algebras: Vignéras; Voight, \emph{Quaternion Algebras}.
+  \item Hopf fibration surveys; topological phases / monopoles literature.
+  \item Kingdom Come repository and observation program:
+        \url{https://github.com/kinaar8340/kingdom_come}.
+  \item This book repository: \url{https://github.com/kinaar8340/qga}.
+\end{itemize}
+
+\end{document}

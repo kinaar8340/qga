@@ -1,0 +1,113 @@
+% QGA book preamble — included by main.tex
+% Engine: pdflatex or lualatex
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% Page geometry
+\usepackage[
+  a4paper,
+  margin=2.5cm,
+  marginparwidth=0pt,
+  headheight=14pt,
+  heightrounded
+]{geometry}
+
+% Math
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+
+% Graphics & tables
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+\graphicspath{{figures/}{../figures/}}
+
+% Floats
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{caption}
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  format=hang,
+  skip=6pt
+}
+
+% Lists
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+
+% Code listings
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codebg}{RGB}{248,249,250}
+\definecolor{codeframe}{RGB}{200,200,200}
+\definecolor{codekw}{RGB}{0,70,140}
+\lstdefinestyle{qga}{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  tabsize=2,
+  aboveskip=0.8em,
+  belowskip=0.8em,
+  keywordstyle=\color{codekw}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{teal},
+}
+\lstset{style=qga}
+
+% Hyperlinks & cross-refs (load hyperref late)
+\usepackage[
+  colorlinks=true,
+  linkcolor=black!70!blue,
+  citecolor=black!70!blue,
+  urlcolor=black!60!blue,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  pdfstartview=FitH
+]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% Headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.3pt}
+
+% Theorem-like environments for claim labels (optional use)
+\theoremstyle{definition}
+\newtheorem*{qgatheorem}{Theorem}
+\newtheorem*{qgamodel}{Model}
+\newtheorem*{qgahypothesis}{Hypothesis}
+\newtheorem*{qgasoftware}{Software fact}
+
+% Convenience macros
+\newcommand{\Hopf}{Hopf}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Wg}{W_g}
+\newcommand{\Zmap}{Z\mapsto}
+\newcommand{\OP}[1]{Open Problem~#1}
+
+% Title helpers
+\newcommand{\booktitle}{Kingdom Come}
+\newcommand{\booksubtitle}{A Quaternionic Geometric Approach to Number Theory and Physics}
+\newcommand{\bookshort}{QGA}

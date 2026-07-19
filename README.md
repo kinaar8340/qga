@@ -31,11 +31,24 @@ qga/
 ├── HATCHER_MAP.md
 ├── SYNOPSIS.md
 ├── book/                     # manuscript (Markdown)
-├── lib/                      # pedagogical helpers (hopf_lattice for Ch. 3+)
-├── scripts/                  # figure generators
+│   ├── *.md                  # chapters 0–10, preface, HOW_TO_USE
+│   ├── figures/              # static figures
+│   ├── latex/                # PDF production (main.tex + generated chapters)
+│   └── Kingdom_Come_QGA.pdf  # latest build (also book/latex/main.pdf)
+├── lib/                      # pedagogical helpers
+├── scripts/                  # figure generators + md_to_latex + build_latex
 ├── refs/
 └── notes/
 ```
+
+### Build the PDF
+
+```bash
+./scripts/build_latex.sh
+# → book/latex/main.pdf  and  book/Kingdom_Come_QGA.pdf
+```
+
+See `book/latex/README.md` for details.
 
 ## Status
 
