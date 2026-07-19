@@ -6,7 +6,7 @@
 \addcontentsline{toc}{chapter}{How to Use the Figures and Code}
 \markboth{How to Use the Figures and Code}{}
 
-This short front-matter page is the practical companion to the Preface. It fixes the conventions used in every chapter so figures render correctly and labs stay reproducible. For navigation, start with root \texttt{TOC.md}; for Hatcher's book in parallel, use \texttt{HATCHER\_MAP.md}.
+This short front-matter page is the practical companion to the Preface. It fixes the conventions used in every chapter so figures render correctly and labs stay reproducible. For navigation, start with root \texttt{TOC.\allowbreak{}md}; for Hatcher's book in parallel, use \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -19,22 +19,23 @@ Every major claim in the manuscript is one of four kinds:
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Label & Meaning & Example \\
 \midrule
 \textbf{Theorem} & Proved in this book or classical & Four-square theorem; Hopf linking; Hurwitz class number 1 \\
 \textbf{Model} & Consistent mathematical or physical construction; not claimed as nature's unique law & Gauged Hopf lattice adjacency; flux topographs; \(Z\mapsto\) proxy \\
 \textbf{Hypothesis} & Observational claim needing validation or falsification & Multi-domain \(350/\pi\) as one topological clock \\
-\textbf{Software fact} & True of the current code or portal implementation & \texttt{map\_z\_to\_flywheel} returns \texttt{stability\_score}; there is \textbf{no} \texttt{magic\_flag} key \\
+\textbf{Software fact} & True of the current code or portal implementation & \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} returns \texttt{stability\_\allowbreak{}score}; there is \textbf{no} \texttt{magic\_\allowbreak{}flag} key \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
 \textbf{Rule of thumb.} Geometry and classical algebra \(\rightarrow\) Theorem. Lattice / topograph design choices \(\rightarrow\) Model. Portal numerics about the physical world \(\rightarrow\) Hypothesis. ``What this function returns today'' \(\rightarrow\) Software fact.
 
-Validation protocols for Hypotheses live in Chapter 10 (Table \textbf{T4}) and \texttt{lib/validation.py}.
+Validation protocols for Hypotheses live in Chapter 10 (Table \textbf{T4}) and \texttt{lib/\allowbreak{}validation.\allowbreak{}py}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -45,18 +46,19 @@ Validation protocols for Hypotheses live in Chapter 10 (Table \textbf{T4}) and \
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Path & Role \\
 \midrule
-\texttt{book/*.md} & Manuscript (Preface, HOW\_TO\_USE, Chapters 0--10) \\
-\texttt{book/figures/} & Static figures \(\cdot\) \texttt{ATTRIBUTION.md} \\
-\texttt{lib/} & Pedagogical helpers (not a replacement for Kingdom Come) \\
-\texttt{scripts/generate\_chN\_figures.py} & Regenerate chapter figures \\
-\texttt{TOC.md} \(\cdot\) \texttt{HATCHER\_MAP.md} \(\cdot\) \texttt{notes/open\_problems.md} & Navigation and open research edges \\
-https://github.com/kinaar8340/qga & Canonical remote for this book \\
+\texttt{book/\allowbreak{}*.\allowbreak{}md} & Manuscript (Preface, HOW\_TO\_USE, Chapters 0--10) \\
+\texttt{book/\allowbreak{}figures/\allowbreak{}} & Static figures \(\cdot\) \texttt{ATTRIBUTION.\allowbreak{}md} \\
+\texttt{lib/\allowbreak{}} & Pedagogical helpers (not a replacement for Kingdom Come) \\
+\texttt{scripts/\allowbreak{}generate\_\allowbreak{}chN\_\allowbreak{}figures.\allowbreak{}py} & Regenerate chapter figures \\
+\texttt{TOC.\allowbreak{}md} \(\cdot\) \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md} \(\cdot\) \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} & Navigation and open research edges \\
+\url{https://github.com/kinaar8340/qga} & Canonical remote for this book \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -64,14 +66,15 @@ https://github.com/kinaar8340/qga & Canonical remote for this book \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Resource & Location \\
 \midrule
-Kingdom Come & \texttt{\textasciitilde{}/Projects/kingdom/} \(\cdot\) https://github.com/kinaar8340/kingdom\_come \\
-Shared Hopf / quaternion core & \texttt{flux\_hopf\_lib} \\
+Kingdom Come & \texttt{\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}} \(\cdot\) \url{https://github.com/kinaar8340/kingdom_come} \\
+Shared Hopf / quaternion core & \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -82,7 +85,7 @@ Shared Hopf / quaternion core & \texttt{flux\_hopf\_lib} \\
 \section{3. Running the labs}
 \label{ch:how_to_use:3-running-the-labs}
 
-\subsection{3.1 Book helpers (\texttt{lib/})}
+\subsection{3.1 Book helpers (\texttt{lib/\allowbreak{}})}
 \label{ch:how_to_use:3-1-book-helpers-lib}
 
 From the repository root:
@@ -109,17 +112,18 @@ from lib.validation import table_t4_checklist, run_table_t4_demo
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Package & Chapters & Purpose \\
 \midrule
-\texttt{lib.hopf\_lattice} & 3--4 & Hurwitz units, angle lattice, adjacency (OP1), gauge sequences \\
-\texttt{lib.flux\_topograph} & 5--7 & Topographs, separators, classification, Magic Island scores \\
-\texttt{lib.composition} & 8 & Flywheel composition, class-group analogue (OP6) \\
-\texttt{lib.quaternion\_algebra} & 9 & Quaternion algebras, Hurwitz order, toy class number \\
-\texttt{lib.validation} & 10 & Table T4 checklist, Fisher combine, \(W_g\) diagnostics \\
+\texttt{lib.\allowbreak{}hopf\_\allowbreak{}lattice} & 3--4 & Hurwitz units, angle lattice, adjacency (OP1), gauge sequences \\
+\texttt{lib.\allowbreak{}flux\_\allowbreak{}topograph} & 5--7 & Topographs, separators, classification, Magic Island scores \\
+\texttt{lib.\allowbreak{}composition} & 8 & Flywheel composition, class-group analogue (OP6) \\
+\texttt{lib.\allowbreak{}quaternion\_\allowbreak{}algebra} & 9 & Quaternion algebras, Hurwitz order, toy class number \\
+\texttt{lib.\allowbreak{}validation} & 10 & Table T4 checklist, Fisher combine, \(W_g\) diagnostics \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -134,20 +138,21 @@ export PYTHONPATH=~/Projects/kingdom/src:~/Projects/flux_hopf_lib/src
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Chapter & Primary modules \\
 \midrule
-1 & \texttt{kingdom.core.quaternion} \\
-2 & \texttt{kingdom.core.hopf}, \texttt{kingdom.viz.hopf\_plotly} \\
-3--4 & \texttt{lib.hopf\_lattice}, \texttt{kingdom.simulations.lattice.TwoGyroLattice} \\
-5--6 & \texttt{lib.flux\_topograph} \\
-7 & \texttt{kingdom.core.flux\_flywheel} \(\cdot\) \texttt{lib.flux\_topograph.stability\_landscape\_z} \\
-8 & \texttt{lib.composition} \\
-9 & \texttt{lib.quaternion\_algebra} \\
-10 & \texttt{lib.validation} \\
+1 & \texttt{kingdom.\allowbreak{}core.\allowbreak{}quaternion} \\
+2 & \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf}, \texttt{kingdom.\allowbreak{}viz.\allowbreak{}hopf\_\allowbreak{}plotly} \\
+3--4 & \texttt{lib.\allowbreak{}hopf\_\allowbreak{}lattice}, \texttt{kingdom.\allowbreak{}simulations.\allowbreak{}lattice.\allowbreak{}TwoGyroLattice} \\
+5--6 & \texttt{lib.\allowbreak{}flux\_\allowbreak{}topograph} \\
+7 & \texttt{kingdom.\allowbreak{}core.\allowbreak{}flux\_\allowbreak{}flywheel} \(\cdot\) \texttt{lib.\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}stability\_\allowbreak{}landscape\_\allowbreak{}z} \\
+8 & \texttt{lib.\allowbreak{}composition} \\
+9 & \texttt{lib.\allowbreak{}quaternion\_\allowbreak{}algebra} \\
+10 & \texttt{lib.\allowbreak{}validation} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -158,17 +163,18 @@ These mismatch the sketch names that appear in early brainstorms; the manuscript
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Do use & Do not assume \\
 \midrule
-\texttt{stability\_score}, \texttt{stability\_class}, \texttt{is\_noble\_gas} & \texttt{magic\_flag} \\
-\texttt{TwoGyroLattice.step\_frame()} & \texttt{.step()} \\
-\texttt{hopf\_map(x1,x2,x3,x4)}, \texttt{hopf\_map\_quaternion}, \texttt{Quaternion.hopf\_image()} & \texttt{hopf\_map(q)} as a Quaternion object \\
-\texttt{sample\_fiber(...)} \(\rightarrow\) \textbf{dict} of arrays & bare list of quaternions \\
-\texttt{map\_z\_to\_flywheel} / \texttt{map\_z\_to\_flywheel\_extended} & undocumented extra keys \\
+\texttt{stability\_\allowbreak{}score}, \texttt{stability\_\allowbreak{}class}, \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas} & \texttt{magic\_\allowbreak{}flag} \\
+\texttt{TwoGyroLattice.\allowbreak{}step\_\allowbreak{}frame()} & \texttt{.\allowbreak{}step()} \\
+\texttt{hopf\_\allowbreak{}map(x1,x2,x3,x4)}, \texttt{hopf\_\allowbreak{}map\_\allowbreak{}quaternion}, \texttt{Quaternion.\allowbreak{}hopf\_\allowbreak{}image()} & \texttt{hopf\_\allowbreak{}map(q)} as a Quaternion object \\
+\texttt{sample\_\allowbreak{}fiber(.\allowbreak{}.\allowbreak{}.\allowbreak{})} \(\rightarrow\) \textbf{dict} of arrays & bare list of quaternions \\
+\texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} / \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel\_\allowbreak{}extended} & undocumented extra keys \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -180,24 +186,24 @@ Do use & Do not assume \\
 \label{ch:how_to_use:4-figures}
 
 \begin{enumerate}
-\item \textbf{Paths.} In chapter markdown, figure paths are relative to \texttt{book/}:  
+\item \textbf{Paths.} In chapter markdown, figure paths are relative to \texttt{book/\allowbreak{}}:  
 \end{enumerate}
 
-\texttt{figures/fig0\_1\_hopf\_linked\_fibers.png}.
+\texttt{figures/\allowbreak{}fig0\_\allowbreak{}1\_\allowbreak{}hopf\_\allowbreak{}linked\_\allowbreak{}fibers.\allowbreak{}png}.
 
 \begin{enumerate}
-\item \textbf{Index.} Full figure list: \texttt{book/FIGURES.md}.  
-\item \textbf{Attribution.} Sources and regenerate commands: \texttt{book/figures/ATTRIBUTION.md}.  
+\item \textbf{Index.} Full figure list: \texttt{book/\allowbreak{}FIGURES.\allowbreak{}md}.  
+\item \textbf{Attribution.} Sources and regenerate commands: \texttt{book/\allowbreak{}figures/\allowbreak{}ATTRIBUTION.\allowbreak{}md}.  
 \item \textbf{Regenerate.} From repo root:
 \end{enumerate}
 
-``\texttt{bash python3 scripts/generate\_ch1\_figures.py   \# example \# Chapters 7 and 10 may need the kingdom venv for live stability scores: \textasciitilde{}/Projects/kingdom/.venv/bin/python scripts/generate\_ch7\_figures.py }``
+``\texttt{bash python3 scripts/\allowbreak{}generate\_\allowbreak{}ch1\_\allowbreak{}figures.\allowbreak{}py   \# example \# Chapters 7 and 10 may need the kingdom venv for live stability scores:\allowbreak{} \textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}.\allowbreak{}venv/\allowbreak{}bin/\allowbreak{}python scripts/\allowbreak{}generate\_\allowbreak{}ch7\_\allowbreak{}figures.\allowbreak{}py }``
 
 \begin{enumerate}
 \item \textbf{Origins.} Chapter 0 partly vendors Kingdom Come assets; later chapters are mostly generated by the scripts above.
 \end{enumerate}
 
-Naming pattern: \texttt{fig\{N\}\_\{k\}\_...} for main figures, \texttt{aux\{N\}\_\{k\}\_...} for auxiliary figures, \texttt{aux\_z\_map\_*.png} for Z-map stills.
+Naming pattern: \texttt{fig\{N\}\_\allowbreak{}\{k\}\_\allowbreak{}.\allowbreak{}.\allowbreak{}.\allowbreak{}} for main figures, \texttt{aux\{N\}\_\allowbreak{}\{k\}\_\allowbreak{}.\allowbreak{}.\allowbreak{}.\allowbreak{}} for auxiliary figures, \texttt{aux\_\allowbreak{}z\_\allowbreak{}map\_\allowbreak{}*.\allowbreak{}png} for Z-map stills.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -208,7 +214,8 @@ Naming pattern: \texttt{fig\{N\}\_\{k\}\_...} for main figures, \texttt{aux\{N\}
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Symbol & Meaning \\
 \midrule
@@ -218,9 +225,9 @@ Symbol & Meaning \\
 \(\Lambda_{\mathrm{ang}}\) & Angle-sampled lattice (visualization density) \\
 \(\Lambda_{\mathrm{dyn}}\) & Dynamical two-gyro sites (portal) \\
 \(W_g\) & \(350/\pi\) topological clock (\textbf{Hypothesis} layer; Ch. 10) \\
-OP1--OP6 & Open problems \(\cdot\) \texttt{notes/open\_problems.md} \\
+OP1--OP6 & Open problems \(\cdot\) \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -233,19 +240,51 @@ OP1--OP6 & Open problems \(\cdot\) \texttt{notes/open\_problems.md} \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Portal tab & Primary chapters \\
 \midrule
+\textbf{Book Mode} & \textbf{0--10 map} (chapter picker \(\rightarrow\) jump + mini demos) \\
 Hopf Visualizer & 0, 2 \\
 Lattice Simulator & 3--4 \\
 Flux Flywheel & 0, 5--7, 10 \\
 Observations & 10 \\
-The Model / theory & Preface, 0 \\
+The Model / theory & Preface, 0, 8--9 (narrative; labs offline) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
+
+\subsection{6.1 Book Mode (interactive companion)}
+\label{ch:how_to_use:6-1-book-mode-interactive-companion}
+
+In the Kingdom Come portal, open the \textbf{Book Mode} tab (between Help and Hopf Visualizer):
+
+\begin{enumerate}
+\item Choose a manuscript chapter from the dropdown --- summary, claim focus, and linked live tab appear.
+\item Press \textbf{Open linked live tab} to jump the main tab bar to Hopf / Lattice / Flux / Observations / Home.
+\item Use the Part subtabs for \textbf{mini demos} (Classic Hopf snapshot, short lattice comparison, Flux Flywheel at a chosen \(Z\)) without leaving Book Mode.
+\end{enumerate}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Book Part & Live widgets \\
+\midrule
+I Foundations (Ch. 1--2) & Hopf Visualizer \\
+II Farey lift (Ch. 3--4) & Lattice Simulator \\
+III Forms / \(Z\)-map (Ch. 5--7) & Flux Flywheel \\
+IV Arithmetic (Ch. 8--9) & Home \(\cdot\) The Model (+ \texttt{lib/\allowbreak{}composition}, \texttt{lib/\allowbreak{}quaternion\_\allowbreak{}algebra}) \\
+V Observations (Ch. 10) & Observations \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+Source of the map: \texttt{kingdom/\allowbreak{}app/\allowbreak{}pages/\allowbreak{}book\_\allowbreak{}mode.\allowbreak{}py}. Portal: \url{https://github.com/kinaar8340/kingdom_come} \(\cdot\) Space: \url{https://huggingface.co/spaces/kinaar111/kingdom}
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -254,11 +293,12 @@ The Model / theory & Preface, 0 \\
 \section{7. Parallel reading with Hatcher}
 \label{ch:how_to_use:7-parallel-reading-with-hatcher}
 
-Keep \emph{Topology of Numbers} open beside this book. Full map: root \texttt{HATCHER\_MAP.md}.
+Keep \emph{Topology of Numbers} open beside this book. Full map: root \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md}.
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Hatcher TN & This book \\
 \midrule
@@ -268,7 +308,7 @@ Ch. 4--6 Forms, classification, representations & Ch. 5--7 \\
 Ch. 7--8 Class group, quadratic fields & Ch. 8--9 \\
 \emph{(no TN counterpart)} & Ch. 1--2 foundations; Ch. 10 observations \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -276,15 +316,44 @@ Ch. 7--8 Class group, quadratic fields & Ch. 8--9 \\
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{8. Suggested first hour}
-\label{ch:how_to_use:8-suggested-first-hour}
+\section{8. Appendices (expanded back matter)}
+\label{ch:how_to_use:8-appendices-expanded-back-matter}
+
+Long listings and reference material live in appendices so the main chapters stay readable:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+App & Content \\
+\midrule
+\textbf{A} & Terminology and notation \\
+\textbf{B} & Open Problems OP1--OP6 (full statements) \\
+\textbf{C} & Laboratory code reference (full listings) \\
+\textbf{D} & Table T4 validation protocols (full) \\
+\textbf{E} & Figure atlas \\
+\textbf{F} & Hatcher parallel dictionary \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+Chapters keep short lab ``calls'' and point here for copy-paste scripts.
+
+\bigskip
+\noindent\rule{\textwidth}{0.4pt}
+\bigskip
+
+\section{9. Suggested first hour}
+\label{ch:how_to_use:9-suggested-first-hour}
 
 \begin{enumerate}
 \item Read the Preface and this page.  
-\item Open Chapter 0; confirm figures render under \texttt{book/figures/}.  
-\item Run \texttt{from lib.hopf\_lattice import HURWITZ\_UNITS} (expect 24).  
+\item Open Chapter 0; confirm figures render under \texttt{book/\allowbreak{}figures/\allowbreak{}}.  
+\item Run \texttt{from lib.\allowbreak{}hopf\_\allowbreak{}lattice import HURWITZ\_\allowbreak{}UNITS} (expect 24).  
 \item Optionally open the Gradio Hopf Visualizer and match panels to Figures 0.1--0.3 / Chapter 2.  
-\item When ready for research edges, skim \texttt{notes/open\_problems.md} (OP1--OP6).
+\item When ready for research edges, skim \textbf{Appendix B} (or \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md}).
 \end{enumerate}
 
 \bigskip

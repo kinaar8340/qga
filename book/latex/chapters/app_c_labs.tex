@@ -326,17 +326,18 @@ print(proximity_to_wg([111.4, 111.5, 110.0, 111.408]))
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Symptom & Fix \\
 \midrule
-\texttt{ModuleNotFoundError: lib} & \texttt{sys.path} or run from repo root \\
-\texttt{ModuleNotFoundError: kingdom} & Set \texttt{PYTHONPATH} or use kingdom venv \\
-\texttt{magic\_flag} KeyError & Use \texttt{stability\_score} / \texttt{is\_noble\_gas} \\
-\texttt{step} AttributeError & Use \texttt{step\_frame()} \\
-Slow \texttt{enumerate\_reduced} & Smaller lattices (\texttt{n\_eta\textbackslash{}(\textbackslash{}leq\textbackslash{})3}, \texttt{n\_xi\textbackslash{}(\textbackslash{}leq\textbackslash{})10}) \\
+\texttt{ModuleNotFoundError:\allowbreak{} lib} & \texttt{sys.\allowbreak{}path} or run from repo root \\
+\texttt{ModuleNotFoundError:\allowbreak{} kingdom} & Set \texttt{PYTHONPATH} or use kingdom venv \\
+\texttt{magic\_\allowbreak{}flag} KeyError & Use \texttt{stability\_\allowbreak{}score} / \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas} \\
+\texttt{step} AttributeError & Use \texttt{step\_\allowbreak{}frame()} \\
+Slow \texttt{enumerate\_\allowbreak{}reduced} & Smaller lattices (\texttt{n\_\allowbreak{}eta\textbackslash{}(\textbackslash{}leq\textbackslash{})3}, \texttt{n\_\allowbreak{}xi\textbackslash{}(\textbackslash{}leq\textbackslash{})10}) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 

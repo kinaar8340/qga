@@ -20,17 +20,18 @@ This chapter lifts Gauss composition of binary quadratic forms and the ideal cla
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 8.1 & \texttt{figures/fig8\_1\_gauss\_composition.png} & Classical Gauss composition diagram \\
-Fig. 8.2 & \texttt{figures/fig8\_2\_flywheel\_composition.png} & Composition of two flux topographs \\
-Fig. 8.3 & \texttt{figures/fig8\_3\_class\_group\_analogue.png} & Class-group analogue on the lattice \\
-Fig. 8.4 & \texttt{figures/fig8\_4\_island\_from\_class.png} & Magic Island from class-group data \\
-Aux A8.1 & \texttt{figures/aux8\_1\_composition\_table.png} & Small composition table \\
+Fig. 8.1 & \texttt{figures/\allowbreak{}fig8\_\allowbreak{}1\_\allowbreak{}gauss\_\allowbreak{}composition.\allowbreak{}png} & Classical Gauss composition diagram \\
+Fig. 8.2 & \texttt{figures/\allowbreak{}fig8\_\allowbreak{}2\_\allowbreak{}flywheel\_\allowbreak{}composition.\allowbreak{}png} & Composition of two flux topographs \\
+Fig. 8.3 & \texttt{figures/\allowbreak{}fig8\_\allowbreak{}3\_\allowbreak{}class\_\allowbreak{}group\_\allowbreak{}analogue.\allowbreak{}png} & Class-group analogue on the lattice \\
+Fig. 8.4 & \texttt{figures/\allowbreak{}fig8\_\allowbreak{}4\_\allowbreak{}island\_\allowbreak{}from\_\allowbreak{}class.\allowbreak{}png} & Magic Island from class-group data \\
+Aux A8.1 & \texttt{figures/\allowbreak{}aux8\_\allowbreak{}1\_\allowbreak{}composition\_\allowbreak{}table.\allowbreak{}png} & Small composition table \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -38,15 +39,16 @@ Aux A8.1 & \texttt{figures/aux8\_1\_composition\_table.png} & Small composition 
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
 Classical Gauss composition and ideal class groups (Hatcher Ch. 7--8) & \textbf{Theorem} (cited) \\
 Composition of flux configurations / flywheels; class-group analogues & \textbf{Model} (core of OP6) \\
-\texttt{qga/lib/composition.py} helpers & \textbf{Software fact} \\
+\texttt{qga/\allowbreak{}lib/\allowbreak{}composition.\allowbreak{}py} helpers & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -84,16 +86,17 @@ On the gauged Hopf lattice we define a \textbf{composition} of two flux topograp
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Method (code) & Rule \\
 \midrule
-\texttt{value\_sum} & Pointwise average of values; averaged then renormed points \\
-\texttt{value\_product} & Pointwise product (scaled) \\
-\texttt{value\_bilinear} & Soft bilinear blend \((V_a+V_b+V_a V_b)/3\) \\
-\texttt{point\_mult} & Quaternion multiply corresponding lattice points; recompute functional \\
+\texttt{value\_\allowbreak{}sum} & Pointwise average of values; averaged then renormed points \\
+\texttt{value\_\allowbreak{}product} & Pointwise product (scaled) \\
+\texttt{value\_\allowbreak{}bilinear} & Soft bilinear blend \((V_a+V_b+V_a V_b)/3\) \\
+\texttt{point\_\allowbreak{}mult} & Quaternion multiply corresponding lattice points; recompute functional \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -109,7 +112,7 @@ reduce_composition(composed) -> topograph, classification, magic_island_score
   \label{fig:fig8-2-flywheel-composition}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 8.2.* \(\Phi_1\), \(\Phi_2\), and \(\mathrm{reduce}(\Phi_1*\Phi_2)\) for the pedagogical \texttt{value\_sum} method.}\end{quote}
+\begin{quote}\small\textit{Figure 8.2.* \(\Phi_1\), \(\Phi_2\), and \(\mathrm{reduce}(\Phi_1*\Phi_2)\) for the pedagogical \texttt{value\_\allowbreak{}sum} method.}\end{quote}
 
 \textbf{Honest status.} On current candidate adjacency and modest angle lattices, composition tables often show \textbf{poor closure} and \textbf{low associativity scores} (\textbf{Software fact} from the sandbox). That is not a failure of the chapter---it is the experimental content of \textbf{Open Problem 6}.
 
@@ -121,7 +124,7 @@ reduce_composition(composed) -> topograph, classification, magic_island_score
 \item Produces a finite (or finitely generated) abelian group whose order/structure predicts Magic Island counts?
 \end{enumerate}
 
-Sandbox: \texttt{qga/lib/composition.py}. Depends on OP1--OP3.
+Sandbox: \texttt{qga/\allowbreak{}lib/\allowbreak{}composition.\allowbreak{}py}. Depends on OP1--OP3.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -130,7 +133,7 @@ Sandbox: \texttt{qga/lib/composition.py}. Depends on OP1--OP3.
 \section{8.3 Class-group analogues}
 \label{ch:ch08_class_group:8-3-class-group-analogues}
 
-The set of equivalence classes of reduced flux topographs, equipped with a composition law, forms a \textbf{class-group analogue}. Its order is a \textbf{class-number analogue}---related to Chapter 6's \texttt{class\_number\_analogue}, now enriched by composition tables and associativity diagnostics.
+The set of equivalence classes of reduced flux topographs, equipped with a composition law, forms a \textbf{class-group analogue}. Its order is a \textbf{class-number analogue}---related to Chapter 6's \texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}, now enriched by composition tables and associativity diagnostics.
 
 \begin{lstlisting}[style=qga]
 class_group_analogue(topo_or_list, method=..., dedup_tol=...)
@@ -147,9 +150,9 @@ is_associative_up_to_equivalence(reduced_set, samples=...)
   \label{fig:fig8-3-class-group-analogue}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 8.3.* Equivalence classes with composition arrows, plus a numerical composition table. \texttt{structure} strings such as \texttt{partial\_magma} or \texttt{open\_or\_non\_closed} flag OP6 incompleteness.}\end{quote}
+\begin{quote}\small\textit{Figure 8.3.* Equivalence classes with composition arrows, plus a numerical composition table. \texttt{structure} strings such as \texttt{partial\_\allowbreak{}magma} or \texttt{open\_\allowbreak{}or\_\allowbreak{}non\_\allowbreak{}closed} flag OP6 incompleteness.}\end{quote}
 
-Magic Islands can be viewed as \textbf{distinguished classes} (or clusters of classes) where composition yields high \texttt{magic\_island\_score} or high portal \texttt{stability\_score}. Predicting islands from group structure alone is OP3 ? OP6.
+Magic Islands can be viewed as \textbf{distinguished classes} (or clusters of classes) where composition yields high \texttt{magic\_\allowbreak{}island\_\allowbreak{}score} or high portal \texttt{stability\_\allowbreak{}score}. Predicting islands from group structure alone is OP3 ? OP6.
 
 \begin{figure}[htbp]
   \centering
@@ -176,13 +179,13 @@ Magic Islands can be viewed as \textbf{distinguished classes} (or clusters of cl
 \section{8.4 First computational labs}
 \label{ch:ch08_class_group:8-4-first-computational-labs}
 
-Helpers: \texttt{lib/composition.py} \(\cdot\) \textbf{Appendix C ?C.4}.
+Helpers: \texttt{lib/\allowbreak{}composition.\allowbreak{}py} \(\cdot\) \textbf{Appendix C ?C.4}.
 
 \begin{itemize}
-\item \textbf{8.A} \texttt{compose\_flywheels} + \texttt{reduce\_composition}.
-\item \textbf{8.B} \texttt{composition\_table} / \texttt{closure\_fraction}.
-\item \textbf{8.C} \texttt{class\_group\_analogue} order and structure.
-\item \textbf{8.D} \texttt{is\_associative\_up\_to\_equivalence} (expect low scores --- OP6 data).
+\item \textbf{8.A} \texttt{compose\_\allowbreak{}flywheels} + \texttt{reduce\_\allowbreak{}composition}.
+\item \textbf{8.B} \texttt{composition\_\allowbreak{}table} / \texttt{closure\_\allowbreak{}fraction}.
+\item \textbf{8.C} \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue} order and structure.
+\item \textbf{8.D} \texttt{is\_\allowbreak{}associative\_\allowbreak{}up\_\allowbreak{}to\_\allowbreak{}equivalence} (expect low scores --- OP6 data).
 \item \textbf{8.E} Optional: compare composition methods.
 \end{itemize}
 
@@ -203,7 +206,7 @@ from lib.composition import compose_flywheels, reduce_composition
 
 \textbf{8.B (hand).} Why is associativity (up to equivalence) the key property needed for a class-group analogue?
 
-\textbf{8.C (code).} Complete Labs 8.A--8.B. Report the type of the composed configuration and the composition table's \texttt{closure\_fraction}.
+\textbf{8.C (code).} Complete Labs 8.A--8.B. Report the type of the composed configuration and the composition table's \texttt{closure\_\allowbreak{}fraction}.
 
 \textbf{8.D (code).} Complete Lab 8.C. What is the size of the class-group analogue on your seed topograph?
 
@@ -211,11 +214,11 @@ from lib.composition import compose_flywheels, reduce_composition
 
 \textbf{8.F (Hatcher bridge).} In Hatcher, the class group encodes the failure of unique factorization in quadratic fields. Sketch how a class-group analogue on the Hopf lattice might encode ``failure of unique representation'' by stable flywheels / \(Z\)-map preimages.
 
-\textbf{8.G (Open Problem 6 teaser).} Using \texttt{compose\_flywheels} and \texttt{is\_associative\_up\_to\_equivalence}, test associativity on the current candidate adjacency. Document numerical failures---they \emph{are} OP6 progress.
+\textbf{8.G (Open Problem 6 teaser).} Using \texttt{compose\_\allowbreak{}flywheels} and \texttt{is\_\allowbreak{}associative\_\allowbreak{}up\_\allowbreak{}to\_\allowbreak{}equivalence}, test associativity on the current candidate adjacency. Document numerical failures---they \emph{are} OP6 progress.
 
 \textbf{8.H (forward).} Why will the quaternion algebra theory of Chapter 9 be the natural home for a rigorous version of these class groups?
 
-\textbf{8.I (software honesty).} Distinguish: (i) classical class groups (\textbf{Theorem}), (ii) \texttt{class\_group\_analogue} outputs (\textbf{Model} + software), (iii) any claim that Magic Islands \emph{are} class groups of a quaternion order (\textbf{Hypothesis} until proved).
+\textbf{8.I (software honesty).} Distinguish: (i) classical class groups (\textbf{Theorem}), (ii) \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue} outputs (\textbf{Model} + software), (iii) any claim that Magic Islands \emph{are} class groups of a quaternion order (\textbf{Hypothesis} until proved).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -231,7 +234,7 @@ qga/lib/hopf_lattice.py
 kingdom.core.flux_flywheel   # optional cross-check with Z stability
 \end{lstlisting}
 
-\textbf{Figures:} \texttt{scripts/generate\_ch8\_figures.py} \textbf{Open problems:} OP6 (this chapter); depends on OP1--OP3. \textbf{Related portal:} no dedicated composition tab yet---Lattice Simulator / Flux Flywheel remain dynamical counterparts.
+\textbf{Figures:} \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch8\_\allowbreak{}figures.\allowbreak{}py} \textbf{Open problems:} OP6 (this chapter); depends on OP1--OP3. \textbf{Related portal:} no dedicated composition tab yet---Lattice Simulator / Flux Flywheel remain dynamical counterparts.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

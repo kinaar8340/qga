@@ -6,7 +6,7 @@
 
 Pre-registered validation machinery for Part V Hypotheses. Chapter 10 keeps a short summary; this appendix is the full checklist, hypothesis catalog, and demo usage.
 
-Helpers: \texttt{lib/validation.py}.
+Helpers: \texttt{lib/\allowbreak{}validation.\allowbreak{}py}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -17,7 +17,8 @@ Helpers: \texttt{lib/validation.py}.
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 ID & Element & Description \\
 \midrule
@@ -30,7 +31,7 @@ T4.6 & Falsification criteria & What result counts as strong evidence against th
 T4.7 & Pre-registration & Timestamped commit or external registry \textbf{before} looking at new data. \\
 T4.8 & Reproducibility & Full code, seeds, and environment for every figure and table. \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -47,14 +48,15 @@ for row in table_t4_checklist():
 \section{D.2 Catalog of major hypotheses}
 \label{ch:app_d_validation:d-2-catalog-of-major-hypotheses}
 
-These match \texttt{default\_hypotheses()} in code.
+These match \texttt{default\_\allowbreak{}hypotheses()} in code.
 
 \subsection{H1 --- Multi-domain \(350/\pi\)}
 \label{ch:app_d_validation:h1-multi-domain-350-pi}
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Field & Content \\
 \midrule
@@ -62,12 +64,12 @@ Field & Content \\
 \textbf{Type} & Hypothesis \\
 \textbf{Null} & Recurrence near \(350/\pi\) is consistent with random coincidence at \(\alpha=0.01\). \\
 \textbf{Domains} & pulsar timing; Bitcoin Pi Cycle; TLS trees; cuprate SC sketches; structural constants \\
-\textbf{Sources} & \texttt{kingdom/observations/}; portal Observations tab; related assets \\
+\textbf{Sources} & \texttt{kingdom/\allowbreak{}observations/\allowbreak{}}; portal Observations tab; related assets \\
 \textbf{Statistic} & Combined \(p\)-value or topological distance to model sequences \\
 \textbf{Correction} & Bonferroni \\
 \textbf{Falsification} & Fail to reject \(H_0\) after pre-registration + correction; or independent replication finds no excess clustering \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -76,18 +78,19 @@ Field & Content \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Field & Content \\
 \midrule
-\textbf{Claim} & \texttt{map\_z\_to\_flywheel} stability peaks reflect genuine chemical/nuclear specialness beyond model tuning. \\
+\textbf{Claim} & \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} stability peaks reflect genuine chemical/nuclear specialness beyond model tuning. \\
 \textbf{Type} & Hypothesis \\
 \textbf{Null} & High scores near noble gases are explained by explicit model bonuses alone (no extra predictive content). \\
 \textbf{Domains} & periodic table; ionization energy; nuclear magic numbers \\
 \textbf{Statistic} & Out-of-sample correlation or ablation study \\
 \textbf{Falsification} & Ablating noble-gas bonuses removes all predictive alignment; held-out properties not above chance \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -96,18 +99,19 @@ Field & Content \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Field & Content \\
 \midrule
 \textbf{Claim} & Magic Island structure is predicted by class-number-like invariants. \\
 \textbf{Type} & Hypothesis \\
-\textbf{Null} & Island locations independent of \texttt{class\_number\_analogue}. \\
+\textbf{Null} & Island locations independent of \texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}. \\
 \textbf{Statistic} & Association / rank correlation \\
 \textbf{Correction} & FDR \\
 \textbf{Falsification} & No significant association after pre-registration \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -145,7 +149,7 @@ print(demo["decision"], demo["fisher"])
 print(proximity_to_wg([111.4, 111.5, 110.0, 111.408]))
 \end{lstlisting}
 
-Under the \textbf{null toy} generator, expect frequent \texttt{fail\_to\_reject\_H0}. Real domain \(p\)-values without pre-registration do \textbf{not} count as T4 success.
+Under the \textbf{null toy} generator, expect frequent \texttt{fail\_\allowbreak{}to\_\allowbreak{}reject\_\allowbreak{}H0}. Real domain \(p\)-values without pre-registration do \textbf{not} count as T4 success.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -175,15 +179,16 @@ Figure 10.4 in Chapter 10 is the visual summary of this flow.
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Statement & Label \\
 \midrule
 ``Table T4 exists in the repo'' & \textbf{Software fact} \\
-``Hypothesis \(X\) passed T4'' & \textbf{Hypothesis} until full checklist executed and reviewed \\
-``\(W_g\) is a law of nature'' & \textbf{Hypothesis} (not default) \\
+``Hypothesis \(X\) passed T4`` & \textbf{Hypothesis} until full checklist executed and reviewed \\
+``\(W_g\) is a law of nature`` & \textbf{Hypothesis} (not default) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 

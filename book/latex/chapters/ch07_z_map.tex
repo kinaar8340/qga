@@ -20,17 +20,18 @@ This chapter connects the classified flux topographs and Magic Islands of Chapte
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 7.1 & \texttt{figures/fig7\_1\_z\_to\_flywheel.png} & Schematic of the \(Z \mapsto\) flux map \\
-Fig. 7.2 & \texttt{figures/fig7\_2\_magic\_island\_periodic\_table.png} & Magic Island scores on a schematic table \\
-Fig. 7.3 & \texttt{figures/fig7\_3\_stability\_vs\_z.png} & \texttt{stability\_score} vs \(Z\) (portal data) \\
-Fig. 7.4 & \texttt{figures/fig7\_4\_electron\_cloud\_flux.png} & Electron cloud as flux distribution \\
-Aux A7.1 & \texttt{figures/aux7\_1\_he\_fe\_au\_stills.png} & He, Fe, Au flywheel stills \\
+Fig. 7.1 & \texttt{figures/\allowbreak{}fig7\_\allowbreak{}1\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel.\allowbreak{}png} & Schematic of the \(Z \mapsto\) flux map \\
+Fig. 7.2 & \texttt{figures/\allowbreak{}fig7\_\allowbreak{}2\_\allowbreak{}magic\_\allowbreak{}island\_\allowbreak{}periodic\_\allowbreak{}table.\allowbreak{}png} & Magic Island scores on a schematic table \\
+Fig. 7.3 & \texttt{figures/\allowbreak{}fig7\_\allowbreak{}3\_\allowbreak{}stability\_\allowbreak{}vs\_\allowbreak{}z.\allowbreak{}png} & \texttt{stability\_\allowbreak{}score} vs \(Z\) (portal data) \\
+Fig. 7.4 & \texttt{figures/\allowbreak{}fig7\_\allowbreak{}4\_\allowbreak{}electron\_\allowbreak{}cloud\_\allowbreak{}flux.\allowbreak{}png} & Electron cloud as flux distribution \\
+Aux A7.1 & \texttt{figures/\allowbreak{}aux7\_\allowbreak{}1\_\allowbreak{}he\_\allowbreak{}fe\_\allowbreak{}au\_\allowbreak{}stills.\allowbreak{}png} & He, Fe, Au flywheel stills \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -38,7 +39,8 @@ Aux A7.1 & \texttt{figures/aux7\_1\_he\_fe\_au\_stills.png} & He, Fe, Au flywhee
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
@@ -46,9 +48,9 @@ Four-square theorem and classical representation by norms (Ch. 1) & \textbf{Theo
 Existence and implementation of the coded \(Z \mapsto\) map & \textbf{Software fact} \\
 Map as representation theory; Magic Islands as periodic-table proxy; physical emergence & \textbf{Model} \\
 Any claim that topology \emph{derives} real chemistry as a law of nature & \textbf{Hypothesis} (Ch. 10 validation) \\
-\texttt{map\_z\_to\_flywheel[\_extended]} metrics & \textbf{Software fact} \\
+\texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel[\_\allowbreak{}extended]} metrics & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -77,18 +79,19 @@ Z \;\longmapsto\;
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Function & Role \\
 \midrule
-\texttt{map\_z\_to\_flywheel(z)} & Core map: detuning, gauge params, \texttt{stability\_score}, class labels \\
-\texttt{map\_z\_to\_flywheel\_extended(z)} & Adds alignment, IE proxies, magnetic-moment validation fields \\
+\texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel(z)} & Core map: detuning, gauge params, \texttt{stability\_\allowbreak{}score}, class labels \\
+\texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel\_\allowbreak{}extended(z)} & Adds alignment, IE proxies, magnetic-moment validation fields \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
-There is still \textbf{no} \texttt{magic\_flag} key. Treat high \texttt{stability\_score}, noble-gas class strings, and \texttt{is\_noble\_gas=True} as the Model's island indicators.
+There is still \textbf{no} \texttt{magic\_\allowbreak{}flag} key. Treat high \texttt{stability\_\allowbreak{}score}, noble-gas class strings, and \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas=True} as the Model's island indicators.
 
 The map is built on the gauged Hopf lattice and flux-topograph language of previous chapters. Different detuning parameters select different stability islands; a documented ultra-stable lock (Magic Island Sweep reference in portal notes) serves as a noble-gas-like template.
 
@@ -125,20 +128,21 @@ Here we ask an analogous \textbf{Model} question:
 
 > Which atomic numbers \(Z\) are ``represented'' by stable flux configurations on the gauged Hopf lattice?
 
-Stable flywheels correspond to reduced configurations with high \texttt{magic\_island\_score} (Chapter 6) and high portal \texttt{stability\_score}. The map therefore selects, for each \(Z\), a configuration (or orbit) intended to match observed chemical/nuclear specialness.
+Stable flywheels correspond to reduced configurations with high \texttt{magic\_\allowbreak{}island\_\allowbreak{}score} (Chapter 6) and high portal \texttt{stability\_\allowbreak{}score}. The map therefore selects, for each \(Z\), a configuration (or orbit) intended to match observed chemical/nuclear specialness.
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Classical & Quaternionic / Hopf Model \\
 \midrule
 Form \(f\) & Lattice + gauge group + flux functional \\
 Represented integer \(n\) & Atomic number \(Z\) (and related quantum numbers) \\
 Class / genus of forms & Equivalence class of topographs / flywheels \\
-Class number & \texttt{class\_number\_analogue} / island counts (Ch. 6) \\
+Class number & \texttt{class\_\allowbreak{}number\_\allowbreak{}analogue} / island counts (Ch. 6) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -151,7 +155,7 @@ This is a \textbf{representation-theoretic reading}, not a theorem that every ch
   \label{fig:fig7-2-magic-island-periodic-table}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 7.2.* Cells colored by portal \texttt{stability\_score}; blue borders mark noble-gas \(Z\). Layout is a simplified table for visualization (f-block truncated)---software + Model.}\end{quote}
+\begin{quote}\small\textit{Figure 7.2.* Cells colored by portal \texttt{stability\_\allowbreak{}score}; blue borders mark noble-gas \(Z\). Layout is a simplified table for visualization (f-block truncated)---software + Model.}\end{quote}
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -168,7 +172,7 @@ In the working Model, Magic Islands correlate with:
 \item (in extended fields) partial alignment with experimental ionization energies and magnetic proxies.
 \end{itemize}
 
-High \texttt{stability\_score} near \(Z=2,10,18,\ldots\) illustrates island structure in the current implementation. Mid-table elements (e.g. Fe, \(Z=26\)) may score lower even when chemically important---reminding us that the Model is a \textbf{proxy}, not a complete chemistry engine.
+High \texttt{stability\_\allowbreak{}score} near \(Z=2,10,18,\ldots\) illustrates island structure in the current implementation. Mid-table elements (e.g. Fe, \(Z=26\)) may score lower even when chemically important---reminding us that the Model is a \textbf{proxy}, not a complete chemistry engine.
 
 \begin{figure}[htbp]
   \centering
@@ -177,11 +181,11 @@ High \texttt{stability\_score} near \(Z=2,10,18,\ldots\) illustrates island stru
   \label{fig:fig7-3-stability-vs-z}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 7.3.* Portal data: \texttt{stability\_score} vs atomic number. Gold: noble-gas \(Z\); green: Fe; dashed: high-stability threshold used in labs.}\end{quote}
+\begin{quote}\small\textit{Figure 7.3.* Portal data: \texttt{stability\_\allowbreak{}score} vs atomic number. Gold: noble-gas \(Z\); green: Fe; dashed: high-stability threshold used in labs.}\end{quote}
 
-\textbf{Claim type.} Curve and peaks as outputs of \texttt{map\_z\_to\_flywheel}: \textbf{Software fact}. Physical explanation of real chemistry/nuclear magic numbers: \textbf{Model} / \textbf{Hypothesis} pending Chapter 10 protocols.
+\textbf{Claim type.} Curve and peaks as outputs of \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel}: \textbf{Software fact}. Physical explanation of real chemistry/nuclear magic numbers: \textbf{Model} / \textbf{Hypothesis} pending Chapter 10 protocols.
 
-\textbf{Open Problem 4 (shared with Ch. 10).} Up to gauge, is the map \(Z\mapsto\) flywheel configuration unique under stated axioms? If not, classify the ambiguity and its chemical consequences. See \texttt{notes/open\_problems.md}.
+\textbf{Open Problem 4 (shared with Ch. 10).} Up to gauge, is the map \(Z\mapsto\) flywheel configuration unique under stated axioms? If not, classify the ambiguity and its chemical consequences. See \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -190,7 +194,7 @@ High \texttt{stability\_score} near \(Z=2,10,18,\ldots\) illustrates island stru
 \section{7.4 Electron clouds as flux distributions}
 \label{ch:ch07_z_map:7-4-electron-clouds-as-flux-distributions}
 
-The portal renders each \(Z\) with shell-like clouds whose geometry is tied to the underlying flux flywheel (stylized 2D density + flux ring; see \texttt{kingdom.viz.electron\_cloud}). These are visual counterparts of classical electron-cloud pictures, generated from Model flux rather than from solving the Schr?dinger equation.
+The portal renders each \(Z\) with shell-like clouds whose geometry is tied to the underlying flux flywheel (stylized 2D density + flux ring; see \texttt{kingdom.\allowbreak{}viz.\allowbreak{}electron\_\allowbreak{}cloud}). These are visual counterparts of classical electron-cloud pictures, generated from Model flux rather than from solving the Schr?dinger equation.
 
 \begin{figure}[htbp]
   \centering
@@ -208,7 +212,7 @@ The portal renders each \(Z\) with shell-like clouds whose geometry is tied to t
   \label{fig:aux7-1-he-fe-au-stills}
 \end{figure}
 
-\begin{quote}\small\textit{Auxiliary Figure A7.1.* Portal Flux Flywheel stills: He (\(Z=2\), closed-shell archetype), Fe (\(Z=26\), mid-table), Au (\(Z=79\), heavy comparison). Sources: \texttt{kingdom/z\_knowns/frame\_0002.png}, \texttt{frame\_0026.png}, \texttt{frame\_0079.png}.}\end{quote}
+\begin{quote}\small\textit{Auxiliary Figure A7.1.* Portal Flux Flywheel stills: He (\(Z=2\), closed-shell archetype), Fe (\(Z=26\), mid-table), Au (\(Z=79\), heavy comparison). Sources: \texttt{kingdom/\allowbreak{}z\_\allowbreak{}knowns/\allowbreak{}frame\_\allowbreak{}0002.\allowbreak{}png}, \texttt{frame\_\allowbreak{}0026.\allowbreak{}png}, \texttt{frame\_\allowbreak{}0079.\allowbreak{}png}.}\end{quote}
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -217,11 +221,11 @@ The portal renders each \(Z\) with shell-like clouds whose geometry is tied to t
 \section{7.5 First computational labs}
 \label{ch:ch07_z_map:7-5-first-computational-labs}
 
-Portal: \texttt{map\_z\_to\_flywheel[\_extended]} \(\cdot\) \texttt{stability\_landscape\_z} \(\cdot\) \textbf{Appendix C ?C.3}.
+Portal: \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel[\_\allowbreak{}extended]} \(\cdot\) \texttt{stability\_\allowbreak{}landscape\_\allowbreak{}z} \(\cdot\) \textbf{Appendix C ?C.3}.
 
 \begin{itemize}
 \item \textbf{7.A} Scores for \(Z\in\{2,10,26,79,118\}\).
-\item \textbf{7.B} \texttt{stability\_landscape\_z(z\_range=(1,50))} high islands.
+\item \textbf{7.B} \texttt{stability\_\allowbreak{}landscape\_\allowbreak{}z(z\_\allowbreak{}range=(1,50))} high islands.
 \item \textbf{7.C} Noble vs neighbors (\(Z=10,11,12\)).
 \item \textbf{7.D} Gradio Flux Flywheel / Aux A7.1.
 \item \textbf{7.E} Extended fields He vs Fe.
@@ -243,7 +247,7 @@ print(map_z_to_flywheel(2)["stability_score"], map_z_to_flywheel(2).get("is_nobl
 
 \textbf{7.B (hand).} Why might Magic Islands near noble-gas \(Z\) be especially stable in the Model? Connect to closed-shell ideas and Chapter 6 reduced configurations.
 
-\textbf{7.C (code).} Complete Labs 7.A--7.B. Tabulate \texttt{stability\_score} and \texttt{is\_noble\_gas} for \(Z=1\) to \(30\). Identify the strongest islands.
+\textbf{7.C (code).} Complete Labs 7.A--7.B. Tabulate \texttt{stability\_\allowbreak{}score} and \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas} for \(Z=1\) to \(30\). Identify the strongest islands.
 
 \textbf{7.D (code).} Complete Lab 7.E for \(Z=2\) and \(Z=26\). What differences appear in extended fields?
 
@@ -272,7 +276,7 @@ kingdom.viz.electron_cloud.build_electron_cloud_figure
 kingdom/z_knowns/frame_XXXX.png   # flywheel stills
 \end{lstlisting}
 
-\textbf{Figures:} \texttt{scripts/generate\_ch7\_figures.py} \textbf{Related portal:} Flux Flywheel tab (interactive \(Z\) slider). \textbf{Open problems:} OP4 (uniqueness); OP3 (island invariants); OP5 (\(350/\pi\), Ch. 10).
+\textbf{Figures:} \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch7\_\allowbreak{}figures.\allowbreak{}py} \textbf{Related portal:} Flux Flywheel tab (interactive \(Z\) slider). \textbf{Open problems:} OP4 (uniqueness); OP3 (island invariants); OP5 (\(350/\pi\), Ch. 10).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

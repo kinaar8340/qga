@@ -57,7 +57,7 @@ As a real vector space,
 \[
 \mathbb{H} \;\cong\; \mathbb{R}^4,
 \]
-with basis \(\{1,i,j,k\}\). Addition and scalar multiplication are componentwise. The interesting structure is the bilinear product determined by the table above.
+with basis \(\{1,i,j,k\}\). Addition and scalar multiplication are componentwise. The interesting structure is the bilinear product determined by the table below.
 
 ![Figure 1.1 — Quaternion imaginary units and multiplication table.](figures/fig1_1_ijk_multiplication.png)
 

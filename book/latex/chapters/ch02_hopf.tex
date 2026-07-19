@@ -14,25 +14,26 @@ This chapter defines the Hopf fibration from first principles and rebuilds the v
 \item Work with stereographic projections and the visualizations used throughout the book.  
 \item Recognize the bundle structure and basic charts.  
 \item Connect the fibration back to unit quaternions and forward to the discrete lattice.  
-\item Run labs with \texttt{kingdom.core.hopf} and the Gradio Hopf Visualizer.
+\item Run labs with \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf} and the Gradio Hopf Visualizer.
 \end{enumerate}
 
 \textbf{Figures in this chapter}
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 2.1 & \texttt{figures/fig2\_1\_hopf\_definition.png} & Hopf map diagram (total space \(\rightarrow\) base) \\
-Fig. 2.2 & \texttt{figures/fig2\_2\_linked\_fibers.png} & Linked Hopf fibers (stereographic) --- rebuild of Fig. 0.1 \\
-Fig. 2.3 & \texttt{figures/fig2\_3\_stereographic\_preview.png} & Multi-panel stereographic preview --- rebuild of Fig. 0.2 \\
-Fig. 2.4 & \texttt{figures/fig2\_4\_bundle\_structure.png} & Total space \(\rightarrow\) base with fibers --- rebuild of Fig. 0.3 \\
-Aux A2.1 & \texttt{figures/aux2\_1\_fiber\_phase\_sweep.png} & Single fiber phase sweep \\
-Aux A2.2 & \texttt{figures/aux2\_2\_hopf\_charts.png} & Local charts on base \(S^2\) \\
+Fig. 2.1 & \texttt{figures/\allowbreak{}fig2\_\allowbreak{}1\_\allowbreak{}hopf\_\allowbreak{}definition.\allowbreak{}png} & Hopf map diagram (total space \(\rightarrow\) base) \\
+Fig. 2.2 & \texttt{figures/\allowbreak{}fig2\_\allowbreak{}2\_\allowbreak{}linked\_\allowbreak{}fibers.\allowbreak{}png} & Linked Hopf fibers (stereographic) --- rebuild of Fig. 0.1 \\
+Fig. 2.3 & \texttt{figures/\allowbreak{}fig2\_\allowbreak{}3\_\allowbreak{}stereographic\_\allowbreak{}preview.\allowbreak{}png} & Multi-panel stereographic preview --- rebuild of Fig. 0.2 \\
+Fig. 2.4 & \texttt{figures/\allowbreak{}fig2\_\allowbreak{}4\_\allowbreak{}bundle\_\allowbreak{}structure.\allowbreak{}png} & Total space \(\rightarrow\) base with fibers --- rebuild of Fig. 0.3 \\
+Aux A2.1 & \texttt{figures/\allowbreak{}aux2\_\allowbreak{}1\_\allowbreak{}fiber\_\allowbreak{}phase\_\allowbreak{}sweep.\allowbreak{}png} & Single fiber phase sweep \\
+Aux A2.2 & \texttt{figures/\allowbreak{}aux2\_\allowbreak{}2\_\allowbreak{}hopf\_\allowbreak{}charts.\allowbreak{}png} & Local charts on base \(S^2\) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -40,15 +41,16 @@ Aux A2.2 & \texttt{figures/aux2\_2\_hopf\_charts.png} & Local charts on base \(S
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
 Hopf fibration definition, fiber structure, linking (Hopf invariant \(=1\)); double cover \(\mathrm{Spin}(3)\to SO(3)\) from Ch. 1 & \textbf{Theorem} (classical differential topology / geometry) \\
 Interpreting the Hopf fibration as a higher-dimensional ``Farey analogue'' for the gauged lattice & \textbf{Model} \\
-Kingdom Come visualizations and \texttt{kingdom.core.hopf} / \texttt{flux\_hopf\_lib} implementations & \textbf{Software fact} \\
+Kingdom Come visualizations and \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf} / \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} implementations & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -90,7 +92,7 @@ or, equivalently, the projectivized ratio
 
 The second description makes the \textbf{circle fiber} obvious: multiplying \((z_1,z_2)\) by a common phase \(e^{i\phi}\) does not change the projective point.
 
-\subsection{Real four-vector form (Kingdom Come / \texttt{flux\_hopf\_lib})}
+\subsection{Real four-vector form (Kingdom Come / \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib})}
 \label{ch:ch02_hopf:real-four-vector-form-kingdom-come-flux-hopf-lib}
 
 For a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\), the library implements
@@ -107,11 +109,11 @@ followed by Euclidean normalization so that \((y_1,y_2,y_3)\in S^2\). Quaternion
 (w,x,y,z) \;\equiv\; (x_1,x_2,x_3,x_4).
 \]
 
-This is the form documented in Kingdom Come's theory notes and used by \texttt{hopf\_map}, \texttt{hopf\_map\_quaternion}, and \texttt{Quaternion.hopf\_image()}.
+This is the form documented in Kingdom Come's theory notes and used by \texttt{hopf\_\allowbreak{}map}, \texttt{hopf\_\allowbreak{}map\_\allowbreak{}quaternion}, and \texttt{Quaternion.\allowbreak{}hopf\_\allowbreak{}image()}.
 
-\textbf{Convention note (software vs textbook).} The classical complex form and the portal's real four-vector formula are \textbf{both} maps \(S^3\to S^2\) in the Hopf family of constructions, but they need not agree componentwise under a fixed identification of \(\mathbb{R}^3\) coordinates. Labs in this chapter treat the \textbf{library formula as the working computational standard} for Kingdom Come continuity, while the complex \(\mathbb{CP}^1\) description remains the cleanest \textbf{Theorem}-level definition of fibers (common phase \(e^{i\phi}\)). When proving linking or Hopf invariant \(1\), use the classical bundle; when plotting portal-compatible curves, use \texttt{sample\_fiber} / \texttt{hopf\_map}.
+\textbf{Convention note (software vs textbook).} The classical complex form and the portal's real four-vector formula are \textbf{both} maps \(S^3\to S^2\) in the Hopf family of constructions, but they need not agree componentwise under a fixed identification of \(\mathbb{R}^3\) coordinates. Labs in this chapter treat the \textbf{library formula as the working computational standard} for Kingdom Come continuity, while the complex \(\mathbb{CP}^1\) description remains the cleanest \textbf{Theorem}-level definition of fibers (common phase \(e^{i\phi}\)). When proving linking or Hopf invariant \(1\), use the classical bundle; when plotting portal-compatible curves, use \texttt{sample\_\allowbreak{}fiber} / \texttt{hopf\_\allowbreak{}map}.
 
-\textbf{Angle coordinates.} The library also uses Hopf angles \((\eta,\xi_1,\xi_2)\) via \texttt{hopf\_coordinates}:
+\textbf{Angle coordinates.} The library also uses Hopf angles \((\eta,\xi_1,\xi_2)\) via \texttt{hopf\_\allowbreak{}coordinates}:
 
 \begin{align*}
 x_1 &= \cos\eta\,\cos\xi_1, &
@@ -131,7 +133,7 @@ with \(\eta\in[0,\pi/2]\) (or a practical subrange) and \(\xi_1,\xi_2\in[0,2\pi)
 
 \begin{quote}\small\textit{Figure 2.1.* From total space \(S^3\) (unit quaternions) to base \(S^2\). The map is smooth and surjective; every base point has a circle's worth of preimages.}\end{quote}
 
-\textbf{API note (Software fact).} Call signatures in code are component-wise, not `\texttt{pass a Quaternion object'' to }hopf\_map`:
+\textbf{API note (Software fact).} Call signatures in code are component-wise, not ``pass a Quaternion object'' to \texttt{hopf\_\allowbreak{}map}:
 
 \begin{lstlisting}[style=qga]
 hopf_map(x1, x2, x3, x4)           -> (y1, y2, y3)
@@ -169,11 +171,11 @@ Linking is the topological feature that later underwrites \textbf{topological pr
   \label{fig:fig2-2-linked-fibers}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 2.2.* Rebuild of Figure 0.1, generated from \texttt{sample\_fiber\_family}. Several fibers after stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\). Linking cannot be undone by continuous deformation without cutting a fiber.}\end{quote}
+\begin{quote}\small\textit{Figure 2.2.* Rebuild of Figure 0.1, generated from \texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family}. Several fibers after stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\). Linking cannot be undone by continuous deformation without cutting a fiber.}\end{quote}
 
 \textbf{Claim type: Theorem.} Fiber structure and Hopf invariant \(=1\) are classical results in differential topology.
 
-\textbf{Software diagnostics.} The library exposes linking helpers (\texttt{linking\_number\_pair}, \texttt{fiber\_linking\_number}, \texttt{fiber\_pair\_diagnostics}) for numerical checks on sampled curves---useful in labs, not substitutes for the classical theorem.
+\textbf{Software diagnostics.} The library exposes linking helpers (\texttt{linking\_\allowbreak{}number\_\allowbreak{}pair}, \texttt{fiber\_\allowbreak{}linking\_\allowbreak{}number}, \texttt{fiber\_\allowbreak{}pair\_\allowbreak{}diagnostics}) for numerical checks on sampled curves---useful in labs, not substitutes for the classical theorem.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -185,7 +187,7 @@ Linking is the topological feature that later underwrites \textbf{topological pr
 \subsection{Projection formula}
 \label{ch:ch02_hopf:projection-formula}
 
-Kingdom Come / \texttt{flux\_hopf\_lib} use a stereographic chart with pole related to the fourth coordinate (TOE-compatible convention):
+Kingdom Come / \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} use a stereographic chart with pole related to the fourth coordinate (TOE-compatible convention):
 
 \[
 (x_1,x_2,x_3,x_4)
@@ -197,7 +199,7 @@ Kingdom Come / \texttt{flux\_hopf\_lib} use a stereographic chart with pole rela
 \Bigr),
 \]
 
-with default scale \(s=2\) (\texttt{stereographic\_project}). Fibers map to closed curves in \(\mathbb{R}^3\).
+with default scale \(s=2\) (\texttt{stereographic\_\allowbreak{}project}). Fibers map to closed curves in \(\mathbb{R}^3\).
 
 \subsection{Portal layout}
 \label{ch:ch02_hopf:portal-layout}
@@ -213,7 +215,7 @@ The Gradio \textbf{Hopf Visualizer} defaults to multi-panel \textbf{2D} views (x
 
 \begin{quote}\small\textit{Figure 2.3.* Rebuild of Figure 0.2. Composed stereographic fibers, planar projections, and base points on \(S^2\), with one fiber highlighted---the same visual language as the portal's Classic Hopf preset.}\end{quote}
 
-\textbf{Sampling API (Software fact).} \texttt{sample\_fiber(eta, xi1, n\_points=...)} returns a \textbf{dictionary}, not a bare list of quaternions:
+\textbf{Sampling API (Software fact).} \texttt{sample\_\allowbreak{}fiber(eta, xi1, n\_\allowbreak{}points=.\allowbreak{}.\allowbreak{}.\allowbreak{})} returns a \textbf{dictionary}, not a bare list of quaternions:
 
 \[
 \{\texttt{eta},\;\texttt{xi1},\;\texttt{xi2},\;
@@ -222,7 +224,7 @@ The Gradio \textbf{Hopf Visualizer} defaults to multi-panel \textbf{2D} views (x
 \texttt{base\_y1..base\_y3},\;\ldots\}.
 \]
 
-\texttt{sample\_fiber\_family(...)} returns a list of such dictionaries over a spread of base points.
+\texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family(.\allowbreak{}.\allowbreak{}.\allowbreak{})} returns a list of such dictionaries over a spread of base points.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -320,13 +322,13 @@ Together, left and right actions generate the symmetry repertoire we will \textb
 \section{2.6 First computational labs}
 \label{ch:ch02_hopf:2-6-first-computational-labs}
 
-Core API: \texttt{kingdom.core.hopf} \(\cdot\) \textbf{Appendix C ?C.1}.
+Core API: \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf} \(\cdot\) \textbf{Appendix C ?C.1}.
 
 \begin{itemize}
-\item \textbf{2.A} \texttt{Quaternion.hopf\_image()} / \texttt{hopf\_map\_quaternion} --- unit image on \(S^2\).
-\item \textbf{2.B} \texttt{sample\_fiber} returns a \textbf{dict}; check unit length on \(S^3\).
+\item \textbf{2.A} \texttt{Quaternion.\allowbreak{}hopf\_\allowbreak{}image()} / \texttt{hopf\_\allowbreak{}map\_\allowbreak{}quaternion} --- unit image on \(S^2\).
+\item \textbf{2.B} \texttt{sample\_\allowbreak{}fiber} returns a \textbf{dict}; check unit length on \(S^3\).
 \item \textbf{2.C} Gradio Hopf Visualizer panels vs Figs. 2.2--2.3.
-\item \textbf{2.D--E} Phase sweep; \texttt{sample\_fiber\_family}.
+\item \textbf{2.D--E} Phase sweep; \texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family}.
 \end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
@@ -348,9 +350,9 @@ print(q.hopf_image())
 
 \textbf{2.C (hand).} Prove that simultaneous phase rotation \((z_1,z_2)\mapsto(e^{i\phi}z_1,e^{i\phi}z_2)\) leaves the classical Hopf image invariant. Interpret this as motion along a fiber.
 
-\textbf{2.D (code).} Complete Labs 2.A--2.B. For three random unit quaternions, print \texttt{hopf\_image()} and confirm each image has Euclidean norm \(\approx 1\).
+\textbf{2.D (code).} Complete Labs 2.A--2.B. For three random unit quaternions, print \texttt{hopf\_\allowbreak{}image()} and confirm each image has Euclidean norm \(\approx 1\).
 
-\textbf{2.E (code).} Sample one fiber with \texttt{n\_points >= 64}. Confirm unit length in \(S^3\) and that the stereographic curve is a closed loop (small endpoint gap). Optionally compute a numerical linking diagnostic between two fibers from \texttt{sample\_fiber\_family}. Separately, implement a classical common-phase fiber \((e^{i\phi}z_1,e^{i\phi}z_2)\) and check that the \textbf{complex} Hopf image (or \(\mathbb{CP}^1\) ratio) is constant.
+\textbf{2.E (code).} Sample one fiber with \texttt{n\_\allowbreak{}points >= 64}. Confirm unit length in \(S^3\) and that the stereographic curve is a closed loop (small endpoint gap). Optionally compute a numerical linking diagnostic between two fibers from \texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family}. Separately, implement a classical common-phase fiber \((e^{i\phi}z_1,e^{i\phi}z_2)\) and check that the \textbf{complex} Hopf image (or \(\mathbb{CP}^1\) ratio) is constant.
 
 \textbf{2.F (visual).} In the Gradio Hopf Visualizer, switch between \textbf{Classic Hopf} and a custom phase sweep. In one paragraph, describe how the linked-fiber view (Fig. 2.2) emerges from the multi-panel layout (Fig. 2.3).
 
@@ -358,7 +360,7 @@ print(q.hopf_image())
 
 \textbf{2.H (forward).} Why might left and right multiplications by unit quaternions be natural candidates for the gauge symmetries of a lattice built on \(S^3\)? (Answered in Chapter 3.)
 
-\textbf{2.I (connection to Ch. 1).} Using \texttt{from\_axis\_angle} and \texttt{hopf\_image}, pick a one-parameter family of unit quaternions rotating about a fixed axis. Plot or tabulate how the Hopf image moves on \(S^2\). Relate to left multiplication acting on the base.
+\textbf{2.I (connection to Ch. 1).} Using \texttt{from\_\allowbreak{}axis\_\allowbreak{}angle} and \texttt{hopf\_\allowbreak{}image}, pick a one-parameter family of unit quaternions rotating about a fixed axis. Plot or tabulate how the Hopf image moves on \(S^2\). Relate to left multiplication acting on the base.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -374,7 +376,7 @@ flux_hopf_lib.hopf.fibration      # hopf_map, sample_fiber, stereographic_projec
 kingdom.viz.hopf_plotly           # multi-panel 2D / optional 3D
 \end{lstlisting}
 
-\textbf{Figures:} generated under \texttt{book/figures/fig2\_*} and \texttt{aux2\_*} via \texttt{scripts/generate\_ch2\_figures.py} (samples real fibers from \texttt{flux\_hopf\_lib} when available). \textbf{Related portal:} Hopf Visualizer tab --- live counterpart of Figures 2.2--2.4 and Aux A2.1. \textbf{Chapter 0 assets:} Figs. 0.1--0.3 remain the narrative first look; Figs. 2.2--2.4 are the first-principles rebuilds.
+\textbf{Figures:} generated under \texttt{book/\allowbreak{}figures/\allowbreak{}fig2\_\allowbreak{}*} and \texttt{aux2\_\allowbreak{}*} via \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch2\_\allowbreak{}figures.\allowbreak{}py} (samples real fibers from \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} when available). \textbf{Related portal:} Hopf Visualizer tab --- live counterpart of Figures 2.2--2.4 and Aux A2.1. \textbf{Chapter 0 assets:} Figs. 0.1--0.3 remain the narrative first look; Figs. 2.2--2.4 are the first-principles rebuilds.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

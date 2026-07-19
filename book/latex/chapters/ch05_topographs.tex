@@ -20,17 +20,18 @@ This chapter lifts Conway's topographs of binary quadratic forms (Hatcher Chapte
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 5.1 & \texttt{figures/fig5\_1\_flux\_topograph\_schematic.png} & Flux topograph value landscape \\
-Fig. 5.2 & \texttt{figures/fig5\_2\_separator\_structure.png} & Periodic / sign-crossing separators \\
-Fig. 5.3 & \texttt{figures/fig5\_3\_magic\_island.png} & Magic Island schematic + model Z-sweep \\
-Fig. 5.4 & \texttt{figures/fig5\_4\_symmetry\_on\_topograph.png} & Gauge action on a topograph \\
-Aux A5.1 & \texttt{figures/aux5\_1\_topograph\_evolution.png} & Evolution under repeated right phase \\
+Fig. 5.1 & \texttt{figures/\allowbreak{}fig5\_\allowbreak{}1\_\allowbreak{}flux\_\allowbreak{}topograph\_\allowbreak{}schematic.\allowbreak{}png} & Flux topograph value landscape \\
+Fig. 5.2 & \texttt{figures/\allowbreak{}fig5\_\allowbreak{}2\_\allowbreak{}separator\_\allowbreak{}structure.\allowbreak{}png} & Periodic / sign-crossing separators \\
+Fig. 5.3 & \texttt{figures/\allowbreak{}fig5\_\allowbreak{}3\_\allowbreak{}magic\_\allowbreak{}island.\allowbreak{}png} & Magic Island schematic + model Z-sweep \\
+Fig. 5.4 & \texttt{figures/\allowbreak{}fig5\_\allowbreak{}4\_\allowbreak{}symmetry\_\allowbreak{}on\_\allowbreak{}topograph.\allowbreak{}png} & Gauge action on a topograph \\
+Aux A5.1 & \texttt{figures/\allowbreak{}aux5\_\allowbreak{}1\_\allowbreak{}topograph\_\allowbreak{}evolution.\allowbreak{}png} & Evolution under repeated right phase \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -38,15 +39,16 @@ Aux A5.1 & \texttt{figures/aux5\_1\_topograph\_evolution.png} & Evolution under 
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
 Classical topograph properties (periodicity, arithmetic progression rule, reduced forms) from Hatcher & \textbf{Theorem} (classical; cited) \\
 Flux topographs, separator structures, Magic Islands, gauge equivariance of candidate constructions & \textbf{Model} (core of OP2) \\
-\texttt{qga/lib/flux\_topograph.py}, \texttt{kingdom.core.flux\_flywheel} APIs & \textbf{Software fact} \\
+\texttt{qga/\allowbreak{}lib/\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}py}, \texttt{kingdom.\allowbreak{}core.\allowbreak{}flux\_\allowbreak{}flywheel} APIs & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -73,16 +75,17 @@ Natural candidate functionals (all \textbf{Model} choices for OP2 experiments):
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Name (book helper) & Geometric meaning \\
 \midrule
 \texttt{norm} & \(x^2+y^2+z^2\) on pure-imaginary part (quadratic form on \(\mathrm{Im}\,\mathbb{H}\)) \\
-\texttt{hopf\_y1} / \texttt{hopf\_height} & Classical Hopf base coordinates (Ch. 2) \\
+\texttt{hopf\_\allowbreak{}y1} / \texttt{hopf\_\allowbreak{}height} & Classical Hopf base coordinates (Ch. 2) \\
 \texttt{phase} & Fiber phase proxy \(\mathrm{atan2}(x_4,x_3)\) \\
-portal stability & \texttt{map\_z\_to\_flywheel} scores (Ch. 7 preview) \\
+portal stability & \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} scores (Ch. 7 preview) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -121,7 +124,7 @@ detect_separators(topo, threshold=..., mode='sign'|'level')
   \label{fig:fig5-1-flux-topograph-schematic}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 5.1.* Value landscape for the functional \texttt{hopf\_y1} on an angle-sampled lattice, shown in stereographic \(S^3\) and pushed to the base \(S^2\).}\end{quote}
+\begin{quote}\small\textit{Figure 5.1.* Value landscape for the functional \texttt{hopf\_\allowbreak{}y1} on an angle-sampled lattice, shown in stereographic \(S^3\) and pushed to the base \(S^2\).}\end{quote}
 
 \subsection{Separator structures}
 \label{ch:ch05_topographs:separator-structures}
@@ -137,12 +140,12 @@ In the indefinite / oscillatory case, separators can become \textbf{periodic} un
   \label{fig:fig5-2-separator-structure}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 5.2.* Dark edges: sign-crossing separators of \texttt{hopf\_height} on the candidate adjacency graph. Component count and edge sets are experimental OP2 diagnostics, not theorems.}\end{quote}
+\begin{quote}\small\textit{Figure 5.2.* Dark edges: sign-crossing separators of \texttt{hopf\_\allowbreak{}height} on the candidate adjacency graph. Component count and edge sets are experimental OP2 diagnostics, not theorems.}\end{quote}
 
 \subsection{Arithmetic progression rule (lift)}
 \label{ch:ch05_topographs:arithmetic-progression-rule-lift}
 
-Classically, values on three regions meeting at a topograph edge satisfy a linear relation (Hatcher's arithmetic progression rule). On the gauged Hopf lattice we only partially lift this: for each edge we can measure jumps \(V(j)-V(i)\) and study their regularity under gauge moves (\texttt{arithmetic\_progression\_residuals}). A full equivariant AP rule compatible with quaternion multiplication is part of \textbf{OP2}.
+Classically, values on three regions meeting at a topograph edge satisfy a linear relation (Hatcher's arithmetic progression rule). On the gauged Hopf lattice we only partially lift this: for each edge we can measure jumps \(V(j)-V(i)\) and study their regularity under gauge moves (\texttt{arithmetic\_\allowbreak{}progression\_\allowbreak{}residuals}). A full equivariant AP rule compatible with quaternion multiplication is part of \textbf{OP2}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -154,12 +157,12 @@ Classically, values on three regions meeting at a topograph edge satisfy a linea
 \subsection{Periodicity under the gauge group}
 \label{ch:ch05_topographs:periodicity-under-the-gauge-group}
 
-When a flux topograph is (approximately) periodic under a composite gauge sequence \(g\) from Chapter 4---i.e. \(g^k\cdot\Phi \approx \Phi\) for some \(k\)---the orbit corresponds to a \textbf{reduced configuration}. The book helper \texttt{periodicity\_score} reports nearest-neighbor total-space return and multiset distance of values.
+When a flux topograph is (approximately) periodic under a composite gauge sequence \(g\) from Chapter 4---i.e. \(g^k\cdot\Phi \approx \Phi\) for some \(k\)---the orbit corresponds to a \textbf{reduced configuration}. The book helper \texttt{periodicity\_\allowbreak{}score} reports nearest-neighbor total-space return and multiset distance of values.
 
 \subsection{Magic Islands}
 \label{ch:ch05_topographs:magic-islands}
 
-\textbf{Magic Islands} are pockets of enhanced stability in parameter space (detuning \(\delta\omega\), gauge strength, layers, or atomic number \(Z\) in the portal Model). Inside an island the topograph (or the derived stability score) shows strong order: high \texttt{stability\_score}, noble-gas locks, low variation. Outside, scores drop and dynamical simulations become more chaotic (Ch. 3 Aux A3.1).
+\textbf{Magic Islands} are pockets of enhanced stability in parameter space (detuning \(\delta\omega\), gauge strength, layers, or atomic number \(Z\) in the portal Model). Inside an island the topograph (or the derived stability score) shows strong order: high \texttt{stability\_\allowbreak{}score}, noble-gas locks, low variation. Outside, scores drop and dynamical simulations become more chaotic (Ch. 3 Aux A3.1).
 
 They are the narrative generalization of finite class number and reduced forms in Hatcher's theory. \textbf{Arithmetic characterization} (class-number-like invariants predicting islands) is deferred to Open Problem 3 / Chapter 6.
 
@@ -170,7 +173,7 @@ They are the narrative generalization of finite class number and reduced forms i
   \label{fig:fig5-3-magic-island}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 5.3.* Left: schematic island in parameter space. Right: Kingdom Come Model \texttt{stability\_score} vs \(Z\) (gold lines mark noble-gas \(Z\)). \textbf{Software fact} for the right panel; physical interpretation remains \textbf{Model}.}\end{quote}
+\begin{quote}\small\textit{Figure 5.3.* Left: schematic island in parameter space. Right: Kingdom Come Model \texttt{stability\_\allowbreak{}score} vs \(Z\) (gold lines mark noble-gas \(Z\)). \textbf{Software fact} for the right panel; physical interpretation remains \textbf{Model}.}\end{quote}
 
 \textbf{Claim type.} Visual and software properties of Magic Islands in the portal: \textbf{Model} + \textbf{Software fact}. Classical reduced forms / class number: \textbf{Theorem} (Hatcher). Correspondence between the two: \textbf{Open} (OP3).
 
@@ -192,7 +195,7 @@ This is the direct analogue of Hatcher's requirement that topographs transform p
   \label{fig:fig5-4-symmetry-on-topograph}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 5.4.* Left multiplication by \(i\) maps a \texttt{hopf\_y1} topograph to its image. For geometric functionals recomputed after the move, values track the geometry exactly.}\end{quote}
+\begin{quote}\small\textit{Figure 5.4.* Left multiplication by \(i\) maps a \texttt{hopf\_\allowbreak{}y1} topograph to its image. For geometric functionals recomputed after the move, values track the geometry exactly.}\end{quote}
 
 \begin{figure}[htbp]
   \centering
@@ -212,7 +215,7 @@ This is the direct analogue of Hatcher's requirement that topographs transform p
 \item Magic Islands emerge as finite or periodic reduced regions with measurable stability.
 \end{enumerate}
 
-\textbf{Sandbox:} \texttt{qga/lib/flux\_topograph.py} --- \texttt{build\_flux\_topograph}, \texttt{detect\_separators}, \texttt{periodicity\_score}, \texttt{separator\_equivariance\_score}.
+\textbf{Sandbox:} \texttt{qga/\allowbreak{}lib/\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}py} --- \texttt{build\_\allowbreak{}flux\_\allowbreak{}topograph}, \texttt{detect\_\allowbreak{}separators}, \texttt{periodicity\_\allowbreak{}score}, \texttt{separator\_\allowbreak{}equivariance\_\allowbreak{}score}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -221,13 +224,13 @@ This is the direct analogue of Hatcher's requirement that topographs transform p
 \section{5.5 First computational labs}
 \label{ch:ch05_topographs:5-5-first-computational-labs}
 
-Helpers: \texttt{lib/flux\_topograph.py} \(\cdot\) portal: \texttt{map\_z\_to\_flywheel} \(\cdot\) \textbf{Appendix C ?C.3}.
+Helpers: \texttt{lib/\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}py} \(\cdot\) portal: \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} \(\cdot\) \textbf{Appendix C ?C.3}.
 
 \begin{itemize}
-\item \textbf{5.A} \texttt{build\_flux\_topograph} + \texttt{detect\_separators}.
-\item \textbf{5.B} \texttt{periodicity\_score} under a gauge sequence.
-\item \textbf{5.C} Z-stability via \texttt{map\_z\_to\_flywheel} (no \texttt{magic\_flag} --- use \texttt{stability\_score} / \texttt{is\_noble\_gas}).
-\item \textbf{5.D} \texttt{separator\_equivariance\_score} (OP2 diagnostic).
+\item \textbf{5.A} \texttt{build\_\allowbreak{}flux\_\allowbreak{}topograph} + \texttt{detect\_\allowbreak{}separators}.
+\item \textbf{5.B} \texttt{periodicity\_\allowbreak{}score} under a gauge sequence.
+\item \textbf{5.C} Z-stability via \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} (no \texttt{magic\_\allowbreak{}flag} --- use \texttt{stability\_\allowbreak{}score} / \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas}).
+\item \textbf{5.D} \texttt{separator\_\allowbreak{}equivariance\_\allowbreak{}score} (OP2 diagnostic).
 \end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
@@ -250,19 +253,19 @@ print(len(detect_separators(topo)))
 
 \textbf{5.B (hand).} In two sentences, explain why gauge equivariance is a necessary condition for a flux topograph to be well-defined.
 
-\textbf{5.C (code).} Complete Labs 5.A--5.B. Report separator component count and \texttt{periodicity\_score} for your functional.
+\textbf{5.C (code).} Complete Labs 5.A--5.B. Report separator component count and \texttt{periodicity\_\allowbreak{}score} for your functional.
 
-\textbf{5.D (code).} Run Lab 5.C for \(Z\in\{2,10,26,79,118\}\). Which values show high \texttt{stability\_score} or \texttt{is\_noble\_gas=True}? Record the pattern.
+\textbf{5.D (code).} Run Lab 5.C for \(Z\in\{2,10,26,79,118\}\). Which values show high \texttt{stability\_\allowbreak{}score} or \texttt{is\_\allowbreak{}noble\_\allowbreak{}gas=True}? Record the pattern.
 
 \textbf{5.E (visual).} Generate a flux topograph and apply one gauge transformation (Fig. 5.4). Describe how separator curves / value colors transform.
 
 \textbf{5.F (Hatcher bridge).} In Hatcher, reduced forms and class number classify quadratic forms up to equivalence. Sketch how Magic Islands might play an analogous role for flux configurations on the gauged Hopf lattice.
 
-\textbf{5.G (Open Problem 2 teaser).} Using \texttt{build\_flux\_topograph} and \texttt{detect\_separators}, test whether separator counts survive under \texttt{candidate\_adjacency} + left/right multiplications (\texttt{separator\_equivariance\_score}). Document failures---they inform OP2 axioms.
+\textbf{5.G (Open Problem 2 teaser).} Using \texttt{build\_\allowbreak{}flux\_\allowbreak{}topograph} and \texttt{detect\_\allowbreak{}separators}, test whether separator counts survive under \texttt{candidate\_\allowbreak{}adjacency} + left/right multiplications (\texttt{separator\_\allowbreak{}equivariance\_\allowbreak{}score}). Document failures---they inform OP2 axioms.
 
 \textbf{5.H (forward).} Why will the classification theory of Chapter 6 depend on the periodic separator structures developed here?
 
-\textbf{5.I (software honesty).} In one paragraph, distinguish: (i) pedagogical flux functionals in \texttt{qga/lib/flux\_topograph.py}, (ii) portal \texttt{stability\_score} from \texttt{map\_z\_to\_flywheel}, (iii) classical Conway topographs. Assign claim types.
+\textbf{5.I (software honesty).} In one paragraph, distinguish: (i) pedagogical flux functionals in \texttt{qga/\allowbreak{}lib/\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}py}, (ii) portal \texttt{stability\_\allowbreak{}score} from \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel}, (iii) classical Conway topographs. Assign claim types.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -282,7 +285,7 @@ kingdom.core.flux_flywheel.map_z_to_flywheel[_extended]
 kingdom.viz.magic_island.build_magic_island_heatmap
 \end{lstlisting}
 
-\textbf{Figures:} \texttt{scripts/generate\_ch5\_figures.py} \textbf{Related portal:} Flux Flywheel tab; Magic Island heatmap; Lattice Simulator (dynamical backdrop). \textbf{Open problems:} OP2 (\texttt{notes/open\_problems.md}); depends on OP1 adjacency.
+\textbf{Figures:} \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch5\_\allowbreak{}figures.\allowbreak{}py} \textbf{Related portal:} Flux Flywheel tab; Magic Island heatmap; Lattice Simulator (dynamical backdrop). \textbf{Open problems:} OP2 (\texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md}); depends on OP1 adjacency.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

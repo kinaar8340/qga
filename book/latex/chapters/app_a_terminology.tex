@@ -4,7 +4,7 @@
 \chapter{Terminology and Notation}
 \label{ch:app_a_terminology}
 
-Nonstandard terms and the minimal notation sheet used throughout the book. (Expanded from the Preface and \texttt{HOW\_TO\_USE.md}.)
+Nonstandard terms and the minimal notation sheet used throughout the book. (Expanded from the Preface and \texttt{HOW\_\allowbreak{}TO\_\allowbreak{}USE.\allowbreak{}md}.)
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -15,7 +15,8 @@ Nonstandard terms and the minimal notation sheet used throughout the book. (Expa
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Label & Meaning \\
 \midrule
@@ -24,7 +25,7 @@ Label & Meaning \\
 \textbf{Hypothesis} & Observational claim needing validation or falsification \\
 \textbf{Software fact} & True of the current code or portal implementation \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -37,7 +38,8 @@ Label & Meaning \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Term & Working meaning \\
 \midrule
@@ -48,13 +50,13 @@ Term & Working meaning \\
 \textbf{Porous vacuum} & Informal name for incomplete / gauge-flexible ambient lattice substrate \\
 \textbf{Separator structure} & Locus where a flux functional changes sign or crosses a threshold \\
 \textbf{Class-group analogue} & Equivalence classes of reduced topographs/flywheels with a candidate composition law (Model; OP6) \\
-\textbf{Class-number analogue} & Count of inequivalent reduced representatives (\texttt{class\_number\_analogue}) \\
-**\(Z\mapsto\) map** & Portal map from atomic number to flywheel metrics (\texttt{map\_z\_to\_flywheel}) \\
+\textbf{Class-number analogue} & Count of inequivalent reduced representatives (\texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}) \\
+**\(Z\mapsto\) map** & Portal map from atomic number to flywheel metrics (\texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel}) \\
 \textbf{Table T4} & Pre-registered validation checklist for Hypotheses (Ch. 10, Appendix D) \\
 \textbf{QVPIC} & Quaternion vortex persistent identity (related Kingdom Come / QVPIC work; optional cross-reference) \\
 **\(W_g\)** & Working topological clock \(350/\pi \approx 111.408\) (Hypothesis layer) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -67,7 +69,8 @@ Term & Working meaning \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Symbol & Meaning \\
 \midrule
@@ -84,7 +87,7 @@ Symbol & Meaning \\
 \(\bigl(\frac{a,b}{\mathbb{Q}}\bigr)\) & Quaternion algebra over \(\mathbb{Q}\) \\
 OP1--OP6 & Open problems (Appendix B) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -97,19 +100,20 @@ OP1--OP6 & Open problems (Appendix B) \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Path & Role \\
 \midrule
-\texttt{lib/hopf\_lattice.py} & Lattice, adjacency (OP1), gauge sequences \\
-\texttt{lib/flux\_topograph.py} & Topographs, classification (OP2--OP3) \\
-\texttt{lib/composition.py} & Composition, class-group analogue (OP6) \\
-\texttt{lib/quaternion\_algebra.py} & Algebras, Hurwitz, toy class number \\
-\texttt{lib/validation.py} & Table T4, OP5 diagnostics \\
-\texttt{kingdom.core.*} & Live portal modules \\
-\texttt{kingdom.simulations.lattice} & \texttt{TwoGyroLattice} \\
+\texttt{lib/\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}py} & Lattice, adjacency (OP1), gauge sequences \\
+\texttt{lib/\allowbreak{}flux\_\allowbreak{}topograph.\allowbreak{}py} & Topographs, classification (OP2--OP3) \\
+\texttt{lib/\allowbreak{}composition.\allowbreak{}py} & Composition, class-group analogue (OP6) \\
+\texttt{lib/\allowbreak{}quaternion\_\allowbreak{}algebra.\allowbreak{}py} & Algebras, Hurwitz, toy class number \\
+\texttt{lib/\allowbreak{}validation.\allowbreak{}py} & Table T4, OP5 diagnostics \\
+\texttt{kingdom.\allowbreak{}core.\allowbreak{}*} & Live portal modules \\
+\texttt{kingdom.\allowbreak{}simulations.\allowbreak{}lattice} & \texttt{TwoGyroLattice} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 

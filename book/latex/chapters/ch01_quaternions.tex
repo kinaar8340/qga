@@ -14,24 +14,25 @@ This chapter builds the algebraic and geometric language used everywhere later i
 \item Distinguish Lipschitz and Hurwitz orders and understand why the latter is preferred for arithmetic.  
 \item Re-encounter the four-square theorem as a consequence of norm multiplicativity.  
 \item Meet the double-cover relationship to three-dimensional rotations.  
-\item Run first computational labs with \texttt{kingdom.core.quaternion}.
+\item Run first computational labs with \texttt{kingdom.\allowbreak{}core.\allowbreak{}quaternion}.
 \end{enumerate}
 
 \textbf{Figures in this chapter}
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 1.1 & \texttt{figures/fig1\_1\_ijk\_multiplication.png} & \(i,j,k\) cycle and multiplication table \\
-Fig. 1.2 & \texttt{figures/fig1\_2\_s3\_unit\_quaternions.png} & Unit quaternions as \(S^3\subset\mathbb{R}^4\) \\
-Fig. 1.3 & \texttt{figures/fig1\_3\_lipschitz\_hurwitz.png} & Lipschitz vs Hurwitz lattice (schematic) \\
-Fig. 1.4 & \texttt{figures/fig1\_4\_norm\_multiplicativity.png} & Norm multiplicativity \(\rightarrow\) four squares \\
-Aux A1.1 & \texttt{figures/aux1\_1\_quaternion\_rotation.png} & Rotation via \(v\mapsto qvq^{-1}\) (\(\rightarrow\) Ch. 2) \\
+Fig. 1.1 & \texttt{figures/\allowbreak{}fig1\_\allowbreak{}1\_\allowbreak{}ijk\_\allowbreak{}multiplication.\allowbreak{}png} & \(i,j,k\) cycle and multiplication table \\
+Fig. 1.2 & \texttt{figures/\allowbreak{}fig1\_\allowbreak{}2\_\allowbreak{}s3\_\allowbreak{}unit\_\allowbreak{}quaternions.\allowbreak{}png} & Unit quaternions as \(S^3\subset\mathbb{R}^4\) \\
+Fig. 1.3 & \texttt{figures/\allowbreak{}fig1\_\allowbreak{}3\_\allowbreak{}lipschitz\_\allowbreak{}hurwitz.\allowbreak{}png} & Lipschitz vs Hurwitz lattice (schematic) \\
+Fig. 1.4 & \texttt{figures/\allowbreak{}fig1\_\allowbreak{}4\_\allowbreak{}norm\_\allowbreak{}multiplicativity.\allowbreak{}png} & Norm multiplicativity \(\rightarrow\) four squares \\
+Aux A1.1 & \texttt{figures/\allowbreak{}aux1\_\allowbreak{}1\_\allowbreak{}quaternion\_\allowbreak{}rotation.\allowbreak{}png} & Rotation via \(v\mapsto qvq^{-1}\) (\(\rightarrow\) Ch. 2) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -39,15 +40,16 @@ Aux A1.1 & \texttt{figures/aux1\_1\_quaternion\_rotation.png} & Rotation via \(v
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
 Algebra of \(\mathbb{H}\); \(N(q_1 q_2)=N(q_1)N(q_2)\); four-square theorem; \(\mathrm{Spin}(3)\to SO(3)\) double cover & \textbf{Theorem} (classical) \\
 Preferring the Hurwitz order as the primary integer lattice for later flux/lattice work & \textbf{Model} choice \\
-Kingdom Come / \texttt{flux\_hopf\_lib} APIs and demos & \textbf{Software fact} \\
+Kingdom Come / \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} APIs and demos & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -93,7 +95,7 @@ As a real vector space,
 \mathbb{H} \;\cong\; \mathbb{R}^4,
 \]
 
-with basis \(\{1,i,j,k\}\). Addition and scalar multiplication are componentwise. The interesting structure is the bilinear product determined by the table above.
+with basis \(\{1,i,j,k\}\). Addition and scalar multiplication are componentwise. The interesting structure is the bilinear product determined by the table below.
 
 \begin{figure}[htbp]
   \centering
@@ -104,7 +106,7 @@ with basis \(\{1,i,j,k\}\). Addition and scalar multiplication are componentwise
 
 \begin{quote}\small\textit{Figure 1.1.* Left: the positive cycle \(i\to j\to k\to i\). Right: the \(4\times 4\) multiplication table for \(\{1,i,j,k\}\). Red-tinted cells are negative results; green-tinted cells are the pure imaginary basis elements.}\end{quote}
 
-\textbf{Notation.} We write \(q = (a,b,c,d)\) or \(q = a + \mathbf{v}\) with vector part \(\mathbf{v}=(b,c,d)\in\mathbb{R}^3\). Kingdom Come stores components as \texttt{(w, x, y, z)} with \(w=a\) the real part---the same convention as \texttt{flux\_hopf\_lib.quaternion.core.Quaternion}.
+\textbf{Notation.} We write \(q = (a,b,c,d)\) or \(q = a + \mathbf{v}\) with vector part \(\mathbf{v}=(b,c,d)\in\mathbb{R}^3\). Kingdom Come stores components as \texttt{(w, x, y, z)} with \(w=a\) the real part---the same convention as \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib.\allowbreak{}quaternion.\allowbreak{}core.\allowbreak{}Quaternion}.
 
 \subsection{Explicit product formula}
 \label{ch:ch01_quaternions:explicit-product-formula}
@@ -120,7 +122,7 @@ q_1 q_2
 &\quad+ (a_1 d_2 + b_1 c_2 - c_1 b_2 + d_1 a_2)\, k.
 \end{align*}
 
-This is exactly the formula implemented by \texttt{Quaternion.multiply} in both \texttt{flux\_hopf\_lib} and \texttt{kingdom.core.quaternion}.
+This is exactly the formula implemented by \texttt{Quaternion.\allowbreak{}multiply} in both \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} and \texttt{kingdom.\allowbreak{}core.\allowbreak{}quaternion}.
 
 \subsection{Complex pairs}
 \label{ch:ch01_quaternions:complex-pairs}
@@ -170,7 +172,7 @@ N(q) \;:=\; q\,\overline{q}
 \;=\; |q|^2
 \]
 
-if one writes \(|q|\) for the Euclidean length in \(\mathbb{R}^4\). In code, \texttt{Quaternion.norm()} returns \(\sqrt{N(q)}=|q|\); the multiplicative quantity used in number theory is \(N(q)=|q|^2\). We will say \textbf{multiplicative norm} for \(N(q)\) and \textbf{length} for \(|q|\) when both appear.
+if one writes \(|q|\) for the Euclidean length in \(\mathbb{R}^4\). In code, \texttt{Quaternion.\allowbreak{}norm()} returns \(\sqrt{N(q)}=|q|\); the multiplicative quantity used in number theory is \(N(q)=|q|^2\). We will say \textbf{multiplicative norm} for \(N(q)\) and \textbf{length} for \(|q|\) when both appear.
 
 \textbf{Theorem (multiplicativity of the norm).} For all \(q_1,q_2\in\mathbb{H}\),
 
@@ -247,7 +249,7 @@ Removing a point (classically \(-1\), or any fixed unit quaternion) and projecti
 \subsection{Normalization in software}
 \label{ch:ch01_quaternions:normalization-in-software}
 
-\texttt{Quaternion.normalize()} returns \(q/|q|\) (or the identity if \(q\) is numerically zero). Portal methods that construct new quaternions return \texttt{type(self)} so subclass helpers such as \texttt{hopf\_image()} survive \texttt{normalize()} and \texttt{multiply()}.
+\texttt{Quaternion.\allowbreak{}normalize()} returns \(q/|q|\) (or the identity if \(q\) is numerically zero). Portal methods that construct new quaternions return \texttt{type(self)} so subclass helpers such as \texttt{hopf\_\allowbreak{}image()} survive \texttt{normalize()} and \texttt{multiply()}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -312,7 +314,8 @@ The unit group of \(\mathcal{H}\) has \textbf{24} elements---the binary tetrahed
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Feature & Lipschitz \(L\) & Hurwitz \(\mathcal{H}\) \\
 \midrule
@@ -322,7 +325,7 @@ Euclidean algorithm & fails in general & holds \\
 Unique factorization flavor & weaker & stronger (classical) \\
 Relation to four squares & works, clumsier proofs & clean norm arguments \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -385,7 +388,7 @@ Then \(\rho_q(v)\) is again pure imaginary, and \(\rho_q\) is an orthogonal line
 \subsection{Axis--angle formula}
 \label{ch:ch01_quaternions:axis-angle-formula}
 
-If \(q = \cos(\theta/2) + \sin(\theta/2)\, u\) with unit pure imaginary \(u\) (i.e. \(u^2=-1\)), then \(\rho_q\) is rotation by angle \(\theta\) about the axis \(u\). This is the content of Rodrigues' formula; Kingdom Come exposes both \texttt{Quaternion.from\_axis\_angle(axis, theta)} and \texttt{rodrigues\_rotation}.
+If \(q = \cos(\theta/2) + \sin(\theta/2)\, u\) with unit pure imaginary \(u\) (i.e. \(u^2=-1\)), then \(\rho_q\) is rotation by angle \(\theta\) about the axis \(u\). This is the content of Rodrigues' formula; Kingdom Come exposes both \texttt{Quaternion.\allowbreak{}from\_\allowbreak{}axis\_\allowbreak{}angle(axis, theta)} and \texttt{rodrigues\_\allowbreak{}rotation}.
 
 \begin{figure}[htbp]
   \centering
@@ -424,7 +427,7 @@ Topologically this is the unique nontrivial double cover of \(SO(3)\). Paths in 
 \section{1.7 First computational examples and labs}
 \label{ch:ch01_quaternions:1-7-first-computational-examples-and-labs}
 
-Core API: \texttt{kingdom.core.quaternion} (see also Appendix C ?C.1).
+Core API: \texttt{kingdom.\allowbreak{}core.\allowbreak{}quaternion} (see also Appendix C ?C.1).
 
 \textbf{Labs (short form).} Full listings: \textbf{Appendix C}.
 
@@ -433,7 +436,7 @@ Core API: \texttt{kingdom.core.quaternion} (see also Appendix C ?C.1).
 \item \textbf{1.B} Check \(N(q_1q_2)=N(q_1)N(q_2)\) numerically (residual \(\sim 10^{-14}\)).
 \item \textbf{1.C} Enumerate small Lipschitz norms.
 \item \textbf{1.D} Confirm \(q\) and \(-q\) induce the same conjugation action on a pure vector.
-\item \textbf{1.E} Optional: \texttt{from\_hopf\_coords} / \texttt{hopf\_image} (preview of Ch. 2).
+\item \textbf{1.E} Optional: \texttt{from\_\allowbreak{}hopf\_\allowbreak{}coords} / \texttt{hopf\_\allowbreak{}image} (preview of Ch. 2).
 \end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
@@ -463,7 +466,7 @@ print(i.multiply(j))  # k
 
 \textbf{1.G (code).} Complete Labs 1.A--1.D. Submit residuals for Lab 1.B and a printed set of norms for Lab 1.C with \(N_{\max}=3\).
 
-\textbf{1.H (code).} Using \texttt{chordal\_distance} (upstream) or \(\min(|q-r|,|q+r|)\), verify numerically that \(q\) and \(-q\) are close in the rotation sense even when far in \(\mathbb{R}^4\).
+\textbf{1.H (code).} Using \texttt{chordal\_\allowbreak{}distance} (upstream) or \(\min(|q-r|,|q+r|)\), verify numerically that \(q\) and \(-q\) are close in the rotation sense even when far in \(\mathbb{R}^4\).
 
 \textbf{1.I (Hatcher bridge).} In Hatcher, sums of two squares and Gaussian integers organize binary quadratic forms. Write three sentences mapping: (Gaussian integers \(\leftrightarrow\) Lipschitz/Hurwitz), (complex modulus \(\leftrightarrow\) quaternion norm), (unit circle \(S^1\) \(\leftrightarrow\) unit quaternions \(S^3\)).
 
@@ -483,7 +486,7 @@ flux_hopf_lib.quaternion.core.Quaternion   # upstream implementation
 flux_hopf_lib.quaternion.core.q_mult, q_conj, q_normalize
 \end{lstlisting}
 
-\textbf{Figures:} generated for this chapter under \texttt{book/figures/fig1\_*} and \texttt{aux1\_1\_*} (see \texttt{FIGURES.md}). \textbf{Related portal:} Gradio rotation intuition is secondary here; Hopf Visualizer becomes primary in Chapter 2.
+\textbf{Figures:} generated for this chapter under \texttt{book/\allowbreak{}figures/\allowbreak{}fig1\_\allowbreak{}*} and \texttt{aux1\_\allowbreak{}1\_\allowbreak{}*} (see \texttt{FIGURES.\allowbreak{}md}). \textbf{Related portal:} Gradio rotation intuition is secondary here; Hopf Visualizer becomes primary in Chapter 2.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

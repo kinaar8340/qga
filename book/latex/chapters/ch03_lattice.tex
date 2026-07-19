@@ -21,18 +21,19 @@ This chapter discretizes the Hopf fibration. We place a lattice inside the total
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 3.1 & \texttt{figures/fig3\_1\_hurwitz\_lattice\_in\_s3.png} & 24 Hurwitz units on \(S^3\) (stereographic) \\
-Fig. 3.2 & \texttt{figures/fig3\_2\_hopf\_projected\_lattice.png} & Angle-sampled lattice \(\rightarrow\) base \(S^2\) \\
-Fig. 3.3 & \texttt{figures/fig3\_3\_adjacency\_and\_fibers.png} & Candidate along-/inter-fiber adjacency \\
-Fig. 3.4 & \texttt{figures/fig3\_4\_gauge\_action.png} & Left/right multiplication as gauge actions \\
-Fig. 3.5 & \texttt{figures/fig3\_5\_flux\_flywheel\_schematic.png} & Flux flywheel schematic \\
-Aux A3.1 & \texttt{figures/aux3\_1\_lattice\_simulator\_still.png} & Two-gyro Lattice Simulator still \\
+Fig. 3.1 & \texttt{figures/\allowbreak{}fig3\_\allowbreak{}1\_\allowbreak{}hurwitz\_\allowbreak{}lattice\_\allowbreak{}in\_\allowbreak{}s3.\allowbreak{}png} & 24 Hurwitz units on \(S^3\) (stereographic) \\
+Fig. 3.2 & \texttt{figures/\allowbreak{}fig3\_\allowbreak{}2\_\allowbreak{}hopf\_\allowbreak{}projected\_\allowbreak{}lattice.\allowbreak{}png} & Angle-sampled lattice \(\rightarrow\) base \(S^2\) \\
+Fig. 3.3 & \texttt{figures/\allowbreak{}fig3\_\allowbreak{}3\_\allowbreak{}adjacency\_\allowbreak{}and\_\allowbreak{}fibers.\allowbreak{}png} & Candidate along-/inter-fiber adjacency \\
+Fig. 3.4 & \texttt{figures/\allowbreak{}fig3\_\allowbreak{}4\_\allowbreak{}gauge\_\allowbreak{}action.\allowbreak{}png} & Left/right multiplication as gauge actions \\
+Fig. 3.5 & \texttt{figures/\allowbreak{}fig3\_\allowbreak{}5\_\allowbreak{}flux\_\allowbreak{}flywheel\_\allowbreak{}schematic.\allowbreak{}png} & Flux flywheel schematic \\
+Aux A3.1 & \texttt{figures/\allowbreak{}aux3\_\allowbreak{}1\_\allowbreak{}lattice\_\allowbreak{}simulator\_\allowbreak{}still.\allowbreak{}png} & Two-gyro Lattice Simulator still \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -40,7 +41,8 @@ Aux A3.1 & \texttt{figures/aux3\_1\_lattice\_simulator\_still.png} & Two-gyro La
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
@@ -48,9 +50,9 @@ Existence of the Hurwitz order, 24 units, Euclidean property (Ch. 1) & \textbf{T
 Hopf fibration structure and linking (Ch. 2) & \textbf{Theorem} \\
 Specific discrete adjacency / mediant rules; ``the'' gauged Hopf lattice as Farey lift & \textbf{Model} (Open Problem 1) \\
 Flux flywheels as protected circulating configurations; dynamical two-gyro demos & \textbf{Model} + \textbf{Software fact} \\
-\texttt{kingdom.core.lattice.LatticeConfig}, \texttt{kingdom.simulations.lattice.TwoGyroLattice}, book helper \texttt{qga/lib/hopf\_lattice.py} & \textbf{Software fact} \\
+\texttt{kingdom.\allowbreak{}core.\allowbreak{}lattice.\allowbreak{}LatticeConfig}, \texttt{kingdom.\allowbreak{}simulations.\allowbreak{}lattice.\allowbreak{}TwoGyroLattice}, book helper \texttt{qga/\allowbreak{}lib/\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}py} & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -97,7 +99,8 @@ A theory with only 24 sites is too sparse for Farey-style adjacency, continued-f
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Level & Object & Role \\
 \midrule
@@ -106,11 +109,11 @@ Level & Object & Role \\
 \(\Lambda_{\mathrm{ang}}\) & Samples of Hopf angles \((\eta,\xi_1,\xi_2)\) & Dense visualization / numerical OP1 tests \\
 \(\Lambda_{\mathrm{dyn}}\) & Site quaternions in \texttt{TwoGyroLattice} & Dynamical Model used in the portal \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
-\textbf{Software fact.} The book helper \texttt{qga/lib/hopf\_lattice.py} implements \(\Lambda_0\) and \(\Lambda_{\mathrm{ang}}\) for labs and figures. Kingdom Come's live portal currently emphasizes \(\Lambda_{\mathrm{dyn}}\) (see ?3.6).
+\textbf{Software fact.} The book helper \texttt{qga/\allowbreak{}lib/\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}py} implements \(\Lambda_0\) and \(\Lambda_{\mathrm{ang}}\) for labs and figures. Kingdom Come's live portal currently emphasizes \(\Lambda_{\mathrm{dyn}}\) (see ?3.6).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -131,7 +134,7 @@ Apply the Hopf map \(h: S^3\to S^2\) (Chapter 2) to a discrete set \(\Lambda\sub
   \label{fig:fig3-2-hopf-projected-lattice}
 \end{figure}
 
-\begin{quote}\small\textit{Figure 3.2.* Left: base samples on \(S^2\). Right: total-space samples in a stereographic \(xy\) view. Generated from \texttt{sample\_angle\_lattice} + \texttt{hopf\_project\_points} in the book helper.}\end{quote}
+\begin{quote}\small\textit{Figure 3.2.* Left: base samples on \(S^2\). Right: total-space samples in a stereographic \(xy\) view. Generated from \texttt{sample\_\allowbreak{}angle\_\allowbreak{}lattice} + \texttt{hopf\_\allowbreak{}project\_\allowbreak{}points} in the book helper.}\end{quote}
 
 \subsection{Definition (working)}
 \label{ch:ch03_lattice:definition-working}
@@ -184,7 +187,7 @@ No single such rule is yet proved canonical.
 \subsection{Candidate rule used in figures and labs}
 \label{ch:ch03_lattice:candidate-rule-used-in-figures-and-labs}
 
-The book helper implements one explicit candidate (\texttt{candidate\_adjacency}):
+The book helper implements one explicit candidate (\texttt{candidate\_\allowbreak{}adjacency}):
 
 \begin{itemize}
 \item Recover rough \((\eta,\xi_1,\xi_2)\) from coordinates.  
@@ -212,14 +215,15 @@ On a discrete set \(\Lambda\) we therefore equip two families of \textbf{gauge t
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Action & Continuous & Discrete (Hurwitz) \\
 \midrule
 Left & \(u\in S^3\) & \(u\in\Lambda_0\) (24 units) \\
 Right & \(u\in S^3\) (esp. fiber \(U(1)\)) & \(u\in\Lambda_0\) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -245,7 +249,7 @@ q_i \;\leftarrow\; \delta_L\, q_i\, \overline{\delta_R},
 q_i \;\leftarrow\; q_i\, g(\alpha),
 \]
 
-with gauge angle \(\alpha\) proportional to average twist. \textbf{Identity preservation} tracks how well a parallel-transported identity field stays aligned---stable vs chaotic modes differ mainly in \texttt{gauge\_strength} and detuning. This is a \textbf{dynamical Model} of gauged flux, not yet a combinatorial Farey theory.
+with gauge angle \(\alpha\) proportional to average twist. \textbf{Identity preservation} tracks how well a parallel-transported identity field stays aligned---stable vs chaotic modes differ mainly in \texttt{gauge\_\allowbreak{}strength} and detuning. This is a \textbf{dynamical Model} of gauged flux, not yet a combinatorial Farey theory.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -301,24 +305,25 @@ A \textbf{flux flywheel} is a closed, topologically protected circulating flux c
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Layer & Status \\
 \midrule
 Hurwitz units \(\Lambda_0\) & Classical, settled \\
 Hopf projection of discrete sets & Implemented (portal + book helper) \\
-Candidate adjacency (\texttt{candidate\_adjacency}) & Numerical experiments only --- \textbf{not} proved canonical \\
+Candidate adjacency (\texttt{candidate\_\allowbreak{}adjacency}) & Numerical experiments only --- \textbf{not} proved canonical \\
 Reduction to Farey \(\lvert ad-bc\rvert=1\) & \textbf{Open} \\
 Equivariant mediant & \textbf{Open} \\
 Dynamical two-gyro lattice & Portal demo; parallel track to combinatorial theory \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
 \textbf{Research target.} Any reader who solves or substantially advances Open Problem 1 produces the central combinatorial object of the entire book.
 
-See also \texttt{notes/open\_problems.md} (OP1 status tracking).
+See also \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} (OP1 status tracking).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -329,28 +334,29 @@ See also \texttt{notes/open\_problems.md} (OP1 status tracking).
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Component & Location \\
 \midrule
-\texttt{LatticeConfig} & \texttt{kingdom.core.lattice} \\
-\texttt{TwoGyroLattice} & \texttt{kingdom.simulations.lattice} \\
-Hurwitz / adjacency / gauge & \texttt{lib/hopf\_lattice.py} \\
+\texttt{LatticeConfig} & \texttt{kingdom.\allowbreak{}core.\allowbreak{}lattice} \\
+\texttt{TwoGyroLattice} & \texttt{kingdom.\allowbreak{}simulations.\allowbreak{}lattice} \\
+Hurwitz / adjacency / gauge & \texttt{lib/\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}py} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
-\textbf{Honest gap.} No production \texttt{build\_hurwitz\_lattice\_sample} in Kingdom Come yet --- pedagogy lives in \texttt{lib/}.
+\textbf{Honest gap.} No production \texttt{build\_\allowbreak{}hurwitz\_\allowbreak{}lattice\_\allowbreak{}sample} in Kingdom Come yet --- pedagogy lives in \texttt{lib/\allowbreak{}}.
 
 \textbf{Labs (short form).} Full code: \textbf{Appendix C ?C.2}.
 
 \begin{itemize}
 \item \textbf{3.A} 24 Hurwitz units; Hopf project; count base points.
-\item \textbf{3.B} \texttt{sample\_angle\_lattice} + \texttt{candidate\_adjacency} (OP1 sandbox).
+\item \textbf{3.B} \texttt{sample\_\allowbreak{}angle\_\allowbreak{}lattice} + \texttt{candidate\_\allowbreak{}adjacency} (OP1 sandbox).
 \item \textbf{3.C} Left \(	imes i\): base \textbf{set} invariant, total-space points move (see Lab 4.A).
-\item \textbf{3.D} \texttt{run\_lattice\_comparison} stable vs chaotic.
-\item \textbf{3.E} Toy \texttt{discrete\_flux\_cycle}.
+\item \textbf{3.D} \texttt{run\_\allowbreak{}lattice\_\allowbreak{}comparison} stable vs chaotic.
+\item \textbf{3.E} Toy \texttt{discrete\_\allowbreak{}flux\_\allowbreak{}cycle}.
 \end{itemize}
 
 \begin{lstlisting}[style=qga,language=python]
@@ -375,11 +381,11 @@ print(len(HURWITZ_UNITS), hopf_project_points(HURWITZ_UNITS).shape)
 
 \textbf{3.E (visual / dynamical).} Run Lab 3.D (simulator) or the Gradio Lattice Simulator. Describe what ``identity preservation'' looks like for stable vs chaotic modes.
 
-\textbf{3.F (Hatcher bridge).} In Hatcher, two fractions \(a/c\) and \(b/d\) are Farey-adjacent iff \(\lvert ad-bc\rvert=1\). Propose a quaternionic analogue (e.g. \(\lvert N(q_1\overline{q_2}-q_2\overline{q_1})\rvert\) or a \(2\times 2\) minor from complex pairs) and test it numerically on \(\Lambda_0\) or \(\Lambda_{\mathrm{ang}}\). Record whether it recovers a subgraph of \texttt{candidate\_adjacency}.
+\textbf{3.F (Hatcher bridge).} In Hatcher, two fractions \(a/c\) and \(b/d\) are Farey-adjacent iff \(\lvert ad-bc\rvert=1\). Propose a quaternionic analogue (e.g. \(\lvert N(q_1\overline{q_2}-q_2\overline{q_1})\rvert\) or a \(2\times 2\) minor from complex pairs) and test it numerically on \(\Lambda_0\) or \(\Lambda_{\mathrm{ang}}\). Record whether it recovers a subgraph of \texttt{candidate\_\allowbreak{}adjacency}.
 
 \textbf{3.G (forward).} Why is topological linking of fibers a natural candidate for the protection mechanism of flux flywheels? (Developed in Chapters 5 and 10.)
 
-\textbf{3.H (Open Problem 1 teaser).} Run the current \texttt{candidate\_adjacency} implementation. Does it reduce to classical Farey adjacency under any obvious projection or 2D slice? Document one negative or partial observation---progress often starts as a failed reduction.
+\textbf{3.H (Open Problem 1 teaser).} Run the current \texttt{candidate\_\allowbreak{}adjacency} implementation. Does it reduce to classical Farey adjacency under any obvious projection or 2D slice? Document one negative or partial observation---progress often starts as a failed reduction.
 
 \textbf{3.I (software honesty).} In one paragraph, distinguish: (i) Hurwitz arithmetic lattice, (ii) angle-sampled visualization lattice, (iii) two-gyro dynamical lattice. Which claim types apply to each?
 
@@ -404,7 +410,7 @@ kingdom.simulations.lattice.build_lattice_figure
 kingdom.core.hopf                    # projection / fibers
 \end{lstlisting}
 
-\textbf{Figures:} \texttt{scripts/generate\_ch3\_figures.py} \textbf{Related portal:} Lattice Simulator tab --- dynamical counterpart of Aux A3.1. \textbf{Open problems:} \texttt{notes/open\_problems.md} \(\cdot\) OP1.
+\textbf{Figures:} \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch3\_\allowbreak{}figures.\allowbreak{}py} \textbf{Related portal:} Lattice Simulator tab --- dynamical counterpart of Aux A3.1. \textbf{Open problems:} \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} \(\cdot\) OP1.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

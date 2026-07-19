@@ -17,18 +17,19 @@ Living research edges of the project. The main text (especially Chapters 3, 5--1
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 \# & Problem & Home & Status & Sandbox \\
 \midrule
-OP1 & Canonical quaternionic Farey structure & Ch. 3 & Open & \texttt{lib.hopf\_lattice.candidate\_adjacency} \\
-OP2 & Flux topograph axioms & Ch. 5 & Open & \texttt{lib.flux\_topograph} \\
-OP3 & Class number \(\leftrightarrow\) Magic Island & Ch. 6 & Open & \texttt{classify\_topograph\_type}, \texttt{class\_number\_analogue} \\
-OP4 & \(Z\to\) flywheel uniqueness & Ch. 7 / 10 & Open & \texttt{map\_z\_to\_flywheel}, \texttt{stability\_landscape\_z} \\
-OP5 & \(350/\pi\) first principles or falsification & Ch. 10 & Open & \texttt{lib.validation} \(\cdot\) Table T4 (Appendix D) \\
-OP6 & Composition of flywheels (Gauss lift) & Ch. 8--9 & Open & \texttt{lib.composition} \(\cdot\) \texttt{lib.quaternion\_algebra} \\
+OP1 & Canonical quaternionic Farey structure & Ch. 3 & Open & \texttt{lib.\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}candidate\_\allowbreak{}adjacency} \\
+OP2 & Flux topograph axioms & Ch. 5 & Open & \texttt{lib.\allowbreak{}flux\_\allowbreak{}topograph} \\
+OP3 & Class number \(\leftrightarrow\) Magic Island & Ch. 6 & Open & \texttt{classify\_\allowbreak{}topograph\_\allowbreak{}type}, \texttt{class\_\allowbreak{}number\_\allowbreak{}analogue} \\
+OP4 & \(Z\to\) flywheel uniqueness & Ch. 7 / 10 & Open & \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel}, \texttt{stability\_\allowbreak{}landscape\_\allowbreak{}z} \\
+OP5 & \(350/\pi\) first principles or falsification & Ch. 10 & Open & \texttt{lib.\allowbreak{}validation} \(\cdot\) Table T4 (Appendix D) \\
+OP6 & Composition of flywheels (Gauss lift) & Ch. 8--9 & Open & \texttt{lib.\allowbreak{}composition} \(\cdot\) \texttt{lib.\allowbreak{}quaternion\_\allowbreak{}algebra} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -46,7 +47,7 @@ OP6 & Composition of flywheels (Gauss lift) & Ch. 8--9 & Open & \texttt{lib.comp
 
 Prove uniqueness (or classify) discrete adjacency / mediant rules on the gauged Hopf lattice that reduce to classical Farey under a fixed embedding \(\mathbb{Q}\cup\{\infty\}\hookrightarrow\) lattice/base. Without a chosen primary rule, ``quaternionic Farey'' remains a family of metaphors rather than a single theory.
 
-\textbf{Sandbox:} \texttt{candidate\_adjacency} (along-fiber phase neighbors + base angular threshold). Not claimed canonical. \textbf{Diagnostics:} \texttt{adjacency\_equivariance\_score} (Ch. 4, Exercise 4.H). \textbf{Success criteria:} equivariant rule + documented Farey reduction + comparable mediant algorithm.
+\textbf{Sandbox:} \texttt{candidate\_\allowbreak{}adjacency} (along-fiber phase neighbors + base angular threshold). Not claimed canonical. \textbf{Diagnostics:} \texttt{adjacency\_\allowbreak{}equivariance\_\allowbreak{}score} (Ch. 4, Exercise 4.H). \textbf{Success criteria:} equivariant rule + documented Farey reduction + comparable mediant algorithm.
 
 \subsection{OP2 --- Flux topograph axioms}
 \label{ch:app_b_open_problems:op2-flux-topograph-axioms}
@@ -55,7 +56,7 @@ Prove uniqueness (or classify) discrete adjacency / mediant rules on the gauged 
 
 Which properties of Conway topographs (separator structure, periodicity, river, face/edge values) survive for (a) quaternion norm forms and (b) lattice flux functionals? State a minimal axiom system such that Hatcher's binary case is a specialization.
 
-\textbf{Sandbox:} \texttt{build\_flux\_topograph}, \texttt{detect\_separators}, \texttt{periodicity\_score}, \texttt{separator\_equivariance\_score}. Depends on OP1. \textbf{Success criteria:} axioms + proof or counterexample of reduction to TN Ch. 4.
+\textbf{Sandbox:} \texttt{build\_\allowbreak{}flux\_\allowbreak{}topograph}, \texttt{detect\_\allowbreak{}separators}, \texttt{periodicity\_\allowbreak{}score}, \texttt{separator\_\allowbreak{}equivariance\_\allowbreak{}score}. Depends on OP1. \textbf{Success criteria:} axioms + proof or counterexample of reduction to TN Ch. 4.
 
 \subsection{OP3 --- Class number \(\leftrightarrow\) Magic Island}
 \label{ch:app_b_open_problems:op3-class-number-magic-island}
@@ -64,7 +65,7 @@ Which properties of Conway topographs (separator structure, periodicity, river, 
 
 Is there a precise arithmetic invariant (class number, type number, discriminant, topological charge, ...) whose magnitude or type predicts Magic Island stability scores? Correlation is not enough; seek a structural map or a clear negative result.
 
-\textbf{Sandbox:} \texttt{classify\_topograph\_type}, \texttt{enumerate\_reduced}, \texttt{class\_number\_analogue}, \texttt{magic\_island\_score}. Depends on OP1--OP2. \textbf{Success criteria:} invariant with out-of-sample predictive power or rigorous non-existence under stated axioms.
+\textbf{Sandbox:} \texttt{classify\_\allowbreak{}topograph\_\allowbreak{}type}, \texttt{enumerate\_\allowbreak{}reduced}, \texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}, \texttt{magic\_\allowbreak{}island\_\allowbreak{}score}. Depends on OP1--OP2. \textbf{Success criteria:} invariant with out-of-sample predictive power or rigorous non-existence under stated axioms.
 
 \subsection{OP4 --- \(Z\to\) flywheel uniqueness}
 \label{ch:app_b_open_problems:op4-z-to-flywheel-uniqueness}
@@ -73,7 +74,7 @@ Is there a precise arithmetic invariant (class number, type number, discriminant
 
 Up to gauge equivalence, is the map from atomic number \(Z\) to flywheel configuration unique under stated axioms? If not, classify the ambiguity and its chemical consequences.
 
-\textbf{Sandbox:} \texttt{map\_z\_to\_flywheel[\_extended]}, \texttt{stability\_landscape\_z}. \textbf{Success criteria:} uniqueness theorem up to gauge, or explicit moduli of ambiguity.
+\textbf{Sandbox:} \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel[\_\allowbreak{}extended]}, \texttt{stability\_\allowbreak{}landscape\_\allowbreak{}z}. \textbf{Success criteria:} uniqueness theorem up to gauge, or explicit moduli of ambiguity.
 
 \subsection{OP5 --- \(350/\pi\) first principles or falsification}
 \label{ch:app_b_open_problems:op5-350-pi-first-principles-or-falsification}
@@ -82,7 +83,7 @@ Up to gauge equivalence, is the map from atomic number \(Z\) to flywheel configu
 
 Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, \textbf{or} falsify multi-domain recurrence as coincidence via pre-registered statistical tests (Table T4, Appendix D).
 
-\textbf{Sandbox:} \texttt{table\_t4\_checklist}, \texttt{default\_hypotheses}, \texttt{run\_table\_t4\_demo}, \texttt{combine\_p\_values\_fisher}, \texttt{proximity\_to\_wg}. \textbf{Success criteria:} derivation paper, or registered negative result with full T4 compliance.
+\textbf{Sandbox:} \texttt{table\_\allowbreak{}t4\_\allowbreak{}checklist}, \texttt{default\_\allowbreak{}hypotheses}, \texttt{run\_\allowbreak{}table\_\allowbreak{}t4\_\allowbreak{}demo}, \texttt{combine\_\allowbreak{}p\_\allowbreak{}values\_\allowbreak{}fisher}, \texttt{proximity\_\allowbreak{}to\_\allowbreak{}wg}. \textbf{Success criteria:} derivation paper, or registered negative result with full T4 compliance.
 
 \subsection{OP6 --- Composition of flywheels (Gauss lift)}
 \label{ch:app_b_open_problems:op6-composition-of-flywheels-gauss-lift}
@@ -91,7 +92,7 @@ Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, \text
 
 Does Gauss-style composition admit a dynamical or ideal-theoretic realization on flywheels / flux classes that is associative up to gauge equivalence, compatible with Ch. 4 actions, and reduces to classical composition under restriction?
 
-\textbf{Sandbox:} \texttt{compose\_flywheels}, \texttt{composition\_table}, \texttt{is\_associative\_up\_to\_equivalence}, \texttt{class\_group\_analogue}; algebraic side \texttt{QuaternionAlgebra}, \texttt{HurwitzOrder}, \texttt{left\_ideal\_class\_group}. \textbf{Current note:} flux-composition experiments often show \textbf{low closure and low associativity} --- document failures as progress. \textbf{Success criteria:} associative group law on classes + comparison with Hurwitz / other orders.
+\textbf{Sandbox:} \texttt{compose\_\allowbreak{}flywheels}, \texttt{composition\_\allowbreak{}table}, \texttt{is\_\allowbreak{}associative\_\allowbreak{}up\_\allowbreak{}to\_\allowbreak{}equivalence}, \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue}; algebraic side \texttt{QuaternionAlgebra}, \texttt{HurwitzOrder}, \texttt{left\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}group}. \textbf{Current note:} flux-composition experiments often show \textbf{low closure and low associativity} --- document failures as progress. \textbf{Success criteria:} associative group law on classes + comparison with Hurwitz / other orders.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -104,7 +105,7 @@ Does Gauss-style composition admit a dynamical or ideal-theoretic realization on
 \item Change \textbf{Status} when work starts or a result lands.  
 \item Put initials or issue links in an Owner column (optional).  
 \item When resolved, add a one-line pointer to the theorem / section / notebook and keep the row for history.  
-\item Keep \texttt{notes/open\_problems.md} in sync with this appendix (or treat this appendix as the print form of that file).
+\item Keep \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} in sync with this appendix (or treat this appendix as the print form of that file).
 \end{enumerate}
 
 \bigskip

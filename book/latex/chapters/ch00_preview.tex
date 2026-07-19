@@ -38,29 +38,31 @@ and know which links are classical mathematics and which are working models or h
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 0.1 & \texttt{figures/fig0\_1\_hopf\_linked\_fibers.png} & Linked Hopf fibers in stereographic view \\
-Fig. 0.2 & \texttt{figures/fig0\_2\_hopf\_stereographic.png} & Stereographic preview of the fibration \\
-Fig. 0.3 & \texttt{figures/fig0\_3\_hopf\_bundle.png} & Bundle picture: total space \(\to\) base \\
-Fig. 0.4 & \texttt{figures/fig0\_4\_flux\_flywheel\_scales.jpg} & Flux flywheel scales / nested structure \\
-Fig. 0.5 & \texttt{figures/fig0\_5\_hopf\_lattice\_pi\_cycle.jpg} & Gauged lattice meets \(350/\pi\) cycle motif \\
+Fig. 0.1 & \texttt{figures/\allowbreak{}fig0\_\allowbreak{}1\_\allowbreak{}hopf\_\allowbreak{}linked\_\allowbreak{}fibers.\allowbreak{}png} & Linked Hopf fibers in stereographic view \\
+Fig. 0.2 & \texttt{figures/\allowbreak{}fig0\_\allowbreak{}2\_\allowbreak{}hopf\_\allowbreak{}stereographic.\allowbreak{}png} & Stereographic preview of the fibration \\
+Fig. 0.3 & \texttt{figures/\allowbreak{}fig0\_\allowbreak{}3\_\allowbreak{}hopf\_\allowbreak{}bundle.\allowbreak{}png} & Bundle picture: total space \(\to\) base \\
+Fig. 0.4 & \texttt{figures/\allowbreak{}fig0\_\allowbreak{}4\_\allowbreak{}flux\_\allowbreak{}flywheel\_\allowbreak{}scales.\allowbreak{}jpg} & Flux flywheel scales / nested structure \\
+Fig. 0.5 & \texttt{figures/\allowbreak{}fig0\_\allowbreak{}5\_\allowbreak{}hopf\_\allowbreak{}lattice\_\allowbreak{}pi\_\allowbreak{}cycle.\allowbreak{}jpg} & Gauged lattice meets \(350/\pi\) cycle motif \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-Aux A0.1 & \texttt{figures/aux\_z\_map\_he.png} & Helium \(Z=2\) flux-flywheel still (closed-shell baseline) \\
+Aux A0.1 & \texttt{figures/\allowbreak{}aux\_\allowbreak{}z\_\allowbreak{}map\_\allowbreak{}he.\allowbreak{}png} & Helium \(Z=2\) flux-flywheel still (closed-shell baseline) \\
 \midrule
-Aux A0.2 & \texttt{figures/aux\_z\_map\_fe.png} & Iron \(Z=26\) flux-flywheel still (mid-table contrast) \\
+Aux A0.2 & \texttt{figures/\allowbreak{}aux\_\allowbreak{}z\_\allowbreak{}map\_\allowbreak{}fe.\allowbreak{}png} & Iron \(Z=26\) flux-flywheel still (mid-table contrast) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -165,14 +167,14 @@ y_2 &= 2 x_1 x_2,\\
 y_3 &= 2(x_3 x_4 + x_1 x_2),
 \end{align*}
 
-for a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\) (see \texttt{kingdom} theory notes and \texttt{flux\_hopf\_lib}). Equivalent complex forms identify the base point with a ratio \([z_1:z_2]\in\mathbb{CP}^1\cong S^2\).
+for a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\) (see \texttt{kingdom} theory notes and \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib}). Equivalent complex forms identify the base point with a ratio \([z_1:z_2]\in\mathbb{CP}^1\cong S^2\).
 
 \textbf{Fiber intuition.} Over each base point sits a \textbf{circle's worth} of unit quaternions---the fiber---obtained by rotating a phase along that circle. Distinct fibers are \textbf{linked}: any two are linked once (Hopf invariant \(1\)). Stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\) displays those fibers as linked Villarceau circles on nested tori.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig0_1_hopf_linked_fibers.png}
-  \caption{Figure 0.1 --- Linked Hopf fibers (stereographic view). Source: Kingdom Come \texttt{app/assets/home/hopf\_linked\_fibers.png}.}
+  \caption{Figure 0.1 --- Linked Hopf fibers (stereographic view). Source: Kingdom Come \texttt{app/\allowbreak{}assets/\allowbreak{}home/\allowbreak{}hopf\_\allowbreak{}linked\_\allowbreak{}fibers.\allowbreak{}png}.}
   \label{fig:fig0-1-hopf-linked-fibers}
 \end{figure}
 
@@ -181,7 +183,7 @@ for a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\) (see \texttt{kingdom} theory no
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig0_2_hopf_stereographic.png}
-  \caption{Figure 0.2 --- Stereographic Hopf preview. Source: Kingdom Come \texttt{app/assets/hopf\_preview.png}.}
+  \caption{Figure 0.2 --- Stereographic Hopf preview. Source: Kingdom Come \texttt{app/\allowbreak{}assets/\allowbreak{}hopf\_\allowbreak{}preview.\allowbreak{}png}.}
   \label{fig:fig0-2-hopf-stereographic}
 \end{figure}
 
@@ -202,7 +204,8 @@ We state the comparison carefully so it does not pretend to be a theorem of uniq
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Farey diagram (Hatcher) & Hopf geometry (this book) \\
 \midrule
@@ -212,14 +215,14 @@ Mediant of two fractions & Quaternionic (or lattice) combination rule, \textbf{t
 Paths: continued fractions & Phase winding along fibers; walks on the gauged lattice \\
 Symmetries: linear fractional maps & Left/right multiplication by unit quaternions; gauge actions \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig0_3_hopf_bundle.png}
-  \caption{Figure 0.3 --- Hopf fibration as a bundle. Source: Kingdom Come \texttt{app/assets/home/hopf\_fibration\_bundle.png}.}
+  \caption{Figure 0.3 --- Hopf fibration as a bundle. Source: Kingdom Come \texttt{app/\allowbreak{}assets/\allowbreak{}home/\allowbreak{}hopf\_\allowbreak{}fibration\_\allowbreak{}bundle.\allowbreak{}png}.}
   \label{fig:fig0-3-hopf-bundle}
 \end{figure}
 
@@ -243,7 +246,7 @@ A \textbf{flux flywheel}, for preview purposes, is a lattice-supported circulati
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig0_4_flux_flywheel_scales.jpg}
-  \caption{Figure 0.4 --- Flux flywheel scales. Source: Kingdom Come \texttt{app/assets/bitcoin\_pi/flux\_flywheel\_scales.jpg}.}
+  \caption{Figure 0.4 --- Flux flywheel scales. Source: Kingdom Come \texttt{app/\allowbreak{}assets/\allowbreak{}bitcoin\_\allowbreak{}pi/\allowbreak{}flux\_\allowbreak{}flywheel\_\allowbreak{}scales.\allowbreak{}jpg}.}
   \label{fig:fig0-4-flux-flywheel-scales}
 \end{figure}
 
@@ -252,8 +255,8 @@ A \textbf{flux flywheel}, for preview purposes, is a lattice-supported circulati
 In code, lattice and flywheel experiments live under:
 
 \begin{itemize}
-\item \texttt{kingdom.core.lattice} --- gauged lattice dynamics and stability comparisons  
-\item \texttt{kingdom.core.flux\_flywheel} --- \texttt{map\_z\_to\_flywheel}, \texttt{map\_z\_to\_flywheel\_extended}  
+\item \texttt{kingdom.\allowbreak{}core.\allowbreak{}lattice} --- gauged lattice dynamics and stability comparisons  
+\item \texttt{kingdom.\allowbreak{}core.\allowbreak{}flux\_\allowbreak{}flywheel} --- \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel}, \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel\_\allowbreak{}extended}  
 \item Gradio tabs: \textbf{Lattice Simulator}, \textbf{Flux Flywheel}
 \end{itemize}
 
@@ -275,27 +278,27 @@ Kingdom Come implements a map from atomic number \(Z\) to a flywheel configurati
 Z \;\longmapsto\; \bigl(\text{flywheel state},\;\text{stability score},\;\text{shell-like descriptors},\;\ldots\bigr).
 \]
 
-Primary entry points: \texttt{map\_z\_to\_flywheel} and \texttt{map\_z\_to\_flywheel\_extended} in \texttt{kingdom.core.flux\_flywheel}. Detuning parameters (frequency offset, gauge strength, depth/layers) select \textbf{stability islands} in parameter space---\textbf{Magic Islands}---including a documented ultra-stable lock used as a noble-gas-like template.
+Primary entry points: \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} and \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel\_\allowbreak{}extended} in \texttt{kingdom.\allowbreak{}core.\allowbreak{}flux\_\allowbreak{}flywheel}. Detuning parameters (frequency offset, gauge strength, depth/layers) select \textbf{stability islands} in parameter space---\textbf{Magic Islands}---including a documented ultra-stable lock used as a noble-gas-like template.
 
 The portal's element tour renders each \(Z\) with shell clouds and a flux ring. Two static stills from that tour are kept beside the main figures:
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux_z_map_he.png}
-  \caption{Auxiliary Figure A0.1 --- Helium (\(Z=2\)) flux-flywheel still: closed-shell archetype with high model stability. Source: Kingdom Come \texttt{z\_knowns/frame\_0002.png}.}
+  \caption{Auxiliary Figure A0.1 --- Helium (\(Z=2\)) flux-flywheel still: closed-shell archetype with high model stability. Source: Kingdom Come \texttt{z\_\allowbreak{}knowns/\allowbreak{}frame\_\allowbreak{}0002.\allowbreak{}png}.}
   \label{fig:aux-z-map-he}
 \end{figure}
 
-\begin{quote}\small\textit{Auxiliary Figure A0.1 --- Helium (\(Z=2\)).* Flux-flywheel element card from the portal tour: noble-gas closed shell, high stability score in the working model, and a simple shell/flux-ring visualization. Use this as the `\texttt{quiet baseline'' when comparing later \textbackslash{}(Z\textbackslash{}) values. Source: }z\_knowns/frame\_0002.png`.}\end{quote}
+\begin{quote}\small\textit{Auxiliary Figure A0.1 --- Helium (\(Z=2\)).* Flux-flywheel element card from the portal tour: noble-gas closed shell, high stability score in the working model, and a simple shell/flux-ring visualization. Use this as the ``quiet baseline'' when comparing later \(Z\) values. Source: \texttt{z\_\allowbreak{}knowns/\allowbreak{}frame\_\allowbreak{}0002.\allowbreak{}png}.}\end{quote}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux_z_map_fe.png}
-  \caption{Auxiliary Figure A0.2 --- Iron (\(Z=26\)) flux-flywheel still: mid-table nuclear/chemical specialness meets a richer flywheel profile. Source: Kingdom Come \texttt{z\_knowns/frame\_0026.png}.}
+  \caption{Auxiliary Figure A0.2 --- Iron (\(Z=26\)) flux-flywheel still: mid-table nuclear/chemical specialness meets a richer flywheel profile. Source: Kingdom Come \texttt{z\_\allowbreak{}knowns/\allowbreak{}frame\_\allowbreak{}0026.\allowbreak{}png}.}
   \label{fig:aux-z-map-fe}
 \end{figure}
 
-\begin{quote}\small\textit{Auxiliary Figure A0.2 --- Iron (\(Z=26\)).* Same tour format at iron: a mid-table configuration where real-world nuclear and chemical specialness can later be checked against model metrics (stability, ionization-energy anchors, magnetic-moment proxies in Chapters 7 and 10). Source: \texttt{z\_knowns/frame\_0026.png}.}\end{quote}
+\begin{quote}\small\textit{Auxiliary Figure A0.2 --- Iron (\(Z=26\)).* Same tour format at iron: a mid-table configuration where real-world nuclear and chemical specialness can later be checked against model metrics (stability, ionization-energy anchors, magnetic-moment proxies in Chapters 7 and 10). Source: \texttt{z\_\allowbreak{}knowns/\allowbreak{}frame\_\allowbreak{}0026.\allowbreak{}png}.}\end{quote}
 
 \textbf{Claim type:} the existence of a coded map \(Z\mapsto\) configuration is a \textbf{Software fact}. Interpreting it as \emph{the} emergence mechanism of the periodic table is a \textbf{Model}. Quantitative alignment with experiment is an empirical research program (Chapters 7 and 10), not a free theorem.
 
@@ -308,12 +311,12 @@ Kingdom Come's constants module records a topological clock scale
 W_g \;=\; \frac{350}{\pi} \;\approx\; 111.408
 \]
 
-(\texttt{WG\_FROM\_350\_OVER\_PI}, with a documented lock value \(W_{g,\mathrm{lock}}\) in \texttt{flux\_hopf\_lib} / \texttt{kingdom.core.constants}). The same numerical motif appears in several \textbf{observation tracks} of the portal: Bitcoin Pi Cycle narratives, TLS tree branch bursts, cuprate superconductor sketches, pulsar-timing numerics, and related notes.
+(\texttt{WG\_\allowbreak{}FROM\_\allowbreak{}350\_\allowbreak{}OVER\_\allowbreak{}PI}, with a documented lock value \(W_{g,\mathrm{lock}}\) in \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} / \texttt{kingdom.\allowbreak{}core.\allowbreak{}constants}). The same numerical motif appears in several \textbf{observation tracks} of the portal: Bitcoin Pi Cycle narratives, TLS tree branch bursts, cuprate superconductor sketches, pulsar-timing numerics, and related notes.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig0_5_hopf_lattice_pi_cycle.jpg}
-  \caption{Figure 0.5 --- Hopf lattice and Pi-cycle motif. Source: Kingdom Come \texttt{app/assets/bitcoin\_pi/hopf\_lattice\_pi\_cycle.jpg}.}
+  \caption{Figure 0.5 --- Hopf lattice and Pi-cycle motif. Source: Kingdom Come \texttt{app/\allowbreak{}assets/\allowbreak{}bitcoin\_\allowbreak{}pi/\allowbreak{}hopf\_\allowbreak{}lattice\_\allowbreak{}pi\_\allowbreak{}cycle.\allowbreak{}jpg}.}
   \label{fig:fig0-5-hopf-lattice-pi-cycle}
 \end{figure}
 
@@ -351,7 +354,8 @@ Part I   Ch. 1-2    Quaternions & Hopf            <- foundations (new floor)
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Figure & Returns in \\
 \midrule
@@ -361,7 +365,7 @@ Figure & Returns in \\
 0.4 Flywheel scales & Ch. 3, 5, 7 (lattice, topographs, \(Z\)-map) \\
 0.5 Lattice / \(\pi\)-cycle & Ch. 3 (lattice); Ch. 10 (observations) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -369,18 +373,19 @@ Figure & Returns in \\
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Gradio / module & First serious chapter \\
 \midrule
-Hopf Visualizer \(\cdot\) \texttt{core.hopf} \(\cdot\) \texttt{viz.hopf\_plotly} & 2 \\
-Quaternion helpers \(\cdot\) \texttt{core.quaternion} & 1 \\
-Lattice Simulator \(\cdot\) \texttt{core.lattice} & 3--4 \\
-Flux Flywheel slider \(\cdot\) \texttt{core.flux\_flywheel} & 5--7 \\
-Magic Island \(\cdot\) \texttt{viz.magic\_island} & 6 \\
-Observations tabs \(\cdot\) \texttt{constants.WG\_FROM\_350\_OVER\_PI} & 10 \\
+Hopf Visualizer \(\cdot\) \texttt{core.\allowbreak{}hopf} \(\cdot\) \texttt{viz.\allowbreak{}hopf\_\allowbreak{}plotly} & 2 \\
+Quaternion helpers \(\cdot\) \texttt{core.\allowbreak{}quaternion} & 1 \\
+Lattice Simulator \(\cdot\) \texttt{core.\allowbreak{}lattice} & 3--4 \\
+Flux Flywheel slider \(\cdot\) \texttt{core.\allowbreak{}flux\_\allowbreak{}flywheel} & 5--7 \\
+Magic Island \(\cdot\) \texttt{viz.\allowbreak{}magic\_\allowbreak{}island} & 6 \\
+Observations tabs \(\cdot\) \texttt{constants.\allowbreak{}WG\_\allowbreak{}FROM\_\allowbreak{}350\_\allowbreak{}OVER\_\allowbreak{}PI} & 10 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -408,11 +413,11 @@ If you are impatient for physics, read 0 \(\rightarrow\) 2 \(\rightarrow\) 3 (fl
 \section{Exercises (preview level)}
 \label{ch:ch00_preview:exercises-preview-level}
 
-\textbf{0.A.} Verify \(N(q_1 q_2)=N(q_1)N(q_2)\) for two random integer quaternions by hand or with \texttt{kingdom.core.quaternion}.
+\textbf{0.A.} Verify \(N(q_1 q_2)=N(q_1)N(q_2)\) for two random integer quaternions by hand or with \texttt{kingdom.\allowbreak{}core.\allowbreak{}quaternion}.
 
 \textbf{0.B.} In the Gradio Hopf Visualizer, load \textbf{Classic Hopf} and identify which panel corresponds most closely to Figure 0.1 versus Figure 0.2.
 
-\textbf{0.C.} Run \texttt{map\_z\_to\_flywheel} for \(Z\in\{2,10,26,79\}\). Record stability scores; do \textbf{not} yet interpret them as chemical truth---only as model outputs.
+\textbf{0.C.} Run \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} for \(Z\in\{2,10,26,79\}\). Record stability scores; do \textbf{not} yet interpret them as chemical truth---only as model outputs.
 
 \textbf{0.D.} Write one paragraph distinguishing \textbf{Theorem / Model / Hypothesis} for: (i) four-square theorem, (ii) Hopf linking, (iii) \(W_g=350/\pi\) as a multi-domain constant.
 
@@ -434,9 +439,9 @@ kingdom.core.constants       # WG_FROM_350_OVER_PI, W_G_LOCK, ? defaults
 kingdom.viz.hopf_plotly      # portal-style multi-panel figures
 \end{lstlisting}
 
-\textbf{Figure sources (Kingdom Come):} see \texttt{figures/ATTRIBUTION.md}.
+\textbf{Figure sources (Kingdom Come):} see \texttt{figures/\allowbreak{}ATTRIBUTION.\allowbreak{}md}.
 
-\textbf{Parallel reading:} Hatcher, \emph{Topology of Numbers}, Chapter 0; project file \texttt{HATCHER\_MAP.md}.
+\textbf{Parallel reading:} Hatcher, \emph{Topology of Numbers}, Chapter 0; project file \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

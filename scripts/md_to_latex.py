@@ -44,14 +44,20 @@ CHAPTERS = [
 
 
 def normalize_unicode(s: str) -> str:
-    """Map common Unicode punctuation to ASCII/LaTeX-friendly forms."""
+    """Map common Unicode punctuation to ASCII/LaTeX-friendly forms.
+
+    Curly double quotes must NOT become backticks: that confuses inline-code
+    extraction and can swallow whole sentences (including math) into \\texttt.
+    """
     pairs = {
         "\u2014": "---",
         "\u2013": "--",
-        "\u2018": "`",
+        # Keep straight apostrophe; curly singles → ASCII apostrophe
+        "\u2018": "'",
         "\u2019": "'",
-        "\u201c": "``",
-        "\u201d": "''",
+        # Placeholder double quotes (converted to `` '' in text chunks only)
+        "\u201c": '"',
+        "\u201d": '"',
         "\u2026": "...",
         "\u00a0": " ",
         "\u2192": "\\(\\rightarrow\\)",
@@ -96,12 +102,55 @@ def escape_text(s: str) -> str:
     return out
 
 
+def latex_quotes(s: str) -> str:
+    """Turn ASCII double quotes into LaTeX `` '' pairs (best-effort)."""
+    parts = s.split('"')
+    if len(parts) == 1:
+        return s
+    out: list[str] = []
+    for i, part in enumerate(parts):
+        out.append(part)
+        if i < len(parts) - 1:
+            out.append("``" if i % 2 == 0 else "''")
+    return "".join(out)
+
+
+def latex_code_span(content: str) -> str:
+    """Inline code as breakable \\texttt (safe in headings and tables).
+
+    Avoid \\path here: it is fragile in moving arguments (section titles /
+    PDF bookmarks). Insert discretionary breaks after / . _ : so long paths
+    wrap inside tabularx X columns.
+    """
+    escaped = escape_text(content)
+    for ch, repl in (
+        ("/", r"/\allowbreak{}"),
+        (".", r".\allowbreak{}"),
+        (":", r":\allowbreak{}"),
+        (r"\_", r"\_\allowbreak{}"),
+        (r"\textasciitilde{}", r"\textasciitilde{}\allowbreak{}"),
+    ):
+        escaped = escaped.replace(ch, repl)
+    return r"\texttt{" + escaped + "}"
+
+
 def convert_inline(s: str) -> str:
-    """Convert inline markdown; leave \( \) and existing math alone."""
+    r"""Convert inline markdown; leave \( \) and existing math alone."""
     s = normalize_unicode(s)
-    # Extract math spans first
+    # Extract math / code / bare URLs first. Math before code.
+    # Do not map curly quotes to backticks (breaks code-span detection).
+    # Order matters: math → full markdown links → code → bare URLs.
+    # Links before code so [`path`](url) is not split on the inner backticks.
     pattern = re.compile(
-        r"(\\\(.*?\\\)|\\\[.*?\\\]|\$\$.*?\$\$|\$(?!\$)(?:\\.|[^$\\])+\$|`[^`]+`)"
+        r"("
+        r"\\\(.+?\\\)"
+        r"|\\\[.+?\\\]"
+        r"|\$\$.+?\$\$"
+        r"|\$(?!\$)(?:\\.|[^$\\])+\$"
+        r"|\[[^\]]+\]\([^)]+\)"
+        r"|`[^`\n]+`"
+        r"|(?<!\]\()https?://[^\s|<>()]+"
+        r")"
     )
     pos = 0
     chunks: list[str] = []
@@ -109,7 +158,9 @@ def convert_inline(s: str) -> str:
         if m.start() > pos:
             chunks.append(("text", s[pos : m.start()]))
         tok = m.group(0)
-        if tok.startswith("`"):
+        if tok.startswith("[") and "](" in tok:
+            chunks.append(("link", tok))
+        elif tok.startswith("`"):
             chunks.append(("code", tok[1:-1]))
         elif tok.startswith("$$"):
             chunks.append(("dmath", tok[2:-2]))
@@ -119,50 +170,58 @@ def convert_inline(s: str) -> str:
             chunks.append(("imath", tok[2:-2]))
         elif tok.startswith("$"):
             chunks.append(("imath", tok[1:-1]))
+        elif tok.startswith("http"):
+            chunks.append(("url", tok.rstrip(".,;:)")))
         else:
             chunks.append(("text", tok))
         pos = m.end()
     if pos < len(s):
         chunks.append(("text", s[pos:]))
 
+    def format_text_chunk(content: str) -> str:
+        t = latex_quotes(content)
+        # bold **...**
+        t = re.sub(
+            r"\*\*(.+?)\*\*",
+            lambda m: r"\textbf{" + escape_text(m.group(1)) + "}",
+            t,
+        )
+        # italic *...* (avoid bold leftovers)
+        t = re.sub(
+            r"(?<!\*)\*([^*]+?)\*(?!\*)",
+            lambda m: r"\emph{" + escape_text(m.group(1)) + "}",
+            t,
+        )
+        # remaining text escape — but don't escape already-inserted commands
+        pieces = re.split(r"(\\(?:textbf|emph)\{[^}]*\})", t)
+        rebuilt = []
+        for p in pieces:
+            if p.startswith("\\textbf") or p.startswith("\\emph"):
+                rebuilt.append(p)
+            else:
+                rebuilt.append(escape_text(p))
+        return "".join(rebuilt)
+
     out = []
     for kind, content in chunks:
         if kind == "text":
-            t = content
-            # bold **...**
-            t = re.sub(
-                r"\*\*(.+?)\*\*",
-                lambda m: r"\textbf{" + escape_text(m.group(1)) + "}",
-                t,
-            )
-            # italic *...* (avoid bold leftovers)
-            t = re.sub(
-                r"(?<!\*)\*([^*]+?)\*(?!\*)",
-                lambda m: r"\emph{" + escape_text(m.group(1)) + "}",
-                t,
-            )
-            # links [text](url)
-            t = re.sub(
-                r"\[([^\]]+)\]\(([^)]+)\)",
-                lambda m: r"\href{"
-                + m.group(2).replace("%", r"\%").replace("#", r"\#")
-                + "}{"
-                + escape_text(m.group(1))
-                + "}",
-                t,
-            )
-            # remaining text escape — but don't escape already-inserted commands
-            # Split by known latex commands we inserted
-            pieces = re.split(r"(\\(?:textbf|emph|href)\{[^}]*\}(?:\{[^}]*\})?)", t)
-            rebuilt = []
-            for i, p in enumerate(pieces):
-                if p.startswith("\\textbf") or p.startswith("\\emph") or p.startswith("\\href"):
-                    rebuilt.append(p)
-                else:
-                    rebuilt.append(escape_text(p))
-            out.append("".join(rebuilt))
+            out.append(format_text_chunk(content))
+        elif kind == "link":
+            lm = re.match(r"\[([^\]]+)\]\(([^)]+)\)", content)
+            if not lm:
+                out.append(format_text_chunk(content))
+                continue
+            label_raw, url = lm.group(1), lm.group(2)
+            # Label may contain `code`, **bold**, math — recurse lightly
+            label_tex = convert_inline(label_raw) if ("`" in label_raw or "*" in label_raw or "\\" in label_raw) else escape_text(label_raw)
+            url_tex = url.replace("%", r"\%").replace("#", r"\#")
+            out.append(rf"\href{{{url_tex}}}{{{label_tex}}}")
         elif kind == "code":
-            out.append(r"\texttt{" + escape_text(content) + "}")
+            out.append(latex_code_span(content))
+        elif kind == "url":
+            # xurl/hyperref: breakable URL (no manual escape)
+            safe = content.replace("%", r"\%").replace("#", r"\#")
+            out.append(r"\url{" + safe + "}")
         elif kind == "imath":
             out.append(r"\(" + content + r"\)")
         elif kind == "dmath":
@@ -176,7 +235,13 @@ def slugify(title: str) -> str:
 
 
 def convert_table(rows: list[str]) -> str:
-    """Convert markdown table lines to booktabs tabular."""
+    """Convert markdown table lines to full-width booktabs tabularx.
+
+    Prefer margin-to-margin width (\\textwidth) with ragged X columns so
+    long paths / roles wrap instead of overlapping. First column is a modest
+    fixed width for short tags (Fig. 0.1, Label, …); remaining columns share
+    the rest of the line.
+    """
     parsed = []
     for row in rows:
         row = row.strip().strip("|")
@@ -197,18 +262,27 @@ def convert_table(rows: list[str]) -> str:
         while len(r) < ncols:
             r.append("")
 
-    colspec = "l" * ncols
-    if ncols >= 3:
-        colspec = "l" + "p{0.28\\textwidth}" * (ncols - 1)
-    if ncols == 2:
-        colspec = "lp{0.55\\textwidth}"
-    if ncols >= 4:
-        colspec = "l" + "p{0.2\\textwidth}" * (ncols - 1)
+    # Full-width tabularx; ragged wrapping in every flexible column.
+    X = r">{\raggedright\arraybackslash}X"
+    # Narrow tag column for Fig./Aux./OP labels (3-col figure tables)
+    L = r">{\raggedright\arraybackslash}p{0.12\textwidth}"
+    if ncols == 1:
+        colspec = X
+    elif ncols == 2:
+        # Path|Role, Resource|Location — both columns need wrap room
+        colspec = X + X
+    elif ncols == 3:
+        # Tag | File | Role (common chapter figure tables)
+        colspec = L + X + X
+    else:
+        # 4+ columns: equal flexible share, margin-to-margin
+        colspec = X * ncols
 
     lines = [
         r"\begin{center}",
         r"\small",
-        rf"\begin{{tabular}}{{@{{}}{colspec}@{{}}}}",
+        r"\setlength{\tabcolsep}{4pt}",
+        rf"\begin{{tabularx}}{{\textwidth}}{{@{{}}{colspec}@{{}}}}",
         r"\toprule",
     ]
     # header
@@ -217,7 +291,14 @@ def convert_table(rows: list[str]) -> str:
     lines.append(r"\midrule")
     for r in body[1:]:
         lines.append(" & ".join(convert_inline(c) for c in r) + r" \\")
-    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{center}", ""])
+    lines.extend(
+        [
+            r"\bottomrule",
+            r"\end{tabularx}",
+            r"\end{center}",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 

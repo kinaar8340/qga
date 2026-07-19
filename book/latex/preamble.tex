@@ -27,6 +27,8 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \graphicspath{{figures/}{../figures/}}
+% tabularx helper: keep X columns from overrunning
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 % Floats
 \usepackage{float}
@@ -78,6 +80,9 @@
   bookmarksnumbered=true,
   pdfstartview=FitH
 ]{hyperref}
+% Breakable paths/URLs in body text and table cells (\path, \url)
+\usepackage{xurl}
+\urlstyle{tt}
 \usepackage[nameinlink,noabbrev]{cleveref}
 
 % Headers

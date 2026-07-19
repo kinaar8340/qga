@@ -20,17 +20,18 @@ This chapter supplies the rigorous algebraic foundation for the class-group anal
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.28\textwidth}p{0.28\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Tag & File & Role \\
 \midrule
-Fig. 9.1 & \texttt{figures/fig9\_1\_quaternion\_algebra.png} & Quaternion algebra ramification diagram \\
-Fig. 9.2 & \texttt{figures/fig9\_2\_hurwitz\_order.png} & Hurwitz order units / comparison \\
-Fig. 9.3 & \texttt{figures/fig9\_3\_ideal\_class\_group.png} & Ideal class group schematic \\
-Fig. 9.4 & \texttt{figures/fig9\_4\_ideal\_to\_flywheel.png} & Ideal class \(\rightarrow\) flywheel (Model bridge) \\
-Aux A9.1 & \texttt{figures/aux9\_1\_ramification\_table.png} & Hilbert-symbol ramification table \\
+Fig. 9.1 & \texttt{figures/\allowbreak{}fig9\_\allowbreak{}1\_\allowbreak{}quaternion\_\allowbreak{}algebra.\allowbreak{}png} & Quaternion algebra ramification diagram \\
+Fig. 9.2 & \texttt{figures/\allowbreak{}fig9\_\allowbreak{}2\_\allowbreak{}hurwitz\_\allowbreak{}order.\allowbreak{}png} & Hurwitz order units / comparison \\
+Fig. 9.3 & \texttt{figures/\allowbreak{}fig9\_\allowbreak{}3\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}group.\allowbreak{}png} & Ideal class group schematic \\
+Fig. 9.4 & \texttt{figures/\allowbreak{}fig9\_\allowbreak{}4\_\allowbreak{}ideal\_\allowbreak{}to\_\allowbreak{}flywheel.\allowbreak{}png} & Ideal class \(\rightarrow\) flywheel (Model bridge) \\
+Aux A9.1 & \texttt{figures/\allowbreak{}aux9\_\allowbreak{}1\_\allowbreak{}ramification\_\allowbreak{}table.\allowbreak{}png} & Hilbert-symbol ramification table \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -38,15 +39,16 @@ Aux A9.1 & \texttt{figures/aux9\_1\_ramification\_table.png} & Hilbert-symbol ra
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Claim & Type \\
 \midrule
 Quaternion algebras, Hilbert symbols, Hurwitz Euclidean property, Hurwitz class number 1 & \textbf{Theorem} (classical) \\
 Dictionary between ideal classes and flux topographs / Magic Islands & \textbf{Model} \\
-\texttt{qga/lib/quaternion\_algebra.py} helpers (including toy class-number reports) & \textbf{Software fact} \\
+\texttt{qga/\allowbreak{}lib/\allowbreak{}quaternion\_\allowbreak{}algebra.\allowbreak{}py} helpers (including toy class-number reports) & \textbf{Software fact} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -112,14 +114,15 @@ An \textbf{order} is a subring that is a full-rank \(\mathbb{Z}\)-lattice in the
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Order & Definition & Units & Euclidean? \\
 \midrule
 Lipschitz & \(\mathbb{Z}[i,j,k]\) & 8 & No \\
 Hurwitz & all-integer or all-half-integer coords & 24 & Yes (maximal) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -184,17 +187,18 @@ Chapter 8 approximated class groups with composition of flux topographs. The nat
 
 \begin{center}
 \small
-\begin{tabular}{@{}lp{0.55\textwidth}@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Algebraic object & Geometric / Model object \\
 \midrule
 Ideal in a quaternion order & Flux configuration / supporting cycle on the gauged Hopf lattice \\
 Ideal class & Equivalence class of reduced flux topographs \\
 Ideal class group & Class-group analogue of Chapter 8 \\
-Norm of an ideal & Stability score or \texttt{magic\_island\_score} \\
+Norm of an ideal & Stability score or \texttt{magic\_\allowbreak{}island\_\allowbreak{}score} \\
 Ideal multiplication & Composition of flywheels (when well-defined --- OP6) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 
@@ -222,13 +226,13 @@ left_ideal_class_group(...)     # algebraic side (Hurwitz: order 1)
 \section{9.5 First computational labs}
 \label{ch:ch09_algebras:9-5-first-computational-labs}
 
-Helpers: \texttt{lib/quaternion\_algebra.py} \(\cdot\) \textbf{Appendix C ?C.4}.
+Helpers: \texttt{lib/\allowbreak{}quaternion\_\allowbreak{}algebra.\allowbreak{}py} \(\cdot\) \textbf{Appendix C ?C.4}.
 
 \begin{itemize}
-\item \textbf{9.A} \texttt{QuaternionAlgebra(-1,-1).ramified\_places()}.
+\item \textbf{9.A} \texttt{QuaternionAlgebra(-1,-1).\allowbreak{}ramified\_\allowbreak{}places()}.
 \item \textbf{9.B} Hurwitz: 24 units, Euclidean, maximal.
-\item \textbf{9.C} \texttt{left\_ideal\_class\_group} \(\rightarrow\) class number 1 (cited classical).
-\item \textbf{9.D} Compare algebraic order 1 vs Model \texttt{class\_group\_analogue} order.
+\item \textbf{9.C} \texttt{left\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}group} \(\rightarrow\) class number 1 (cited classical).
+\item \textbf{9.D} Compare algebraic order 1 vs Model \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue} order.
 \item \textbf{9.E} Hilbert symbols table.
 \end{itemize}
 
@@ -253,7 +257,7 @@ print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 
 \textbf{9.D (code).} Run Lab 9.C. What class number do you obtain for Hurwitz, and what does the \texttt{method} string say?
 
-\textbf{9.E (code).} Complete Lab 9.D. Compare algebraic class number \(1\) with the Model \texttt{class\_group\_analogue} order. Why can they differ?
+\textbf{9.E (code).} Complete Lab 9.D. Compare algebraic class number \(1\) with the Model \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue} order. Why can they differ?
 
 \textbf{9.F (Hatcher bridge).} In Hatcher Chapter 8, forms correspond to ideals. Sketch how ?9.4's dictionary might be made precise for a quaternion order (even if only conjecturally).
 
@@ -261,7 +265,7 @@ print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 
 \textbf{9.H (forward).} Why will Chapter 10's observational validation benefit from a rigorous ideal-theoretic home for class-group analogues?
 
-\textbf{9.I (software honesty).} Distinguish: (i) classical ideal class groups (\textbf{Theorem}), (ii) \texttt{left\_ideal\_class\_group} toy report (\textbf{software} citing theorem), (iii) Ch. 8 \texttt{class\_group\_analogue} (\textbf{Model}).
+\textbf{9.I (software honesty).} Distinguish: (i) classical ideal class groups (\textbf{Theorem}), (ii) \texttt{left\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}group} toy report (\textbf{software} citing theorem), (iii) Ch. 8 \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue} (\textbf{Model}).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -280,7 +284,7 @@ qga/lib/composition.py
 qga/lib/hopf_lattice.py   # HURWITZ_UNITS shared with Ch. 3
 \end{lstlisting}
 
-\textbf{Figures:} \texttt{scripts/generate\_ch9\_figures.py} \textbf{Open problems:} OP6 (composition via ideal theory); OP1--OP3 for the geometric side of the dictionary.
+\textbf{Figures:} \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch9\_\allowbreak{}figures.\allowbreak{}py} \textbf{Open problems:} OP6 (composition via ideal theory); OP1--OP3 for the geometric side of the dictionary.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
