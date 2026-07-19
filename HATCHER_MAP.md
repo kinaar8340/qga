@@ -17,6 +17,8 @@ https://github.com/kinaar8340/kingdom_come.
 | Ch. 6 Representations by quadratic forms | Part III · Ch. 7 \(Z\mapsto\) flux map *(draft complete)* | Norms vs flux configs; `map_z_to_flywheel`; **OP4** |
 | Ch. 7 Class group for quadratic forms | **Part IV** · Ch. 8 Composition & class groups *(draft complete)* | Gauss lift; ideal classes; **OP6** |
 | Ch. 8 Quadratic fields | Part IV · Ch. 9 Quaternion algebras *(draft complete)* | Hurwitz; form↔ideal; lattice back-applications; **OP6** algebraic side |
+| *(no TN counterpart; arithmetic labeling on geometric orbits)* | Part IV · **Ch. 9 §9.5** modulus invariants | Separate **algebraic** \(\times 2\) cycles on \(\mathbb{Z}/m\mathbb{Z}\), **sequential label progression**, and **angle–label lock** (exNMI); control via `angle_bin`; supporting stack `vortex_math` · note `notes/RESEARCH_NOTE_moduli.md` |
+| Ch. 5 Classification (invariants / reduced classes) | Part III · Ch. 6 *(cross-ref to §9.5)* | Same discipline: name the invariant (class number analogue ≠ positional lock) |
 | *(applications layer)* | **Part V** · Ch. 10 Observations & validation *(draft complete)* | \(350/\pi\), Z-map, Magic Islands, Table T4; **OP5** |
 
 ## Structural choice

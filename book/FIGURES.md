@@ -123,9 +123,10 @@ Regenerate: `python scripts/generate_ch8_figures.py`.
 | Fig. 9.2 | `figures/fig9_2_hurwitz_order.png` | Hurwitz units / orders | generated |
 | Fig. 9.3 | `figures/fig9_3_ideal_class_group.png` | Ideal class group | generated |
 | Fig. 9.4 | `figures/fig9_4_ideal_to_flywheel.png` | Ideal → flywheel bridge | generated |
+| Fig. 9.5 | `figures/fig9_5_modulus_invariants.png` | Three-layer modulus invariants | from `vortex_math` |
 | Aux A9.1 | `figures/aux9_1_ramification_table.png` | Hilbert symbol table | generated |
 
-Regenerate: `python scripts/generate_ch9_figures.py`.
+Regenerate: `python scripts/generate_ch9_figures.py` (Fig. 9.5 copied from `vortex_math` book figure).
 
 ## Chapter 10
 

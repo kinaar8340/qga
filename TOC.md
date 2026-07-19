@@ -141,8 +141,10 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 9.2 Orders: Lipschitz, Hurwitz, maximal  
 9.3 Ideal theory and class groups  
 9.4 Ideals ↔ flywheels (**Model** bridge) · OP6 continued  
-9.5 Computational labs  
-  Exercises 9.A–9.I  
+9.5 Modulus, invariants, and angle–label locking (**Model** · supporting stack `vortex_math`)  
+9.6 Computational labs  
+  Exercises 9.A–9.K  
+  Research note: [`notes/RESEARCH_NOTE_moduli.md`](notes/RESEARCH_NOTE_moduli.md) · Fig. 9.5
 
 ---
 

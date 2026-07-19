@@ -166,6 +166,7 @@ python scripts/generate_ch9_figures.py
 | `fig9_2_hurwitz_order.png` | Hurwitz units + order comparison |
 | `fig9_3_ideal_class_group.png` | Ideal class group schematic |
 | `fig9_4_ideal_to_flywheel.png` | Model dictionary pipeline |
+| `fig9_5_modulus_invariants.png` | From `vortex_math` book figure (three-layer modulus invariants; MIT) |
 | `aux9_1_ramification_table.png` | Hilbert symbols table |
 
 Algebra helpers: `qga/lib/quaternion_algebra.py`.

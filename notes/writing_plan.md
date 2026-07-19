@@ -19,6 +19,7 @@
 11. ~~Chapter 7 — The \(Z\mapsto\) Flux Map (OP4).~~ **Done** (`book/07_representations_z_flux.md`, Ch. 7 figures, `stability_landscape_z` range API).  
 12. ~~Part IV: Chapter 8 — Composition and Class Groups (OP6).~~ **Done** (`book/08_class_group.md`, `lib/composition.py`, Ch. 8 figures).  
 13. ~~Chapter 9 — Quaternion Algebras and Ideal Theory.~~ **Done** (`book/09_quaternion_algebras.md`, `lib/quaternion_algebra.py`, Ch. 9 figures).  
+    - §9.5 modulus invariants integrated from `vortex_math` (Fig. 9.5, `notes/RESEARCH_NOTE_moduli.md`).  
 14. ~~Chapter 10 — Observations, Hypotheses, and Validation (OP5 / Table T4).~~ **Done** (`book/10_observations_emergent.md`, `lib/validation.py`, Ch. 10 figures).  
 15. ~~Consistency polish across chapters.~~ **Done** (footers, TOC, `HOW_TO_USE.md`, claim labels).  
 16. ~~LaTeX conversion.~~ **Done** (`book/latex/`, `scripts/md_to_latex.py`, `scripts/build_latex.sh`, ~119 pp PDF).  

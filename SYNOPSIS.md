@@ -85,6 +85,6 @@ Binary quadratic forms and sums of two squares already sit next door to **Lagran
 | `qvpic/` | Quaternion vortex persistent identity (QVPIC) |
 | `hfb/` | Flux bubble / analog-gravity demos |
 | `invariant_hunt/` | Statistical / GW-side validation culture |
-| `vortex_math/` | Visual vortex exploration |
+| `vortex_math/` | Modulus invariants on geometric orbits (Ch. 9 §9.5; `lib/vortex_math/`) |
 
 QGA is the **manuscript and conceptual spine** that unifies these under Hatcher’s geometric method.

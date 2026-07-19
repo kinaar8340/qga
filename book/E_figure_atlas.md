@@ -35,7 +35,7 @@ Index of main and auxiliary figures. Paths are relative to `book/figures/`. Full
 | ID | File |
 |----|------|
 | Fig. 8.1–8.4, Aux A8.1 | `fig8_*`, `aux8_1_*` |
-| Fig. 9.1–9.4, Aux A9.1 | `fig9_*`, `aux9_1_*` |
+| Fig. 9.1–9.5, Aux A9.1 | `fig9_*`, `aux9_1_*` |
 | Fig. 10.1–10.4, Aux A10.1 | `fig10_*`, `aux10_1_*` |
 
 ---

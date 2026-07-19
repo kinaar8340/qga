@@ -16,7 +16,7 @@ It is **not** a modified reprint of Hatcher’s PDF. Hatcher is free to read and
 |--------|------|
 | [Hatcher, *Topology of Numbers*](https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf) | Geometric backbone: Farey diagram, continued fractions, topographs, class groups |
 | [Kingdom Come](https://github.com/kinaar8340/kingdom_come) | Quaternion algebra, Hopf maps, flux flywheels, Z→flux mapping, 350/π observations, Gradio viz |
-| Supporting stack | `flux_hopf_lib`, `oam_flux`, `qvpic`, `hfb`, `invariant_hunt`, `vortex_math` |
+| Supporting stack | `flux_hopf_lib`, `oam_flux`, `qvpic`, `hfb`, `invariant_hunt`, [`vortex_math`](https://github.com/kinaar8340/vortex_math) (Ch. 9 §9.5 · `lib/vortex_math/`) |
 
 ## Core thesis (one paragraph)
 
