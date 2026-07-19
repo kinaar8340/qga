@@ -40,8 +40,9 @@ qga/
 ## Status
 
 - **Scaffold + TOC + mapping:** done  
-- **Manuscript body:** Preface + Ch. 0; Parts I–III; **Part IV Ch. 8–9** (composition + quaternion algebras / ideals); Ch. 10 stub
-- **Code/figures:** Ch. 0 assets vendored under `book/figures/`; live code remains in Kingdom Come and related repos  
+- **Manuscript body:** **Complete draft Parts I–V (Ch. 0–10)**  
+- **Code/figures:** pedagogical `lib/` + figure generators under `book/figures/`  
+- **GitHub:** https://github.com/kinaar8340/qga  
 
 ## Quick links
 
@@ -50,3 +51,5 @@ qga/
 - [Synopsis & assessment](SYNOPSIS.md)  
 - Hatcher TN: https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf  
 - Kingdom Come: https://github.com/kinaar8340/kingdom_come  
+- This book: https://github.com/kinaar8340/qga  
+

@@ -180,18 +180,20 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 ### Part V — Observations and Models
 
-### Chapter 10 — Observations, Hypotheses, and Validation Protocols
+### Chapter 10 — Observations, Hypotheses, and Validation
 
-*Throughout: claim types labeled **Theorem**, **Model**, or **Hypothesis**.*
+*(Phase 8 draft complete — closes Part V; manuscript through Ch. 10)*
 
-10.1 The \(350/\pi\) signature across domains (full accounting)  
-10.2 QVPIC, cuprate sketches, pulsar timing, Bitcoin Pi Cycle, TLS bursts  
-10.3 Statistical validation checklist and falsification criteria  
-10.4 Cosmological and emergent-physics language (scope and non-claims)  
-10.5 Interactive companion: Hopf visualizer, lattice simulator, flux flywheel slider  
-10.6 Research program: confirm / refine / falsify  
-  **Open Problem 5** — \(350/\pi\) first principles  
-  **Open Problem 4** — \(Z\to\) flywheel uniqueness  
+10.1 Major observational signatures (\(350/\pi\) and related)  
+10.2 The \(Z\mapsto\) flux map — current status  
+10.3 Magic Islands and chemical/nuclear specialness  
+10.4 Summary of Open Problems OP1–OP6  
+10.5 Validation protocols (Table T4)  
+10.6 Summary of the entire construction  
+10.7 Outlook and invitation  
+  **Open Problem 5** — \(350/\pi\) first principles or falsification  
+  **Open Problem 4** recap · Exercises 10.A–10.F · Closing  
+
 
 ---
 

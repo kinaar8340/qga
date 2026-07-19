@@ -18,6 +18,18 @@ from .quaternion_algebra import (
     hilbert_symbol,
     left_ideal_class_group,
 )
+from .validation import (
+    WG_350_OVER_PI,
+    HypothesisSpec,
+    bonferroni_threshold,
+    combine_p_values_fisher,
+    default_hypotheses,
+    open_problems_status_table,
+    proximity_to_wg,
+    run_table_t4_demo,
+    table_t4_checklist,
+    toy_multidomain_pvalues,
+)
 from .flux_topograph import (
     FluxTopograph,
     apply_gauge_to_topograph,
@@ -100,4 +112,14 @@ __all__ = [
     "stability_landscape_z",
     "standard_gauge_set",
     "transform_flux",
+    "WG_350_OVER_PI",
+    "HypothesisSpec",
+    "bonferroni_threshold",
+    "combine_p_values_fisher",
+    "default_hypotheses",
+    "open_problems_status_table",
+    "proximity_to_wg",
+    "run_table_t4_demo",
+    "table_t4_checklist",
+    "toy_multidomain_pvalues",
 ]

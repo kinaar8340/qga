@@ -19,7 +19,9 @@
 11. ~~Chapter 7 — The \(Z\mapsto\) Flux Map (OP4).~~ **Done** (`book/07_representations_z_flux.md`, Ch. 7 figures, `stability_landscape_z` range API).  
 12. ~~Part IV: Chapter 8 — Composition and Class Groups (OP6).~~ **Done** (`book/08_class_group.md`, `lib/composition.py`, Ch. 8 figures).  
 13. ~~Chapter 9 — Quaternion Algebras and Ideal Theory.~~ **Done** (`book/09_quaternion_algebras.md`, `lib/quaternion_algebra.py`, Ch. 9 figures).  
-14. Chapter 10 — Observations, Hypotheses, and Validation Protocols (OP5).  
+14. ~~Chapter 10 — Observations, Hypotheses, and Validation (OP5 / Table T4).~~ **Done** (`book/10_observations_emergent.md`, `lib/validation.py`, Ch. 10 figures).  
+15. Optional: final polish / LaTeX conversion / Gradio Book Mode.  
+16. **Manuscript draft complete through Chapter 10.**
 
 ## Phase 2 — Hatcher lift core
 

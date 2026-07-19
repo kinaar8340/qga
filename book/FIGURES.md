@@ -127,4 +127,16 @@ Regenerate: `python scripts/generate_ch8_figures.py`.
 
 Regenerate: `python scripts/generate_ch9_figures.py`.
 
+## Chapter 10 (Phase 8 — final)
+
+| ID | File | Caption (short) | Source |
+|----|------|-----------------|--------|
+| Fig. 10.1 | `figures/fig10_1_350_over_pi_domains.png` | Multi-domain \(350/\pi\) | generated |
+| Fig. 10.2 | `figures/fig10_2_z_map_correlation.png` | Score vs IE proxy | generated (+ portal) |
+| Fig. 10.3 | `figures/fig10_3_magic_island_validation.png` | Islands vs specialness | generated |
+| Fig. 10.4 | `figures/fig10_4_validation_flowchart.png` | Table T4 flowchart | generated |
+| Aux A10.1 | `figures/aux10_1_pulsar_bitcoin_overlay.png` | Observation assets | kingdom assets |
+
+Regenerate: `python scripts/generate_ch10_figures.py`.
+
 Full license note: `figures/ATTRIBUTION.md`.

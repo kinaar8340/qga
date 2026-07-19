@@ -9,7 +9,7 @@ Each problem has a **home chapter** where it is introduced or attacked, a **stat
 | 2 | Flux topograph axioms | Ch. 5 | Open — core of Ch. 5; sandbox `qga/lib/flux_topograph.py` | — |
 | 3 | Class number ↔ Magic Island correspondence | Ch. 6 | Open — sandbox `classify_topograph_type` / `class_number_analogue` | — |
 | 4 | \(Z\to\) flywheel uniqueness (up to gauge) | Ch. 7 / 10 | Open — map defined in Ch. 7; uniqueness open | — |
-| 5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open — hypothesis layer | — |
+| 5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open — Table T4 sandbox in `lib/validation.py` | — |
 | 6 | Composition of flywheels (Gauss lift) | Ch. 8 | Open — sandbox `qga/lib/composition.py` | — |
 
 **Status vocabulary:** `Open` · `In progress` · `Partial result` · `Resolved` · `Deferred`
@@ -54,9 +54,11 @@ Up to gauge equivalence, is the map from atomic number \(Z\) to flywheel configu
 
 ### OP5 — \(350/\pi\) first principles
 **Home:** Chapter 10  
-**Status:** Open — hypothesis layer  
+**Status:** Open — hypothesis layer; Table T4 helpers ready  
 
 Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or** falsify multi-domain recurrence as coincidence via pre-registered statistical tests (Table T4 protocol).
+
+**Sandbox:** `qga/lib/validation.py` — `table_t4_checklist`, `default_hypotheses`, `run_table_t4_demo`, `combine_p_values_fisher`, `proximity_to_wg`. See Ch. 10 §10.5 and Exercise 10.B.
 
 ### OP6 — Composition of flywheels
 **Home:** Chapter 8  

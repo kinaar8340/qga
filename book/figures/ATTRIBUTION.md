@@ -169,3 +169,20 @@ python scripts/generate_ch9_figures.py
 | `aux9_1_ramification_table.png` | Hilbert symbols table |
 
 Algebra helpers: `qga/lib/quaternion_algebra.py`.
+
+## Chapter 10 — generated / portal assets
+
+```bash
+python scripts/generate_ch10_figures.py
+```
+
+| Book figure | Description |
+|-------------|-------------|
+| `fig10_1_350_over_pi_domains.png` | Multi-domain \(W_g\) map |
+| `fig10_2_z_map_correlation.png` | Stability vs IE proxy |
+| `fig10_3_magic_island_validation.png` | Islands vs specialness |
+| `fig10_4_validation_flowchart.png` | Table T4 steps |
+| `aux10_1_pulsar_bitcoin_overlay.png` | Pulsar + Bitcoin portal stills |
+
+Validation helpers: `qga/lib/validation.py`.  
+Portal assets under `kingdom/app/assets/pulsars/` and `bitcoin_pi/`.
