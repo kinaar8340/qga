@@ -111,6 +111,8 @@ They generalize:
 
 In the Kingdom Come Model, Magic Islands appear as pockets where `stability_score` is high, `stability_class` is noble-like, and dynamical simulations show ordered long-term behavior (Ch. 3–5).
 
+**Invariant discipline (forward pointer).** When classifying topograph types and Magic Islands, keep separate: (i) *algebraic* structure of discrete labels or class-like counts, (ii) *sequential / Model flow* of scores along parameter or \(Z\) sweeps, and (iii) *statistical geometric lock* of a pattern to a continuous base beyond chance. The distinction among these three layers—developed with controls in **Chapter 9 section 9.5**—applies directly here: high `stability_score` clusters and visual island order are not automatically the same as an algebraic class number, nor as a proved lock to a continuous geometric coordinate. See also Chapter 10’s checklist and `notes/RESEARCH_NOTE_moduli.md`.
+
 ![Figure 6.3 — Class-number analogue and Magic Island clusters.](figures/fig6_3_class_number_analogue.png)
 
 *Figure 6.3.* Left: count of inequivalent reduced representatives by type (`class_number_analogue`). Right: schematic islands as clusters of reduced configs.
@@ -192,7 +194,7 @@ kingdom.viz.magic_island
 
 ## Looking ahead
 
-We now have a working **Model** classification of flux topographs, reduced configurations, and Magic Islands—the quaternionic narrative lift of Hatcher’s classification theory. In **Chapter 7** we connect these classified objects to the \(Z\mapsto\) flywheel map, turning arithmetic-looking invariants into a periodic-table proxy. **Chapter 8** will then lift the class group itself to the quaternionic / Hopf setting.
+We now have a working **Model** classification of flux topographs, reduced configurations, and Magic Islands—the quaternionic narrative lift of Hatcher’s classification theory. In **Chapter 7** we connect these classified objects to the \(Z\mapsto\) flywheel map, turning arithmetic-looking invariants into a periodic-table proxy. **Chapter 8** will then lift the class group itself to the quaternionic / Hopf setting. **Chapter 9 section 9.5** will sharpen the arithmetic–geometry boundary with a controlled three-layer analysis (algebra / sequential flow / angle lock) that you can already apply when reading island plots in this chapter.
 
 With classification in hand, we are ready to bridge number theory and the emergent physics of the Kingdom Come Model.
 

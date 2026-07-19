@@ -111,6 +111,7 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 6.1 Four types of flux topographs  
 6.2 Equivalence of flux topographs  
 6.3 Magic Islands as class-number phenomena · **Open Problem 3**  
+  (invariant discipline → Ch. 9 section 9.5)  
 6.4 Computational labs  
   Exercises 6.A–6.I  
 
