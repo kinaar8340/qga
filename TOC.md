@@ -159,7 +159,8 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 10.5 Validation protocols (**Table T4**) · **Open Problem 5**  
 10.6 Summary of the entire construction  
 10.7 Outlook and invitation  
-  Exercises 10.A–10.F · Closing  
+  Exercises 10.A–10.G · Closing  
+  Invariant discipline (Ch. 9 §9.5) · Table T4 null-first testing  
 
 ---
 

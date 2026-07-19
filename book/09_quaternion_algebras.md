@@ -156,7 +156,7 @@ Consider an irrational rotation on the unit circle whose step size is a fixed mu
 \theta_k = k \cdot \frac{9}{\pi} \pmod{2\pi}.
 \]
 
-Because \(9/\pi\) is an irrational multiple of \(2\pi\), the orbit is dense: successive points come arbitrarily close to every location on the circle without closing into a finite regular polygon. The factor **9** echoes the digital-root base of Vortex Math; **π** is the circle’s own constant. Geometry and numerology share the stage, but they are no longer forced to play the same role. (A coupled step \(\Delta\theta = m/\pi\) will appear below when the modulus is allowed to set the winding rate.)
+Because \(9/\pi\) is an irrational multiple of \(2\pi\), the orbit is dense: successive points come arbitrarily close to every location on the circle without closing into a finite regular polygon. The factor **9** echoes the digital-root base of Vortex Math; \(\pi\) is the circle’s own constant. Geometry and numerology share the stage, but they are no longer forced to play the same role. (A coupled step \(\Delta\theta = m/\pi\) will appear below when the modulus is allowed to set the winding rate.)
 
 ### Three layers of invariant
 
@@ -192,7 +192,7 @@ The practical consequence is concise:
 
 This distinguishes synchronicity that arises from composite number structure—notably **111** as prime-mover composite \(3 \times 37\)—from stronger geometric claims that would require explicit angular construction. Algebra crowns 37; coupled progression frequently crowns 111 under the \(m/\pi\) regime; true positional locking belongs only to labeling methods that bin explicitly by angle.
 
-For the rest of the book: when Chapters 5–8 speak of “labels,” “classes,” and “Magic Islands,” the same discipline applies—**name which invariant you are measuring**. Ideal class groups (§9.3–9.4) are algebraic invariants; flux scores and topograph diagrams are geometric or Model-level; statistical lock to a continuous base space is a third claim, and must be tested against a null, not inferred from visual order alone.
+For the rest of the book: when Chapters 5–8 speak of “labels,” “classes,” and “Magic Islands,” the same discipline applies—**name which invariant you are measuring**. Ideal class groups (sections 9.3–9.4) are algebraic invariants; flux scores and topograph diagrams are geometric or Model-level; statistical lock to a continuous base space is a third claim, and must be tested against a null, not inferred from visual order alone. Chapter 10 returns to observation with the same rule: multi-domain recurrence and visual order are not substitutes for a named invariant plus a null.
 
 ```text
 # External supporting stack (not vendored in lib/)
@@ -236,7 +236,7 @@ print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 
 **9.E (code).** Complete Lab 9.D. Compare algebraic class number \(1\) with the Model `class_group_analogue` order. Why can they differ?
 
-**9.F (Hatcher bridge).** In Hatcher Chapter 8, forms correspond to ideals. Sketch how §9.4’s dictionary might be made precise for a quaternion order (even if only conjecturally).
+**9.F (Hatcher bridge).** In Hatcher Chapter 8, forms correspond to ideals. Sketch how section 9.4’s dictionary might be made precise for a quaternion order (even if only conjecturally).
 
 **9.G (Open Problem 6).** Using Hurwitz class number 1, what would a *successful* OP6 composition law look like when restricted to configurations “coming from” principal ideals? What obstructions remain for non-principal classes in other algebras?
 
@@ -244,9 +244,20 @@ print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 
 **9.I (software honesty).** Distinguish: (i) classical ideal class groups (**Theorem**), (ii) `left_ideal_class_group` toy report (**software** citing theorem), (iii) Ch. 8 `class_group_analogue` (**Model**).
 
-**9.J (modulus invariants).** In section 9.5, name the three layers (algebra / progression / angle lock). Which modulus wins algebraic cleanness? Which often wins progression under \(m/\pi\)? Why is positive exNMI under `angle_bin` a *control*, not a discovery about \(m=37\)?
+**9.J (modulus invariants, hand).** Using section 9.5:
+1. Name the three layers (algebra / progression / angle lock) in one sentence each.
+2. Which modulus wins algebraic cleanness of \(\times 2\) on \(\mathbb{Z}/m\mathbb{Z}\), and what cycle length from 1 does it give?
+3. Which modulus often wins label progression under coupled step \(m/\pi\)?
+4. Why is strongly positive exNMI under `angle_bin` a *positive control* for the null baseline, rather than a discovery that “37 locks labels to angles”?
+5. State the section’s one-line claim in your own words, then apply it to one Ch. 5–8 phrase (“Magic Island,” “class,” or “stability score”): which invariant class does that phrase live in?
 
-**9.K (code, external).** If `~/Projects/vortex_math` is available, run Lab 9.F and report exNMI under `step_index` vs `angle_bin` for \(m\in\{9,37,111\}\).
+**9.K (code, external).** If `~/Projects/vortex_math` is available:
+```bash
+cd ~/Projects/vortex_math && source .venv/bin/activate
+python src/main.py --resonance-scan --method step_index --num-steps 400
+python src/main.py --resonance-scan --method angle_bin --num-steps 400
+```
+For \(m\in\{9,37,111\}\) under \(m/\pi\), copy **exNMI** for both methods into a small table. Confirm: `step_index` exNMI \(\lesssim 0\); `angle_bin` exNMI \(\gg 0\). One paragraph: what does this say about visual symmetry under sequential labeling?
 
 ---
 

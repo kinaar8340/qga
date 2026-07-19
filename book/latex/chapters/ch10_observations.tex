@@ -47,10 +47,30 @@ Label & Meaning \\
 \textbf{Theorem} & Proved here or classical \\
 \textbf{Model} & Consistent mathematical or physical construction, not claimed as nature's unique law \\
 \textbf{Hypothesis} & Observational claim needing validation or falsification \\
+\textbf{Software fact} & Reproducible output of a named implementation \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
+
+\textbf{Invariant discipline (from Chapter 9 section 9.5).} When reading or testing observations, also name \emph{which invariant} is at stake:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Layer & Question & Example in this chapter \\
+\midrule
+Algebraic & Does a discrete arithmetic object have a clean structure? & Ideal class number; composition law (OP6) \\
+Sequential / Model flow & Do labels or scores progress coherently along a construction? & Stability scores along \(Z\); topograph evolution \\
+Statistical lock & Is there dependence on a continuous base beyond chance? & Multi-domain recurrence of \(350/\pi\) vs null (Table T4) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+Visual order and multi-domain co-occurrence are \emph{not} automatic geometric lock. Chapter 9's modulus lesson (and its \texttt{angle\_\allowbreak{}bin} control) is the template: measure excess association against a null, do not infer locking from appearance alone. Research note: \texttt{notes/\allowbreak{}RESEARCH\_\allowbreak{}NOTE\_\allowbreak{}moduli.\allowbreak{}md}.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -215,11 +235,11 @@ print(demo["decision"], demo["disclaimer"])
 
 \textbf{Part III (Chapters 5--7)} developed the visual and representation-theoretic core: flux topographs, classification and Magic Islands, and the \(Z\mapsto\) flux map.
 
-\textbf{Part IV (Chapters 8--9)} supplied arithmetic depth: composition, class-group analogues, and quaternion algebra / ideal theory as a rigorous home for those analogues.
+\textbf{Part IV (Chapters 8--9)} supplied arithmetic depth: composition, class-group analogues, and quaternion algebra / ideal theory as a rigorous home for those analogues. Section 9.5 added a controlled lesson on \textbf{modulus invariants}---algebraic cleanness (e.g.\textbackslash{} \(m=37\)), sequential label progression (often \(m=111\) under coupled step), and true angle--label lock only under explicit angular binning---so that arithmetic labels are never confused with geometric locking.
 
 \textbf{Part V (this chapter)} returns to observation and validation, closing the loop between geometry, arithmetic, and empirical patterns.
 
-Every major claim is labeled so readers can separate theorems, models, and hypotheses.
+Every major claim is labeled so readers can separate theorems, models, and hypotheses; every observational pattern should also name the \textbf{invariant layer} it claims (section 9.5; Table T4).
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -230,7 +250,7 @@ Every major claim is labeled so readers can separate theorems, models, and hypot
 
 The six Open Problems are the main research edges. Advances on \textbf{OP1} (canonical adjacency), \textbf{OP2} (topograph axioms), or \textbf{OP6} (associative composition via ideal theory) especially strengthen the whole framework.
 
-Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress.
+Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress. Apply the same null-first discipline as Chapter 9 section 9.5: if a claim is \emph{lock} or \emph{recurrence}, define the null; if it is \emph{algebraic structure}, report the discrete object; if it is \emph{Model flow}, say so and do not upgrade it to geometry by rhetoric.
 
 The \href{https://github.com/kinaar8340/qga}{qga} repository and Kingdom Come portal remain open for extension. \textbf{Book Mode} is live in the portal (chapter map \(\rightarrow\) Hopf / Lattice / Flux / Observations mini demos and tab jumps; see \texttt{HOW\_\allowbreak{}TO\_\allowbreak{}USE.\allowbreak{}md} ?6). Future work includes fuller composition / validation dashboards.
 
@@ -252,6 +272,8 @@ The \href{https://github.com/kinaar8340/qga}{qga} repository and Kingdom Come po
 \textbf{10.E (philosophical).} In one paragraph, explain why Theorem / Model / Hypothesis labeling is essential for a project at the intersection of pure mathematics and speculative physics.
 
 \textbf{10.F (project).} Open \texttt{default\_\allowbreak{}hypotheses()} and add one new \texttt{HypothesisSpec} for a domain you care about, with null, falsification, and data sources.
+
+\textbf{10.G (invariant discipline).} Using the three-layer table in this chapter's claim discipline (from Chapter 9 section 9.5), classify each of the following as algebraic / sequential-Model / statistical-lock (or mixed), and name one null or control you would demand: (i) Hurwitz class number 1; (ii) Magic Island high \texttt{stability\_\allowbreak{}score} band; (iii) multi-domain recurrence of \(350/\pi\); (iv) visual ``symmetry'' of a step-index vortex plot.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}

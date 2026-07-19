@@ -27,6 +27,18 @@ This chapter collects the observational layer of the Kingdom Come Model. It pres
 | **Theorem** | Proved here or classical |
 | **Model** | Consistent mathematical or physical construction, not claimed as nature’s unique law |
 | **Hypothesis** | Observational claim needing validation or falsification |
+| **Software fact** | Reproducible output of a named implementation |
+
+**Invariant discipline (from Chapter 9 section 9.5).**  
+When reading or testing observations, also name *which invariant* is at stake:
+
+| Layer | Question | Example in this chapter |
+|-------|----------|-------------------------|
+| Algebraic | Does a discrete arithmetic object have a clean structure? | Ideal class number; composition law (OP6) |
+| Sequential / Model flow | Do labels or scores progress coherently along a construction? | Stability scores along \(Z\); topograph evolution |
+| Statistical lock | Is there dependence on a continuous base beyond chance? | Multi-domain recurrence of \(350/\pi\) vs null (Table T4) |
+
+Visual order and multi-domain co-occurrence are *not* automatic geometric lock. Chapter 9’s modulus lesson (and its `angle_bin` control) is the template: measure excess association against a null, do not infer locking from appearance alone. Research note: `notes/RESEARCH_NOTE_moduli.md`.
 
 ---
 
@@ -131,11 +143,11 @@ print(demo["decision"], demo["disclaimer"])
 
 **Part III (Chapters 5–7)** developed the visual and representation-theoretic core: flux topographs, classification and Magic Islands, and the \(Z\mapsto\) flux map.
 
-**Part IV (Chapters 8–9)** supplied arithmetic depth: composition, class-group analogues, and quaternion algebra / ideal theory as a rigorous home for those analogues.
+**Part IV (Chapters 8–9)** supplied arithmetic depth: composition, class-group analogues, and quaternion algebra / ideal theory as a rigorous home for those analogues. Section 9.5 added a controlled lesson on **modulus invariants**—algebraic cleanness (e.g.\ \(m=37\)), sequential label progression (often \(m=111\) under coupled step), and true angle–label lock only under explicit angular binning—so that arithmetic labels are never confused with geometric locking.
 
 **Part V (this chapter)** returns to observation and validation, closing the loop between geometry, arithmetic, and empirical patterns.
 
-Every major claim is labeled so readers can separate theorems, models, and hypotheses.
+Every major claim is labeled so readers can separate theorems, models, and hypotheses; every observational pattern should also name the **invariant layer** it claims (section 9.5; Table T4).
 
 ---
 
@@ -143,7 +155,7 @@ Every major claim is labeled so readers can separate theorems, models, and hypot
 
 The six Open Problems are the main research edges. Advances on **OP1** (canonical adjacency), **OP2** (topograph axioms), or **OP6** (associative composition via ideal theory) especially strengthen the whole framework.
 
-Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress.
+Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress. Apply the same null-first discipline as Chapter 9 section 9.5: if a claim is *lock* or *recurrence*, define the null; if it is *algebraic structure*, report the discrete object; if it is *Model flow*, say so and do not upgrade it to geometry by rhetoric.
 
 The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal remain open for extension. **Book Mode** is live in the portal (chapter map → Hopf / Lattice / Flux / Observations mini demos and tab jumps; see `HOW_TO_USE.md` §6). Future work includes fuller composition / validation dashboards.
 
@@ -162,6 +174,8 @@ The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal 
 **10.E (philosophical).** In one paragraph, explain why Theorem / Model / Hypothesis labeling is essential for a project at the intersection of pure mathematics and speculative physics.
 
 **10.F (project).** Open `default_hypotheses()` and add one new `HypothesisSpec` for a domain you care about, with null, falsification, and data sources.
+
+**10.G (invariant discipline).** Using the three-layer table in this chapter’s claim discipline (from Chapter 9 section 9.5), classify each of the following as algebraic / sequential-Model / statistical-lock (or mixed), and name one null or control you would demand: (i) Hurwitz class number 1; (ii) Magic Island high `stability_score` band; (iii) multi-domain recurrence of \(350/\pi\); (iv) visual “symmetry” of a step-index vortex plot.
 
 ---
 
