@@ -67,3 +67,5 @@ See `book/latex/README.md` for details.
 - Kingdom Come: https://github.com/kinaar8340/kingdom_come  
 - This book: https://github.com/kinaar8340/qga  
 
+X: [@kinaar8340](https://x.com/kinaar8340)
+
