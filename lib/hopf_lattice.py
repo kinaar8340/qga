@@ -47,29 +47,59 @@ def q_normalize(q: Array, eps: float = 1e-12) -> Array:
     return q / n
 
 
-def hopf_map_classical(q: Array) -> Array:
-    r"""Classical complex Hopf map (preferred for lattice pedagogy).
+_HOPF_ZERO_TOL = 1e-14
+_HOPF_UNIT_TOL = 1e-6
 
-    Identify \(z_1 = w + ix\), \(z_2 = y + iz\). Returns a unit vector in \(\mathbb{R}^3\).
-    See Chapter 2 convention note for comparison with the portal real form.
+
+def hopf_map(q: Array, *, unit_tol: float = _HOPF_UNIT_TOL) -> Array:
+    r"""Classical real Hopf map \(S^3\to S^2\) (the book's one map).
+
+    Identify \(z_1 = x_1 + i x_2\), \(z_2 = x_3 + i x_4\). Then
+    \[
+    \begin{aligned}
+    y_1 &= 2(x_1 x_3 + x_2 x_4) = 2\,\mathrm{Re}(\overline{z_1} z_2),\\
+    y_2 &= 2(x_1 x_4 - x_2 x_3) = 2\,\mathrm{Im}(\overline{z_1} z_2),\\
+    y_3 &= x_1^2 + x_2^2 - x_3^2 - x_4^2 = |z_1|^2 - |z_2|^2.
+    \end{aligned}
+    \]
+    On unit 4-vectors this already lands on \(S^2\); the output is **not**
+    re-normalized by \(\|y\|\). Non-unit input is a numerical guard: the
+    map is homogeneous of degree 2, so we divide by \(\|q\|^2\), not by
+    \(\|y\|\). The origin is undefined.
     """
-    w, x, y, z = [float(c) for c in q]
-    z1 = complex(w, x)
-    z2 = complex(y, z)
-    y1 = abs(z1) ** 2 - abs(z2) ** 2
-    cross = 2.0 * (z1.conjugate() * z2)
-    y2 = cross.real
-    y3 = cross.imag
-    vec = np.array([y1, y2, y3], dtype=float)
-    n = np.linalg.norm(vec)
-    if n < 1e-14:
-        return np.array([1.0, 0.0, 0.0])
-    return vec / n
+    q = np.asarray(q, dtype=float).reshape(-1)
+    if q.shape != (4,):
+        raise ValueError("hopf_map expects a 4-vector")
+    n2 = float(np.dot(q, q))
+    if n2 < _HOPF_ZERO_TOL:
+        raise ValueError("hopf_map: input too close to the origin")
+    x1, x2, x3, x4 = (float(c) for c in q)
+    y = np.array(
+        [
+            2.0 * (x1 * x3 + x2 * x4),
+            2.0 * (x1 * x4 - x2 * x3),
+            x1 * x1 + x2 * x2 - x3 * x3 - x4 * x4,
+        ],
+        dtype=float,
+    )
+    if abs(n2 - 1.0) > unit_tol:
+        y = y / n2
+    return y
 
 
-def hopf_map_kc(q: Array) -> Array:
-    """Kingdom Come real-form Hopf map (portal continuity; see Ch. 2)."""
-    x1, x2, x3, x4 = q
+def hopf_map_classical(q: Array, *, unit_tol: float = _HOPF_UNIT_TOL) -> Array:
+    """Alias of ``hopf_map`` — one convention everywhere."""
+    return hopf_map(q, unit_tol=unit_tol)
+
+
+def legacy_portal_map(q: Array) -> Array:
+    r"""Deprecated 3-component formula previously mislabeled Hopf.
+
+    Not a Hopf map: ignores \((x_3,x_4)\) in \(y_1,y_2\), vanishes at
+    \((0,0,1,0)\), and is not constant on structure-group fibers.
+    Kept only so a portal pin can stay bit-identical; do not call this Hopf.
+    """
+    x1, x2, x3, x4 = (float(c) for c in q)
     y1 = x1**2 - x2**2
     y2 = 2.0 * x1 * x2
     y3 = 2.0 * (x3 * x4 + x1 * x2)
@@ -78,6 +108,22 @@ def hopf_map_kc(q: Array) -> Array:
     if n < 1e-14:
         return np.array([1.0, 0.0, 0.0])
     return y / n
+
+
+def common_phase(q: Array, phi: float) -> Array:
+    r"""Structure-group circle: \((z_1,z_2)\mapsto(e^{i\phi}z_1,e^{i\phi}z_2)\).
+
+    Under \(q = z_1 + z_2 j\) this is **left** multiplication by
+    \(e^{i\phi}=\cos\phi + i\sin\phi\in\mathrm{span}\{1,i\}\).
+    """
+    q = np.asarray(q, dtype=float).reshape(4)
+    c, s = float(np.cos(phi)), float(np.sin(phi))
+    return q_mult(np.array([c, s, 0.0, 0.0], dtype=float), q)
+
+
+def structure_group_unit(phi: float) -> Array:
+    r"""Unit quaternion \(\cos\phi + i\sin\phi\) generating the Hopf \(U(1)\)."""
+    return np.array([np.cos(phi), np.sin(phi), 0.0, 0.0], dtype=float)
 
 
 def stereographic(q: Array, scale: float = 2.0) -> Array:
@@ -115,12 +161,68 @@ assert len(HURWITZ_UNITS) == 24, len(HURWITZ_UNITS)
 def hopf_project_points(points: Array, *, convention: str = "classical") -> Array:
     """Map (N,4) unit quaternions to (N,3) base points on S².
 
-    ``convention='classical'`` (default) uses the complex Hopf map.
-    ``convention='kc'`` uses the Kingdom Come real form from Ch. 2.
+    One map: ``hopf_map``. ``convention`` is accepted for call-site
+    compatibility; ``'kc'`` is rejected (that formula is
+    ``legacy_portal_map``, not Hopf).
     """
+    if convention not in ("classical", "hopf", "default"):
+        raise ValueError(
+            "hopf_project_points: only the classical Hopf map is supported. "
+            "The old 3-component formula is legacy_portal_map, not Hopf."
+        )
     points = np.asarray(points, dtype=float)
-    fn = hopf_map_classical if convention == "classical" else hopf_map_kc
-    return np.stack([fn(q) for q in points], axis=0)
+    return np.stack([hopf_map(q) for q in points], axis=0)
+
+
+def sample_structure_group_fiber(
+    q: Array,
+    n_points: int = 64,
+    *,
+    scale: float = 2.0,
+) -> dict:
+    r"""Sample the true Hopf fiber through ``q`` by common phase.
+
+    Distinct from the angle-chart \(\xi_2\)-circle (fixed \((\eta,\xi_1)\)).
+    """
+    q0 = q_normalize(np.asarray(q, dtype=float).reshape(4))
+    phis = np.linspace(0.0, 2.0 * np.pi, n_points, endpoint=False)
+    xs = np.stack([common_phase(q0, float(p)) for p in phis], axis=0)
+    base = hopf_project_points(xs)
+    stereo = np.stack([stereographic(p, scale=scale) for p in xs], axis=0)
+    return {
+        "phi": phis,
+        "x1": xs[:, 0],
+        "x2": xs[:, 1],
+        "x3": xs[:, 2],
+        "x4": xs[:, 3],
+        "y1": base[:, 0],
+        "y2": base[:, 1],
+        "y3": base[:, 2],
+        "px": stereo[:, 0],
+        "py": stereo[:, 1],
+        "pz": stereo[:, 2],
+        "base_y1": float(base[0, 0]),
+        "base_y2": float(base[0, 1]),
+        "base_y3": float(base[0, 2]),
+        "curve_xyz": stereo,
+        "points": xs,
+    }
+
+
+def sample_structure_group_fiber_family(
+    n_fibers: int = 8,
+    n_points: int = 160,
+    *,
+    scale: float = 2.0,
+    seed: int = 0,
+) -> list[dict]:
+    """Spread of true Hopf fibers (common-phase circles) through random units."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for _ in range(n_fibers):
+        q = q_normalize(rng.normal(size=4))
+        out.append(sample_structure_group_fiber(q, n_points=n_points, scale=scale))
+    return out
 
 
 def left_multiply(points: Array, u: Array) -> Array:
@@ -183,11 +285,15 @@ def candidate_adjacency(
 ) -> tuple[list[tuple[int, int]], list[tuple[int, int]]]:
     """Return (along_fiber_edges, inter_fiber_edges) as index pairs.
 
-    **Model candidate only (OP1).**
+    **Model candidate only (OP1).** Not the structure-group Hopf fiber.
 
-    - Along-fiber: points with nearly equal (η, ξ₁) estimates and neighboring ξ₂.
-    - Inter-fiber: Hopf images within angular distance ``base_angle_thresh`` on S²,
-      excluding along-fiber pairs.
+    - Angle-chart xi2-circle: points with nearly equal (eta, xi1) and
+      neighboring xi2. This is **not** the U(1) fiber
+      (z1, z2) |-> (e^{i phi} z1, e^{i phi} z2).
+    - Inter-chart: Hopf images within angular distance ``base_angle_thresh``
+      on S2, excluding xi2-circle pairs.
+
+    Use ``sample_structure_group_fiber`` when the object must be a Hopf fiber.
     """
     points = np.asarray(points, dtype=float)
     n = len(points)
@@ -245,7 +351,11 @@ def discrete_flux_cycle(edge_indices: Iterable[tuple[int, int]], value: int = 1)
 
 
 def phase_unit(theta: float) -> Array:
-    """Unit quaternion for a pure right-phase (rotation in the 1–k plane)."""
+    """Unit quaternion for a right-phase in the 1-k plane (not the Hopf U(1)).
+
+    The structure-group circle is ``structure_group_unit(phi)``. General right
+    multiplication by an arbitrary unit of S^3 moves fibers.
+    """
     return np.array([np.cos(theta / 2.0), 0.0, 0.0, np.sin(theta / 2.0)], dtype=float)
 
 
@@ -386,6 +496,14 @@ def transform_flux(
             continue
         out[(index_map[a], index_map[b])] = val
     return out
+
+
+def rounded_point_set(points: Array, decimals: int = 6) -> set[tuple]:
+    """Set of rounded row-tuples. Use this, not np.sort(..., axis=0)."""
+    arr = np.round(np.asarray(points, dtype=float), decimals)
+    if arr.ndim == 1:
+        arr = arr.reshape(1, -1)
+    return set(map(tuple, arr))
 
 
 def nearest_index_map(src: Array, dst: Array) -> dict[int, int]:
