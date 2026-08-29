@@ -53,7 +53,9 @@ python3 -c "from lib.hopf_lattice import HURWITZ_UNITS, hopf_map; print(len(HURW
 # → 24
 ```
 
-Labs that import `kingdom` or `flux_hopf_lib` need the documented extra (PyPI names `kingdom-come` / `flux-hopf-lib`):
+Labs that import `kingdom` or `flux_hopf_lib` need the documented extra.
+`flux-hopf-lib` is on PyPI. `kingdom-come` is not; `pyproject.toml` pins it to
+https://github.com/kinaar8340/kingdom_come until it is published:
 
 ```bash
 python3 -m pip install -e ".[portal]"

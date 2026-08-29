@@ -6,7 +6,7 @@ Full lab listings moved out of the main chapter flow. Chapters keep short “cal
 
 ```bash
 python3 -m pip install -e .
-python3 -m pip install -e ".[portal]"   # labs that import kingdom / flux_hopf_lib
+python3 -m pip install -e ".[portal]"   # flux-hopf-lib (PyPI) + kingdom-come (git pin)
 ```
 
 ```python

@@ -324,7 +324,9 @@ def stability_landscape_z(
         from kingdom.core.flux_flywheel import map_z_to_flywheel, map_z_to_flywheel_extended
     except ImportError as e:  # pragma: no cover
         raise ImportError(
-            "kingdom.core.flux_flywheel required; set PYTHONPATH to kingdom/src"
+            "kingdom.core.flux_flywheel required; "
+            "python3 -m pip install -e '.[portal]' "
+            "(kingdom-come is pinned to GitHub, not PYTHONPATH)"
         ) from e
     if z_range is not None:
         z_min, z_max = z_range

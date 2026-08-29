@@ -96,7 +96,7 @@ python3 -c "from lib.hopf_lattice import HURWITZ_UNITS, hopf_map; print(len(HURW
 # -> 24
 \end{lstlisting}
 
-Labs that import \texttt{kingdom} or \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} need the documented extra (PyPI names \texttt{kingdom-come} / \texttt{flux-hopf-lib}):
+Labs that import \texttt{kingdom} or \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} need the documented extra. \texttt{flux-hopf-lib} is on PyPI. \texttt{kingdom-come} is not; \texttt{pyproject.\allowbreak{}toml} pins it to \url{https://github.com/kinaar8340/kingdom_come} until it is published:
 
 \begin{lstlisting}[style=qga]
 python3 -m pip install -e ".[portal]"
