@@ -226,13 +226,20 @@ def apply_gauge_to_topograph(
     )
 
 
+def _lexsort_rows(arr: Array) -> Array:
+    arr = np.round(np.asarray(arr, dtype=float), 8)
+    if arr.size == 0:
+        return arr.reshape(0, arr.shape[-1] if arr.ndim == 2 else 1)
+    keys = tuple(arr[:, k] for k in range(arr.shape[1] - 1, -1, -1))
+    return arr[np.lexsort(keys)]
+
+
 def _point_cloud_distance(a: Array, b: Array) -> float:
-    """Fast symmetric multiset distance via sorted coordinates (O(N log N))."""
-    a_s = np.sort(np.round(a, 8), axis=0)
-    b_s = np.sort(np.round(b, 8), axis=0)
+    """Symmetric multiset distance via lexicographically sorted *rows* (not axis=0)."""
+    a_s = _lexsort_rows(a)
+    b_s = _lexsort_rows(b)
     if a_s.shape != b_s.shape:
         n = max(len(a_s), len(b_s))
-        # pad with last row
         if len(a_s) < n:
             a_s = np.vstack([a_s, np.repeat(a_s[-1:], n - len(a_s), axis=0)])
         if len(b_s) < n:

@@ -69,8 +69,8 @@ def fig_5_2() -> None:
     seps = detect_separators(topo, mode="sign")
     st = np.stack([stereographic(q) for q in pts], axis=0)
 
-    fig = plt.figure(figsize=(7.5, 6.0))
-    ax = fig.add_subplot(111, projection="3d")
+    fig = plt.figure(figsize=(11.0, 5.4))
+    ax = fig.add_subplot(1, 2, 1, projection="3d")
     ax.scatter(st[:, 0], st[:, 1], st[:, 2], c=topo.values, cmap="coolwarm", s=12, alpha=0.7)
     for comp in seps:
         for i, j in comp:
@@ -83,16 +83,59 @@ def fig_5_2() -> None:
                 alpha=0.85,
             )
     ax.set_title(
-        f"Figure 5.2 — Separator structures ({len(seps)} components)\n"
-        "dark edges: sign-crossing of hopf_height",
-        fontsize=11,
+        f"Separators ({len(seps)} components)\ndark edges: sign-crossing",
+        fontsize=10,
         fontweight="bold",
     )
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_zticks([])
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.88, bottom=0.02)
-    fig.savefig(FIG_DIR / "fig5_2_separator_structure.png", dpi=160, facecolor="white")
+
+    # Hatcher AP: three regions meet at a VERTEX; AP continues along a LINE.
+    ax2 = fig.add_subplot(1, 2, 2)
+    ax2.set_xlim(0, 10)
+    ax2.set_ylim(0, 8)
+    ax2.axis("off")
+    verts = [(2.0, 1.5), (5.0, 1.5), (8.0, 1.5), (3.5, 4.0), (6.5, 4.0), (5.0, 6.5)]
+    # triangles around a central vertex
+    triangles = [
+        (verts[0], verts[1], verts[3], "a-d", "#fed7d7"),
+        (verts[1], verts[2], verts[4], "a", "#feebc8"),
+        (verts[1], verts[3], verts[4], "a+d", "#c6f6d5"),
+        (verts[3], verts[4], verts[5], "...", "#bee3f8"),
+    ]
+    for p, q, r, lab, col in triangles:
+        xs, ys = zip(*[p, q, r, p])
+        ax2.fill(xs, ys, facecolor=col, edgecolor="#2d3748", lw=1.2)
+        cx = (p[0] + q[0] + r[0]) / 3
+        cy = (p[1] + q[1] + r[1]) / 3
+        ax2.text(cx, cy, lab, ha="center", va="center", fontsize=11, fontweight="bold")
+    ax2.plot([5.0], [1.5], "o", color="#c53030", ms=10, zorder=5)
+    ax2.annotate(
+        "vertex\n(three regions)",
+        xy=(5.0, 1.5),
+        xytext=(7.4, 0.4),
+        fontsize=8,
+        color="#c53030",
+        arrowprops=dict(arrowstyle="->", color="#c53030"),
+    )
+    ax2.annotate(
+        "AP along a line of regions",
+        xy=(5.0, 4.0),
+        xytext=(0.3, 7.2),
+        fontsize=8,
+        color="#2b6cb0",
+        arrowprops=dict(arrowstyle="->", color="#2b6cb0"),
+    )
+    ax2.set_title("Hatcher AP: vertex, then a line of regions", fontsize=10, fontweight="bold")
+
+    fig.suptitle(
+        "Figure 5.2 — Separator structures and Hatcher's arithmetic-progression rule",
+        fontsize=12,
+        fontweight="bold",
+    )
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "fig5_2_separator_structure.png", dpi=160, bbox_inches="tight", facecolor="white")
     plt.close()
 
 
