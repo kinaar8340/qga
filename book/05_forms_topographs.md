@@ -88,7 +88,7 @@ In the indefinite / oscillatory case, separators can become **periodic** under t
 
 ### Arithmetic progression rule (lift)
 
-Classically, values on three regions meeting at a topograph edge satisfy a linear relation (Hatcher’s arithmetic progression rule). On the gauged Hopf lattice we only partially lift this: for each edge we can measure jumps \(V(j)-V(i)\) and study their regularity under gauge moves (`arithmetic_progression_residuals`). A full equivariant AP rule compatible with quaternion multiplication is part of **OP2**.
+Classically (Hatcher TN Ch. 4), values on **three regions meeting at a vertex** of the topograph form an arithmetic progression; that progression continues **along a line of regions**. (It is not “three regions meeting at an edge.”) Figure 5.2’s schematic panel records this vertex/line picture. On the gauged Hopf lattice we do **not** lift the misstated edge rule into OP2: we only measure jumps \(V(j)-V(i)\) on graph edges (`arithmetic_progression_residuals`) as a diagnostic. A genuine equivariant AP rule, if it exists, must match Hatcher at vertices and along lines of regions.
 
 ---
 

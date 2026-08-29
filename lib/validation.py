@@ -59,8 +59,11 @@ def table_t4_checklist() -> list[dict[str, str]]:
         },
         {
             "id": "T4.5",
-            "element": "Power analysis",
-            "description": "Minimum detectable effect at 80% power.",
+            "element": "Pre-registered sample size",
+            "description": (
+                "Was the pre-registered (n) achieved? Record n and whether "
+                "the run met it. Not post-hoc power computed after T4.4."
+            ),
         },
         {
             "id": "T4.6",
@@ -80,38 +83,59 @@ def table_t4_checklist() -> list[dict[str, str]]:
     ]
 
 
+# Domain list locked before p-values. Do not bolt on new H1 domains here.
+# Date: 2026-08-28.
+H1_DOMAIN_CATALOG: list[tuple[str, str, str]] = [
+    ("H1a", "pulsar_timing", "Pulsar-timing narratives near W_g = 350/π."),
+    ("H1b", "bitcoin_pi_cycle", "Bitcoin Pi Cycle notes near W_g = 350/π."),
+    ("H1c", "tls_trees", "TLS tree analysis near W_g = 350/π."),
+    ("H1d", "cuprate_superconductors", "Cuprate sketches near W_g = 350/π."),
+    ("H1e", "structural_constants", "Structural constants near W_g = 350/π."),
+]
+H1_DOMAIN_LIST_LOCKED = "2026-08-28"
+H1_BONFERRONI_N = len(H1_DOMAIN_CATALOG)
+
+
 def default_hypotheses() -> list[HypothesisSpec]:
-    """Catalog of major book hypotheses for validation planning."""
-    return [
+    """Catalog of major book hypotheses for validation planning.
+
+    H1 is split: one HypothesisSpec per pre-registered domain (H1a–H1e),
+    each with its own T4 row, MDE, and Bonferroni n. Not one bundled clock.
+    """
+    h1_rows = [
         HypothesisSpec(
-            name="350_over_pi_multidomain",
-            claim="W_g = 350/π is a shared topological clock across named domains.",
+            name=f"{tag}_{domain}",
+            claim=(
+                f"In domain '{domain}', values cluster near W_g = 350/π "
+                f"(not 350π). {blurb}"
+            ),
             claim_type="Hypothesis",
             null_hypothesis=(
-                "Recurrence of values near 350/π across domains is consistent "
+                f"Recurrence of values near 350/π in '{domain}' is consistent "
                 "with random numerical coincidence at α=0.01."
             ),
             alpha=0.01,
-            domains=[
-                "pulsar_timing",
-                "bitcoin_pi_cycle",
-                "tls_trees",
-                "cuprate_superconductors",
-                "structural_constants",
-            ],
+            domains=[domain],
             data_sources=[
-                "kingdom/observations/pulsars_investigation.md",
-                "kingdom/app/assets/bitcoin_pi/",
+                "kingdom/observations/",
                 "kingdom observations tabs",
             ],
-            test_statistic="combined_p_value_or_topological_distance",
-            multiple_testing="bonferroni",
+            test_statistic="proximity_to_wg_or_domain_p",
+            multiple_testing=f"bonferroni(n={H1_BONFERRONI_N})",
             falsification=(
-                "Combined test fails to reject H0 after pre-registration and "
-                "multiple-testing correction; or independent replication finds "
-                "no excess clustering near 350/π."
+                "Fail to reject H0 in this domain after pre-registration; "
+                f"pre-registered n not achieved (T4.5); Bonferroni n="
+                f"{H1_BONFERRONI_N} locked {H1_DOMAIN_LIST_LOCKED}."
             ),
-        ),
+            notes=(
+                f"H1 split {H1_DOMAIN_LIST_LOCKED}. MDE is domain-local. "
+                "Do not combine across domains and call it a single clock."
+            ),
+        )
+        for tag, domain, blurb in H1_DOMAIN_CATALOG
+    ]
+    return [
+        *h1_rows,
         HypothesisSpec(
             name="z_map_periodic_table_proxy",
             claim=(
@@ -215,6 +239,71 @@ def proximity_to_wg(
         "mean_rel_error": float(np.mean(rel)),
         "min_abs_error": float(np.min(err)),
         "values": arr.tolist(),
+    }
+
+
+def h2_ablation_row(metrics: dict[str, Any]) -> dict[str, Any]:
+    """Subtract the noble-gas bonus from a map_z_to_flywheel metrics dict.
+
+    Lab 7 must compare alignment with bonuses off against a null. Printing
+    with-bonus scores as findings is not allowed until this ships.
+    """
+    bonus = float(metrics.get("noble_gas_stability_bonus") or 0.0)
+    score = float(metrics["stability_score"])
+    return {
+        "Z": metrics.get("Z"),
+        "score_with_bonus": score,
+        "noble_gas_stability_bonus": bonus,
+        "score_ablated": score - bonus,
+        "is_noble_gas": bool(metrics.get("is_noble_gas")),
+        "stability_class": metrics.get("stability_class"),
+    }
+
+
+def h2_ablation_table(
+    rows: list[dict[str, Any]],
+    *,
+    high_threshold: float = 7.5,
+    seed: int = 0,
+) -> dict[str, Any]:
+    """Compare with-bonus vs ablated high-score alignment to noble-gas Z.
+
+    Alignment = fraction of high-score Z that are noble gases.
+    Null = same fraction after shuffling noble-gas labels (seeded).
+    """
+    ablated = [h2_ablation_row(r) for r in rows]
+    n = len(ablated)
+    noble = np.array([bool(r["is_noble_gas"]) for r in ablated])
+    high_b = np.array([r["score_with_bonus"] >= high_threshold for r in ablated])
+    high_a = np.array([r["score_ablated"] >= high_threshold for r in ablated])
+
+    def align(high: np.ndarray) -> float:
+        if not np.any(high):
+            return float("nan")
+        return float(np.mean(noble[high]))
+
+    rng = np.random.default_rng(seed)
+    shuffled = noble.copy()
+    rng.shuffle(shuffled)
+
+    def align_null(high: np.ndarray) -> float:
+        if not np.any(high):
+            return float("nan")
+        return float(np.mean(shuffled[high]))
+
+    return {
+        "n": n,
+        "n_noble": int(np.sum(noble)),
+        "alignment_with_bonus": align(high_b),
+        "alignment_ablated": align(high_a),
+        "null_alignment_with_bonus": align_null(high_b),
+        "null_alignment_ablated": align_null(high_a),
+        "high_threshold": high_threshold,
+        "rows": ablated,
+        "disclaimer": (
+            "Ablation diagnostic only. Do not print with-bonus noble-gas scores "
+            "as findings."
+        ),
     }
 
 

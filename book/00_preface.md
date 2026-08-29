@@ -23,7 +23,7 @@ This book, **Kingdom Come: A Quaternionic Geometric Approach to Number Theory an
 | Representations by forms | Representations by norms **and** the \(Z\mapsto\) flywheel map |
 | Class groups of quadratic forms/fields | Ideal classes of quaternion orders and algebras |
 
-The pure mathematics spine (Parts I–IV) aims to be defensible geometric number theory and topology. Part V states **models** and **hypotheses** about emergent physics and observational constants; those claims are labeled so they never masquerade as theorems.
+Parts I–II develop quaternions, the Hopf fibration, and the gauged lattice (Theorems plus labeled Models). Part III’s topographs stay Model/OP; the \(Z\mapsto\) map’s chemistry-facing reading (former §§7.3–7.4) lives in **Part V**, not on the geometric spine. Part IV is arithmetic depth (class groups, quaternion algebras) with Models clearly marked. Part V states **models** and **hypotheses** about emergent physics and observational constants; those claims are labeled so they never masquerade as theorems.
 
 ## What this book is not
 
@@ -37,8 +37,8 @@ Interactive experiments live in the Kingdom Come repository and Hugging Face Spa
 
 | Resource | Location |
 |----------|----------|
-| Book manuscript (this repo) | `~/Projects/qga/` · [github.com/kinaar8340/qga](https://github.com/kinaar8340/qga) |
-| Kingdom Come source / portal | `~/Projects/kingdom/` · [github.com/kinaar8340/kingdom_come](https://github.com/kinaar8340/kingdom_come) |
+| Book manuscript (this repo) | [github.com/kinaar8340/qga](https://github.com/kinaar8340/qga) |
+| Kingdom Come source / portal | [github.com/kinaar8340/kingdom_come](https://github.com/kinaar8340/kingdom_come) |
 | Shared Hopf / quaternion core | `flux_hopf_lib` |
 | Figures | `book/figures/` |
 | How to run labs | [`book/HOW_TO_USE.md`](HOW_TO_USE.md) |
@@ -47,7 +47,7 @@ Module pointers at the end of each chapter name the Python entry points used in 
 
 ## How to read
 
-- **Pure geometry and arithmetic.** Chapters 0–9; treat Chapter 10 as optional (observations and validation).  
+- **Pure geometry and arithmetic.** Chapters 0–9 for the geometric/arithmetic development; treat Chapter 10 as optional (observations and validation). Chapter 7's chemistry-facing paragraphs and 7.3–7.4 are Model / Software fact, not theorem spine (Part V owns the empirical reading).  
 - **Model / portal narrative first.** Chapter 0 → Chapter 2 → Chapter 3 (lattice and flywheels) → Chapter 7 → Chapter 10.  
 - **Coming from Hatcher.** Keep TN open beside this book; use root `HATCHER_MAP.md` as a parallel syllabus.  
 - **Coming from the Gradio app.** The Preview chapter is the “Home + Hopf Visualizer + Flux Flywheel” tour in prose; see also `HOW_TO_USE.md`.  

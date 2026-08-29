@@ -34,21 +34,25 @@ This chapter classifies flux topographs on the gauged Hopf lattice, enumerates r
 
 In Hatcher, binary quadratic forms (and their topographs) are classified by the sign of the discriminant \(\Delta = b^2-4ac\):
 
-| Discriminant | Classical type | Topograph character |
-|--------------|----------------|---------------------|
-| \(\Delta>0\) nonsquare | hyperbolic | periodic separators |
-| \(\Delta>0\) square | 0-hyperbolic / parabolic edge | degenerate |
-| \(\Delta<0\) | elliptic | finite reduced forms |
+| Discriminant | Classical type (Conway–Hatcher) | Topograph character |
+|--------------|--------------------------------|---------------------|
+| \(\Delta<0\) | elliptic | **no river**; finite reduced forms |
+| \(\Delta>0\) nonsquare | hyperbolic | **periodic river**; finite reduced cycles |
+| \(\Delta>0\) square | 0-hyperbolic | degenerate river |
 | \(\Delta=0\) | parabolic | boundary / degenerate |
 
-We lift this classification to flux topographs by examining the flux functional \(V\) and its separator structures under the gauge group of Chapter 4—**not** by computing a classical \(\Delta\) (that remains OP2–3 territory).
+Hyperbolic forms have infinitely many automorphisms, but the **reduced cycle is finite** (the period of the river). Do not write “infinite families of reduced forms” for the hyperbolic case.
 
-| Type | Separator behavior | Reduced configurations | Magic Island character |
-|------|--------------------|------------------------|------------------------|
-| Hyperbolic | Periodic separators under gauge | Infinite / periodic families | Large stable islands |
-| Elliptic | Finite / bounded separators | Finite reduced set | Compact high-stability pockets |
-| Parabolic | Degenerate / transitional separators | Marginal cases | Boundary regions |
-| 0-hyperbolic | Flat or near-constant regions | Trivial / degenerate | Noble-gas-like locks |
+We lift this classification to flux topographs by examining the flux functional \(V\) and separator / river-like structures under the gauge group of Chapter 4—**not** by computing a classical \(\Delta\) (that remains OP2–3 territory).
+
+| Type | Conway–Hatcher character | Working Model lift |
+|------|--------------------------|--------------------|
+| Elliptic | No river; finite reduced forms | Few / bounded separators; finite reduced set |
+| Hyperbolic | Periodic river; finite reduced cycles | Periodic separators under gauge; finite reduced cycle |
+| 0-hyperbolic | Degenerate river | Flat or near-constant regions; degenerate |
+| Parabolic | Boundary / degenerate | Transitional / default bin |
+
+**Model / Hypothesis box (not a type).** Noble-gas locks and portal `stability_score` peaks are **not** elliptic/hyperbolic/0-hyperbolic types. They belong to Hypothesis H2 / H3 and the \(Z\mapsto\) map in Part V. Do not mix them into the type table.
 
 ![Figure 6.1 — Four types of flux topographs (schematic).](figures/fig6_1_four_types.png)
 
@@ -62,15 +66,15 @@ classify_topograph_type(topo) →
   best_period_found, signature, ...
 ```
 
-The decision tree (explicitly heuristic) uses:
+The decision tree is aligned with the Conway–Hatcher table as a *proxy* (still not a discriminant \(\Delta\)):
 
 1. near-constant values → `0-hyperbolic`  
-2. no sign separators + low variance → `parabolic`  
+2. no sign separators (no river) → `elliptic`  
 3. periodic under a small gauge dictionary + separators → `hyperbolic`  
-4. few separator components → `elliptic`  
+4. separators present but no period found → `0-hyperbolic`  
 5. otherwise transitional `parabolic`
 
-This is **not** a theorem of classification—only a lab tool for OP3 experiments.
+**Software fact.** The previous tree (`few separator components → elliptic`, and `no separators + low variance → parabolic`) could relabel a definite (no-river) form as the wrong type. The tree above matches the type table; finite samples can still mislabel. This is **not** a theorem of classification—only a lab tool for OP3 experiments.
 
 ---
 
@@ -100,7 +104,7 @@ enumerate_reduced(topo, dedup_tol=...)  # inequivalent reduced orbit reps
 
 ---
 
-## 6.3 Magic Islands as higher-dimensional class-number phenomena
+## 6.3 Magic Islands as a working class-number analogue (Hypothesis H3, OP3)
 
 **Magic Islands** are regions in parameter space (or in the space of flux functionals) that contain a high density of reduced configurations with strong periodicity and high stability scores.
 

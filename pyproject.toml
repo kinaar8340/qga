@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qga"
+version = "0.1.0"
+description = "Kingdom Come / QGA book helpers (pedagogical lib/ for the manuscript)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "kinaar8340" }]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+# kingdom-come is not on PyPI yet; pin the public git repo. flux-hopf-lib is on PyPI.
+portal = [
+    "kingdom-come @ git+https://github.com/kinaar8340/kingdom_come.git@d44166adffef9f967c1859796df5c4faf6b8f655",
+    "flux-hopf-lib>=0.3.0",
+]
+dev = [
+    "pytest>=7.0",
+    "matplotlib>=3.7",
+]
+
+[project.urls]
+Repository = "https://github.com/kinaar8340/qga"
+
+[tool.setuptools.packages.find]
+include = ["lib*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

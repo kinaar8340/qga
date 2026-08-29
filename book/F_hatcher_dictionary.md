@@ -29,13 +29,13 @@ https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf
 |---------|-----|
 | Farey edge / mediant | Lattice adjacency / candidate mediant (Model) |
 | Continued-fraction zigzag | Fiber phase walk; gauge sequence |
-| Linear fractional transformation | Unit quaternion left/right multiplication |
+| Linear fractional transformation (\(\mathrm{PGL}(2,\mathbb{Z})\); det \(\pm 1\)) | Unit quaternion left/right multiplication |
 | Conway topograph | Flux topograph |
 | Separator line | Separator structure / surface |
 | Reduced form | Reduced flux configuration |
 | Class number | `class_number_analogue` / island counts (Model) |
 | Gauss composition | `compose_flywheels` (Model; OP6) |
-| Ideal class group | Quaternion order ideal class group (Theorem) + Model bridge |
+| Ideal class group | Two-sided class group (Theorem) vs left class set; Model bridge |
 | Representation by forms | Representation by norms + \(Z\mapsto\) flux configs |
 
 ---

@@ -291,72 +291,119 @@ class HurwitzOrder:
 
 
 @dataclass
-class IdealClassGroupResult:
-    order: int
+class LeftIdealClassSetResult:
+    """Left ideal *class set* — not a group in general.
+
+    Two-sided ideal classes of a maximal order form a group (Picard /
+    two-sided class group). Left ideal classes form a set, with a group
+    structure only in special cases. Hurwitz is a left PID: the left class
+    set is a singleton (class number 1) — that is a Theorem, cited here.
+    """
+
+    cardinality: int
     method: str
     notes: str
     sample_norms: list[int] = field(default_factory=list)
     representatives: list[Array] = field(default_factory=list)
 
     def __repr__(self) -> str:
-        return f"IdealClassGroupResult(order={self.order}, method={self.method!r})"
+        return (
+            f"LeftIdealClassSetResult(cardinality={self.cardinality}, "
+            f"method={self.method!r})"
+        )
 
 
-def left_ideal_class_group(
+@dataclass
+class TwoSidedClassGroupResult:
+    """Two-sided (Picard) class group of an order — this one is a group."""
+
+    order: int
+    method: str
+    notes: str
+
+    def __repr__(self) -> str:
+        return (
+            f"TwoSidedClassGroupResult(order={self.order}, method={self.method!r})"
+        )
+
+
+def left_ideal_class_set(
     order: HurwitzOrder | LipschitzOrder | None = None,
     *,
     bound: int = 100,
-) -> IdealClassGroupResult:
-    """Toy class-number diagnostic for Hurwitz / Lipschitz.
+) -> LeftIdealClassSetResult:
+    """Toy left-ideal *class set* diagnostic for Hurwitz / Lipschitz.
 
-    Classical fact used: the Hurwitz order in the Hamilton quaternion algebra
-    has **class number 1** (every left ideal is principal). This function
-    verifies a finite sample of small-norm generators and returns order=1 for
-    Hurwitz, while Lipschitz is reported as non-maximal (class number not 1
-    in the same sense — we return a placeholder with notes).
+    **Theorem (cited, classical).** The Hurwitz order in the Hamilton
+    quaternion algebra is a left PID: every left ideal is principal, so the
+    left class set has cardinality 1 (class number 1). This function cites
+    that theorem and checks a finite sample of small-norm elements; it is
+    not a group enumeration.
 
-    Parameters
-    ----------
-    bound :
-        Max integer norm of sample elements checked for principality sketch.
+    Lipschitz is not maximal; the left class set is not computed here.
     """
     if order is None:
         order = HurwitzOrder()
 
     if isinstance(order, HurwitzOrder):
-        # Sample Lipschitz/Hurwitz integer quaternions of small norm
         samples = []
         for coords in product(range(-3, 4), repeat=4):
             q = np.array(coords, dtype=float)
             n = int(round(q_norm2(q)))
             if 0 < n <= min(bound, 9):
                 samples.append((n, q))
-        # For class number 1, every ideal is principal — we only *cite* this
-        # and check that units have norm 1 and sample norms are integers.
         unit_norms = [int(round(order.norm(u))) for u in order.units]
         assert all(n == 1 for n in unit_norms)
-        return IdealClassGroupResult(
-            order=1,
-            method="classical_hurwitz_class_number_one",
+        return LeftIdealClassSetResult(
+            cardinality=1,
+            method="classical_hurwitz_left_pid_class_number_one",
             notes=(
-                "Classical theorem: left ideal class number of the Hurwitz order "
-                f"is 1. Sampled {len(samples)} elements with norm ≤{min(bound, 9)}; "
-                "not a full ideal enumeration."
+                "Theorem: Hurwitz is a left PID, so the left ideal class set "
+                f"has cardinality 1. Sampled {len(samples)} elements with "
+                f"norm ≤{min(bound, 9)}; not a full ideal enumeration. "
+                "Do not call this a class *group* — see two_sided_class_group."
             ),
             sample_norms=sorted({n for n, _ in samples})[:20],
             representatives=[np.array([1.0, 0.0, 0.0, 0.0])],
         )
 
-    # Lipschitz: not maximal; class number of the order is not the same story
-    return IdealClassGroupResult(
-        order=-1,
+    return LeftIdealClassSetResult(
+        cardinality=-1,
         method="lipschitz_non_maximal",
         notes=(
-            "Lipschitz order is not maximal; full left ideal class number is "
+            "Lipschitz order is not maximal; the left ideal class set is "
             "not computed here. Prefer HurwitzOrder for Euclidean arithmetic."
         ),
         sample_norms=[],
         representatives=[],
+    )
+
+
+def two_sided_class_group(
+    order: HurwitzOrder | LipschitzOrder | None = None,
+) -> TwoSidedClassGroupResult:
+    """Two-sided class group (Picard group of the order).
+
+    **Theorem (cited).** For the Hurwitz maximal order the two-sided class
+    group is trivial (order 1). This is a group. The left class *set* is a
+    different object (also a singleton here because Hurwitz is a left PID).
+    """
+    if order is None:
+        order = HurwitzOrder()
+    if isinstance(order, HurwitzOrder):
+        return TwoSidedClassGroupResult(
+            order=1,
+            method="classical_hurwitz_two_sided_trivial",
+            notes=(
+                "Theorem: two-sided class group of the Hurwitz order is "
+                "trivial. Distinct from the left ideal class set "
+                "(also cardinality 1, because Hurwitz is a left PID)."
+            ),
+        )
+    return TwoSidedClassGroupResult(
+        order=-1,
+        method="lipschitz_non_maximal",
+        notes="Lipschitz is not maximal; two-sided class group not computed.",
     )
 
 
@@ -365,7 +412,9 @@ def form_ideal_dictionary_entry() -> dict[str, str]:
     return {
         "Ideal in a quaternion order": "Flux configuration / supporting cycle on the gauged Hopf lattice",
         "Ideal class": "Equivalence class of reduced flux topographs",
-        "Ideal class group": "Class-group analogue of Chapter 8",
+        "Left ideal class set": "Equivalence classes of left ideals (a set, not a group in general)",
+        "Two-sided class group": "Picard group of two-sided ideals (a group)",
+        "Ideal class group": "Two-sided class group (Theorem) — not the left class set",
         "Norm of an ideal": "Stability score or magic_island_score",
         "Ideal multiplication": "Composition of flywheels (when defined — OP6)",
     }

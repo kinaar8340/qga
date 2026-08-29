@@ -14,7 +14,7 @@ Helpers: `lib/validation.py`.
 | T4.2 | Data sources and preprocessing | List datasets, windows, and cleaning rules. |
 | T4.3 | Test statistic | Define the scalar or vector statistic used for decision. |
 | T4.4 | Multiple-testing correction | Bonferroni or FDR control across domains/tests. |
-| T4.5 | Power analysis | Minimum detectable effect at 80% power. |
+| T4.5 | Pre-registered sample size | Was the pre-registered \((n)\) achieved? Not post-hoc power after T4.4. |
 | T4.6 | Falsification criteria | What result counts as strong evidence against the alternative. |
 | T4.7 | Pre-registration | Timestamped commit or external registry **before** looking at new data. |
 | T4.8 | Reproducibility | Full code, seeds, and environment for every figure and table. |
@@ -31,18 +31,27 @@ for row in table_t4_checklist():
 
 These match `default_hypotheses()` in code.
 
-### H1 — Multi-domain \(350/\pi\)
+### H1a–H1e — \(W_g=350/\pi\) per domain (not one bundled clock)
 
-| Field | Content |
+Domain list locked \(2026\text{-}08\text{-}28\) **before** \(p\)-values. One symbol: \(W_g=350/\pi\) (not \(350\pi\)). Bonferroni \(n=5\). Each row has its own T4 checklist, MDE, and pre-registered \(n\) (T4.5).
+
+| ID | Domain | Claim (Hypothesis) |
+|----|--------|--------------------|
+| H1a | pulsar_timing | Clustering near \(W_g=350/\pi\) in pulsar-timing narratives |
+| H1b | bitcoin_pi_cycle | Clustering near \(W_g=350/\pi\) in Bitcoin Pi Cycle notes |
+| H1c | tls_trees | Clustering near \(W_g=350/\pi\) in TLS tree analysis |
+| H1d | cuprate_superconductors | Clustering near \(W_g=350/\pi\) in cuprate sketches |
+| H1e | structural_constants | Clustering near \(W_g=350/\pi\) in structural constants |
+
+| Field | Content (each H1\(\ast\)) |
 |-------|---------|
-| **Claim** | \(W_g=350/\pi\) is a shared topological clock across named domains. |
 | **Type** | Hypothesis |
-| **Null** | Recurrence near \(350/\pi\) is consistent with random coincidence at \(\alpha=0.01\). |
-| **Domains** | pulsar timing; Bitcoin Pi Cycle; TLS trees; cuprate SC sketches; structural constants |
-| **Sources** | `kingdom/observations/`; portal Observations tab; related assets |
-| **Statistic** | Combined \(p\)-value or topological distance to model sequences |
-| **Correction** | Bonferroni |
-| **Falsification** | Fail to reject \(H_0\) after pre-registration + correction; or independent replication finds no excess clustering |
+| **Null** | Recurrence in *that* domain is consistent with random coincidence at \(\alpha=0.01\). |
+| **Correction** | Bonferroni \(n=5\) (locked with the domain list) |
+| **T4.5** | Was the pre-registered \((n)\) for that domain achieved? |
+| **Falsification** | Fail to reject \(H_0\) in that domain after pre-registration; or pre-registered \(n\) not achieved |
+
+Do not recombine H1a–H1e into a single “shared clock” claim. No new observational domains on H1 in this revision.
 
 ### H2 — \(Z\mapsto\) map as periodic-table proxy
 
@@ -107,7 +116,7 @@ Under the **null toy** generator, expect frequent `fail_to_reject_H0`. Real doma
 2. Lock data sources and preprocessing (T4.2).  
 3. Pre-register (T4.7) — e.g. git tag / commit hash.  
 4. Compute statistics; apply multiple-testing correction (T4.4).  
-5. Check power (T4.5).  
+5. Check that the pre-registered \((n)\) was achieved (T4.5) — not post-hoc power.  
 6. Decide: reject \(H_0\) / fail to reject / refine design.  
 7. Publish code and seeds (T4.8).
 

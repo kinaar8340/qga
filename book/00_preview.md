@@ -109,13 +109,13 @@ Write a unit quaternion as a pair of complex numbers (up to the usual identifica
 \[
 q \;\longleftrightarrow\; (z_1,z_2)\in\mathbb{C}^2,\qquad |z_1|^2+|z_2|^2=1.
 \]
-The classical **Hopf map** sends \(q\) to a point on \(S^2\). One real-coordinate form used in Kingdom Come’s documentation is
+The classical **Hopf map** sends \(q\) to a point on \(S^2\). The real-coordinate form used in this book (Chapter 2; `lib.hopf_lattice.hopf_map` and `flux_hopf_lib.hopf.fibration.hopf_map`) is
 \begin{align*}
-y_1 &= x_1^2 - x_2^2,\\
-y_2 &= 2 x_1 x_2,\\
-y_3 &= 2(x_3 x_4 + x_1 x_2),
+y_1 &= 2(x_1 x_3 + x_2 x_4),\\
+y_2 &= 2(x_1 x_4 - x_2 x_3),\\
+y_3 &= x_1^2 + x_2^2 - x_3^2 - x_4^2,
 \end{align*}
-for a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\) (see `kingdom` theory notes and `flux_hopf_lib`). Equivalent complex forms identify the base point with a ratio \([z_1:z_2]\in\mathbb{CP}^1\cong S^2\).
+for a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\). On unit inputs this already lands on \(S^2\) (no output-normalization). Equivalent complex forms identify the base point with a ratio \([z_1:z_2]\in\mathbb{CP}^1\cong S^2\). The older three-component formula \(y_1=x_1^2-x_2^2\), \(y_2=2x_1x_2\), \(y_3=2(x_3x_4+x_1x_2)\) is **not** a Hopf map; it is kept only as `legacy_portal_map`.
 
 **Fiber intuition.** Over each base point sits a **circle’s worth** of unit quaternions—the fiber—obtained by rotating a phase along that circle. Distinct fibers are **linked**: any two are linked once (Hopf invariant \(1\)). Stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\) displays those fibers as linked Villarceau circles on nested tori.
 
@@ -203,7 +203,7 @@ Kingdom Come’s constants module records a topological clock scale
 \[
 W_g \;=\; \frac{350}{\pi} \;\approx\; 111.408
 \]
-(`WG_FROM_350_OVER_PI`, with a documented lock value \(W_{g,\mathrm{lock}}\) in `flux_hopf_lib` / `kingdom.core.constants`). The same numerical motif appears in several **observation tracks** of the portal: Bitcoin Pi Cycle narratives, TLS tree branch bursts, cuprate superconductor sketches, pulsar-timing numerics, and related notes.
+(`WG_FROM_350_OVER_PI`, with a documented lock value \(W_{g,\mathrm{lock}}\) in `flux_hopf_lib` / `kingdom.core.constants`). The same *numeral* appears in several **separate observation tracks** of the portal (pulsar-timing, Bitcoin Pi Cycle, TLS trees, cuprates, structural constants). Those tracks are **Hypothesis H1a–H1e**, one per domain — not one bundled clock. Chapter 10 / Appendix D split and pre-register them.
 
 ![Figure 0.5 — Hopf lattice and Pi-cycle motif. Source: Kingdom Come `app/assets/bitcoin_pi/hopf_lattice_pi_cycle.jpg`.](figures/fig0_5_hopf_lattice_pi_cycle.jpg)
 

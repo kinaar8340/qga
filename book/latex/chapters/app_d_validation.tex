@@ -12,8 +12,8 @@ Helpers: \texttt{lib/\allowbreak{}validation.\allowbreak{}py}.
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{D.1 Core checklist (Table T4)}
-\label{ch:app_d_validation:d-1-core-checklist-table-t4}
+\section{Core checklist (Table T4)}
+\label{ch:app_d_validation:core-checklist-table-t4}
 
 \begin{center}
 \small
@@ -26,7 +26,7 @@ T4.1 & Null hypothesis definition & State \(H_0\) with significance level \(\alp
 T4.2 & Data sources and preprocessing & List datasets, windows, and cleaning rules. \\
 T4.3 & Test statistic & Define the scalar or vector statistic used for decision. \\
 T4.4 & Multiple-testing correction & Bonferroni or FDR control across domains/tests. \\
-T4.5 & Power analysis & Minimum detectable effect at 80\% power. \\
+T4.5 & Pre-registered sample size & Was the pre-registered \((n)\) achieved? Not post-hoc power after T4.4. \\
 T4.6 & Falsification criteria & What result counts as strong evidence against the alternative. \\
 T4.7 & Pre-registration & Timestamped commit or external registry \textbf{before} looking at new data. \\
 T4.8 & Reproducibility & Full code, seeds, and environment for every figure and table. \\
@@ -45,33 +45,51 @@ for row in table_t4_checklist():
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{D.2 Catalog of major hypotheses}
-\label{ch:app_d_validation:d-2-catalog-of-major-hypotheses}
+\section{Catalog of major hypotheses}
+\label{ch:app_d_validation:catalog-of-major-hypotheses}
 
 These match \texttt{default\_\allowbreak{}hypotheses()} in code.
 
-\subsection{H1 --- Multi-domain \(350/\pi\)}
-\label{ch:app_d_validation:h1-multi-domain-350-pi}
+\subsection{H1a--H1e --- \(W_g=350/\pi\) per domain (not one bundled clock)}
+\label{ch:app_d_validation:h1a-h1e-w-g-350-pi-per-domain-not-one-bundled-clock}
+
+Domain list locked \(2026\text{-}08\text{-}28\) \textbf{before} \(p\)-values. One symbol: \(W_g=350/\pi\) (not \(350\pi\)). Bonferroni \(n=5\). Each row has its own T4 checklist, MDE, and pre-registered \(n\) (T4.5).
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+ID & Domain & Claim (Hypothesis) \\
+\midrule
+H1a & pulsar\_timing & Clustering near \(W_g=350/\pi\) in pulsar-timing narratives \\
+H1b & bitcoin\_pi\_cycle & Clustering near \(W_g=350/\pi\) in Bitcoin Pi Cycle notes \\
+H1c & tls\_trees & Clustering near \(W_g=350/\pi\) in TLS tree analysis \\
+H1d & cuprate\_superconductors & Clustering near \(W_g=350/\pi\) in cuprate sketches \\
+H1e & structural\_constants & Clustering near \(W_g=350/\pi\) in structural constants \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
 
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-Field & Content \\
+Field & Content (each H1\(\ast\)) \\
 \midrule
-\textbf{Claim} & \(W_g=350/\pi\) is a shared topological clock across named domains. \\
 \textbf{Type} & Hypothesis \\
-\textbf{Null} & Recurrence near \(350/\pi\) is consistent with random coincidence at \(\alpha=0.01\). \\
-\textbf{Domains} & pulsar timing; Bitcoin Pi Cycle; TLS trees; cuprate SC sketches; structural constants \\
-\textbf{Sources} & \texttt{kingdom/\allowbreak{}observations/\allowbreak{}}; portal Observations tab; related assets \\
-\textbf{Statistic} & Combined \(p\)-value or topological distance to model sequences \\
-\textbf{Correction} & Bonferroni \\
-\textbf{Falsification} & Fail to reject \(H_0\) after pre-registration + correction; or independent replication finds no excess clustering \\
+\textbf{Null} & Recurrence in \emph{that} domain is consistent with random coincidence at \(\alpha=0.01\). \\
+\textbf{Correction} & Bonferroni \(n=5\) (locked with the domain list) \\
+\textbf{T4.5} & Was the pre-registered \((n)\) for that domain achieved? \\
+\textbf{Falsification} & Fail to reject \(H_0\) in that domain after pre-registration; or pre-registered \(n\) not achieved \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
+
+Do not recombine H1a--H1e into a single ``shared clock'' claim. No new observational domains on H1 in this revision.
 
 \subsection{H2 --- \(Z\mapsto\) map as periodic-table proxy}
 \label{ch:app_d_validation:h2-z-mapsto-map-as-periodic-table-proxy}
@@ -125,8 +143,8 @@ for h in default_hypotheses():
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{D.3 Statistical helpers}
-\label{ch:app_d_validation:d-3-statistical-helpers}
+\section{Statistical helpers}
+\label{ch:app_d_validation:statistical-helpers}
 
 \begin{lstlisting}[style=qga,language=python]
 from lib.validation import (
@@ -139,9 +157,9 @@ from lib.validation import (
 )
 
 print("W_g =", WG_350_OVER_PI)
-print("Bonferroni thr (?=0.01, n=5):", bonferroni_threshold(0.01, 5))
+print("Bonferroni thr (alpha=0.01, n=5):", bonferroni_threshold(0.01, 5))
 
-# Toy null demo -- NOT evidence for 350/?
+# Toy null demo -- NOT evidence for 350/pi
 demo = run_table_t4_demo(seed=1, alpha=0.01)
 print(demo["decision"], demo["fisher"])
 
@@ -155,15 +173,15 @@ Under the \textbf{null toy} generator, expect frequent \texttt{fail\_\allowbreak
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{D.4 Decision flowchart (narrative)}
-\label{ch:app_d_validation:d-4-decision-flowchart-narrative}
+\section{Decision flowchart (narrative)}
+\label{ch:app_d_validation:decision-flowchart-narrative}
 
 \begin{enumerate}
 \item Write \(H_0\), \(\alpha\), statistic, and falsification (T4.1, T4.3, T4.6).  
 \item Lock data sources and preprocessing (T4.2).  
 \item Pre-register (T4.7) --- e.g. git tag / commit hash.  
 \item Compute statistics; apply multiple-testing correction (T4.4).  
-\item Check power (T4.5).  
+\item Check that the pre-registered \((n)\) was achieved (T4.5) --- not post-hoc power.  
 \item Decide: reject \(H_0\) / fail to reject / refine design.  
 \item Publish code and seeds (T4.8).
 \end{enumerate}
@@ -174,8 +192,8 @@ Figure 10.4 in Chapter 10 is the visual summary of this flow.
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{D.5 Claim discipline for validation results}
-\label{ch:app_d_validation:d-5-claim-discipline-for-validation-results}
+\section{Claim discipline for validation results}
+\label{ch:app_d_validation:claim-discipline-for-validation-results}
 
 \begin{center}
 \small
@@ -185,8 +203,8 @@ Figure 10.4 in Chapter 10 is the visual summary of this flow.
 Statement & Label \\
 \midrule
 ``Table T4 exists in the repo'' & \textbf{Software fact} \\
-``Hypothesis \(X\) passed T4`` & \textbf{Hypothesis} until full checklist executed and reviewed \\
-``\(W_g\) is a law of nature`` & \textbf{Hypothesis} (not default) \\
+``Hypothesis \(X\) passed T4'' & \textbf{Hypothesis} until full checklist executed and reviewed \\
+``\(W_g\) is a law of nature'' & \textbf{Hypothesis} (not default) \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -195,5 +213,4 @@ Statement & Label \\
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 

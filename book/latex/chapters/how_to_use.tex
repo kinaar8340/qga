@@ -12,8 +12,8 @@ This short front-matter page is the practical companion to the Preface. It fixes
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{1. Claim labels}
-\label{ch:how_to_use:1-claim-labels}
+\section*{Claim labels}
+\label{ch:how_to_use:claim-labels}
 
 Every major claim in the manuscript is one of four kinds:
 
@@ -26,7 +26,7 @@ Label & Meaning & Example \\
 \midrule
 \textbf{Theorem} & Proved in this book or classical & Four-square theorem; Hopf linking; Hurwitz class number 1 \\
 \textbf{Model} & Consistent mathematical or physical construction; not claimed as nature's unique law & Gauged Hopf lattice adjacency; flux topographs; \(Z\mapsto\) proxy \\
-\textbf{Hypothesis} & Observational claim needing validation or falsification & Multi-domain \(350/\pi\) as one topological clock \\
+\textbf{Hypothesis} & Observational claim needing validation or falsification & H1a--H1e: \(W_g=350/\pi\) per domain (not one bundled clock) \\
 \textbf{Software fact} & True of the current code or portal implementation & \texttt{map\_\allowbreak{}z\_\allowbreak{}to\_\allowbreak{}flywheel} returns \texttt{stability\_\allowbreak{}score}; there is \textbf{no} \texttt{magic\_\allowbreak{}flag} key \\
 \bottomrule
 \end{tabularx}
@@ -41,8 +41,8 @@ Validation protocols for Hypotheses live in Chapter 10 (Table \textbf{T4}) and \
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{2. Repository layout}
-\label{ch:how_to_use:2-repository-layout}
+\section*{Repository layout}
+\label{ch:how_to_use:repository-layout}
 
 \begin{center}
 \small
@@ -71,8 +71,8 @@ Path & Role \\
 \toprule
 Resource & Location \\
 \midrule
-Kingdom Come & \texttt{\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}} \(\cdot\) \url{https://github.com/kinaar8340/kingdom_come} \\
-Shared Hopf / quaternion core & \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} \\
+Kingdom Come & \url{https://github.com/kinaar8340/kingdom_come} \(\cdot\) extra \texttt{.\allowbreak{}[portal]} \\
+Shared Hopf / quaternion core & \texttt{flux-hopf-lib} (same extra) \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -82,32 +82,34 @@ Shared Hopf / quaternion core & \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}li
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{3. Running the labs}
-\label{ch:how_to_use:3-running-the-labs}
+\section*{Running the labs}
+\label{ch:how_to_use:running-the-labs}
 
-\subsection{3.1 Book helpers (\texttt{lib/\allowbreak{}})}
-\label{ch:how_to_use:3-1-book-helpers-lib}
+\subsection*{One install path}
+\label{ch:how_to_use:one-install-path}
 
-From the repository root:
+From the clone root (any path; do not hard-code \texttt{\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}.\allowbreak{}.\allowbreak{}.\allowbreak{}}):
 
 \begin{lstlisting}[style=qga]
-cd ~/Projects/qga   # or your clone path
-python3 -c "from lib.hopf_lattice import HURWITZ_UNITS; print(len(HURWITZ_UNITS))"
+python3 -m pip install -e .
+python3 -c "from lib.hopf_lattice import HURWITZ_UNITS, hopf_map; print(len(HURWITZ_UNITS))"
 # -> 24
 \end{lstlisting}
 
-Chapter labs often use an explicit path insert (adjust if your clone is elsewhere):
+Labs that import \texttt{kingdom} or \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} need the documented extra. \texttt{flux-hopf-lib} is on PyPI. \texttt{kingdom-come} is not; \texttt{pyproject.\allowbreak{}toml} pins it to \url{https://github.com/kinaar8340/kingdom_come} until it is published:
+
+\begin{lstlisting}[style=qga]
+python3 -m pip install -e ".[portal]"
+\end{lstlisting}
+
+Then:
 
 \begin{lstlisting}[style=qga,language=python]
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Projects" / "qga"))
-
-from lib.hopf_lattice import HURWITZ_UNITS, sample_angle_lattice
+from lib.hopf_lattice import HURWITZ_UNITS, hopf_map, sample_angle_lattice
 from lib.flux_topograph import build_flux_topograph
 from lib.composition import compose_flywheels
-from lib.quaternion_algebra import HurwitzOrder
-from lib.validation import table_t4_checklist, run_table_t4_demo
+from lib.quaternion_algebra import HurwitzOrder, left_ideal_class_set
+from lib.validation import table_t4_checklist, run_table_t4_demo, h2_ablation_table
 \end{lstlisting}
 
 \begin{center}
@@ -127,14 +129,16 @@ Package & Chapters & Purpose \\
 \end{center}
 
 
-\subsection{3.2 Kingdom Come / portal modules}
-\label{ch:how_to_use:3-2-kingdom-come-portal-modules}
+\subsection*{Kingdom Come / portal modules}
+\label{ch:how_to_use:kingdom-come-portal-modules}
+
+After \texttt{pip install -e ".\allowbreak{}[portal]"}:
 
 \begin{lstlisting}[style=qga]
-export PYTHONPATH=~/Projects/kingdom/src:~/Projects/flux_hopf_lib/src
-# recommended: kingdom venv
-~/Projects/kingdom/.venv/bin/python -c "from kingdom.core.hopf import sample_fiber; print('ok')"
+python3 -c "from kingdom.core.quaternion import Quaternion; print('ok')"
 \end{lstlisting}
+
+Do not set \texttt{PYTHONPATH=\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}src:\allowbreak{}.\allowbreak{}.\allowbreak{}.\allowbreak{}} as the official path.
 
 \begin{center}
 \small
@@ -156,8 +160,8 @@ Chapter & Primary modules \\
 \end{center}
 
 
-\subsection{3.3 API honesty (read once, save time)}
-\label{ch:how_to_use:3-3-api-honesty-read-once-save-time}
+\subsection*{API honesty (read once, save time)}
+\label{ch:how_to_use:api-honesty-read-once-save-time}
 
 These mismatch the sketch names that appear in early brainstorms; the manuscript and labs follow the \textbf{live} APIs:
 
@@ -182,8 +186,8 @@ Do use & Do not assume \\
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{4. Figures}
-\label{ch:how_to_use:4-figures}
+\section*{Figures}
+\label{ch:how_to_use:figures}
 
 \begin{enumerate}
 \item \textbf{Paths.} In chapter markdown, figure paths are relative to \texttt{book/\allowbreak{}}:  
@@ -194,12 +198,7 @@ Do use & Do not assume \\
 \begin{enumerate}
 \item \textbf{Index.} Full figure list: \texttt{book/\allowbreak{}FIGURES.\allowbreak{}md}.  
 \item \textbf{Attribution.} Sources and regenerate commands: \texttt{book/\allowbreak{}figures/\allowbreak{}ATTRIBUTION.\allowbreak{}md}.  
-\item \textbf{Regenerate.} From repo root:
-\end{enumerate}
-
-``\texttt{bash python3 scripts/\allowbreak{}generate\_\allowbreak{}ch1\_\allowbreak{}figures.\allowbreak{}py   \# example \# Chapters 7 and 10 may need the kingdom venv for live stability scores:\allowbreak{} \textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}.\allowbreak{}venv/\allowbreak{}bin/\allowbreak{}python scripts/\allowbreak{}generate\_\allowbreak{}ch7\_\allowbreak{}figures.\allowbreak{}py }``
-
-\begin{enumerate}
+\item \textbf{Regenerate.} From repo root run \texttt{python3 scripts/\allowbreak{}generate\_\allowbreak{}ch1\_\allowbreak{}figures.\allowbreak{}py}. Chapters 7 and 10 may need the portal extra: \texttt{python3 scripts/\allowbreak{}generate\_\allowbreak{}ch7\_\allowbreak{}figures.\allowbreak{}py}.
 \item \textbf{Origins.} Chapter 0 partly vendors Kingdom Come assets; later chapters are mostly generated by the scripts above.
 \end{enumerate}
 
@@ -209,8 +208,8 @@ Naming pattern: \texttt{fig\{N\}\_\allowbreak{}\{k\}\_\allowbreak{}.\allowbreak{
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{5. Notation (minimal sheet)}
-\label{ch:how_to_use:5-notation-minimal-sheet}
+\section*{Notation (minimal sheet)}
+\label{ch:how_to_use:notation-minimal-sheet}
 
 \begin{center}
 \small
@@ -224,7 +223,7 @@ Symbol & Meaning \\
 \(\Lambda_0\) & 24 Hurwitz units on \(S^3\) \\
 \(\Lambda_{\mathrm{ang}}\) & Angle-sampled lattice (visualization density) \\
 \(\Lambda_{\mathrm{dyn}}\) & Dynamical two-gyro sites (portal) \\
-\(W_g\) & \(350/\pi\) topological clock (\textbf{Hypothesis} layer; Ch. 10) \\
+\(W_g\) & \(350/\pi\) (not \(350\pi\)) topological clock (\textbf{Hypothesis} H1a--H1e; Ch. 10) \\
 OP1--OP6 & Open problems \(\cdot\) \texttt{notes/\allowbreak{}open\_\allowbreak{}problems.\allowbreak{}md} \\
 \bottomrule
 \end{tabularx}
@@ -235,8 +234,8 @@ OP1--OP6 & Open problems \(\cdot\) \texttt{notes/\allowbreak{}open\_\allowbreak{
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{6. Gradio portal \(\leftrightarrow\) book}
-\label{ch:how_to_use:6-gradio-portal-book}
+\section*{Gradio portal \(\leftrightarrow\) book}
+\label{ch:how_to_use:gradio-portal-book}
 
 \begin{center}
 \small
@@ -256,8 +255,8 @@ The Model / theory & Preface, 0, 8--9 (narrative; labs offline) \\
 \end{center}
 
 
-\subsection{6.1 Book Mode (interactive companion)}
-\label{ch:how_to_use:6-1-book-mode-interactive-companion}
+\subsection*{Book Mode (interactive companion)}
+\label{ch:how_to_use:book-mode-interactive-companion}
 
 In the Kingdom Come portal, open the \textbf{Book Mode} tab (between Help and Hopf Visualizer):
 
@@ -290,8 +289,8 @@ Source of the map: \texttt{kingdom/\allowbreak{}app/\allowbreak{}pages/\allowbre
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{7. Parallel reading with Hatcher}
-\label{ch:how_to_use:7-parallel-reading-with-hatcher}
+\section*{Parallel reading with Hatcher}
+\label{ch:how_to_use:parallel-reading-with-hatcher}
 
 Keep \emph{Topology of Numbers} open beside this book. Full map: root \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md}.
 
@@ -316,8 +315,8 @@ Ch. 7--8 Class group, quadratic fields & Ch. 8--9 \\
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{8. Appendices (expanded back matter)}
-\label{ch:how_to_use:8-appendices-expanded-back-matter}
+\section*{Appendices (expanded back matter)}
+\label{ch:how_to_use:appendices-expanded-back-matter}
 
 Long listings and reference material live in appendices so the main chapters stay readable:
 
@@ -345,8 +344,8 @@ Chapters keep short lab ``calls'' and point here for copy-paste scripts.
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{9. Suggested first hour}
-\label{ch:how_to_use:9-suggested-first-hour}
+\section*{Suggested first hour}
+\label{ch:how_to_use:suggested-first-hour}
 
 \begin{enumerate}
 \item Read the Preface and this page.  
@@ -359,5 +358,4 @@ Chapters keep short lab ``calls'' and point here for copy-paste scripts.
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 

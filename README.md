@@ -44,6 +44,8 @@ qga/
 ### Build the PDF
 
 ```bash
+python3 -m pip install -e .
+python3 -m pip install -e ".[portal]"   # flux-hopf-lib (PyPI) + kingdom-come (git pin)
 ./scripts/build_latex.sh
 # → book/latex/main.pdf  and  book/Kingdom_Come_QGA.pdf
 ```

@@ -14,7 +14,7 @@
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{Why this book exists}
+\section*{Why this book exists}
 \label{ch:preface:why-this-book-exists}
 
 Allen Hatcher's \emph{Topology of Numbers} (\href{https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf}{free PDF}; AMS paperback, 2022) teaches elementary number theory by \textbf{drawing}. Mediants, Farey edges, continued-fraction zigzags, and Conway topographs of binary quadratic forms turn dry Diophantine statements into spatial relationships you can almost walk along. Symmetries appear as linear fractional transformations; classification appears as finite lists of reduced forms; arithmetic depth appears as class groups of quadratic forms and fields. The method is as important as the theorems: \textbf{make the integers visible}.
@@ -40,16 +40,16 @@ Class groups of quadratic forms/fields & Ideal classes of quaternion orders and 
 \end{center}
 
 
-The pure mathematics spine (Parts I--IV) aims to be defensible geometric number theory and topology. Part V states \textbf{models} and \textbf{hypotheses} about emergent physics and observational constants; those claims are labeled so they never masquerade as theorems.
+Parts I--II develop quaternions, the Hopf fibration, and the gauged lattice (Theorems plus labeled Models). Part III's topographs stay Model/OP; the \(Z\mapsto\) map's chemistry-facing reading (former \S{}\S{}7.3--7.4) lives in \textbf{Part V}, not on the geometric spine. Part IV is arithmetic depth (class groups, quaternion algebras) with Models clearly marked. Part V states \textbf{models} and \textbf{hypotheses} about emergent physics and observational constants; those claims are labeled so they never masquerade as theorems.
 
-\section{What this book is not}
+\section*{What this book is not}
 \label{ch:preface:what-this-book-is-not}
 
 It is \textbf{not} a modified reprint of Hatcher's PDF, nor a substitute for it. Hatcher remains the canonical geometric introduction to Farey geometry, topographs, and class groups of binary quadratic forms. We cite him freely, invite parallel reading, and---when a construction has a clear TN counterpart---say so explicitly (see \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md} in the project root).
 
 It is also \textbf{not} a claim that every numerical coincidence listed in Kingdom Come is a law of nature. Where the text says \textbf{Hypothesis}, treat it as a research prompt with an eventual validation or falsification protocol (Chapter 10).
 
-\section{Companion software and figures}
+\section*{Companion software and figures}
 \label{ch:preface:companion-software-and-figures}
 
 Interactive experiments live in the Kingdom Come repository and Hugging Face Space. Pedagogical lattice/topograph/composition/algebra/validation helpers live in this book's \texttt{lib/\allowbreak{}} package. Static figures are under \texttt{book/\allowbreak{}figures/\allowbreak{}} (see attribution there).
@@ -61,8 +61,8 @@ Interactive experiments live in the Kingdom Come repository and Hugging Face Spa
 \toprule
 Resource & Location \\
 \midrule
-Book manuscript (this repo) & \texttt{\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}qga/\allowbreak{}} \(\cdot\) \href{https://github.com/kinaar8340/qga}{github.com/kinaar8340/qga} \\
-Kingdom Come source / portal & \texttt{\textasciitilde{}\allowbreak{}/\allowbreak{}Projects/\allowbreak{}kingdom/\allowbreak{}} \(\cdot\) \href{https://github.com/kinaar8340/kingdom_come}{github.com/kinaar8340/kingdom\_come} \\
+Book manuscript (this repo) & \href{https://github.com/kinaar8340/qga}{github.com/kinaar8340/qga} \\
+Kingdom Come source / portal & \href{https://github.com/kinaar8340/kingdom_come}{github.com/kinaar8340/kingdom\_come} \\
 Shared Hopf / quaternion core & \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} \\
 Figures & \texttt{book/\allowbreak{}figures/\allowbreak{}} \\
 How to run labs & \href{HOW_TO_USE.md}{\texttt{book/\allowbreak{}HOW\_\allowbreak{}TO\_\allowbreak{}USE.\allowbreak{}md}} \\
@@ -73,11 +73,11 @@ How to run labs & \href{HOW_TO_USE.md}{\texttt{book/\allowbreak{}HOW\_\allowbrea
 
 Module pointers at the end of each chapter name the Python entry points used in labs (\texttt{kingdom.\allowbreak{}core.\allowbreak{}*}, \texttt{lib.\allowbreak{}*}, and figure generators under \texttt{scripts/\allowbreak{}}).
 
-\section{How to read}
+\section*{How to read}
 \label{ch:preface:how-to-read}
 
 \begin{itemize}
-\item \textbf{Pure geometry and arithmetic.} Chapters 0--9; treat Chapter 10 as optional (observations and validation).  
+\item \textbf{Pure geometry and arithmetic.} Chapters 0--9 for the geometric/arithmetic development; treat Chapter 10 as optional (observations and validation). Chapter 7's chemistry-facing paragraphs and 7.3--7.4 are Model / Software fact, not theorem spine (Part V owns the empirical reading).  
 \item \textbf{Model / portal narrative first.} Chapter 0 \(\rightarrow\) Chapter 2 \(\rightarrow\) Chapter 3 (lattice and flywheels) \(\rightarrow\) Chapter 7 \(\rightarrow\) Chapter 10.  
 \item \textbf{Coming from Hatcher.} Keep TN open beside this book; use root \texttt{HATCHER\_\allowbreak{}MAP.\allowbreak{}md} as a parallel syllabus.  
 \item \textbf{Coming from the Gradio app.} The Preview chapter is the ``Home + Hopf Visualizer + Flux Flywheel'' tour in prose; see also \texttt{HOW\_\allowbreak{}TO\_\allowbreak{}USE.\allowbreak{}md}.  
@@ -102,7 +102,7 @@ Label & Meaning \\
 \end{center}
 
 
-\section{Acknowledgments}
+\section*{Acknowledgments}
 \label{ch:preface:acknowledgments}
 
 Allen Hatcher's freely available \emph{Topology of Numbers} made geometric elementary number theory a shared public good; this project stands on that invitation to \emph{see} number theory. The Kingdom Come codebase and observation program (Hopf visualizers, lattice simulations, flux flywheel element maps, Magic Island sweeps, and multi-domain \(350/\pi\) investigations) supply the computational and visual backbone of the lift.
@@ -110,5 +110,4 @@ Allen Hatcher's freely available \emph{Topology of Numbers} made geometric eleme
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 
