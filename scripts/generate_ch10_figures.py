@@ -176,7 +176,7 @@ def aux_10_1() -> None:
         KINGDOM / "app/assets/bitcoin_pi/hopf_lattice_pi_cycle.jpg",
     ]
     fig, axes = plt.subplots(1, 3, figsize=(11, 3.6))
-    titles = ["Pulsar / spacetime 350π", "Bitcoin vortex 350π", "Hopf lattice π-cycle"]
+    titles = ["Pulsar / spacetime 350/π", "Bitcoin vortex 350/π", "Hopf lattice π-cycle"]
     for ax, path, title in zip(axes, assets, titles):
         if path.is_file():
             img = plt.imread(path)

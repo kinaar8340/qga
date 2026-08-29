@@ -8,7 +8,8 @@
 **Status:** Full manuscript draft complete (Parts I–V · Chapters 0–10)  
 **Remote:** https://github.com/kinaar8340/qga
 
-*Parts I–IV: geometric number theory and topology (with labeled Models).  
+*Parts I–II and IV: geometric/arithmetic spine (Theorems + labeled Models).  
+Part III: flux topographs (Model/OP); Z-map chemistry lives in Part V.  
 Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 ---
@@ -110,7 +111,7 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 6.1 Four types of flux topographs  
 6.2 Equivalence of flux topographs  
-6.3 Magic Islands as class-number phenomena · **Open Problem 3**  
+6.3 Magic Islands as a working class-number analogue (Hypothesis H3, OP3)  
   (invariant discipline → Ch. 9 section 9.5)  
 6.4 Computational labs  
   Exercises 6.A–6.I  
@@ -119,8 +120,8 @@ Part V: Models and Hypotheses, isolated from the theorem spine.*
 
 7.1 The \(Z\mapsto\) flux map  
 7.2 Representation theory on the gauged Hopf lattice  
-7.3 Magic Islands and chemical stability  
-7.4 Electron clouds as flux distributions  
+7.3 Chemistry-facing scores (Hypothesis — Part V)  
+7.4 Electron-cloud visuals (Software fact — Part V)  
 7.5 Computational labs · **Open Problem 4**  
   Exercises 7.A–7.I  
 

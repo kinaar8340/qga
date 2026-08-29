@@ -35,17 +35,14 @@ This chapter connects the classified flux topographs and Magic Islands of Chapte
 ## 7.1 The \(Z \mapsto\) flux map
 
 The Kingdom Come portal implements a function that takes an atomic number \(Z\) and returns a flywheel configuration together with stability and chemistry-facing metrics:
-\[
-Z \;\longmapsto\;
-\bigl(
-  \text{flywheel / detuning state},\;
-  \texttt{stability\_score},\;
-  \texttt{stability\_class},\;
-  \texttt{is\_noble\_gas},\;
-  \text{shell / representation descriptors},\;
-  \ldots
+\begin{align*}
+Z \longmapsto \bigl(&
+  \text{flywheel / detuning state},\\
+  &\texttt{stability\_score},\;
+  \texttt{stability\_class},\\
+  &\texttt{is\_noble\_gas},\;\ldots
 \bigr).
-\]
+\end{align*}
 
 **Primary entry points**
 
@@ -99,38 +96,32 @@ This is a **representation-theoretic reading**, not a theorem that every chemica
 
 ---
 
-## 7.3 Magic Islands and real chemical stability
+## 7.3 Chemistry-facing scores (Hypothesis — developed in Part V)
 
-In the working Model, Magic Islands correlate with:
+Magic Islands as *chemical* stability, noble-gas locks, and ionization-energy alignment are **not** theorems of Part III. They are Hypothesis H2 / H3, with Table T4 protocols and an H2 ablation (noble-gas bonuses off) in **Chapter 10** and Appendix D. This section keeps only a pointer so the \(Z\mapsto\) map can be used as a **Model** representation without promoting chemistry.
 
-- noble-gas electronic configurations (closed shells);  
-- high portal stability scores near selected \(Z\);  
-- (in extended fields) partial alignment with experimental ionization energies and magnetic proxies.
+Figure 7.3 is a portal software curve, not a finding.
 
-High `stability_score` near \(Z=2,10,18,\ldots\) illustrates island structure in the current implementation. Mid-table elements (e.g. Fe, \(Z=26\)) may score lower even when chemically important—reminding us that the Model is a **proxy**, not a complete chemistry engine.
+![Figure 7.3 — Stability score versus \(Z\) (software curve; not a finding).](figures/fig7_3_stability_vs_z.png)
 
-![Figure 7.3 — Stability score versus \(Z\).](figures/fig7_3_stability_vs_z.png)
-
-*Figure 7.3.* Portal data: `stability_score` vs atomic number. Gold: noble-gas \(Z\); green: Fe; dashed: high-stability threshold used in labs.
-
-**Claim type.** Curve and peaks as outputs of `map_z_to_flywheel`: **Software fact**. Physical explanation of real chemistry/nuclear magic numbers: **Model** / **Hypothesis** pending Chapter 10 protocols.
+*Figure 7.3.* Portal `stability_score` vs atomic number. Gold: noble-gas \(Z\) (explicit bonuses live in the portal map). Interpretation: **Hypothesis**, Part V. Lab 7 must ablate those bonuses before any alignment claim.
 
 **Open Problem 4 (shared with Ch. 10).**  
-Up to gauge, is the map \(Z\mapsto\) flywheel configuration unique under stated axioms? If not, classify the ambiguity and its chemical consequences. See `notes/open_problems.md`.
+Up to gauge, is the map \(Z\mapsto\) flywheel configuration unique under stated axioms? See `notes/open_problems.md`.
 
 ---
 
-## 7.4 Electron clouds as flux distributions
+## 7.4 Electron-cloud visuals (Software fact — Part V)
 
-The portal renders each \(Z\) with shell-like clouds whose geometry is tied to the underlying flux flywheel (stylized 2D density + flux ring; see `kingdom.viz.electron_cloud`). These are visual counterparts of classical electron-cloud pictures, generated from Model flux rather than from solving the Schrödinger equation.
+Portal electron-cloud pictures (`kingdom.viz.electron_cloud`) are **Software facts** about the renderer, not Schrödinger solutions and not a Part III theorem. Chemistry-facing reading: **Part V**.
 
-![Figure 7.4 — Electron cloud as flux distribution.](figures/fig7_4_electron_cloud_flux.png)
+![Figure 7.4 — Electron cloud as flux distribution (visual, not chemistry).](figures/fig7_4_electron_cloud_flux.png)
 
-*Figure 7.4.* Schematic closed-shell vs mid-table flux-derived profiles.
+*Figure 7.4.* Schematic closed-shell vs mid-table flux-derived profiles (portal style).
 
 ![Auxiliary Figure A7.1 — He, Fe, Au stills.](figures/aux7_1_he_fe_au_stills.png)
 
-*Auxiliary Figure A7.1.* Portal Flux Flywheel stills: He (\(Z=2\), closed-shell archetype), Fe (\(Z=26\), mid-table), Au (\(Z=79\), heavy comparison). Sources: `kingdom/z_knowns/frame_0002.png`, `frame_0026.png`, `frame_0079.png`.
+*Auxiliary Figure A7.1.* Portal Flux Flywheel stills: He (\(Z=2\)), Fe (\(Z=26\)), Au (\(Z=79\)). Sources: `kingdom/z_knowns/frame_0002.png`, `frame_0026.png`, `frame_0079.png`.
 
 ---
 

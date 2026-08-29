@@ -60,11 +60,11 @@ These patterns live in the portal **Observations** tab and in `kingdom/observati
 
 *Figure 10.1.* Domains associated with the \(W_g=350/\pi\) signature in the observation program (schematic).
 
-**Claim type.** Raw portal constants and plotted observation assets: **software / project facts**. The claim that they share a single topological clock: **Hypothesis** (OP5).
+**Claim type.** Raw portal constants and plotted observation assets: **software / project facts**. Per-domain clustering near \(W_g=350/\pi\): **Hypothesis H1a–H1e** (OP5), not one bundled clock.
 
 ![Auxiliary Figure A10.1 — Pulsar / Bitcoin assets.](figures/aux10_1_pulsar_bitcoin_overlay.png)
 
-*Auxiliary Figure A10.1.* Portal observation assets (pulsar spacetime \(350\pi\), Bitcoin vortex / lattice π-cycle). Visual motivation only—not a completed statistical test.
+*Auxiliary Figure A10.1.* Portal observation assets (pulsar / Bitcoin notes associated with \(W_g=350/\pi\), not \(350\pi\)). Visual motivation only—not a completed statistical test.
 
 ---
 
