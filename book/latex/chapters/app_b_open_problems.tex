@@ -12,8 +12,8 @@ Living research edges of the project. The main text (especially Chapters 3, 5--1
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{B.1 Status table}
-\label{ch:app_b_open_problems:b-1-status-table}
+\section{Status table}
+\label{ch:app_b_open_problems:status-table}
 
 \begin{center}
 \small
@@ -37,8 +37,8 @@ OP6 & Composition of flywheels (Gauss lift) & Ch. 8--9 & Open & \texttt{lib.\all
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{B.2 Problem statements}
-\label{ch:app_b_open_problems:b-2-problem-statements}
+\section{Problem statements}
+\label{ch:app_b_open_problems:problem-statements}
 
 \subsection{OP1 --- Canonical quaternionic Farey structure}
 \label{ch:app_b_open_problems:op1-canonical-quaternionic-farey-structure}
@@ -92,14 +92,14 @@ Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, \text
 
 Does Gauss-style composition admit a dynamical or ideal-theoretic realization on flywheels / flux classes that is associative up to gauge equivalence, compatible with Ch. 4 actions, and reduces to classical composition under restriction?
 
-\textbf{Sandbox:} \texttt{compose\_\allowbreak{}flywheels}, \texttt{composition\_\allowbreak{}table}, \texttt{is\_\allowbreak{}associative\_\allowbreak{}up\_\allowbreak{}to\_\allowbreak{}equivalence}, \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue}; algebraic side \texttt{QuaternionAlgebra}, \texttt{HurwitzOrder}, \texttt{left\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}group}. \textbf{Current note:} flux-composition experiments often show \textbf{low closure and low associativity} --- document failures as progress. \textbf{Success criteria:} associative group law on classes + comparison with Hurwitz / other orders.
+\textbf{Sandbox:} \texttt{compose\_\allowbreak{}flywheels}, \texttt{composition\_\allowbreak{}table}, \texttt{is\_\allowbreak{}associative\_\allowbreak{}up\_\allowbreak{}to\_\allowbreak{}equivalence}, \texttt{class\_\allowbreak{}group\_\allowbreak{}analogue}; algebraic side \texttt{QuaternionAlgebra}, \texttt{HurwitzOrder}, \texttt{left\_\allowbreak{}ideal\_\allowbreak{}class\_\allowbreak{}set}, \texttt{two\_\allowbreak{}sided\_\allowbreak{}class\_\allowbreak{}group}. \textbf{Current note:} flux-composition experiments often show \textbf{low closure and low associativity} --- document failures as progress. \textbf{Success criteria:} associative group law on classes + comparison with Hurwitz / other orders.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{B.3 How to update}
-\label{ch:app_b_open_problems:b-3-how-to-update}
+\section{How to update}
+\label{ch:app_b_open_problems:how-to-update}
 
 \begin{enumerate}
 \item Change \textbf{Status} when work starts or a result lands.  
@@ -112,16 +112,16 @@ Does Gauss-style composition admit a dynamical or ideal-theoretic realization on
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
 
-\section{B.4 Dependency sketch}
-\label{ch:app_b_open_problems:b-4-dependency-sketch}
+\section{Dependency sketch}
+\label{ch:app_b_open_problems:dependency-sketch}
 
 \begin{lstlisting}[style=qga]
 OP1 (adjacency)
-  ??? OP2 (topographs)
-        ??? OP3 (class number / islands)
-              ??? OP4 (Z-map uniqueness)
-              ??? OP6 (composition) ??? Ch. 9 ideal theory
-OP5 (350/?) ?? independent empirical track, informed by geometry
+  +-> OP2 (topographs)
+        +-> OP3 (class number / islands)
+              +-> OP4 (Z-map uniqueness)
+              +-> OP6 (composition) <-- Ch. 9 ideal theory
+OP5 (350/pi) -- independent empirical track, informed by geometry
 \end{lstlisting}
 
 \bigskip
