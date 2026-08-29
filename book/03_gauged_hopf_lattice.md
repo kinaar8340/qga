@@ -119,8 +119,9 @@ No single such rule is yet proved canonical.
 The book helper implements one explicit candidate (`candidate_adjacency`):
 
 - Recover rough \((\eta,\xi_1,\xi_2)\) from coordinates.  
-- Along-fiber: close in \((\eta,\xi_1)\), neighboring in \(\xi_2\).  
-- Inter-fiber: angular distance on \(S^2\) below a threshold; exclude along-fiber pairs.
+- Angle-chart \(\xi_2\)-circle (not the Hopf \(U(1)\) fiber): close in \((\eta,\xi_1)\), neighboring in \(\xi_2\).  
+- Inter-chart: angular distance on \(S^2\) below a threshold; exclude \(\xi_2\)-circle pairs.  
+Until Open Problem 1 is resolved, do not treat this adjacency as if the base were the Hopf fibration of Chapter 2.
 
 Other candidates (spherical Delaunay on the base, Hurwitz-norm determinants, geodesic mediants, …) are welcome; record them against OP1.
 
@@ -131,14 +132,14 @@ Other candidates (spherical Delaunay on the base, Hurwitz-norm determinants, geo
 From Chapters 1–2:
 
 - **Left multiplication** \(q\mapsto uq\) (unit \(u\)) is an isometry of \(S^3\), maps fibers to fibers, and induces a rotation of the base \(S^2\).  
-- **Right multiplication** \(q\mapsto qu\) is an isometry; in the classical complex picture it implements fiberwise \(U(1)\) phase (structure-group action).
+- **Right multiplication** \(q\mapsto qu\) is an isometry. Fiberwise \(U(1)\) holds only for the structure-group circle \(\{e^{i\phi}\}\) (and Hurwitz units that normalize it); under this book’s \(q=z_1+z_2 j\) that circle is left multiplication by \(e^{i\phi}\). General right \(S^3\) **moves fibers**.
 
 On a discrete set \(\Lambda\) we therefore equip two families of **gauge transformations**:
 
 | Action | Continuous | Discrete (Hurwitz) |
 |--------|------------|---------------------|
 | Left | \(u\in S^3\) | \(u\in\Lambda_0\) (24 units) |
-| Right | \(u\in S^3\) (esp. fiber \(U(1)\)) | \(u\in\Lambda_0\) |
+| Right | \(u\in S^3\) (fiberwise only for \(\{e^{i\phi}\}\)) | \(u\in\Lambda_0\) |
 
 When \(\Lambda=\Lambda_0\), left/right multiplications by units **permute** the lattice exactly. On denser samples they move points within \(S^3\); one may re-snap to nearest lattice points (another OP1 design choice).
 

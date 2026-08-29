@@ -16,27 +16,22 @@ FIG_DIR = ROOT / "book" / "figures"
 
 
 def _try_import_hopf():
-    """Import fiber sampling from flux_hopf_lib or kingdom."""
-    candidates = [
-        Path.home() / "Projects" / "flux_hopf_lib" / "src",
-        Path.home() / "Projects" / "kingdom" / "src",
-    ]
-    for p in candidates:
-        if p.is_dir() and str(p) not in sys.path:
-            sys.path.insert(0, str(p))
-    try:
-        from flux_hopf_lib.hopf import sample_fiber, sample_fiber_family  # type: ignore
+    """Book Hopf fibers: structure-group circles from lib.hopf_lattice."""
+    sys.path.insert(0, str(ROOT))
+    from lib.hopf_lattice import (  # noqa: WPS433
+        sample_structure_group_fiber,
+        sample_structure_group_fiber_family,
+    )
 
-        return sample_fiber, sample_fiber_family
-    except Exception:
-        try:
-            from kingdom.core.hopf import sample_fiber, sample_fiber_family  # type: ignore
+    def sample_fiber(eta, xi1, n_points=200, scale=2.0):
+        # Keep the old signature for figure helpers; seed a point from angles
+        # then take the *structure-group* fiber, not the ξ2-circle.
+        from lib.hopf_lattice import hopf_coordinates
 
-            return sample_fiber, sample_fiber_family
-        except Exception as e:
-            raise ImportError(
-                "Need flux_hopf_lib or kingdom on PYTHONPATH to sample real fibers"
-            ) from e
+        q = hopf_coordinates(float(eta), float(xi1), 0.0)
+        return sample_structure_group_fiber(q, n_points=n_points, scale=scale)
+
+    return sample_fiber, sample_structure_group_fiber_family
 
 
 def fig_2_1() -> None:
@@ -104,9 +99,9 @@ def fig_2_1() -> None:
     ax.text(
         4.9,
         0.62,
-        r"KC real form:  $y_1=x_1^2-x_2^2,\; y_2=2x_1x_2,\; y_3=2(x_3x_4+x_1x_2)$  (then normalize)",
+        r"$y_1=2(x_1 x_3+x_2 x_4),\; y_2=2(x_1 x_4-x_2 x_3),\; y_3=x_1^2+x_2^2-x_3^2-x_4^2$  (unit $\Rightarrow$ on $S^2$)",
         ha="center",
-        fontsize=9,
+        fontsize=8,
     )
 
     ax.set_title(
@@ -273,8 +268,9 @@ def aux_2_1(sample_fiber) -> None:
     fig = plt.figure(figsize=(10, 4.2))
 
     ax = fig.add_subplot(1, 2, 1, projection="3d")
-    # color by phase
-    c = f["xi2"] / (2 * np.pi)
+    # color by structure-group phase (phi); ξ2 is not the Hopf fiber
+    phase = f["phi"] if "phi" in f else f["xi2"]
+    c = phase / (2 * np.pi)
     for i in range(len(f["px"]) - 1):
         ax.plot(
             f["px"][i : i + 2],
@@ -290,10 +286,10 @@ def aux_2_1(sample_fiber) -> None:
 
     ax2 = fig.add_subplot(1, 2, 2)
     # phase vs arc index
-    ax2.scatter(f["xi2"], np.arange(len(f["xi2"])), c=c, cmap="hsv", s=18)
-    ax2.set_xlabel(r"fiber phase $\xi_2$")
+    ax2.scatter(phase, np.arange(len(phase)), c=c, cmap="hsv", s=18)
+    ax2.set_xlabel(r"structure-group phase $\phi$")
     ax2.set_ylabel("sample index")
-    ax2.set_title(r"Phase sweep $\xi_2 \in [0, 2\pi)$ (closed circle)")
+    ax2.set_title(r"Phase sweep $\phi \in [0, 2\pi)$ (U(1) fiber)")
     ax2.grid(True, alpha=0.3)
 
     fig.suptitle(

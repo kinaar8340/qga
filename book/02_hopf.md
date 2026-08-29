@@ -46,9 +46,9 @@ One classical form of the **Hopf map** \(h: S^3 \to S^2\) is
 h(z_1, z_2)
 =
 \bigl(
-  |z_1|^2 - |z_2|^2,\;
   2\,\mathrm{Re}(\overline{z_1} z_2),\;
-  2\,\mathrm{Im}(\overline{z_1} z_2)
+  2\,\mathrm{Im}(\overline{z_1} z_2),\;
+  |z_1|^2 - |z_2|^2
 \bigr)
 \in S^2 \subset \mathbb{R}^3,
 \]
@@ -56,32 +56,32 @@ or, equivalently, the projectivized ratio
 \[
 [z_1 : z_2] \in \mathbb{CP}^1 \cong S^2.
 \]
-The second description makes the **circle fiber** obvious: multiplying \((z_1,z_2)\) by a common phase \(e^{i\phi}\) does not change the projective point.
+The second description makes the **structure-group circle** obvious: multiplying \((z_1,z_2)\) by a common phase \(e^{i\phi}\) does not change the projective point. That circle is the fiber of \(h\).
 
-### Real four-vector form (Kingdom Come / `flux_hopf_lib`)
+### Real four-vector form (the same map)
 
-For a unit 4-vector \((x_1,x_2,x_3,x_4)\in S^3\), the library implements
+Identify \(z_1 = x_1 + i x_2\), \(z_2 = x_3 + i x_4\), and \((w,x,y,z)\equiv(x_1,x_2,x_3,x_4)\). The complex formula is exactly
 \begin{align*}
-y_1 &= x_1^2 - x_2^2,\\
-y_2 &= 2\, x_1 x_2,\\
-y_3 &= 2\,(x_3 x_4 + x_1 x_2),
+y_1 &= 2(x_1 x_3 + x_2 x_4),\\
+y_2 &= 2(x_1 x_4 - x_2 x_3),\\
+y_3 &= x_1^2 + x_2^2 - x_3^2 - x_4^2.
 \end{align*}
-followed by Euclidean normalization so that \((y_1,y_2,y_3)\in S^2\). Quaternion components are identified as
-\[
-(w,x,y,z) \;\equiv\; (x_1,x_2,x_3,x_4).
-\]
-This is the form documented in Kingdom Come’s theory notes and used by `hopf_map`, `hopf_map_quaternion`, and `Quaternion.hopf_image()`.
+On unit 4-vectors this already lands on \(S^2\); there is no output-normalization step. This is the **one** library map: `lib.hopf_lattice.hopf_map` (alias `hopf_map_classical`). Companion chain after the flux_hopf_lib follow-up: `flux_hopf_lib.hopf.fibration.hopf_map` \(\to\) `kingdom.core.hopf` \(\to\) this chapter / labs. A non-unit input is a numerical guard (homogeneous degree 2: divide by \(\|q\|^2\)), not a feature of the map.
 
-**Convention note (software vs textbook).** The classical complex form and the portal’s real four-vector formula are **both** maps \(S^3\to S^2\) in the Hopf family of constructions, but they need not agree componentwise under a fixed identification of \(\mathbb{R}^3\) coordinates. Labs in this chapter treat the **library formula as the working computational standard** for Kingdom Come continuity, while the complex \(\mathbb{CP}^1\) description remains the cleanest **Theorem**-level definition of fibers (common phase \(e^{i\phi}\)). When proving linking or Hopf invariant \(1\), use the classical bundle; when plotting portal-compatible curves, use `sample_fiber` / `hopf_map`.
+**Not a Hopf map.** The old three-component formula \(y_1=x_1^2-x_2^2\), \(y_2=2x_1x_2\), \(y_3=2(x_3x_4+x_1x_2)\) (then divide by \(\|y\|\)) ignores \((x_3,x_4)\) in \(y_1,y_2\), vanishes at \((0,0,1,0)\), and is not constant on Hopf fibers. It is kept only as `legacy_portal_map` and is **not** called Hopf.
 
-**Angle coordinates.** The library also uses Hopf angles \((\eta,\xi_1,\xi_2)\) via `hopf_coordinates`:
+**Angle coordinates vs the structure-group fiber.** Hopf angles \((\eta,\xi_1,\xi_2)\) via `hopf_coordinates` are
 \begin{align*}
 x_1 &= \cos\eta\,\cos\xi_1, &
 x_2 &= \cos\eta\,\sin\xi_1,\\
 x_3 &= \sin\eta\,\cos\xi_2, &
 x_4 &= \sin\eta\,\sin\xi_2,
 \end{align*}
-with \(\eta\in[0,\pi/2]\) (or a practical subrange) and \(\xi_1,\xi_2\in[0,2\pi)\). Fixing \((\eta,\xi_1)\) and sweeping \(\xi_2\) traces a **fiber**.
+with \(\eta\in[0,\pi/2]\) and \(\xi_1,\xi_2\in[0,2\pi)\). Fixing \((\eta,\xi_1)\) and sweeping \(\xi_2\) traces the **angle-chart \(\xi_2\)-circle**. That is **not** the structure-group fiber. The Hopf fiber through \((z_1,z_2)\) is the diagonal \(U(1)\) action
+\[
+(z_1,z_2)\;\longmapsto\;(e^{i\phi}z_1,\,e^{i\phi}z_2),
+\]
+which shifts \(\xi_1\) and \(\xi_2\) **together**. In this book’s identification \(q=z_1+z_2 j\), that action is left multiplication by \(e^{i\phi}=\cos\phi+i\sin\phi\in\mathrm{span}\{1,i\}\) (`common_phase`, `structure_group_unit`). General left or right multiplication by an arbitrary unit of \(S^3\) **moves fibers**.
 
 ![Figure 2.1 — Hopf map definition.](figures/fig2_1_hopf_definition.png)
 
@@ -101,10 +101,11 @@ Quaternion(...).hopf_image()       → (y1, y2, y3)
 
 ### Fibers are circles
 
-Over each point \(p\in S^2\) the preimage \(h^{-1}(p)\) is diffeomorphic to a circle \(S^1\). In angle coordinates, that circle is parametrized by the fiber phase \(\xi_2\) at fixed base coordinates \((\eta,\xi_1)\). In the complex picture, it is the \(U(1)\) action
+Over each point \(p\in S^2\) the preimage \(h^{-1}(p)\) is diffeomorphic to a circle \(S^1\). That circle is the structure-group \(U(1)\) action
 \[
-(z_1,z_2) \;\longmapsto\; (e^{i\phi} z_1,\; e^{i\phi} z_2).
+(z_1,z_2) \;\longmapsto\; (e^{i\phi} z_1,\; e^{i\phi} z_2),
 \]
+sampled in code by `sample_structure_group_fiber`. The angle-chart \(\xi_2\)-circle at fixed \((\eta,\xi_1)\) is a different loop in \(S^3\); do not call it the Hopf fiber.
 
 ### Linking and the Hopf invariant
 
@@ -189,7 +190,7 @@ Holding the base point fixed and varying the fiber phase is the continuous analo
 
 ![Auxiliary Figure A2.1 — Single fiber phase sweep.](figures/aux2_1_fiber_phase_sweep.png)
 
-*Auxiliary Figure A2.1.* One fiber colored by phase \(\xi_2\in[0,2\pi)\). The path closes: a full sweep returns to the same unit quaternion (up to sampling).
+*Auxiliary Figure A2.1.* One **structure-group** fiber colored by phase \(\phi\in[0,2\pi)\). The path closes: a full common-phase sweep returns to the same unit quaternion (up to sampling).
 
 **Model reminder.** Calling Hopf a higher-dimensional “Farey analogue” remains a **Model** metaphor until Chapter 3 axiomatizes discrete adjacency and mediants on the gauged lattice (Open Problem 1).
 
@@ -206,7 +207,7 @@ The Hopf map partitions \(S^3\) into fibers. Chapter 1’s unit group \(\mathrm{
 If \(u\in S^3\) is fixed:
 
 - **Left multiplication** \(q\mapsto uq\) is an isometry of \(S^3\). It maps fibers to fibers and induces a rotation of the base \(S^2\).  
-- **Right multiplication** \(q\mapsto qu\) is also an isometry; its interaction with fibers is different (fiberwise phase and the classical identification of right \(U(1)\) with the structure group of the bundle, in the complex picture).
+- **Right multiplication** \(q\mapsto qu\) is also an isometry. It is **fiberwise \(U(1)\)** only for the structure-group circle \(\{e^{i\phi}\}\) in the identification where that circle is the fiber (and for Hurwitz units that normalize it). Under \(q=z_1+z_2 j\) as in §2.1, the structure-group circle is left multiplication by \(e^{i\phi}\in\mathrm{span}\{1,i\}\). General right multiplication by an arbitrary unit of \(S^3\) **moves fibers**.
 
 Together, left and right actions generate the symmetry repertoire we will **gauge** and discretize in Chapters 3–4. The double cover \(\mathrm{Spin}(3)\to SO(3)\) from §1.6 sits naturally here: directions in \(\mathbb{R}^3\) relate to the base, while the fiber phase is the extra spinorial degree of freedom.
 
@@ -218,15 +219,16 @@ Together, left and right actions generate the symmetry repertoire we will **gaug
 
 Core API: `kingdom.core.hopf` · **Appendix C §C.1**.
 
-- **2.A** `Quaternion.hopf_image()` / `hopf_map_quaternion` — unit image on \(S^2\).
-- **2.B** `sample_fiber` returns a **dict**; check unit length on \(S^3\).
-- **2.C** Gradio Hopf Visualizer panels vs Figs. 2.2–2.3.
-- **2.D–E** Phase sweep; `sample_fiber_family`.
+- **2.A** `lib.hopf_lattice.hopf_map` — unit image on \(S^2\) **without** output-normalization; \(h(0,0,1,0)=(0,0,-1)\).
+- **2.B** `sample_structure_group_fiber` — common-phase circle; check unit length on \(S^3\) and constant base point.
+- **2.C** Check fiber constancy: \(h(e^{i\phi}z_1,e^{i\phi}z_2)=h(z_1,z_2)\). Separately, contrast the \(\xi_2\)-circle.
+- **2.D–E** Phase sweep of the **structure-group** fiber; optional portal visualizer.
 
 ```python
-from kingdom.core.quaternion import Quaternion
-q = Quaternion(0.5, 0.5, 0.5, 0.5).normalize()
-print(q.hopf_image())
+from lib.hopf_lattice import hopf_map, common_phase
+import numpy as np
+q = np.array([0.5, 0.5, 0.5, 0.5]); q = q / np.linalg.norm(q)
+print(hopf_map(q), hopf_map(np.array([0.0, 0.0, 1.0, 0.0])))
 ```
 
 
@@ -234,15 +236,17 @@ print(q.hopf_image())
 
 ## Exercises
 
-**2.A (hand).** On a few unit test points, compare the complex-pair formula for \(h(z_1,z_2)\) with the Kingdom Come real form \((y_1,y_2,y_3)\) under the identification \((x_1,x_2,x_3,x_4)=(w,x,y,z)\). Note any convention differences (component order, overall rotation of \(\mathbb{R}^3\)); the **bundle geometry** is what must agree.
+**2.A (hand).** On a few unit test points, check that the complex-pair formula
+\(h(z_1,z_2)=(2\mathrm{Re}(\overline{z_1}z_2),\,2\mathrm{Im}(\overline{z_1}z_2),\,|z_1|^2-|z_2|^2)\)
+agrees componentwise with the real form in §2.1. Confirm \(\|h(q)\|=1\) with **no** extra normalization, and that \(h(0,0,1,0)=(0,0,-1)\).
 
 **2.B (hand).** Argue that every point of \(S^2\) has a circle’s worth of preimages under the Hopf map, using either the \(\mathbb{CP}^1\) description or the \((\eta,\xi_1,\xi_2)\) coordinates.
 
-**2.C (hand).** Prove that simultaneous phase rotation \((z_1,z_2)\mapsto(e^{i\phi}z_1,e^{i\phi}z_2)\) leaves the classical Hopf image invariant. Interpret this as motion along a fiber.
+**2.C (hand).** Prove that simultaneous phase rotation \((z_1,z_2)\mapsto(e^{i\phi}z_1,e^{i\phi}z_2)\) leaves the formula of §2.1 invariant. Interpret this as motion along the **structure-group** fiber. Then explain in one sentence why sweeping \(\xi_2\) at fixed \((\eta,\xi_1)\) is a different circle.
 
 **2.D (code).** Complete Labs 2.A–2.B. For three random unit quaternions, print `hopf_image()` and confirm each image has Euclidean norm \(\approx 1\).
 
-**2.E (code).** Sample one fiber with `n_points >= 64`. Confirm unit length in \(S^3\) and that the stereographic curve is a closed loop (small endpoint gap). Optionally compute a numerical linking diagnostic between two fibers from `sample_fiber_family`. Separately, implement a classical common-phase fiber \((e^{i\phi}z_1,e^{i\phi}z_2)\) and check that the **complex** Hopf image (or \(\mathbb{CP}^1\) ratio) is constant.
+**2.E (code).** Sample one structure-group fiber (`sample_structure_group_fiber`, \(n\ge 64\)). Confirm unit length, constant Hopf image, and a closed stereographic loop. Optionally contrast an angle-chart \(\xi_2\)-circle.
 
 **2.F (visual).** In the Gradio Hopf Visualizer, switch between **Classic Hopf** and a custom phase sweep. In one paragraph, describe how the linked-fiber view (Fig. 2.2) emerges from the multi-panel layout (Fig. 2.3).
 
@@ -257,10 +261,10 @@ print(q.hopf_image())
 ## Code and asset pointers
 
 ```text
-kingdom.core.hopf                 # re-exports flux_hopf_lib.hopf
-kingdom.core.quaternion           # .hopf_image, .from_hopf_coords
-flux_hopf_lib.hopf.fibration      # hopf_map, sample_fiber, stereographic_project, ...
-kingdom.viz.hopf_plotly           # multi-panel 2D / optional 3D
+lib.hopf_lattice.hopf_map         # the book's map (this chapter / labs)
+lib.hopf_lattice.common_phase, sample_structure_group_fiber
+# Follow-up after merge (not this PR):
+#   flux_hopf_lib.hopf.fibration.hopf_map  →  kingdom.core.hopf  (re-export)
 ```
 
 **Figures:** generated under `book/figures/fig2_*` and `aux2_*` via `scripts/generate_ch2_figures.py` (samples real fibers from `flux_hopf_lib` when available).  
