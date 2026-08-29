@@ -43,48 +43,159 @@ CHAPTERS = [
 ]
 
 
+# Punctuation → ASCII (safe to run before LaTeX escaping).
+_UNICODE_PUNCT = {
+    "\u2014": "---",
+    "\u2013": "--",
+    "\u2018": "'",
+    "\u2019": "'",
+    "\u201c": '"',
+    "\u201d": '"',
+    "\u2026": "...",
+    "\u00a0": " ",
+    "\u2212": "-",
+    "\u2500": "-",
+    "\u2514": "+",
+    "\u251c": "+",
+    "\ufffd": "",
+}
+
+# Math/symbol unicode → LaTeX commands. Applied *after* escaping so
+# backslashes are not turned into \textbackslash{}.
+# Never map unknown code points to "?": that produced 350/? / stripped bars.
+_UNICODE_MATH = {
+    "\u2192": r"\(\rightarrow\)",
+    "\u21a6": r"\(\mapsto\)",
+    "\u2190": r"\(\leftarrow\)",
+    "\u2194": r"\(\leftrightarrow\)",
+    "\u00d7": r"\(\times\)",
+    "\u2248": r"\(\approx\)",
+    "\u2260": r"\(\neq\)",
+    "\u2264": r"\(\leq\)",
+    "\u2265": r"\(\geq\)",
+    "\u00b7": r"\(\cdot\)",
+    "\u221e": r"\(\infty\)",
+    "\u21d2": r"\(\Rightarrow\)",
+    "\u2261": r"\(\equiv\)",
+    "\u03c0": r"\(\pi\)",
+    "\u03ba": r"\(\kappa\)",
+    "\u03b1": r"\(\alpha\)",
+    "\u03be": r"\(\xi\)",
+    "\u03b7": r"\(\eta\)",
+    "\u03c6": r"\(\phi\)",
+    "\u03c8": r"\(\psi\)",
+    "\u2081": r"\(_1\)",
+    "\u2082": r"\(_2\)",
+    "\u2083": r"\(_3\)",
+    "\u00a7": r"\S{}",
+    "\u2229": r"\(\cap\)",
+    "\u203e": r"\(\overline{\,\cdot\,}\)",
+    "\u25ba": r"\(\triangleright\)",
+    "\u25c4": r"\(\triangleleft\)",
+}
+
+_LISTING_ASCII = {
+    "\u2014": "--",
+    "\u2013": "-",
+    "\u2018": "'",
+    "\u2019": "'",
+    "\u201c": '"',
+    "\u201d": '"',
+    "\u2026": "...",
+    "\u00a0": " ",
+    "\u2192": "->",
+    "\u21a6": "|->",
+    "\u2190": "<-",
+    "\u2194": "<->",
+    "\u03c0": "pi",
+    "\u03ba": "kappa",
+    "\u03b1": "alpha",
+    "\u00a7": "S",
+    "\u00b7": ".",
+    "\u203e": "bar",
+    "\u221e": "inf",
+    "\u2264": "<=",
+    "\u2265": ">=",
+    "\u2260": "!=",
+    "\u00d7": "x",
+    "\u2229": "cap",
+    "\u2500": "-",
+    "\u2514": "+",
+    "\u251c": "+",
+    "\u25ba": ">",
+    "\u25c4": "<",
+}
+
+
+def normalize_punctuation(s: str) -> str:
+    """ASCII punctuation only. Unknown non-ASCII is left intact (never '?')."""
+    for a, b in _UNICODE_PUNCT.items():
+        s = s.replace(a, b)
+    return s
+
+
+def inject_unicode_math(s: str) -> str:
+    """Insert LaTeX math commands for remaining symbol unicode."""
+    for a, b in _UNICODE_MATH.items():
+        s = s.replace(a, b)
+    return s
+
+
 def normalize_unicode(s: str) -> str:
-    """Map common Unicode punctuation to ASCII/LaTeX-friendly forms.
+    """Map common Unicode punctuation and math to LaTeX-friendly forms.
 
     Curly double quotes must NOT become backticks: that confuses inline-code
     extraction and can swallow whole sentences (including math) into \\texttt.
     """
-    pairs = {
-        "\u2014": "---",
-        "\u2013": "--",
-        # Keep straight apostrophe; curly singles → ASCII apostrophe
-        "\u2018": "'",
-        "\u2019": "'",
-        # Placeholder double quotes (converted to `` '' in text chunks only)
-        "\u201c": '"',
-        "\u201d": '"',
-        "\u2026": "...",
-        "\u00a0": " ",
-        "\u2192": "\\(\\rightarrow\\)",
-        "\u21a6": "\\(\\mapsto\\)",
-        "\u2190": "\\(\\leftarrow\\)",
-        "\u2194": "\\(\\leftrightarrow\\)",
-        "\u00d7": "\\(\\times\\)",
-        "\u2212": "-",
-        "\u2248": "\\(\\approx\\)",
-        "\u2260": "\\(\\neq\\)",
-        "\u2264": "\\(\\leq\\)",
-        "\u2265": "\\(\\geq\\)",
-        "\u00b7": "\\(\\cdot\\)",
-        "\u221e": "\\(\\infty\\)",
-        "\u21d2": "\\(\\Rightarrow\\)",
-        "\u2261": "\\(\\equiv\\)",
-        "\ufffd": "",
-    }
-    for a, b in pairs.items():
+    return inject_unicode_math(normalize_punctuation(s))
+
+
+def listing_ascii(s: str) -> str:
+    """ASCII-safe listings body: named replacements, no '?' black-hole."""
+    for a, b in _LISTING_ASCII.items():
         s = s.replace(a, b)
-    s = "".join(ch if ord(ch) < 128 else "?" for ch in s)
-    return s
+    out = []
+    for ch in s:
+        o = ord(ch)
+        if o < 128:
+            out.append(ch)
+        else:
+            out.append(f"[U+{o:04X}]")
+    return "".join(out)
+
+
+_BAKED_HEADING_NUM = re.compile(
+    r"^(?:(?:Chapter|Appendix|Section)\s+)?"
+    r"(?:[A-Z]\.)?\d+(?:\.\d+)*"
+    r"(?:\s*[\u2014\u2013:—.–-]+\s*|\s+)",
+    re.IGNORECASE,
+)
+
+
+def strip_baked_heading_number(title: str) -> str:
+    """Drop '2.1 ' / 'C.1 ' / 'Chapter 2 — ' so LaTeX counters number headings."""
+    t = title.strip()
+    t = re.sub(
+        r"^Chapter\s+\d+\s*[\u2014\u2013—–-]+\s*",
+        "",
+        t,
+        flags=re.I,
+    )
+    t = re.sub(
+        r"^Appendix\s+[A-Z]\s*[\u2014\u2013—–-]+\s*",
+        "",
+        t,
+        flags=re.I,
+    )
+    m = _BAKED_HEADING_NUM.match(t)
+    if m:
+        t = t[m.end() :]
+    return t.strip() or title.strip()
 
 
 def escape_text(s: str) -> str:
-    """Escape LaTeX specials outside math."""
-    s = normalize_unicode(s)
+    """Escape LaTeX specials outside math. Punctuation only — no math inject."""
+    s = normalize_punctuation(s)
     out = s.replace("\\", "\x00BS\x00")
     for a, b in [
         ("&", r"\&"),
@@ -122,7 +233,7 @@ def latex_code_span(content: str) -> str:
     PDF bookmarks). Insert discretionary breaks after / . _ : so long paths
     wrap inside tabularx X columns.
     """
-    escaped = escape_text(content)
+    escaped = escape_text(listing_ascii(content))
     for ch, repl in (
         ("/", r"/\allowbreak{}"),
         (".", r".\allowbreak{}"),
@@ -135,8 +246,11 @@ def latex_code_span(content: str) -> str:
 
 
 def convert_inline(s: str) -> str:
-    r"""Convert inline markdown; leave \( \) and existing math alone."""
-    s = normalize_unicode(s)
+    r"""Convert inline markdown; leave \( \) and existing math alone.
+
+    Unicode mapping is applied to *text* chunks only so math is not nested
+    as \(\(\pi\)\) and overlines in \(N(q)=q\overline{q}\) survive.
+    """
     # Extract math / code / bare URLs first. Math before code.
     # Do not map curly quotes to backticks (breaks code-span detection).
     # Order matters: math → full markdown links → code → bare URLs.
@@ -179,7 +293,7 @@ def convert_inline(s: str) -> str:
         chunks.append(("text", s[pos:]))
 
     def format_text_chunk(content: str) -> str:
-        t = latex_quotes(content)
+        t = latex_quotes(normalize_punctuation(content))
         # bold **...**
         t = re.sub(
             r"\*\*(.+?)\*\*",
@@ -200,7 +314,7 @@ def convert_inline(s: str) -> str:
                 rebuilt.append(p)
             else:
                 rebuilt.append(escape_text(p))
-        return "".join(rebuilt)
+        return inject_unicode_math("".join(rebuilt))
 
     out = []
     for kind, content in chunks:
@@ -266,8 +380,15 @@ def convert_table(rows: list[str]) -> str:
     X = r">{\raggedright\arraybackslash}X"
     # Narrow tag column for Fig./Aux./OP labels (3-col figure tables)
     L = r">{\raggedright\arraybackslash}p{0.12\textwidth}"
+    header_l = " ".join(body[0]).lower()
     if ncols == 1:
         colspec = X
+    elif ncols == 2 and "claim" in header_l:
+        # Claim-discipline tables: wide claim, short type — do not truncate.
+        colspec = (
+            r">{\raggedright\arraybackslash}p{0.70\textwidth}"
+            r">{\raggedright\arraybackslash}X"
+        )
     elif ncols == 2:
         # Path|Role, Resource|Location — both columns need wrap room
         colspec = X + X
@@ -355,19 +476,7 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
                 out.append(r"\begin{lstlisting}[style=qga" + (f",language={lang}" if lang == "python" else "") + "]")
                 # listings: write raw but escape only { } for safety in basic
                 # listings + pdflatex: keep ASCII only
-                raw = "\n".join(code_buf)
-                raw = (
-                    raw.replace("→", "->")
-                    .replace("←", "<-")
-                    .replace("↦", "|->")
-                    .replace("—", "--")
-                    .replace("–", "-")
-                    .replace("\u2018", "'")
-                    .replace("\u2019", "'")
-                    .replace("\u201c", '"')
-                    .replace("\u201d", '"')
-                )
-                raw = "".join(ch if ord(ch) < 128 else "?" for ch in raw)
+                raw = listing_ascii("\n".join(code_buf))
                 out.append(raw)
                 out.append(r"\end{lstlisting}")
                 out.append("")
@@ -439,27 +548,20 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
             flush_para()
             level = len(hm.group(1))
             title = hm.group(2).strip()
+            numbered_title = strip_baked_heading_number(title)
             # strip trailing markdown emphasis
-            title_tex = convert_inline(title)
+            title_tex = convert_inline(numbered_title)
             if level == 1:
                 if first_heading:
                     first_heading = False
-                    plain = escape_text(re.sub(r"\*\*|__|`", "", title))
+                    plain = escape_text(re.sub(r"\*\*|__|`", "", numbered_title))
                     if kind == "front":
                         out.append(rf"\chapter*{{{title_tex}}}")
                         out.append(rf"\label{{{label_base}}}")
                         out.append(rf"\addcontentsline{{toc}}{{chapter}}{{{plain}}}")
                         out.append(rf"\markboth{{{plain}}}{{}}")
                     elif kind == "appendix":
-                        # Title already contains "Appendix A — ..."; book class will prefix "Appendix A"
-                        # Strip leading "Appendix X — " to avoid "Appendix A Appendix A — ..."
-                        short = re.sub(
-                            r"^Appendix\s+[A-Z]\s*[\u2014\u2013—–-]+\s*",
-                            "",
-                            title,
-                            flags=re.I,
-                        )
-                        short_tex = convert_inline(short)
+                        short_tex = convert_inline(numbered_title)
                         out.append(rf"\chapter{{{short_tex}}}")
                         out.append(rf"\label{{{label_base}}}")
                     else:
@@ -468,15 +570,18 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
                 else:
                     out.append(rf"\section*{{{title_tex}}}")
             elif level == 2:
-                lab = f"{label_base}:{slugify(title)}"
-                out.append(rf"\section{{{title_tex}}}")
+                lab = f"{label_base}:{slugify(numbered_title)}"
+                cmd = r"\section*" if kind == "front" else r"\section"
+                out.append(rf"{cmd}{{{title_tex}}}")
                 out.append(rf"\label{{{lab}}}")
             elif level == 3:
-                lab = f"{label_base}:{slugify(title)}"
-                out.append(rf"\subsection{{{title_tex}}}")
+                lab = f"{label_base}:{slugify(numbered_title)}"
+                cmd = r"\subsection*" if kind == "front" else r"\subsection"
+                out.append(rf"{cmd}{{{title_tex}}}")
                 out.append(rf"\label{{{lab}}}")
             else:
-                out.append(rf"\subsubsection{{{title_tex}}}")
+                cmd = r"\subsubsection*" if kind == "front" else r"\subsubsection"
+                out.append(rf"{cmd}{{{title_tex}}}")
             out.append("")
             i += 1
             continue
