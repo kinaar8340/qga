@@ -96,15 +96,19 @@ In general quaternion algebras, **maximal orders** play the role of rings of int
 
 ## 9.3 Ideal theory and class groups
 
-One studies left ideals, right ideals, and two-sided ideals of an order. For **definite** quaternion algebras (ramified at \(\infty\)), the left ideal class set of a maximal order is finite. Ideal multiplication induces a group structure on (two-sided) ideal classes, and related class sets control representation of integers by norms of ideals.
+One studies left ideals, right ideals, and two-sided ideals of an order. For **definite** quaternion algebras (ramified at \(\infty\)), the **left ideal class set** of a maximal order is finite — a *set*, not a group in general. Ideal multiplication induces a **group** structure on **two-sided** ideal classes (the Picard / two-sided class group). Related class sets control representation of integers by norms of ideals.
+
+**Theorem (Hurwitz, cited).** The Hurwitz order is a left PID: every left ideal is principal, so the left class set has cardinality \(1\) (class number \(1\)). The two-sided class group is likewise trivial. These are distinct objects that happen to be singletons here.
 
 ### Hurwitz class number (classical)
 
 The left ideal class number of the Hurwitz order is **1**: every left ideal is principal. The book helper reports this as a cited classical fact with a finite sample check of small-norm elements—not a full ideal enumeration.
 
 ```text
-left_ideal_class_group(HurwitzOrder())
-  → IdealClassGroupResult(order=1, method='classical_hurwitz_class_number_one', ...)
+left_ideal_class_set(HurwitzOrder())
+  -> LeftIdealClassSetResult(cardinality=1, method='classical_hurwitz_left_pid_class_number_one', ...)
+two_sided_class_group(HurwitzOrder())
+  -> TwoSidedClassGroupResult(order=1, method='classical_hurwitz_two_sided_trivial', ...)
 ```
 
 ![Figure 9.3 — Ideal class group schematic.](figures/fig9_3_ideal_class_group.png)
@@ -137,7 +141,8 @@ Use ideal theory of quaternion algebras to define a rigorous composition law on 
 ```text
 form_ideal_dictionary_entry()   # static dictionary for labs
 class_group_analogue(...)       # Ch. 8 Model side
-left_ideal_class_group(...)     # algebraic side (Hurwitz: order 1)
+left_ideal_class_set(...)       # left class *set* (Hurwitz: cardinality 1)
+two_sided_class_group(...)      # two-sided class *group* (Hurwitz: order 1)
 ```
 
 ---
@@ -210,15 +215,19 @@ Helpers: `lib/quaternion_algebra.py` · **Appendix C §C.4**.
 
 - **9.A** `QuaternionAlgebra(-1,-1).ramified_places()`.
 - **9.B** Hurwitz: 24 units, Euclidean, maximal.
-- **9.C** `left_ideal_class_group` → class number 1 (cited classical).
-- **9.D** Compare algebraic order 1 vs Model `class_group_analogue` order.
-- **9.E** Hilbert symbols table.
-- **9.F (optional, external)** Run the `vortex_math` resonance control: `step_index` vs `angle_bin` and record exNMI signs.
+- **9.C** `left_ideal_class_set` → cardinality 1 (cited: Hurwitz left PID).
+- **9.D** `two_sided_class_group` vs Model `class_group_analogue`.
+- **9.E** Compare algebraic class number \(1\) with the Model analogue (one 9.E).
+- **9.F** Hilbert symbols table (own number).
+- **9.G (optional, external)** `vortex_math` resonance control.
 
 ```python
-from lib.quaternion_algebra import QuaternionAlgebra, HurwitzOrder, left_ideal_class_group
+from lib.quaternion_algebra import (
+    QuaternionAlgebra, HurwitzOrder, left_ideal_class_set, two_sided_class_group,
+)
 print(QuaternionAlgebra(-1, -1).ramified_places())
-print(HurwitzOrder().n_units(), left_ideal_class_group().order)
+print(HurwitzOrder().n_units(), left_ideal_class_set().cardinality)
+print(two_sided_class_group().order)
 ```
 
 
@@ -242,7 +251,7 @@ print(HurwitzOrder().n_units(), left_ideal_class_group().order)
 
 **9.H (forward).** Why will Chapter 10’s observational validation benefit from a rigorous ideal-theoretic home for class-group analogues?
 
-**9.I (software honesty).** Distinguish: (i) classical ideal class groups (**Theorem**), (ii) `left_ideal_class_group` toy report (**software** citing theorem), (iii) Ch. 8 `class_group_analogue` (**Model**).
+**9.I (software honesty).** Distinguish: (i) two-sided class group vs left class set (**Theorem**), (ii) `left_ideal_class_set` / `two_sided_class_group` toy reports (**software** citing theorem), (iii) Ch. 8 `class_group_analogue` (**Model**).
 
 **9.J (modulus invariants, hand).** Using section 9.5:
 1. Name the three layers (algebra / progression / angle lock) in one sentence each.
@@ -267,7 +276,7 @@ For \(m\in\{9,37,111\}\) under \(m/\pi\), copy **exNMI** for both methods into a
 qga/lib/quaternion_algebra.py
   QuaternionAlgebra, hilbert_symbol,
   HurwitzOrder, LipschitzOrder,
-  left_ideal_class_group, form_ideal_dictionary_entry
+  left_ideal_class_set, two_sided_class_group, form_ideal_dictionary_entry
 
 qga/lib/composition.py
 qga/lib/hopf_lattice.py   # HURWITZ_UNITS shared with Ch. 3

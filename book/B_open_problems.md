@@ -73,7 +73,7 @@ Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or*
 
 Does Gauss-style composition admit a dynamical or ideal-theoretic realization on flywheels / flux classes that is associative up to gauge equivalence, compatible with Ch. 4 actions, and reduces to classical composition under restriction?
 
-**Sandbox:** `compose_flywheels`, `composition_table`, `is_associative_up_to_equivalence`, `class_group_analogue`; algebraic side `QuaternionAlgebra`, `HurwitzOrder`, `left_ideal_class_group`.  
+**Sandbox:** `compose_flywheels`, `composition_table`, `is_associative_up_to_equivalence`, `class_group_analogue`; algebraic side `QuaternionAlgebra`, `HurwitzOrder`, `left_ideal_class_set`, `two_sided_class_group`.  
 **Current note:** flux-composition experiments often show **low closure and low associativity** — document failures as progress.  
 **Success criteria:** associative group law on classes + comparison with Hurwitz / other orders.
 
