@@ -92,6 +92,14 @@ def hopf_map_classical(q: Array, *, unit_tol: float = _HOPF_UNIT_TOL) -> Array:
     return hopf_map(q, unit_tol=unit_tol)
 
 
+def hopf_map_kc(*_args, **_kwargs) -> Array:
+    """Removed name: the old 3-component formula was not a Hopf map."""
+    raise RuntimeError(
+        "hopf_map_kc is not a Hopf map. Use hopf_map (alias hopf_map_classical). "
+        "The old 3-component formula is legacy_portal_map."
+    )
+
+
 def legacy_portal_map(q: Array) -> Array:
     r"""Deprecated 3-component formula previously mislabeled Hopf.
 

@@ -64,11 +64,9 @@ In Hatcher Chapter 7, Gauss defined a composition law on (primitive) binary quad
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig8_1_gauss_composition.png}
-  \caption{Figure 8.1 --- Classical Gauss composition.}
+  \caption{Forms \(f_1,f_2\) of fixed discriminant compose to a third form; classes form a finite abelian group. This is classical \textbf{Theorem} territory; we cite Hatcher / Gauss rather than re-prove.}
   \label{fig:fig8-1-gauss-composition}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 8.1.* Forms \(f_1,f_2\) of fixed discriminant compose to a third form; classes form a finite abelian group. This is classical \textbf{Theorem} territory; we cite Hatcher / Gauss rather than re-prove.}\end{quote}
 
 Why it matters here: class groups encode failure of unique factorization and control representation theory---exactly the arithmetic depth we want to lift for Magic Islands and the \(Z\mapsto\) map.
 
@@ -108,11 +106,9 @@ reduce_composition(composed) -> topograph, classification, magic_island_score
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig8_2_flywheel_composition.png}
-  \caption{Figure 8.2 --- Composition of two flux topographs.}
+  \caption{\(\Phi_1\), \(\Phi_2\), and \(\mathrm{reduce}(\Phi_1*\Phi_2)\) for the pedagogical \texttt{value\_\allowbreak{}sum} method.}
   \label{fig:fig8-2-flywheel-composition}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 8.2.* \(\Phi_1\), \(\Phi_2\), and \(\mathrm{reduce}(\Phi_1*\Phi_2)\) for the pedagogical \texttt{value\_\allowbreak{}sum} method.}\end{quote}
 
 \textbf{Honest status.} On current candidate adjacency and modest angle lattices, composition tables often show \textbf{poor closure} and \textbf{low associativity scores} (\textbf{Software fact} from the sandbox). That is not a failure of the chapter---it is the experimental content of \textbf{Open Problem 6}.
 
@@ -146,31 +142,25 @@ is_associative_up_to_equivalence(reduced_set, samples=...)
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig8_3_class_group_analogue.png}
-  \caption{Figure 8.3 --- Class-group analogue.}
+  \caption{Equivalence classes with composition arrows, plus a numerical composition table. \texttt{structure} strings such as \texttt{partial\_\allowbreak{}magma} or \texttt{open\_\allowbreak{}or\_\allowbreak{}non\_\allowbreak{}closed} flag OP6 incompleteness.}
   \label{fig:fig8-3-class-group-analogue}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 8.3.* Equivalence classes with composition arrows, plus a numerical composition table. \texttt{structure} strings such as \texttt{partial\_\allowbreak{}magma} or \texttt{open\_\allowbreak{}or\_\allowbreak{}non\_\allowbreak{}closed} flag OP6 incompleteness.}\end{quote}
 
 Magic Islands can be viewed as \textbf{distinguished classes} (or clusters of classes) where composition yields high \texttt{magic\_\allowbreak{}island\_\allowbreak{}score} or high portal \texttt{stability\_\allowbreak{}score}. Predicting islands from group structure alone is OP3 \(\cap\) OP6.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig8_4_island_from_class.png}
-  \caption{Figure 8.4 --- Magic Island from class-group data.}
+  \caption{Schematic: class-group analogue \(\rightarrow\) distinguished high-stability region. \textbf{Model} narrative, not a derived theorem.}
   \label{fig:fig8-4-island-from-class}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 8.4.* Schematic: class-group analogue \(\rightarrow\) distinguished high-stability region. \textbf{Model} narrative, not a derived theorem.}\end{quote}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux8_1_composition_table.png}
-  \caption{Auxiliary Figure A8.1 --- Composition table.}
+  \caption{Small \(n\times n\) table of reduced class indices under composition. Entries \(-1\) mean ``not closed in the set within tolerance.''}
   \label{fig:aux8-1-composition-table}
 \end{figure}
-
-\begin{quote}\small\textit{Auxiliary Figure A8.1.* Small \(n\times n\) table of reduced class indices under composition. Entries \(-1\) mean ``not closed in the set within tolerance.''}\end{quote}
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -250,5 +240,4 @@ With composition and class-group language in place, we are ready for the ideal-t
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 

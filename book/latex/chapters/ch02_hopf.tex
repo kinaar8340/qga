@@ -103,7 +103,7 @@ y_2 &= 2(x_1 x_4 - x_2 x_3),\\
 y_3 &= x_1^2 + x_2^2 - x_3^2 - x_4^2.
 \end{align*}
 
-On unit 4-vectors this already lands on \(S^2\); there is no output-normalization step. This is the \textbf{one} library map: \texttt{lib.\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}hopf\_\allowbreak{}map} (alias \texttt{hopf\_\allowbreak{}map\_\allowbreak{}classical}). Companion chain after the flux\_hopf\_lib follow-up: \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib.\allowbreak{}hopf.\allowbreak{}fibration.\allowbreak{}hopf\_\allowbreak{}map} \(\to\) \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf} \(\to\) this chapter / labs. A non-unit input is a numerical guard (homogeneous degree 2: divide by \(\|q\|^2\)), not a feature of the map.
+On unit 4-vectors this already lands on \(S^2\); there is no output-normalization step. This is the \textbf{one} library map: \texttt{lib.\allowbreak{}hopf\_\allowbreak{}lattice.\allowbreak{}hopf\_\allowbreak{}map} (alias \texttt{hopf\_\allowbreak{}map\_\allowbreak{}classical}). The same formula is \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib.\allowbreak{}hopf.\allowbreak{}fibration.\allowbreak{}hopf\_\allowbreak{}map}, re-exported as \texttt{kingdom.\allowbreak{}core.\allowbreak{}hopf}. Do not fork. A non-unit input is a numerical guard (homogeneous degree 2: divide by \(\|q\|^2\)), not a feature of the map.
 
 \textbf{Not a Hopf map.} The old three-component formula \(y_1=x_1^2-x_2^2\), \(y_2=2x_1x_2\), \(y_3=2(x_3x_4+x_1x_2)\) (then divide by \(\|y\|\)) ignores \((x_3,x_4)\) in \(y_1,y_2\), vanishes at \((0,0,1,0)\), and is not constant on Hopf fibers. It is kept only as \texttt{legacy\_\allowbreak{}portal\_\allowbreak{}map} and is \textbf{not} called Hopf.
 
@@ -116,7 +116,7 @@ x_3 &= \sin\eta\,\cos\xi_2, &
 x_4 &= \sin\eta\,\sin\xi_2,
 \end{align*}
 
-with \(\eta\in[0,\pi/2]\) and \(\xi_1,\xi_2\in[0,2\pi)\). Fixing \((\eta,\xi_1)\) and sweeping \(\xi_2\) traces the **angle-chart \(\xi_2\)-circle\textbf{. That is }not** the structure-group fiber. The Hopf fiber through \((z_1,z_2)\) is the diagonal \(U(1)\) action
+with \(\eta\in[0,\pi/2]\) and \(\xi_1,\xi_2\in[0,2\pi)\). Fixing \((\eta,\xi_1)\) and sweeping \(\xi_2\) traces the \textbf{angle-chart \(\xi_2\)-circle}. That is \textbf{not} the structure-group fiber. The Hopf fiber through \((z_1,z_2)\) is the diagonal \(U(1)\) action
 
 \[
 (z_1,z_2)\;\longmapsto\;(e^{i\phi}z_1,\,e^{i\phi}z_2),
@@ -127,11 +127,9 @@ which shifts \(\xi_1\) and \(\xi_2\) \textbf{together}. In this book's identific
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig2_1_hopf_definition.png}
-  \caption{Figure 2.1 --- Hopf map definition.}
+  \caption{From total space \(S^3\) (unit quaternions) to base \(S^2\). The map is smooth and surjective; every base point has a circle's worth of preimages.}
   \label{fig:fig2-1-hopf-definition}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 2.1.* From total space \(S^3\) (unit quaternions) to base \(S^2\). The map is smooth and surjective; every base point has a circle's worth of preimages.}\end{quote}
 
 \textbf{API note (Software fact).} Call signatures in code are component-wise, not ``pass a Quaternion object'' to \texttt{hopf\_\allowbreak{}map}:
 
@@ -169,11 +167,9 @@ Linking is the topological feature that later underwrites \textbf{topological pr
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig2_2_linked_fibers.png}
-  \caption{Figure 2.2 --- Linked Hopf fibers (stereographic view).}
+  \caption{Rebuild of Figure 0.1, generated from \texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family}. Several fibers after stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\). Linking cannot be undone by continuous deformation without cutting a fiber.}
   \label{fig:fig2-2-linked-fibers}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 2.2.* Rebuild of Figure 0.1, generated from \texttt{sample\_\allowbreak{}fiber\_\allowbreak{}family}. Several fibers after stereographic projection \(S^3\setminus\{\mathrm{pt}\}\to\mathbb{R}^3\). Linking cannot be undone by continuous deformation without cutting a fiber.}\end{quote}
 
 \textbf{Claim type: Theorem.} Fiber structure and Hopf invariant \(=1\) are classical results in differential topology.
 
@@ -211,11 +207,9 @@ The Gradio \textbf{Hopf Visualizer} defaults to multi-panel \textbf{2D} views (x
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig2_3_stereographic_preview.png}
-  \caption{Figure 2.3 --- Stereographic preview of the fibration.}
+  \caption{Rebuild of Figure 0.2. Composed stereographic fibers, planar projections, and base points on \(S^2\), with one fiber highlighted---the same visual language as the portal's Classic Hopf preset.}
   \label{fig:fig2-3-stereographic-preview}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 2.3.* Rebuild of Figure 0.2. Composed stereographic fibers, planar projections, and base points on \(S^2\), with one fiber highlighted---the same visual language as the portal's Classic Hopf preset.}\end{quote}
 
 \textbf{Sampling API (Software fact).} \texttt{sample\_\allowbreak{}fiber(eta, xi1, n\_\allowbreak{}points=.\allowbreak{}.\allowbreak{}.\allowbreak{})} returns a \textbf{dictionary}, not a bare list of quaternions:
 
@@ -249,11 +243,9 @@ It is the canonical example of a nontrivial principal \(U(1)\)-bundle (equivalen
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig2_4_bundle_structure.png}
-  \caption{Figure 2.4 --- Bundle picture: total space, fibers, base.}
+  \caption{Rebuild of Figure 0.3. Conceptual diagram of the bundle structure that Chapter 3 will \textbf{discretize}: lattice points in the total space, Hopf projection to the base, adjacency and gauge along fibers.}
   \label{fig:fig2-4-bundle-structure}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 2.4.* Rebuild of Figure 0.3. Conceptual diagram of the bundle structure that Chapter 3 will \textbf{discretize}: lattice points in the total space, Hopf projection to the base, adjacency and gauge along fibers.}\end{quote}
 
 \subsection{Local charts on the base}
 \label{ch:ch02_hopf:local-charts-on-the-base}
@@ -269,11 +261,9 @@ so a fiber coordinate (phase) can be chosen continuously on \(U\). Crossing from
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux2_2_hopf_charts.png}
-  \caption{Auxiliary Figure A2.2 --- Local charts on base \(S^2\).}
+  \caption{Schematic north/south charts on the base. Phase unwrapping and gauge fixing on the discrete lattice will live over such charts.}
   \label{fig:aux2-2-hopf-charts}
 \end{figure}
-
-\begin{quote}\small\textit{Auxiliary Figure A2.2.* Schematic north/south charts on the base. Phase unwrapping and gauge fixing on the discrete lattice will live over such charts.}\end{quote}
 
 \subsection{Phase sweep along a fiber}
 \label{ch:ch02_hopf:phase-sweep-along-a-fiber}
@@ -283,11 +273,9 @@ Holding the base point fixed and varying the fiber phase is the continuous analo
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux2_1_fiber_phase_sweep.png}
-  \caption{Auxiliary Figure A2.1 --- Single fiber phase sweep.}
+  \caption{One \textbf{structure-group} fiber colored by phase \(\phi\in[0,2\pi)\). The path closes: a full common-phase sweep returns to the same unit quaternion (up to sampling).}
   \label{fig:aux2-1-fiber-phase-sweep}
 \end{figure}
-
-\begin{quote}\small\textit{Auxiliary Figure A2.1.* One \textbf{structure-group} fiber colored by phase \(\phi\in[0,2\pi)\). The path closes: a full common-phase sweep returns to the same unit quaternion (up to sampling).}\end{quote}
 
 \textbf{Model reminder.} Calling Hopf a higher-dimensional ``Farey analogue'' remains a \textbf{Model} metaphor until Chapter 3 axiomatizes discrete adjacency and mediants on the gauged lattice (Open Problem 1).
 
@@ -310,7 +298,7 @@ If \(u\in S^3\) is fixed:
 
 \begin{itemize}
 \item \textbf{Left multiplication} \(q\mapsto uq\) is an isometry of \(S^3\). It maps fibers to fibers and induces a rotation of the base \(S^2\).  
-\item \textbf{Right multiplication} \(q\mapsto qu\) is also an isometry. It is **fiberwise \(U(1)\)** only for the structure-group circle \(\{e^{i\phi}\}\) in the identification where that circle is the fiber (and for Hurwitz units that normalize it). Under \(q=z_1+z_2 j\) as in \S{}2.1, the structure-group circle is left multiplication by \(e^{i\phi}\in\mathrm{span}\{1,i\}\). General right multiplication by an arbitrary unit of \(S^3\) \textbf{moves fibers}.
+\item \textbf{Right multiplication} \(q\mapsto qu\) is also an isometry. It is \textbf{fiberwise \(U(1)\)} only for the structure-group circle \(\{e^{i\phi}\}\) in the identification where that circle is the fiber (and for Hurwitz units that normalize it). Under \(q=z_1+z_2 j\) as in \S{}2.1, the structure-group circle is left multiplication by \(e^{i\phi}\in\mathrm{span}\{1,i\}\). General right multiplication by an arbitrary unit of \(S^3\) \textbf{moves fibers}.
 \end{itemize}
 
 Together, left and right actions generate the symmetry repertoire we will \textbf{gauge} and discretize in Chapters 3--4. The double cover \(\mathrm{Spin}(3)\to SO(3)\) from \S{}1.6 sits naturally here: directions in \(\mathbb{R}^3\) relate to the base, while the fiber phase is the extra spinorial degree of freedom.
@@ -373,10 +361,11 @@ print(hopf_map(q), hopf_map(np.array([0.0, 0.0, 1.0, 0.0])))
 \label{ch:ch02_hopf:code-and-asset-pointers}
 
 \begin{lstlisting}[style=qga]
-lib.hopf_lattice.hopf_map         # the book's map (this chapter / labs)
+lib.hopf_lattice.hopf_map              # the book's map (this chapter / labs)
 lib.hopf_lattice.common_phase, sample_structure_group_fiber
-# Follow-up after merge (not this PR):
-#   flux_hopf_lib.hopf.fibration.hopf_map  ->  kingdom.core.hopf  (re-export)
+flux_hopf_lib.hopf.fibration.hopf_map  # same formula
+kingdom.core.hopf                      # re-export
+lib.hopf_lattice.legacy_portal_map     # NOT Hopf; old 3-component formula
 \end{lstlisting}
 
 \textbf{Figures:} generated under \texttt{book/\allowbreak{}figures/\allowbreak{}fig2\_\allowbreak{}*} and \texttt{aux2\_\allowbreak{}*} via \texttt{scripts/\allowbreak{}generate\_\allowbreak{}ch2\_\allowbreak{}figures.\allowbreak{}py} (samples real fibers from \texttt{flux\_\allowbreak{}hopf\_\allowbreak{}lib} when available). \textbf{Related portal:} Hopf Visualizer tab --- live counterpart of Figures 2.2--2.4 and Aux A2.1. \textbf{Chapter 0 assets:} Figs. 0.1--0.3 remain the narrative first look; Figs. 2.2--2.4 are the first-principles rebuilds.
@@ -395,5 +384,4 @@ With the algebraic language of quaternions and the bundle geometry of the Hopf f
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 

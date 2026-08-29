@@ -49,3 +49,55 @@ def test_strip_baked_section_numbers():
 def test_listing_does_not_replace_pi_with_question():
     assert "pi" in mod.listing_ascii("350/π")
     assert "?" not in mod.listing_ascii("350/π")
+
+
+def test_listing_spells_xi_not_codepoint():
+    assert mod.listing_ascii("ξ2-circle at fixed (η, ξ1)") == "xi2-circle at fixed (eta, xi1)"
+    assert "[U+" not in mod.listing_ascii("ξ2-circle")
+
+
+def test_bold_wrapping_math_does_not_leave_markdown():
+    src = r"traces the **angle-chart \(\xi_2\)-circle**. That is **not** the fiber."
+    out = mod.convert_inline(src)
+    assert "**" not in out
+    assert r"\textbf{" in out
+    assert r"\xi_2" in out
+    assert r"\textbf{not}" in out
+
+
+def test_figure_caption_strips_manuscript_number():
+    body = mod.figure_caption_text(
+        "Figure 0.4 — Flux flywheel scales.",
+        "*Figure 0.4.* Nested / multi-scale flywheel imagery.",
+    )
+    assert not body.lower().startswith("figure")
+    assert "Nested" in body
+    aux = mod.figure_caption_text(
+        "Auxiliary Figure A0.1 — Helium still.",
+        r"*Auxiliary Figure A0.1 — Helium (\(Z=2\)).* Flux-flywheel element card.",
+    )
+    assert ".*" not in aux
+    assert "Helium" in aux
+    assert "Flux-flywheel" in aux
+
+
+def test_manuscript_footer_is_dropped():
+    tex = mod.convert_file(ROOT / "book" / "00_preface.md", "front", "ch:preface")
+    assert "figures/\\allowbreak{}}." not in tex
+    assert "Manuscript" not in tex or "Full draft" not in tex
+
+
+def test_ch2_has_no_leftover_markdown_or_double_caption():
+    tex = mod.convert_file(ROOT / "book" / "02_hopf.md", "chapter", "ch:ch02_hopf")
+    assert "**angle-chart" not in tex
+    assert r"\caption{Figure 2." not in tex
+    assert "[U+" not in tex
+
+
+def test_app_c_listings_spell_xi():
+    tex = mod.convert_file(
+        ROOT / "book" / "C_lab_code_reference.md", "appendix", "ch:app_c"
+    )
+    assert "[U+03BE]" not in tex
+    assert "[U+03B7]" not in tex
+    assert "xi2-circle" in tex

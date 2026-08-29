@@ -394,8 +394,10 @@ def classify_topograph_type(
 ) -> dict:
     """Heuristic four-type classification (Model / OP3).
 
-    Uses separator mass, value variance, and best periodicity under a small
-    gauge dictionary — *not* a classical discriminant computation.
+    Aligned with the Conway–Hatcher table as a *proxy*, not a discriminant:
+    elliptic = no river (no sign separators); hyperbolic = periodic river;
+    0-hyperbolic = degenerate / nearly constant or unperiodized separators.
+    Finite samples can still mislabel; this is a Software fact, not a theorem.
     """
     seps = detect_separators(topo, mode="sign")
     n_sep = sum(len(c) for c in seps)
@@ -413,22 +415,19 @@ def classify_topograph_type(
             best_period = sc["period_found"] if best_period < 0 else min(best_period, sc["period_found"])
         best_pt = min(best_pt, sc["best_point_nn_mean"])
 
-    # Decision tree (explicitly heuristic)
+    # Decision tree aligned with Conway–Hatcher (still heuristic, not Δ)
     if rng < 1e-9 or var < 1e-12:
         typ = "0-hyperbolic"
-        reason = "nearly constant values"
-    elif n_sep == 0 and var < 0.05:
-        typ = "parabolic"
-        reason = "no sign separators, low variation"
-    elif best_period > 0 and n_sep > 0:
-        typ = "hyperbolic"
-        reason = "periodic under gauge + nonempty separators"
-    elif n_comp <= 2 and n_sep < max(4, len(topo.points) // 20):
+        reason = "nearly constant values (degenerate / 0-hyperbolic proxy)"
+    elif n_sep == 0:
         typ = "elliptic"
-        reason = "few separator components / bounded separator mass"
+        reason = "no sign separators (no river) — Conway–Hatcher elliptic proxy"
     elif best_period > 0:
         typ = "hyperbolic"
-        reason = "periodic under gauge"
+        reason = "periodic under gauge + nonempty separators (river proxy)"
+    elif n_sep > 0:
+        typ = "0-hyperbolic"
+        reason = "separators present but no period found (degenerate-river proxy)"
     else:
         typ = "parabolic"
         reason = "default transitional / non-periodic"
@@ -444,6 +443,11 @@ def classify_topograph_type(
         "best_period_found": best_period,
         "best_point_nn_mean": best_pt,
         "signature": _value_signature(topo),
+        "heuristic": True,
+        "known_limitation": (
+            "Not a discriminant computation; finite samples can still mislabel "
+            "relative to Conway–Hatcher. Software fact, not a theorem."
+        ),
     }
 
 

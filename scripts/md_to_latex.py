@@ -110,6 +110,13 @@ _LISTING_ASCII = {
     "\u03c0": "pi",
     "\u03ba": "kappa",
     "\u03b1": "alpha",
+    "\u03be": "xi",
+    "\u03b7": "eta",
+    "\u03c6": "phi",
+    "\u03c8": "psi",
+    "\u2081": "1",
+    "\u2082": "2",
+    "\u2083": "3",
     "\u00a7": "S",
     "\u00b7": ".",
     "\u203e": "bar",
@@ -245,12 +252,58 @@ def latex_code_span(content: str) -> str:
     return r"\texttt{" + escaped + "}"
 
 
+_MARK_RE = re.compile(
+    r"(\x00PH\d+\x00|\x00BSTART\x00|\x00BEND\x00|\x00ISTART\x00|\x00IEND\x00)"
+)
+_FIG_ITALIC = re.compile(
+    r"^\*(?:Auxiliary\s+)?Figure\s+[A-Z]?\d+(?:\.\d+)*"
+    r"(?:\s*[\u2014\u2013—–:-]+\s*|\s+)?"
+    r"(.*?)\.\*\s*(.*)$",
+    re.I,
+)
+_FIG_PREFIX = re.compile(
+    r"^(?:Auxiliary\s+)?Figure\s+[A-Z]?\d+(?:\.\d+)*\s*(?:[\u2014\u2013—–:.\-]+)\s*",
+    re.I,
+)
+
+
+def figure_caption_text(alt: str, italic_line: str | None) -> str:
+    """Body of a figure caption without a leading 'Figure x.y' label.
+
+    LaTeX ``\\caption`` already prints ``Figure N:``; keeping the manuscript
+    tag in the body produced stacked labels (``Figure 4: Figure 0.4``).
+    """
+    if italic_line:
+        m = _FIG_ITALIC.match(italic_line.strip())
+        if m:
+            title = (m.group(1) or "").strip()
+            rest = (m.group(2) or "").strip()
+            if title and rest:
+                if title.endswith("."):
+                    return f"{title} {rest}"
+                return f"{title}. {rest}"
+            return rest or title
+        body = italic_line.strip().strip("*").strip()
+        stripped = _FIG_PREFIX.sub("", body).strip()
+        return stripped or body
+    stripped = _FIG_PREFIX.sub("", alt.strip()).strip()
+    return stripped or alt.strip()
+
+
 def convert_inline(s: str) -> str:
     r"""Convert inline markdown; leave \( \) and existing math alone.
 
-    Unicode mapping is applied to *text* chunks only so math is not nested
-    as \(\(\pi\)\) and overlines in \(N(q)=q\overline{q}\) survive.
+    Math/code/links are stashed as placeholders so **bold** may wrap math
+    without leftover markdown (e.g. **angle-chart \(\xi_2\)-circle**).
+    Unicode mapping is applied to *text* only so math is not nested as
+    \(\(\pi\)\) and overlines in \(N(q)=q\overline{q}\) survive.
     """
+    stored: list[tuple[str, str]] = []
+
+    def stash(kind: str, content: str) -> str:
+        stored.append((kind, content))
+        return f"\x00PH{len(stored) - 1}\x00"
+
     # Extract math / code / bare URLs first. Math before code.
     # Do not map curly quotes to backticks (breaks code-span detection).
     # Order matters: math → full markdown links → code → bare URLs.
@@ -266,80 +319,86 @@ def convert_inline(s: str) -> str:
         r"|(?<!\]\()https?://[^\s|<>()]+"
         r")"
     )
+    pieces: list[str] = []
     pos = 0
-    chunks: list[str] = []
     for m in pattern.finditer(s):
         if m.start() > pos:
-            chunks.append(("text", s[pos : m.start()]))
+            pieces.append(s[pos : m.start()])
         tok = m.group(0)
         if tok.startswith("[") and "](" in tok:
-            chunks.append(("link", tok))
+            pieces.append(stash("link", tok))
         elif tok.startswith("`"):
-            chunks.append(("code", tok[1:-1]))
+            pieces.append(stash("code", tok[1:-1]))
         elif tok.startswith("$$"):
-            chunks.append(("dmath", tok[2:-2]))
+            pieces.append(stash("dmath", tok[2:-2]))
         elif tok.startswith("\\["):
-            chunks.append(("dmath", tok[2:-2]))
+            pieces.append(stash("dmath", tok[2:-2]))
         elif tok.startswith("\\("):
-            chunks.append(("imath", tok[2:-2]))
+            pieces.append(stash("imath", tok[2:-2]))
         elif tok.startswith("$"):
-            chunks.append(("imath", tok[1:-1]))
+            pieces.append(stash("imath", tok[1:-1]))
         elif tok.startswith("http"):
-            chunks.append(("url", tok.rstrip(".,;:)")))
+            pieces.append(stash("url", tok.rstrip(".,;:)")))
         else:
-            chunks.append(("text", tok))
+            pieces.append(tok)
         pos = m.end()
     if pos < len(s):
-        chunks.append(("text", s[pos:]))
+        pieces.append(s[pos:])
+    text = "".join(pieces)
 
-    def format_text_chunk(content: str) -> str:
-        t = latex_quotes(normalize_punctuation(content))
-        # bold **...**
-        t = re.sub(
-            r"\*\*(.+?)\*\*",
-            lambda m: r"\textbf{" + escape_text(m.group(1)) + "}",
-            t,
-        )
-        # italic *...* (avoid bold leftovers)
-        t = re.sub(
-            r"(?<!\*)\*([^*]+?)\*(?!\*)",
-            lambda m: r"\emph{" + escape_text(m.group(1)) + "}",
-            t,
-        )
-        # remaining text escape — but don't escape already-inserted commands
-        pieces = re.split(r"(\\(?:textbf|emph)\{[^}]*\})", t)
-        rebuilt = []
-        for p in pieces:
-            if p.startswith("\\textbf") or p.startswith("\\emph"):
-                rebuilt.append(p)
-            else:
-                rebuilt.append(escape_text(p))
-        return inject_unicode_math("".join(rebuilt))
+    text = latex_quotes(normalize_punctuation(text))
+    text = re.sub(
+        r"\*\*(.+?)\*\*",
+        lambda m: "\x00BSTART\x00" + m.group(1) + "\x00BEND\x00",
+        text,
+    )
+    text = re.sub(
+        r"(?<!\*)\*([^*]+?)\*(?!\*)",
+        lambda m: "\x00ISTART\x00" + m.group(1) + "\x00IEND\x00",
+        text,
+    )
 
-    out = []
-    for kind, content in chunks:
-        if kind == "text":
-            out.append(format_text_chunk(content))
-        elif kind == "link":
+    def render_stashed(kind: str, content: str) -> str:
+        if kind == "link":
             lm = re.match(r"\[([^\]]+)\]\(([^)]+)\)", content)
             if not lm:
-                out.append(format_text_chunk(content))
-                continue
+                return inject_unicode_math(escape_text(content))
             label_raw, url = lm.group(1), lm.group(2)
-            # Label may contain `code`, **bold**, math — recurse lightly
-            label_tex = convert_inline(label_raw) if ("`" in label_raw or "*" in label_raw or "\\" in label_raw) else escape_text(label_raw)
+            if "`" in label_raw or "*" in label_raw or "\\" in label_raw:
+                label_tex = convert_inline(label_raw)
+            else:
+                label_tex = escape_text(label_raw)
             url_tex = url.replace("%", r"\%").replace("#", r"\#")
-            out.append(rf"\href{{{url_tex}}}{{{label_tex}}}")
-        elif kind == "code":
-            out.append(latex_code_span(content))
-        elif kind == "url":
-            # xurl/hyperref: breakable URL (no manual escape)
+            return rf"\href{{{url_tex}}}{{{label_tex}}}"
+        if kind == "code":
+            return latex_code_span(content)
+        if kind == "url":
             safe = content.replace("%", r"\%").replace("#", r"\#")
-            out.append(r"\url{" + safe + "}")
-        elif kind == "imath":
-            out.append(r"\(" + content + r"\)")
-        elif kind == "dmath":
-            out.append("\n\\[\n" + content.strip() + "\n\\]\n")
+            return r"\url{" + safe + "}"
+        if kind == "imath":
+            return r"\(" + content + r"\)"
+        if kind == "dmath":
+            return "\n\\[\n" + content.strip() + "\n\\]\n"
+        return inject_unicode_math(escape_text(content))
+
+    out: list[str] = []
+    for tok in _MARK_RE.split(text):
+        if not tok:
+            continue
+        pm = re.fullmatch(r"\x00PH(\d+)\x00", tok)
+        if pm:
+            kind, content = stored[int(pm.group(1))]
+            out.append(render_stashed(kind, content))
+        elif tok == "\x00BSTART\x00":
+            out.append(r"\textbf{")
+        elif tok == "\x00BEND\x00":
+            out.append("}")
+        elif tok == "\x00ISTART\x00":
+            out.append(r"\emph{")
+        elif tok == "\x00IEND\x00":
+            out.append("}")
+        else:
+            out.append(inject_unicode_math(escape_text(tok)))
     return "".join(out)
 
 
@@ -442,11 +501,11 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
         if not para_buf:
             return
         text = " ".join(para_buf)
-        # figure caption lines like *Figure 1.1.* ...
-        m = re.match(r"^\*(Figure|Auxiliary Figure) ([^*]+)\.\*\s*(.*)$", text)
+        # orphan italic captions (normally consumed with the image)
+        m = _FIG_ITALIC.match(text)
         if m:
-            # already handled with image usually; emit as caption continuation if orphan
-            out.append(r"\begin{quote}\small\textit{" + convert_inline(text.strip("*")) + r"}\end{quote}")
+            body = figure_caption_text("", text)
+            out.append(r"\begin{quote}\small\textit{" + convert_inline(body) + r"}\end{quote}")
             out.append("")
             para_buf = []
             return
@@ -489,6 +548,12 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
             i += 1
             continue
 
+        # manuscript footer italics — drop, do not convert (nested \texttt breaks strip)
+        if re.match(r"^\*Manuscript\b", line.strip()):
+            flush_para()
+            i += 1
+            continue
+
         # blank
         if not line.strip():
             flush_para()
@@ -512,12 +577,17 @@ def convert_file(md_path: Path, kind: str, label_base: str) -> str:
             alt, path = mimg.group(1), mimg.group(2)
             # path figures/foo.png → figures/foo (basename)
             path = path.replace("figures/", "")
-            # caption from following italic line if present
-            caption = alt
-            if i + 1 < len(lines) and lines[i + 1].strip().startswith("*"):
-                cap_line = lines[i + 1].strip().strip("*")
-                caption = cap_line
-                i += 1
+            # caption from following italic line (blank line allowed)
+            j = i + 1
+            while j < len(lines) and not lines[j].strip():
+                j += 1
+            italic = None
+            if j < len(lines) and re.match(
+                r"^\*(?:Auxiliary\s+)?Figure\b", lines[j].strip(), re.I
+            ):
+                italic = lines[j].strip()
+                i = j
+            caption = figure_caption_text(alt, italic)
             label = "fig:" + slugify(Path(path).stem)
             out.append(r"\begin{figure}[htbp]")
             out.append(r"  \centering")

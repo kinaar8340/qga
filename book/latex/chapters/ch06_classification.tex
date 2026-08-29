@@ -102,11 +102,9 @@ Parabolic & Boundary / degenerate & Transitional / default bin \\
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig6_1_four_types.png}
-  \caption{Figure 6.1 --- Four types of flux topographs (schematic).}
+  \caption{Schematic value landscapes and separator patterns for the four lifted types. Generated with pedagogical functionals; labels are Model categories.}
   \label{fig:fig6-1-four-types}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 6.1.* Schematic value landscapes and separator patterns for the four lifted types. Generated with pedagogical functionals; labels are Model categories.}\end{quote}
 
 \subsection{Heuristic classifier (software / Model)}
 \label{ch:ch06_classification:heuristic-classifier-software-model}
@@ -117,17 +115,17 @@ classify_topograph_type(topo) ->
   best_period_found, signature, ...
 \end{lstlisting}
 
-The decision tree (explicitly heuristic) uses:
+The decision tree is aligned with the Conway--Hatcher table as a \emph{proxy} (still not a discriminant \(\Delta\)):
 
 \begin{enumerate}
 \item near-constant values \(\rightarrow\) \texttt{0-hyperbolic}  
-\item no sign separators + low variance \(\rightarrow\) \texttt{parabolic}  
+\item no sign separators (no river) \(\rightarrow\) \texttt{elliptic}  
 \item periodic under a small gauge dictionary + separators \(\rightarrow\) \texttt{hyperbolic}  
-\item few separator components \(\rightarrow\) \texttt{elliptic}  
+\item separators present but no period found \(\rightarrow\) \texttt{0-hyperbolic}  
 \item otherwise transitional \texttt{parabolic}
 \end{enumerate}
 
-This is \textbf{not} a theorem of classification---only a lab tool for OP3 experiments.
+\textbf{Software fact.} The previous tree (\texttt{few separator components -> elliptic}, and \texttt{no separators + low variance -> parabolic}) could relabel a definite (no-river) form as the wrong type. The tree above matches the type table; finite samples can still mislabel. This is \textbf{not} a theorem of classification---only a lab tool for OP3 experiments.
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -143,11 +141,9 @@ This is the direct analogue of Hatcher's equivalence of quadratic forms under \(
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig6_4_equivalence.png}
-  \caption{Figure 6.4 --- Gauge equivalence of two flux topographs.}
+  \caption{A topograph and its image under left multiplication by \(i\). Value multisets and sorted point clouds match for geometric functionals (\texttt{equivalence\_\allowbreak{}distance} near zero).}
   \label{fig:fig6-4-equivalence}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 6.4.* A topograph and its image under left multiplication by \(i\). Value multisets and sorted point clouds match for geometric functionals (\texttt{equivalence\_\allowbreak{}distance} near zero).}\end{quote}
 
 \subsection{Distance and reduced representatives}
 \label{ch:ch06_classification:distance-and-reduced-representatives}
@@ -163,11 +159,9 @@ enumerate_reduced(topo, dedup_tol=...)  # inequivalent reduced orbit reps
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig6_2_reduced_config.png}
-  \caption{Figure 6.2 --- Reduced configuration.}
+  \caption{Original topograph vs reduced representative selected by minimal variance under the standard gauge dictionary.}
   \label{fig:fig6-2-reduced-config}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 6.2.* Original topograph vs reduced representative selected by minimal variance under the standard gauge dictionary.}\end{quote}
 
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
@@ -192,20 +186,16 @@ In the Kingdom Come Model, Magic Islands appear as pockets where \texttt{stabili
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{fig6_3_class_number_analogue.png}
-  \caption{Figure 6.3 --- Class-number analogue and Magic Island clusters.}
+  \caption{Left: count of inequivalent reduced representatives by type (\texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}). Right: schematic islands as clusters of reduced configs.}
   \label{fig:fig6-3-class-number-analogue}
 \end{figure}
-
-\begin{quote}\small\textit{Figure 6.3.* Left: count of inequivalent reduced representatives by type (\texttt{class\_\allowbreak{}number\_\allowbreak{}analogue}). Right: schematic islands as clusters of reduced configs.}\end{quote}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.92\textwidth,height=0.42\textheight,keepaspectratio]{aux6_1_island_sweep.png}
-  \caption{Auxiliary Figure A6.1 --- Z-sweep for island peaks.}
+  \caption{Portal Model \texttt{stability\_\allowbreak{}score} vs \(Z\) (gold: noble-gas \(Z\); dashed: high-stability threshold). \textbf{Software fact} for the curve; island interpretation remains \textbf{Model}.}
   \label{fig:aux6-1-island-sweep}
 \end{figure}
-
-\begin{quote}\small\textit{Auxiliary Figure A6.1.* Portal Model \texttt{stability\_\allowbreak{}score} vs \(Z\) (gold: noble-gas \(Z\); dashed: high-stability threshold). \textbf{Software fact} for the curve; island interpretation remains \textbf{Model}.}\end{quote}
 
 \subsection{Heuristic island score}
 \label{ch:ch06_classification:heuristic-island-score}
@@ -298,5 +288,4 @@ With classification in hand, we are ready to bridge number theory and the emerge
 \bigskip
 \noindent\rule{\textwidth}{0.4pt}
 \bigskip
-
 

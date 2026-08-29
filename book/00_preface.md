@@ -47,7 +47,7 @@ Module pointers at the end of each chapter name the Python entry points used in 
 
 ## How to read
 
-- **Pure geometry and arithmetic.** Chapters 0–9; treat Chapter 10 as optional (observations and validation).  
+- **Pure geometry and arithmetic.** Chapters 0–9 for the geometric/arithmetic development; treat Chapter 10 as optional (observations and validation). Chapter 7's chemistry-facing paragraphs and 7.3–7.4 are Model / Software fact, not theorem spine (Part V owns the empirical reading).  
 - **Model / portal narrative first.** Chapter 0 → Chapter 2 → Chapter 3 (lattice and flywheels) → Chapter 7 → Chapter 10.  
 - **Coming from Hatcher.** Keep TN open beside this book; use root `HATCHER_MAP.md` as a parallel syllabus.  
 - **Coming from the Gradio app.** The Preview chapter is the “Home + Hopf Visualizer + Flux Flywheel” tour in prose; see also `HOW_TO_USE.md`.  

@@ -128,3 +128,32 @@ def test_hopf_project_points_rejects_kc_convention():
     pts = np.stack([_unit(6), _unit(7)], axis=0)
     with pytest.raises(ValueError, match="legacy_portal_map"):
         hopf_project_points(pts, convention="kc")
+
+
+def test_old_three_component_formula_is_not_hopf_map():
+    q = np.array([0.0, 0.0, 1.0, 0.0])
+    np.testing.assert_allclose(hopf_map(q), np.array([0.0, 0.0, -1.0]), atol=1e-12)
+    assert not np.allclose(hopf_map(q), legacy_portal_map(q), atol=1e-6)
+
+
+def test_hopf_map_kc_name_is_rejected():
+    from lib.hopf_lattice import hopf_map_kc
+
+    with pytest.raises(RuntimeError, match="legacy_portal_map"):
+        hopf_map_kc(np.array([1.0, 0.0, 0.0, 0.0]))
+
+
+def test_flux_hopf_lib_matches_book_map_when_installed():
+    pytest.importorskip("flux_hopf_lib")
+    from flux_hopf_lib.hopf.fibration import hopf_map as portal_map
+    from flux_hopf_lib.hopf.fibration import legacy_portal_map as portal_legacy
+
+    q = np.array([0.0, 0.0, 1.0, 0.0])
+    np.testing.assert_allclose(np.array(portal_map(*q)), hopf_map(q), atol=1e-12)
+    rng = np.random.default_rng(8)
+    for _ in range(12):
+        p = rng.normal(size=4)
+        p = p / np.linalg.norm(p)
+        np.testing.assert_allclose(np.array(portal_map(*p)), hopf_map(p), atol=1e-12)
+    # portal hopf_map is not the old 3-component formula
+    assert not np.allclose(np.array(portal_map(*q)), np.array(portal_legacy(*q)))

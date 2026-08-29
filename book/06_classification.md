@@ -66,15 +66,15 @@ classify_topograph_type(topo) →
   best_period_found, signature, ...
 ```
 
-The decision tree (explicitly heuristic) uses:
+The decision tree is aligned with the Conway–Hatcher table as a *proxy* (still not a discriminant \(\Delta\)):
 
 1. near-constant values → `0-hyperbolic`  
-2. no sign separators + low variance → `parabolic`  
+2. no sign separators (no river) → `elliptic`  
 3. periodic under a small gauge dictionary + separators → `hyperbolic`  
-4. few separator components → `elliptic`  
+4. separators present but no period found → `0-hyperbolic`  
 5. otherwise transitional `parabolic`
 
-This is **not** a theorem of classification—only a lab tool for OP3 experiments.
+**Software fact.** The previous tree (`few separator components → elliptic`, and `no separators + low variance → parabolic`) could relabel a definite (no-river) form as the wrong type. The tree above matches the type table; finite samples can still mislabel. This is **not** a theorem of classification—only a lab tool for OP3 experiments.
 
 ---
 

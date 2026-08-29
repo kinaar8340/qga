@@ -66,7 +66,7 @@ y_1 &= 2(x_1 x_3 + x_2 x_4),\\
 y_2 &= 2(x_1 x_4 - x_2 x_3),\\
 y_3 &= x_1^2 + x_2^2 - x_3^2 - x_4^2.
 \end{align*}
-On unit 4-vectors this already lands on \(S^2\); there is no output-normalization step. This is the **one** library map: `lib.hopf_lattice.hopf_map` (alias `hopf_map_classical`). Companion chain after the flux_hopf_lib follow-up: `flux_hopf_lib.hopf.fibration.hopf_map` \(\to\) `kingdom.core.hopf` \(\to\) this chapter / labs. A non-unit input is a numerical guard (homogeneous degree 2: divide by \(\|q\|^2\)), not a feature of the map.
+On unit 4-vectors this already lands on \(S^2\); there is no output-normalization step. This is the **one** library map: `lib.hopf_lattice.hopf_map` (alias `hopf_map_classical`). The same formula is `flux_hopf_lib.hopf.fibration.hopf_map`, re-exported as `kingdom.core.hopf`. Do not fork. A non-unit input is a numerical guard (homogeneous degree 2: divide by \(\|q\|^2\)), not a feature of the map.
 
 **Not a Hopf map.** The old three-component formula \(y_1=x_1^2-x_2^2\), \(y_2=2x_1x_2\), \(y_3=2(x_3x_4+x_1x_2)\) (then divide by \(\|y\|\)) ignores \((x_3,x_4)\) in \(y_1,y_2\), vanishes at \((0,0,1,0)\), and is not constant on Hopf fibers. It is kept only as `legacy_portal_map` and is **not** called Hopf.
 
@@ -261,10 +261,11 @@ agrees componentwise with the real form in §2.1. Confirm \(\|h(q)\|=1\) with **
 ## Code and asset pointers
 
 ```text
-lib.hopf_lattice.hopf_map         # the book's map (this chapter / labs)
+lib.hopf_lattice.hopf_map              # the book's map (this chapter / labs)
 lib.hopf_lattice.common_phase, sample_structure_group_fiber
-# Follow-up after merge (not this PR):
-#   flux_hopf_lib.hopf.fibration.hopf_map  →  kingdom.core.hopf  (re-export)
+flux_hopf_lib.hopf.fibration.hopf_map  # same formula
+kingdom.core.hopf                      # re-export
+lib.hopf_lattice.legacy_portal_map     # NOT Hopf; old 3-component formula
 ```
 
 **Figures:** generated under `book/figures/fig2_*` and `aux2_*` via `scripts/generate_ch2_figures.py` (samples real fibers from `flux_hopf_lib` when available).  

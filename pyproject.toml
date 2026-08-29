@@ -18,7 +18,7 @@ dependencies = [
 # kingdom-come is not on PyPI yet; pin the public git repo. flux-hopf-lib is on PyPI.
 portal = [
     "kingdom-come @ git+https://github.com/kinaar8340/kingdom_come.git@d44166adffef9f967c1859796df5c4faf6b8f655",
-    "flux-hopf-lib>=0.2.6",
+    "flux-hopf-lib>=0.3.0",
 ]
 dev = [
     "pytest>=7.0",

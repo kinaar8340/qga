@@ -106,7 +106,7 @@ q = np.array([0.6, 0.3, 0.4, 0.6]); q = q / np.linalg.norm(q)
 y0 = hopf_map(q)
 print(max(np.linalg.norm(hopf_map(common_phase(q, p)) - y0) for p in np.linspace(0, 2 * np.pi, 12, endpoint=False)))
 
-# ξ2-circle at fixed (η, ξ1) is NOT the structure-group fiber
+# xi2-circle at fixed (eta, xi1) is NOT the structure-group fiber
 xi2_pts = np.stack([hopf_coordinates(0.4, 0.3, t) for t in np.linspace(0, 2 * np.pi, 12, endpoint=False)])
 xi2_base = np.stack([hopf_map(p) for p in xi2_pts])
 print("xi2-circle base spread:", np.max(np.linalg.norm(xi2_base - xi2_base[0], axis=1)))
