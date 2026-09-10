@@ -23,3 +23,30 @@ jobs:
         run: python -m pytest -q
       - name: Markdown → LaTeX
         run: python scripts/md_to_latex.py
+
+  pdf:
+    name: book PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended texlive-science texlive-pictures \
+            lmodern poppler-utils
+      - name: Build PDF
+        run: ./scripts/build_latex.sh --fast
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Kingdom_Come_QGA
+          path: book/Kingdom_Come_QGA.pdf
