@@ -12,6 +12,7 @@ license = { text = "MIT" }
 authors = [{ name = "kinaar8340" }]
 dependencies = [
     "numpy>=1.24",
+    "flux-hopf-lib @ git+https://github.com/kinaar8340/flux_hopf_lib.git@cee75f68dfe5ca8f684f5188614f1423837b0e06",
 ]
 
 [project.optional-dependencies]

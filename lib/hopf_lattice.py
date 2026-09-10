@@ -10,7 +10,6 @@ Symmetry helpers (gauge sequences, orbits, equivariance scores) support Chapter 
 
 from __future__ import annotations
 
-from itertools import product
 from typing import Iterable
 
 import numpy as np
@@ -141,28 +140,11 @@ def stereographic(q: Array, scale: float = 2.0) -> Array:
 
 
 # ---------------------------------------------------------------------------
-# Hurwitz units (24 points on S³)
+# Hurwitz units (24 points on S³) — re-export; SoT is flux_hopf_lib
 # ---------------------------------------------------------------------------
 
+from flux_hopf_lib.quaternion.hurwitz import HURWITZ_UNITS as HURWITZ_UNITS
 
-def _hurwitz_units() -> Array:
-    units: list[list[float]] = []
-    # ±1, ±i, ±j, ±k
-    for i in range(4):
-        for sgn in (-1.0, 1.0):
-            v = [0.0, 0.0, 0.0, 0.0]
-            v[i] = sgn
-            units.append(v)
-    # (±1 ± i ± j ± k)/2
-    for signs in product([-0.5, 0.5], repeat=4):
-        units.append(list(signs))
-    arr = np.array(units, dtype=float)
-    rounded = np.round(arr, 8)
-    _, idx = np.unique(rounded, axis=0, return_index=True)
-    return arr[np.sort(idx)]
-
-
-HURWITZ_UNITS: Array = _hurwitz_units()
 assert len(HURWITZ_UNITS) == 24, len(HURWITZ_UNITS)
 
 

@@ -32,11 +32,11 @@ Hatcher is the geometric backbone, cited separately from Kingdom Come models: [H
 
 ## 3. Python labs: Hurwitz 24 and the Hopf map (5 min)
 
-`lib/` is pedagogical. Shared primitives live in `flux-hopf-lib`. Do not treat this package as a second math core.
+`lib/` is pedagogical. `HURWITZ_UNITS` is a re-export of `flux_hopf_lib`. Do not treat this package as a second math core.
 
 ```bash
 python3 -m pip install -e ".[dev]"
-python3 -m pytest tests/test_hopf_map.py tests/test_ch1_lock.py -q
+python3 -m pytest tests/test_hopf_map.py tests/test_hurwitz_fixtures.py tests/test_ch1_lock.py -q
 ```
 
 ## 4. One picture (5 min)
