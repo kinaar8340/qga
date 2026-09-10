@@ -14,7 +14,7 @@ Living research edges of the project. The main text (especially Chapters 3, 5–
 | OP2 | Flux topograph axioms | Ch. 5 | Open | `lib.flux_topograph` |
 | OP3 | Class number ↔ Magic Island | Ch. 6 | Open | `classify_topograph_type`, `class_number_analogue` |
 | OP4 | \(Z\to\) flywheel uniqueness | Ch. 7 / 10 | Open | `map_z_to_flywheel`, `stability_landscape_z` |
-| OP5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open | `lib.validation` · Table T4 (Appendix D) |
+| OP5 | \(350/\pi\) first principles or falsification | Ch. 10 | Partial result — [`op5`](https://github.com/kinaar8340/op5) `OP5-T4-2026-09-09` | `op5` · `lib.validation` · Table T4 (Appendix D) |
 | OP6 | Composition of flywheels (Gauss lift) | Ch. 8–9 | Open | `lib.composition` · `lib.quaternion_algebra` |
 
 ---
@@ -61,11 +61,16 @@ Up to gauge equivalence, is the map from atomic number \(Z\) to flywheel configu
 ### OP5 — \(350/\pi\) first principles or falsification
 
 **Home:** Chapter 10  
+**Status:** Partial result. Owner: [`op5`](https://github.com/kinaar8340/op5). Campaign: `OP5-T4-2026-09-09`.
 
 Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or** falsify multi-domain recurrence as coincidence via pre-registered statistical tests (Table T4, Appendix D).
 
-**Sandbox:** `table_t4_checklist`, `default_hypotheses`, `run_table_t4_demo`, `combine_p_values_fisher`, `proximity_to_wg`.  
-**Success criteria:** derivation paper, or registered negative result with full T4 compliance.
+**Closed claim (not a forever-settled empirical law):** these two frames force \(W_g=350/\pi\), and the published H1a–H1e assets already reject coincidence. Both fail. Writeup: [`op5/docs/OP5_RESULT.md`](https://github.com/kinaar8340/op5/blob/main/docs/OP5_RESULT.md).
+
+**Remainder:** first-principles derivation is still open. Door 1 parked; Door 2 idle (do not reuse H1a–H1e).
+
+**Sandbox:** `op5`; book helpers `table_t4_checklist`, `default_hypotheses`, `run_table_t4_demo`, `combine_p_values_fisher`, `proximity_to_wg`.  
+**Success criteria:** derivation paper, or a *new* registered T4 campaign. Do not cite `OP5-T4-2026-09-09` as a closed empirical law.
 
 ### OP6 — Composition of flywheels (Gauss lift)
 

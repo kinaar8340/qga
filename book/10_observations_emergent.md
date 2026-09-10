@@ -106,7 +106,7 @@ Magic Islands (Chapters 5–6) appear as regions of high periodicity, controlled
 | OP2 | Flux topograph axioms | Ch. 5 | Open — `flux_topograph` |
 | OP3 | Class number ↔ Magic Island | Ch. 6 | Open — heuristic |
 | OP4 | \(Z\to\) flywheel uniqueness | Ch. 7 / 10 | Open |
-| OP5 | \(350/\pi\) first principles / falsify | Ch. 10 | Open — Table T4 |
+| OP5 | \(350/\pi\) first principles / falsify | Ch. 10 | Partial result — `op5` `OP5-T4-2026-09-09` |
 | OP6 | Flywheel composition (Gauss lift) | Ch. 8–9 | Open — low sandbox closure |
 
 **Full statements, sandboxes, success criteria, and dependency sketch:** **Appendix B**.  

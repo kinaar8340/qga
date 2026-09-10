@@ -9,7 +9,7 @@ Each problem has a **home chapter** where it is introduced or attacked, a **stat
 | 2 | Flux topograph axioms | Ch. 5 | Open — core of Ch. 5; sandbox `qga/lib/flux_topograph.py` | — |
 | 3 | Class number ↔ Magic Island correspondence | Ch. 6 | Open — sandbox `classify_topograph_type` / `class_number_analogue` | — |
 | 4 | \(Z\to\) flywheel uniqueness (up to gauge) | Ch. 7 / 10 | Open — map defined in Ch. 7; uniqueness open | — |
-| 5 | \(350/\pi\) first principles or falsification | Ch. 10 | Open — Table T4 sandbox in `lib/validation.py` | — |
+| 5 | \(350/\pi\) first principles or falsification | Ch. 10 | Partial result — [`op5`](https://github.com/kinaar8340/op5) campaign `OP5-T4-2026-09-09` | `op5` |
 | 6 | Composition of flywheels (Gauss lift) | Ch. 8 | Open — sandbox `qga/lib/composition.py` | — |
 
 **Status vocabulary:** `Open` · `In progress` · `Partial result` · `Resolved` · `Deferred`
@@ -54,11 +54,16 @@ Up to gauge equivalence, is the map from atomic number \(Z\) to flywheel configu
 
 ### OP5 — \(350/\pi\) first principles
 **Home:** Chapter 10  
-**Status:** Open — hypothesis layer; Table T4 helpers ready  
+**Status:** Partial result — owner [`op5`](https://github.com/kinaar8340/op5)  
+**Campaign:** `OP5-T4-2026-09-09`
 
 Derive \(W_g = 350/\pi\) from lattice geometry / topological clock axioms, **or** falsify multi-domain recurrence as coincidence via pre-registered statistical tests (Table T4 protocol).
 
-**Sandbox:** `qga/lib/validation.py` — `table_t4_checklist`, `default_hypotheses`, `run_table_t4_demo`, `combine_p_values_fisher`, `proximity_to_wg`. See Ch. 10 §10.5 and Exercise 10.B.
+**Closed (this campaign, not a forever-settled law).** Two frames do not force \(W_g=350/\pi\). H1a–H1e under Table T4 fail to reject coincidence. Cite [`op5`](https://github.com/kinaar8340/op5) / [`docs/OP5_RESULT.md`](https://github.com/kinaar8340/op5/blob/main/docs/OP5_RESULT.md).
+
+**Still open.** First-principles derivation. Door 1 (named-7 hunts) is parked. Door 2 (new T4 campaign) is idle — do not reuse H1a–H1e.
+
+**Sandbox:** `qga/lib/validation.py` (Table T4 helpers) and the independent attack in `op5`. See Ch. 10 §10.5 and Exercise 10.B.
 
 ### OP6 — Composition of flywheels
 **Home:** Chapter 8  

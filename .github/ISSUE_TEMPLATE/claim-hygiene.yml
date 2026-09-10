@@ -1,0 +1,23 @@
+name: Claim hygiene
+description: A Theorem / Model / Hypothesis / Software fact mix-up, or a map/pin problem
+title: "[claim] "
+labels: []
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Claim label (Theorem / Model / Hypothesis / Software fact)
+        - Source of truth / pin
+        - Onboarding / START_HERE
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Quote the sentence or binary banner that overclaims, or the pin that floats on main.
+    validations:
+      required: true

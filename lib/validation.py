@@ -342,8 +342,8 @@ def open_problems_status_table() -> list[dict[str, str]]:
             "id": "OP5",
             "problem": "350/π first principles or falsification",
             "home": "Ch. 10",
-            "status": "Open — hypothesis layer",
-            "next": "Execute Table T4 pre-registered tests",
+            "status": "Partial result — op5 OP5-T4-2026-09-09; first-principles remainder open",
+            "next": "Do not reuse H1a–H1e; Door 1 parked; Door 2 idle",
         },
         {
             "id": "OP6",

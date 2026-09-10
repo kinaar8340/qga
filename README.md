@@ -1,5 +1,12 @@
 # Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics
 
+Spine: this repo — manuscript + pedagogical Python  
+Shared math: [`flux_hopf_lib`](https://github.com/kinaar8340/flux_hopf_lib) — SoT for Hopf / quaternion / Hurwitz 24  
+Engine: [`qga_engine`](https://github.com/kinaar8340/qga_engine) (scenes, Rust math) · [`qga_gpu`](https://github.com/kinaar8340/qga_gpu) (frame)  
+This repo: the book. Not a GPU runtime and not an empirical attack.
+
+**Start here:** [START_HERE.md](START_HERE.md)
+
 **Title:** *Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics*  
 **Short name:** QGA
 
@@ -47,7 +54,8 @@ qga/
 │   ├── figures/              # static figures
 │   ├── latex/                # PDF production (main.tex + generated chapters)
 │   └── Kingdom_Come_QGA.pdf  # latest build (also book/latex/main.pdf)
-├── lib/                      # pedagogical helpers
+├── START_HERE.md             # 20-minute door
+├── lib/                      # pedagogical-only; not a second SoT; not on PyPI
 ├── scripts/                  # figure generators + md_to_latex + build_latex
 ├── refs/
 └── notes/
@@ -68,7 +76,7 @@ See `book/latex/README.md` for details.
 
 - **Scaffold + TOC + mapping:** done
 - **Manuscript body:** **Complete draft Parts I–V (Ch. 0–10)**
-- **Code/figures:** pedagogical `lib/` + figure generators under `book/figures/`
+- **Code/figures:** pedagogical `lib/` (not a competing package) + figure generators under `book/figures/`
 - **GitHub:** https://github.com/kinaar8340/qga
 
 ## Quick links
@@ -83,3 +91,5 @@ See `book/latex/README.md` for details.
 - This book: https://github.com/kinaar8340/qga
 
 X: [@kinaar8340](https://x.com/kinaar8340)
+
+Geometry libraries are MIT. Several VQC repos are PolyForm Noncommercial plus patent notice US 63/913,110. This repo is MIT.
