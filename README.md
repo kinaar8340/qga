@@ -1,26 +1,38 @@
 # Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics
 
 **Title:** *Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics*  
-**Short name:** QGA  
-**Local root:** `~/Projects/qga/`
+**Short name:** QGA
 
 **Mission.** Lift Hatcher’s visual, diagrammatic number theory from the Farey plane and binary quadratic forms to unit quaternions, the Hopf fibration, and gauged flux lattices—keeping pure geometry and arithmetic defensible, and isolating physical models and observational hypotheses so they never masquerade as theorems.
 
+## How to read claims
+
+| Label | Meaning | Here |
+|-------|---------|------|
+| **Theorem** | Geometry or arithmetic already on this spine | Quaternion orders, Hopf facts, Hatcher lift |
+| **Model** | Dynamics or construction that *uses* the spine | Flux flywheels, gauged-lattice adjacency, flux topographs, \(Z\mapsto\) map, arena mix \(Q = Q_O + \sigma(Z) Q_C\) |
+| **Hypothesis** | Observational claim that can fail | \(350/\pi\) (H1a–H1e); not a theorem |
+| **Software fact** | True of current code or figures | What a helper or portal function returns today |
+
+**Hatcher map.** Parallel reading: [HATCHER_MAP.md](HATCHER_MAP.md) · Hatcher’s *Topology of Numbers* ([PDF](https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf)).
+
+**Spine vs not.** This repo is the manuscript spine. Quaternion orders, Hopf, and the Hatcher lift stay theorems. Flux flywheels, flux topographs, the \(Z\mapsto\) map, \(350/\pi\), and the arena mix are Model or Hypothesis. [arena](https://github.com/kinaar8340/arena) is a labeled Model companion; it is not a second spine.
+
 ## What this is
 
-An original book and research project that **maps** Allen Hatcher’s geometric number theory (*Topology of Numbers*) onto the **quaternionic / Hopf-fibration** framework developed in [Kingdom Come](https://github.com/kinaar8340/kingdom_come).
+An original book and research project that **maps** Allen Hatcher’s geometric number theory (*Topology of Numbers*) onto unit quaternions \(S^3\), the Hopf fibration \(S^3 \to S^2\), and gauged flux lattices.
 
-It is **not** a modified reprint of Hatcher’s PDF. Hatcher is free to read and AMS-published; we honor that by writing a **companion extension**: same visual, diagrammatic spirit, lifted from the Farey plane and binary quadratic forms to unit quaternions \(S^3\), the Hopf fibration \(S^3 \to S^2\), and gauged flux lattices with topologically protected flywheels.
+It is **not** a modified reprint of Hatcher’s PDF. Hatcher is free to read and AMS-published; this is a **companion extension** in the same visual, diagrammatic spirit.
 
 | Source | Role |
 |--------|------|
 | [Hatcher, *Topology of Numbers*](https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf) | Geometric backbone: Farey diagram, continued fractions, topographs, class groups |
-| [Kingdom Come](https://github.com/kinaar8340/kingdom_come) | Quaternion algebra, Hopf maps, flux flywheels, Z→flux mapping, 350/π observations, Gradio viz |
-| Supporting stack | `flux_hopf_lib`, `oam_flux`, `qvpic`, `hfb`, `invariant_hunt`, [`vortex_math`](https://github.com/kinaar8340/vortex_math) (Ch. 9 §9.5 · `lib/vortex_math/`) |
+| [flux_hopf_lib](https://github.com/kinaar8340/flux_hopf_lib) | Shared Hopf / quaternion / conduit primitives |
+| [kingdom_come](https://github.com/kinaar8340/kingdom_come) | Portal and figures for models and observations — not a theorem source |
 
 ## Core thesis (one paragraph)
 
-Hatcher shows that elementary number theory is spatial: mediants, zigzag paths, topographs, and \(SL(2,\mathbb{Z})\) symmetries make integers visible. Kingdom Come shows that unit quaternions and the Hopf fibration make **flux**, **stability**, and **linked periodic structure** visible in the same spirit. This book develops the lift—quaternionic norms and Hurwitz integers as the four-square upgrade of sums of two squares; Hopf fibers as the higher-dimensional analogue of Farey edges; flux topographs as Conway topographs on the gauged lattice; and the Z→flywheel map plus Magic Islands as a physical representation theory. Speculative observational claims (e.g. \(350/\pi\)) are isolated as hypotheses with explicit validation criteria.
+Hatcher shows that elementary number theory is spatial: mediants, zigzag paths, topographs, and \(SL(2,\mathbb{Z})\) symmetries make integers visible. This book develops the lift: quaternionic norms and Hurwitz integers as the four-square upgrade of sums of two squares; Hopf fibers as the higher-dimensional analogue of Farey edges; flux topographs as Conway topographs on a gauged lattice. Flywheels, the \(Z\mapsto\) map, and Magic Islands are labeled **Models**. Speculative observational claims (e.g. \(350/\pi\)) are **Hypotheses** with explicit validation criteria.
 
 ## Project layout
 
@@ -54,20 +66,20 @@ See `book/latex/README.md` for details.
 
 ## Status
 
-- **Scaffold + TOC + mapping:** done  
-- **Manuscript body:** **Complete draft Parts I–V (Ch. 0–10)**  
-- **Code/figures:** pedagogical `lib/` + figure generators under `book/figures/`  
-- **GitHub:** https://github.com/kinaar8340/qga  
+- **Scaffold + TOC + mapping:** done
+- **Manuscript body:** **Complete draft Parts I–V (Ch. 0–10)**
+- **Code/figures:** pedagogical `lib/` + figure generators under `book/figures/`
+- **GitHub:** https://github.com/kinaar8340/qga
 
 ## Quick links
 
 - [Table of Contents](TOC.md)
-- [How to Use the Figures and Code](book/HOW_TO_USE.md)  
-- [Hatcher mapping](HATCHER_MAP.md)  
-- [Synopsis & assessment](SYNOPSIS.md)  
-- Hatcher TN: https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf  
-- Kingdom Come: https://github.com/kinaar8340/kingdom_come  
-- This book: https://github.com/kinaar8340/qga  
+- [How to Use the Figures and Code](book/HOW_TO_USE.md)
+- [Hatcher mapping](HATCHER_MAP.md)
+- [Synopsis & assessment](SYNOPSIS.md)
+- Hatcher TN: https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf
+- Shared primitives: https://github.com/kinaar8340/flux_hopf_lib
+- Portal: https://github.com/kinaar8340/kingdom_come
+- This book: https://github.com/kinaar8340/qga
 
 X: [@kinaar8340](https://x.com/kinaar8340)
-
