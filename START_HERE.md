@@ -51,7 +51,7 @@ make demo          # windowed; Esc prints UploadStats
 make demo-tiny
 ```
 
-Pin `qga_gpu@b9c9994` and `flux_hopf_lib 0.3.0`. There are no `qga_gpu` / `qga_engine` `v0.1.0` tags yet. Do not float `main`.
+Pin `qga_gpu@b9c9994` and `flux_hopf_lib 0.3.1`. There are no `qga_gpu` / `qga_engine` `v0.1.0` tags yet. Do not float `main`.
 
 ## 5. Only then
 

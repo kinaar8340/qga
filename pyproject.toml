@@ -12,14 +12,14 @@ license = { text = "MIT" }
 authors = [{ name = "kinaar8340" }]
 dependencies = [
     "numpy>=1.24",
-    "flux-hopf-lib @ git+https://github.com/kinaar8340/flux_hopf_lib.git@cee75f68dfe5ca8f684f5188614f1423837b0e06",
+    "flux-hopf-lib==0.3.1",
 ]
 
 [project.optional-dependencies]
 # kingdom-come is not on PyPI yet; pin the public git repo. flux-hopf-lib is on PyPI.
 portal = [
     "kingdom-come @ git+https://github.com/kinaar8340/kingdom_come.git@d44166adffef9f967c1859796df5c4faf6b8f655",
-    "flux-hopf-lib>=0.3.0",
+    "flux-hopf-lib==0.3.1",
 ]
 dev = [
     "pytest>=7.0",
