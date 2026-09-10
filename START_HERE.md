@@ -51,7 +51,7 @@ make demo          # windowed; Esc prints UploadStats
 make demo-tiny
 ```
 
-Pin a published tag, not `main`. Compatibility: book draft D / `qga 0.1.0` with `flux_hopf_lib 0.3.0`, `qga_engine 0.1.0`, `qga_gpu 0.1.0`.
+Pin `qga_gpu@b9c9994` and `flux_hopf_lib 0.3.0`. There are no `qga_gpu` / `qga_engine` `v0.1.0` tags yet. Do not float `main`.
 
 ## 5. Only then
 
