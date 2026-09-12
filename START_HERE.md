@@ -59,5 +59,6 @@ Pin `qga_engine@7e7866b`, `qga_gpu@b9c9994`, and `flux_hopf_lib 0.3.1`. There ar
 
 - [`arena`](https://github.com/kinaar8340/arena) — Model `Q = Q_O + σ(Z) Q_C`, not a second spine
 - [`op5`](https://github.com/kinaar8340/op5) — Appendix B empirical attack; campaign `OP5-T4-2026-09-09`
+- Research harness (not this door): [notes/PIPELINES.md](notes/PIPELINES.md). Shares vertices and `hopf_map` with the book. Does **not** share a graph. OP1 stays **Open**.
 
 Geometry libraries are MIT. Several VQC repos are PolyForm Noncommercial plus patent notice US 63/913,110. This repo is MIT.

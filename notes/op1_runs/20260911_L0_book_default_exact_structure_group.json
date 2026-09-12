@@ -1,0 +1,1152 @@
+{
+  "schema": "op1_adjacency_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "flux_hopf_lib": "0.3.1",
+  "hopf_map_0010": [
+    0.0,
+    0.0,
+    -1.0
+  ],
+  "n_hurwitz_units": 24,
+  "set": "L0",
+  "preset": "book_default",
+  "rule": "structure_group",
+  "thresholds": {
+    "same_fiber_base_tol": 0.001,
+    "gauge_section": "min_index",
+    "inter_kind": "spherical_delaunay"
+  },
+  "sample": {
+    "n": 24
+  },
+  "resnap": "exact",
+  "experiment1": {
+    "n_points": 24,
+    "n_along": 24,
+    "n_inter": 12,
+    "along_base_near_0": 1.0,
+    "along_on_true_fiber": 1.0,
+    "along_on_true_fiber_how": "min Euclidean R^4 from q_j to the left-U(1) orbit {e^{i\u03c6} q_i} (same circle as sample_structure_group_fiber / common_phase); along_on_true_fiber iff that distance < 0.001",
+    "along_on_true_fiber_denominator": "n_along=24 from structure_group E_parallel; not constructed consecutive",
+    "along_chart_only": 0.0,
+    "inter_leaks_into_along": 0.0,
+    "mean_d_S_along": 0.0,
+    "mean_sg_circle_dist_along": 0.0,
+    "source": "structure_group_adjacency",
+    "rule": "structure_group",
+    "fiber_census": {
+      "n_points": 24,
+      "n_distinct_bases": 6,
+      "multiplicity_histogram": {
+        "4": 6
+      },
+      "n_occupied_fibers": 6,
+      "phases_per_occupied_fiber": [
+        4
+      ],
+      "n_consecutive_u1_along": 24,
+      "n_rule_along": 24,
+      "n_rule_along_equal_consecutive_u1": 24,
+      "along_equals_consecutive_u1": true,
+      "along_kind": "u1_occupancy_through_lambda0",
+      "note": "24 along-edges are occupancy of left-U(1) through \u039b0 (cycles on occupied fibers), not 24 Farey neighbors. Software fact of Model 2; the 6\u00d74 image is the Theorem.",
+      "not_a_farey_diagram": true,
+      "same_fiber_base_tol": 0.001,
+      "image": {
+        "object": "octahedron_poles",
+        "n_points": 6,
+        "multiplicity_per_fiber": 4,
+        "claim": "Theorem",
+        "note": "Classical Hopf map sends the 24 Hurwitz units (24-cell vertices) to the 6 octahedron poles on S^2, four units per fiber.",
+        "realized_by_this_sample": true
+      },
+      "along_edges_claim": "Software fact",
+      "parked_farey_slice_A": "Unstarted. Natural slice: these 6 octahedron poles, spherical edges of length pi/2; ask which are P1(C) and whether any Delaunay edge is |ad-bc|=1."
+    },
+    "l0_along_are_u1_occupancy_not_farey_neighbors": true,
+    "inter_base_distances": {
+      "n": 12,
+      "min": 1.5707963267948966,
+      "max": 1.5707963267948966,
+      "mean": 1.5707963267948966,
+      "n_exact_zero": 0,
+      "n_below_along_base_tol": 0,
+      "leak_is_exact": false,
+      "values": [
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966,
+        1.5707963267948966
+      ],
+      "pairs": [
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          11
+        ]
+      ]
+    }
+  },
+  "experiment2": [
+    {
+      "unit": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "i",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "i",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-1",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-1",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "1",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "1",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-i",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-i",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "unit_name": "-j",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "unit_name": "-j",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "unit_name": "j",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "unit_name": "j",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "unit_name": "-k",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "unit_name": "-k",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "unit_name": "k",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "unit_name": "k",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_----",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_----",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_---+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_---+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_--+-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_--+-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_--++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_--++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_-+--",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_-+--",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_-+-+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_-+-+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_-++-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_-++-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_-+++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_-+++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_+---",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_+---",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_+--+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_+--+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+-+-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+-+-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_+-++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_+-++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_++--",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_++--",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_++-+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_++-+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+++-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+++-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_++++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "along_to_inter": 0.0,
+      "lost": 1.0,
+      "along_lost": 1.0,
+      "inter_lost": 0.5833333333333334,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_++++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "along_to_inter": 0.0,
+      "lost": 0.0,
+      "along_lost": 0.0,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 24,
+      "n_inter": 12,
+      "rule": "structure_group"
+    }
+  ]
+}

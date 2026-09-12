@@ -1,0 +1,1560 @@
+{
+  "schema": "op1_adjacency_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "flux_hopf_lib": "0.3.1",
+  "hopf_map_0010": [
+    0.0,
+    0.0,
+    -1.0
+  ],
+  "n_hurwitz_units": 24,
+  "set": "L0",
+  "preset": "book_default",
+  "rule": "candidate",
+  "thresholds": {
+    "base_angle_thresh": 0.45,
+    "fiber_phase_bins": 8,
+    "same_fiber_eta_tol": 0.08,
+    "same_fiber_xi1_tol": 0.08
+  },
+  "sample": {
+    "n": 24
+  },
+  "resnap": "exact",
+  "experiment1": {
+    "n_points": 24,
+    "n_along": 0,
+    "n_inter": 36,
+    "along_base_near_0": null,
+    "along_on_true_fiber": null,
+    "along_on_true_fiber_how": "min Euclidean R^4 from q_j to the left-U(1) orbit {e^{i\u03c6} q_i} (same circle as sample_structure_group_fiber / common_phase); along_on_true_fiber iff that distance < 0.001",
+    "along_on_true_fiber_denominator": "n_along=0 from candidate E_parallel; not constructed consecutive",
+    "along_chart_only": null,
+    "inter_leaks_into_along": 1.0,
+    "mean_d_S_along": null,
+    "mean_sg_circle_dist_along": null,
+    "source": "candidate_adjacency",
+    "rule": "candidate",
+    "fiber_census": {
+      "n_points": 24,
+      "n_distinct_bases": 6,
+      "multiplicity_histogram": {
+        "4": 6
+      },
+      "n_occupied_fibers": 6,
+      "phases_per_occupied_fiber": [
+        4
+      ],
+      "n_consecutive_u1_along": 24,
+      "n_rule_along": 0,
+      "n_rule_along_equal_consecutive_u1": 0,
+      "along_equals_consecutive_u1": false,
+      "along_kind": "no_along_edges",
+      "note": "No along-edges. On \u039b0 at book_default this is chart sparsity (not a Farey graph). Use U(1) occupancy, not a looser \u03b7-tol.",
+      "not_a_farey_diagram": true,
+      "same_fiber_base_tol": 0.001,
+      "image": {
+        "object": "octahedron_poles",
+        "n_points": 6,
+        "multiplicity_per_fiber": 4,
+        "claim": "Theorem",
+        "note": "Classical Hopf map sends the 24 Hurwitz units (24-cell vertices) to the 6 octahedron poles on S^2, four units per fiber.",
+        "realized_by_this_sample": true
+      },
+      "along_edges_claim": "Software fact",
+      "parked_farey_slice_A": "Unstarted. Natural slice: these 6 octahedron poles, spherical edges of length pi/2; ask which are P1(C) and whether any Delaunay edge is |ad-bc|=1."
+    },
+    "inter_base_distances": {
+      "n": 36,
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "n_exact_zero": 36,
+      "n_below_along_base_tol": 36,
+      "leak_is_exact": true,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          8,
+          18
+        ],
+        [
+          8,
+          23
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          9,
+          16
+        ],
+        [
+          9,
+          22
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          11,
+          14
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          12,
+          19
+        ],
+        [
+          12,
+          21
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          14,
+          17
+        ],
+        [
+          14,
+          20
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          22
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          18,
+          23
+        ],
+        [
+          19,
+          21
+        ]
+      ]
+    }
+  },
+  "experiment2": [
+    {
+      "unit": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "i",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "i",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-1",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-1",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "1",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "1",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-i",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-i",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "unit_name": "-j",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "unit_name": "-j",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "unit_name": "j",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "unit_name": "j",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "unit_name": "-k",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "unit_name": "-k",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "unit_name": "k",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "unit_name": "k",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_----",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_----",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_---+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_---+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_--+-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_--+-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_--++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_--++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_-+--",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_-+--",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_-+-+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_-+-+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_-++-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_-++-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_-+++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_-+++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_+---",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_+---",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_+--+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_+--+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+-+-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+-+-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_+-++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_+-++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_++--",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_++--",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_++-+",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_++-+",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+++-",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+++-",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_++++",
+      "side": "L",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 0.3333333333333333,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.6666666666666666,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 0.3333333333333333,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_++++",
+      "side": "R",
+      "resnap": "exact",
+      "along_kept": null,
+      "inter_kept": 1.0,
+      "along_to_inter": null,
+      "lost": null,
+      "along_lost": null,
+      "inter_lost": 0.0,
+      "inter_to_along": 0.0,
+      "n_along": 0,
+      "n_inter": 36,
+      "rule": "candidate",
+      "lib_score": {
+        "along_preserved": 1.0,
+        "inter_preserved": 1.0,
+        "n_along": 0.0,
+        "n_inter": 36.0
+      }
+    }
+  ]
+}

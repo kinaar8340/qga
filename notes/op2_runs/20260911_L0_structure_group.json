@@ -1,0 +1,297 @@
+{
+  "schema": "op2_topograph_v1",
+  "claim": "Software fact",
+  "op2_status": "Open",
+  "op1_status": "Open",
+  "set": "L0",
+  "rule": "structure_group",
+  "adjacency": "structure_group",
+  "skeleton": "Model 2 \u2014 not a theorem of Ch. 5",
+  "n_points": 24,
+  "n_along": 24,
+  "n_inter": 12,
+  "attached_op1": "notes/op1_runs/20260911_L0_book_default_exact_structure_group.json",
+  "fiber_census": {
+    "n_points": 24,
+    "n_distinct_bases": 6,
+    "multiplicity_histogram": {
+      "4": 6
+    },
+    "n_occupied_fibers": 6,
+    "phases_per_occupied_fiber": [
+      4
+    ],
+    "n_consecutive_u1_along": 24,
+    "n_rule_along": 24,
+    "n_rule_along_equal_consecutive_u1": 24,
+    "along_equals_consecutive_u1": true,
+    "along_kind": "u1_occupancy_through_lambda0",
+    "note": "24 along-edges are occupancy of left-U(1) through \u039b0 (cycles on occupied fibers), not 24 Farey neighbors. Software fact of Model 2; the 6\u00d74 image is the Theorem.",
+    "not_a_farey_diagram": true,
+    "same_fiber_base_tol": 0.001,
+    "image": {
+      "object": "octahedron_poles",
+      "n_points": 6,
+      "multiplicity_per_fiber": 4,
+      "claim": "Theorem",
+      "note": "Classical Hopf map sends the 24 Hurwitz units (24-cell vertices) to the 6 octahedron poles on S^2, four units per fiber.",
+      "realized_by_this_sample": true
+    },
+    "along_edges_claim": "Software fact",
+    "parked_farey_slice_A": "Unstarted. Natural slice: these 6 octahedron poles, spherical edges of length pi/2; ask which are P1(C) and whether any Delaunay edge is |ad-bc|=1."
+  },
+  "support": {
+    "phi": "fiber_cycle_flux: +1 on each oriented U(1) occupancy cycle",
+    "kirchhoff": {
+      "max_abs_residual": 0.0,
+      "n_vertices_nonzero": 0,
+      "kirchhoff": true,
+      "n_oriented_keys": 48,
+      "support_subset_of_skeleton": true,
+      "n_keys_outside_skeleton": 0
+    }
+  },
+  "functionals": {
+    "hopf_height": {
+      "separators": {
+        "n_components": 0,
+        "n_separator_edges": 0,
+        "component_sizes": []
+      },
+      "equivariance": {
+        "left_i": {
+          "n_sep_edges_before": 0.0,
+          "n_sep_edges_after": 0.0,
+          "n_components_before": 0.0,
+          "n_components_after": 0.0,
+          "edge_count_ratio": null
+        },
+        "left_j": {
+          "n_sep_edges_before": 0.0,
+          "n_sep_edges_after": 0.0,
+          "n_components_before": 0.0,
+          "n_components_after": 0.0,
+          "edge_count_ratio": null
+        },
+        "note": "Not averaged. Same split as OP1 along_kept."
+      },
+      "periodicity": {
+        "left_i": {
+          "status": "undefined_or_vacuous",
+          "reason": "empty strict-sign cut; no river to periodize",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "changed": false,
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "not_farey_period": true
+        },
+        "left_j": {
+          "status": "undefined_or_vacuous",
+          "reason": "empty strict-sign cut; no river to periodize",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "changed": false,
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "not_farey_period": true
+        },
+        "note": "Empty cut \u2192 undefined_or_vacuous (no invented crossings). Lang height is Delaunay periodicity, not |ad-bc|=1. Not averaged over i/j."
+      },
+      "pole_level_sets": [
+        {
+          "base": [
+            0.0,
+            -0.0,
+            1.0
+          ],
+          "multiplicity": 4,
+          "value": 1.0,
+          "value_min_on_fiber": 1.0,
+          "value_max_on_fiber": 1.0
+        },
+        {
+          "base": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "multiplicity": 4,
+          "value": -1.0,
+          "value_min_on_fiber": -1.0,
+          "value_max_on_fiber": -1.0
+        },
+        {
+          "base": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        }
+      ],
+      "do_not_count_zero_as_crossing": true
+    },
+    "hopf_y1": {
+      "separators": {
+        "n_components": 0,
+        "n_separator_edges": 0,
+        "component_sizes": []
+      },
+      "equivariance": {
+        "left_i": {
+          "n_sep_edges_before": 0.0,
+          "n_sep_edges_after": 0.0,
+          "n_components_before": 0.0,
+          "n_components_after": 0.0,
+          "edge_count_ratio": null
+        },
+        "left_j": {
+          "n_sep_edges_before": 0.0,
+          "n_sep_edges_after": 0.0,
+          "n_components_before": 0.0,
+          "n_components_after": 0.0,
+          "edge_count_ratio": null
+        },
+        "note": "Not averaged. Same split as OP1 along_kept."
+      },
+      "periodicity": {
+        "left_i": {
+          "status": "undefined_or_vacuous",
+          "reason": "empty strict-sign cut; no river to periodize",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "changed": false,
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "not_farey_period": true
+        },
+        "left_j": {
+          "status": "undefined_or_vacuous",
+          "reason": "empty strict-sign cut; no river to periodize",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "changed": false,
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "not_farey_period": true
+        },
+        "note": "Empty cut \u2192 undefined_or_vacuous (no invented crossings). Lang height is Delaunay periodicity, not |ad-bc|=1. Not averaged over i/j."
+      },
+      "pole_level_sets": [
+        {
+          "base": [
+            0.0,
+            -0.0,
+            1.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 1.0,
+          "value_min_on_fiber": 1.0,
+          "value_max_on_fiber": 1.0
+        },
+        {
+          "base": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": 0.0,
+          "value_min_on_fiber": 0.0,
+          "value_max_on_fiber": 0.0
+        },
+        {
+          "base": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "multiplicity": 4,
+          "value": -1.0,
+          "value_min_on_fiber": -1.0,
+          "value_max_on_fiber": -1.0
+        }
+      ],
+      "do_not_count_zero_as_crossing": true
+    }
+  },
+  "do_not_mix_with_candidate": true,
+  "do_not_promote": [
+    "flux_hopf_lib",
+    "qga_engine"
+  ]
+}

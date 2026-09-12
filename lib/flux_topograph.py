@@ -18,9 +18,13 @@ from .hopf_lattice import (
     HURWITZ_UNITS,
     apply_gauge_sequence,
     chordal_distance_s3,
+    discrete_flux_cycle,
+    hopf_fiber_clusters,
     hopf_project_points,
     phase_unit,
     q_normalize,
+    structure_group_adjacency,
+    structure_group_phase,
 )
 
 Array = np.ndarray
@@ -71,48 +75,142 @@ def build_flux_topograph(
     edges: list[tuple[int, int]] | None = None,
     *,
     functional: FunctionalName | Callable[[Array], Array] = "norm",
+    adjacency: str | None = None,
+    op1_row: dict | None = None,
 ) -> FluxTopograph:
     """Build a flux topograph on lattice points.
+
+    OP2 analysis: ``adjacency="structure_group"`` only. Do not pass
+    ``adjacency="candidate"``. Book figures may still pass explicit edges
+    from the frozen candidate without this flag.
 
     Parameters
     ----------
     points :
         Array (N, 4) of unit quaternions / S³ samples.
     edges :
-        Optional undirected edges for separator graph walk.
+        Optional undirected edges. Incompatible with ``adjacency=``.
     functional :
         Named functional or callable ``points -> values``.
+    adjacency :
+        ``"structure_group"`` (Model 2) or None (explicit ``edges``).
+    op1_row :
+        Optional attached OP1 JSON (census / rule). Stored in ``meta``.
     """
     points = np.asarray(points, dtype=float)
+    if adjacency == "candidate":
+        raise ValueError(
+            "OP2 analysis cannot use candidate_adjacency (ξ2-circle on Lang). "
+            "Use adjacency='structure_group' and attach that sample's OP1 JSON."
+        )
+    if adjacency is not None and adjacency != "structure_group":
+        raise ValueError(f"unknown adjacency {adjacency!r}")
+    if adjacency == "structure_group" and edges is not None:
+        raise ValueError(
+            "Do not mix Model 2 along-edges with an explicit edge list "
+            "(including candidate inter-edges). Pass adjacency='structure_group' "
+            "XOR edges=..."
+        )
+    along: list[tuple[int, int]] = []
+    inter: list[tuple[int, int]] = []
+    if adjacency == "structure_group":
+        along, inter = structure_group_adjacency(points)
+        edges = along + inter
     if callable(functional) and not isinstance(functional, str):
         values = np.asarray(functional(points), dtype=float)
         fname = getattr(functional, "__name__", "custom")
     else:
         values = _functional_values(points, functional)  # type: ignore[arg-type]
         fname = str(functional)
+    meta: dict = {"n": len(points), "adjacency": adjacency or "explicit_edges"}
+    if along or inter:
+        meta["n_along"] = len(along)
+        meta["n_inter"] = len(inter)
+        meta["along"] = along
+        meta["inter"] = inter
+    if op1_row is not None:
+        meta["op1_row"] = {
+            "schema": op1_row.get("schema"),
+            "set": op1_row.get("set"),
+            "rule": op1_row.get("rule"),
+            "op1_status": op1_row.get("op1_status"),
+            "fiber_census": (op1_row.get("experiment1") or {}).get("fiber_census"),
+        }
     return FluxTopograph(
         points=points,
         values=values,
         edges=list(edges or []),
         functional=fname,
-        meta={"n": len(points)},
+        meta=meta,
     )
+
+
+def kirchhoff_report(
+    flux: dict[tuple[int, int], int],
+    n_vertices: int,
+    *,
+    support: list[tuple[int, int]] | None = None,
+) -> dict:
+    """Outgoing-sum residual of an oriented integer flux. Kirchhoff ⇔ max |r|=0."""
+    outg = np.zeros(n_vertices, dtype=float)
+    for (a, b), val in flux.items():
+        if a < 0 or a >= n_vertices:
+            continue
+        outg[a] += float(val)
+    max_abs = float(np.max(np.abs(outg))) if n_vertices else 0.0
+    support_ok = True
+    extra = 0
+    if support is not None:
+        allowed = set()
+        for i, j in support:
+            allowed.add((i, j))
+            allowed.add((j, i))
+        extra = sum(1 for e in flux if e not in allowed)
+        support_ok = extra == 0
+    return {
+        "max_abs_residual": max_abs,
+        "n_vertices_nonzero": int(np.sum(np.abs(outg) > 1e-12)),
+        "kirchhoff": bool(max_abs < 1e-12),
+        "n_oriented_keys": len(flux),
+        "support_subset_of_skeleton": support_ok,
+        "n_keys_outside_skeleton": extra,
+    }
+
+
+def fiber_cycle_flux(points: Array) -> dict[tuple[int, int], int]:
+    """Kirchhoff Φ: +1 around each occupied left-U(1) fiber (oriented cycle)."""
+    points = np.asarray(points, dtype=float)
+    clusters = hopf_fiber_clusters(points)
+    flux: dict[tuple[int, int], int] = {}
+    for members in clusters:
+        if len(members) < 2:
+            continue
+        ref = members[0]
+        ordered = sorted(
+            members, key=lambda k: structure_group_phase(points[ref], points[k])
+        )
+        walk = list(zip(ordered, ordered[1:] + ordered[:1]))
+        flux.update(discrete_flux_cycle(walk, value=1))
+    return flux
 
 
 def detect_separators(
     topo: FluxTopograph,
     *,
     threshold: float | None = None,
-    mode: Literal["sign", "level"] = "sign",
+    mode: Literal["sign", "strict_sign", "level"] = "sign",
 ) -> list[list[tuple[int, int]]]:
     """Detect separator edge components where the functional crosses a threshold.
 
     Returns a list of connected components; each component is a list of edges
     (i, j) with i < j.
+
+    ``strict_sign`` is (v_i-thr)(v_j-thr)<0 only — zeros are not separators.
+    OP2 harness uses that. Book labs keep ``sign`` (zeros count).
     """
     values = topo.values
     if threshold is None:
-        threshold = 0.0 if mode == "sign" else float(np.median(values))
+        threshold = 0.0 if mode in ("sign", "strict_sign") else float(np.median(values))
 
     # edges to scan
     if topo.edges:
@@ -130,7 +228,10 @@ def detect_separators(
     sep_edges: list[tuple[int, int]] = []
     for i, j in candidates:
         vi, vj = values[i], values[j]
-        if mode == "sign":
+        if mode == "strict_sign":
+            if (vi - threshold) * (vj - threshold) < 0:
+                sep_edges.append((i, j))
+        elif mode == "sign":
             if vi == 0 or vj == 0:
                 sep_edges.append((i, j))
             elif (vi - threshold) * (vj - threshold) < 0:
@@ -212,11 +313,14 @@ def apply_gauge_to_topograph(
         "phase",
         "index_wave",
     ):
-        return build_flux_topograph(
+        rebuilt = build_flux_topograph(
             new_pts,
             edges=topo.edges,
             functional=topo.functional,  # type: ignore[arg-type]
         )
+        rebuilt.meta = dict(topo.meta)
+        rebuilt.meta["gauged"] = True
+        return rebuilt
     return FluxTopograph(
         points=new_pts,
         values=topo.values.copy(),
@@ -247,17 +351,86 @@ def _point_cloud_distance(a: Array, b: Array) -> float:
     return float(np.mean(np.linalg.norm(a_s - b_s, axis=1)))
 
 
+def pole_level_sets(
+    points: Array,
+    functional: FunctionalName,
+    *,
+    same_fiber_base_tol: float = 1e-3,
+) -> list[dict]:
+    """One row per Hopf-base cluster: functional value on that fiber.
+
+    On Λ0 these are the six octahedron poles. Values 0 are level sets, not
+    sign-crossings — do not count them as separators.
+    """
+    points = np.asarray(points, dtype=float)
+    clusters = hopf_fiber_clusters(points, same_fiber_base_tol=same_fiber_base_tol)
+    base = hopf_project_points(points)
+    values = _functional_values(points, functional)
+    rows: list[dict] = []
+    for members in clusters:
+        i = members[0]
+        v_on = values[np.asarray(members, dtype=int)]
+        rows.append(
+            {
+                "base": [float(x) for x in base[i]],
+                "multiplicity": int(len(members)),
+                "value": float(values[i]),
+                "value_min_on_fiber": float(np.min(v_on)),
+                "value_max_on_fiber": float(np.max(v_on)),
+            }
+        )
+    return rows
+
+
 def periodicity_score(
     topo: FluxTopograph,
     sequence: list[tuple[str, Array]],
     *,
     max_periods: int = 8,
     tol: float = 1e-3,
-) -> dict[str, float]:
-    """Score how nearly a gauge sequence returns the topograph.
+    cut: Literal["strict_sign", "sign"] | None = None,
+    cut_kind: str | None = None,
+) -> dict:
+    """Score gauge return, or (OP2) separator-cut periodicity.
 
-    Uses sorted point-cloud distance (fast) plus value multiset L2 distance.
+    Default (``cut is None``): book lab — point-cloud / value-multiset return.
+    ``cut="strict_sign"``: if the strict-sign separator set is empty, return
+    ``status="undefined_or_vacuous"`` and do **not** invent crossings. If
+    nonempty, report component counts before/after one application of
+    ``sequence``. That number is Delaunay / cut periodicity, not Farey.
     """
+    if cut is not None:
+        seps0 = detect_separators(topo, mode=cut)
+        n0 = len(seps0)
+        e0 = sum(len(c) for c in seps0)
+        kind = cut_kind or "separator_component_count"
+        if n0 == 0:
+            return {
+                "status": "undefined_or_vacuous",
+                "reason": "empty strict-sign cut; no river to periodize",
+                "n_components_before": 0,
+                "n_components_after": None,
+                "n_separator_edges_before": 0,
+                "n_separator_edges_after": None,
+                "changed": False,
+                "kind": kind,
+                "not_farey_period": True,
+            }
+        topo1 = apply_gauge_to_topograph(topo, sequence, recompute_functional=True)
+        seps1 = detect_separators(topo1, mode=cut)
+        n1 = len(seps1)
+        e1 = sum(len(c) for c in seps1)
+        return {
+            "status": "finite",
+            "n_components_before": n0,
+            "n_components_after": n1,
+            "n_separator_edges_before": e0,
+            "n_separator_edges_after": e1,
+            "changed": bool(n0 != n1 or e0 != e1),
+            "kind": kind,
+            "not_farey_period": True,
+        }
+
     cur = topo
     best_pt = float("inf")
     best_val = float("inf")
@@ -286,11 +459,12 @@ def separator_equivariance_score(
     sequence: list[tuple[str, Array]],
     *,
     threshold: float | None = None,
+    mode: Literal["sign", "strict_sign", "level"] = "sign",
 ) -> dict[str, float]:
     """Compare separator edge counts before/after gauge (OP2 diagnostic)."""
-    seps0 = detect_separators(topo, threshold=threshold)
+    seps0 = detect_separators(topo, threshold=threshold, mode=mode)
     topo1 = apply_gauge_to_topograph(topo, sequence, recompute_functional=True)
-    seps1 = detect_separators(topo1, threshold=threshold)
+    seps1 = detect_separators(topo1, threshold=threshold, mode=mode)
     n0 = sum(len(c) for c in seps0)
     n1 = sum(len(c) for c in seps1)
     return {
@@ -298,7 +472,7 @@ def separator_equivariance_score(
         "n_sep_edges_after": float(n1),
         "n_components_before": float(len(seps0)),
         "n_components_after": float(len(seps1)),
-        "edge_count_ratio": float(n1 / n0) if n0 else float("nan"),
+        "edge_count_ratio": (float(n1 / n0) if n0 else None),
     }
 
 

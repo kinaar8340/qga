@@ -1,0 +1,33 @@
+# OP1 candidate_adjacency presets. Thresholds and sample sizes only.
+# Not a canonical Farey rule. Software fact of the harness, not a theorem.
+
+book_default:
+  # Shipped signature of lib.hopf_lattice.candidate_adjacency / sample_angle_lattice.
+  base_angle_thresh: 0.45
+  fiber_phase_bins: 8
+  same_fiber_eta_tol: 0.08
+  same_fiber_xi1_tol: 0.08
+  n_eta: 4
+  n_xi1: 8
+  n_xi2: 8
+  eta_range: [0.2, 1.2]
+  lsg_n_points: 16
+  # Distinct Hopf images. Do not seed 1 and i together: left U(1) takes 1 to i
+  # (same fiber over the north pole). Same for j and k (south pole).
+  lsg_seeds:
+    - [1.0, 0.0, 0.0, 0.0]      # 1  → h = (0, 0, 1)
+    - [0.0, 0.0, 1.0, 0.0]      # j  → h = (0, 0, -1)
+    - [0.5, 0.5, 0.5, 0.5]      # (1+i+j+k)/2 → h = (1, 0, 0)
+    - [0.5, 0.5, 0.5, -0.5]     # (1+i+j-k)/2 → h = (0, -1, 0)
+  sg_curve_n_points: 64
+  along_base_tol: 1.0e-3
+  along_fiber_tol_l0_lsg: 1.0e-3
+  along_fiber_tol_lang: 1.0e-2
+  # Sibling Model (structure_group_adjacency). Not chart tols; do not retune candidate.
+  sg_same_fiber_base_tol: 1.0e-3
+  sg_gauge_section: min_index
+  sg_inter_kind: spherical_delaunay
+
+sweep:
+  base_angle_thresh: [0.20, 0.30, 0.45, 0.60, 0.80, 1.05]
+  same_fiber_eta_tol: [0.02, 0.04, 0.08, 0.12, 0.20, 0.40]

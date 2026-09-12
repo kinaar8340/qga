@@ -1,0 +1,178 @@
+{
+  "schema": "op2_topograph_v1",
+  "claim": "Software fact",
+  "op2_status": "Open",
+  "op1_status": "Open",
+  "set": "Lang",
+  "rule": "structure_group",
+  "adjacency": "structure_group",
+  "skeleton": "Model 2 \u2014 not a theorem of Ch. 5",
+  "n_points": 256,
+  "n_along": 256,
+  "n_inter": 90,
+  "attached_op1": "notes/op1_runs/20260911_Lang_book_default_none_structure_group.json",
+  "fiber_census": {
+    "n_points": 256,
+    "n_distinct_bases": 32,
+    "multiplicity_histogram": {
+      "8": 32
+    },
+    "n_occupied_fibers": 32,
+    "phases_per_occupied_fiber": [
+      8
+    ],
+    "n_consecutive_u1_along": 256,
+    "n_rule_along": 256,
+    "n_rule_along_equal_consecutive_u1": 256,
+    "along_equals_consecutive_u1": true,
+    "along_kind": "consecutive_u1_steps_on_product_sample",
+    "note": "8 phases \u00d7 32 bases: discrete fiber bundle with a Delaunay base. Not a Farey diagram and not occupancy-necklace 256.",
+    "not_a_farey_diagram": true,
+    "same_fiber_base_tol": 0.001,
+    "image": {
+      "object": "angle_product_sample",
+      "n_points": 32,
+      "claim": "Software fact",
+      "note": "Product sample, not a theorem of the 24-cell. Same integer 256 as the occupancy necklace, different graph."
+    },
+    "along_edges_claim": "Software fact"
+  },
+  "support": {
+    "phi": "fiber_cycle_flux: +1 on each oriented U(1) occupancy cycle",
+    "kirchhoff": {
+      "max_abs_residual": 0.0,
+      "n_vertices_nonzero": 0,
+      "kirchhoff": true,
+      "n_oriented_keys": 512,
+      "support_subset_of_skeleton": true,
+      "n_keys_outside_skeleton": 0
+    }
+  },
+  "functionals": {
+    "hopf_height": {
+      "separators": {
+        "n_components": 1,
+        "n_separator_edges": 16,
+        "component_sizes": [
+          16
+        ]
+      },
+      "equivariance": {
+        "left_i": {
+          "n_sep_edges_before": 16.0,
+          "n_sep_edges_after": 16.0,
+          "n_components_before": 1.0,
+          "n_components_after": 1.0,
+          "edge_count_ratio": 1.0
+        },
+        "left_j": {
+          "n_sep_edges_before": 16.0,
+          "n_sep_edges_after": 16.0,
+          "n_components_before": 1.0,
+          "n_components_after": 1.0,
+          "edge_count_ratio": 1.0
+        },
+        "note": "Not averaged. Same split as OP1 along_kept."
+      },
+      "periodicity": {
+        "left_i": {
+          "status": "finite",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "changed": false,
+          "kind": "delaunay_periodicity",
+          "not_farey_period": true
+        },
+        "left_j": {
+          "status": "finite",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "changed": false,
+          "kind": "delaunay_periodicity",
+          "not_farey_period": true
+        },
+        "note": "Empty cut \u2192 undefined_or_vacuous (no invented crossings). Lang height is Delaunay periodicity, not |ad-bc|=1. Not averaged over i/j."
+      }
+    },
+    "hopf_y1": {
+      "separators": {
+        "n_components": 8,
+        "n_separator_edges": 37,
+        "component_sizes": [
+          28,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "equivariance": {
+        "left_i": {
+          "n_sep_edges_before": 37.0,
+          "n_sep_edges_after": 37.0,
+          "n_components_before": 8.0,
+          "n_components_after": 9.0,
+          "edge_count_ratio": 1.0
+        },
+        "left_j": {
+          "n_sep_edges_before": 37.0,
+          "n_sep_edges_after": 38.0,
+          "n_components_before": 8.0,
+          "n_components_after": 9.0,
+          "edge_count_ratio": 1.027027027027027
+        },
+        "note": "Not averaged. Same split as OP1 along_kept."
+      },
+      "periodicity": {
+        "left_i": {
+          "status": "finite",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 37,
+          "changed": true,
+          "kind": "delaunay_periodicity",
+          "not_farey_period": true
+        },
+        "left_j": {
+          "status": "finite",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 38,
+          "changed": true,
+          "kind": "delaunay_periodicity",
+          "not_farey_period": true
+        },
+        "note": "Empty cut \u2192 undefined_or_vacuous (no invented crossings). Lang height is Delaunay periodicity, not |ad-bc|=1. Not averaged over i/j."
+      },
+      "op1_inter_kept": {
+        "left_i": {
+          "along_kept": 1.0,
+          "inter_kept": 0.9444444444444444,
+          "n_along": 256,
+          "n_inter": 90
+        },
+        "left_j": {
+          "along_kept": 1.0,
+          "inter_kept": 0.8111111111111111,
+          "n_along": 256,
+          "n_inter": 90
+        },
+        "note": "8\u21929 component move is OP1 inter_kept<1 visible in OP2. Do not smooth it."
+      }
+    }
+  },
+  "do_not_mix_with_candidate": true,
+  "do_not_promote": [
+    "flux_hopf_lib",
+    "qga_engine"
+  ]
+}

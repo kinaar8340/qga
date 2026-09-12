@@ -1,0 +1,320 @@
+{
+  "schema": "op1_farey_slice_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "slice": "A",
+  "slice_status": "Partial result (slice A only): Z[i] neighbors on h(\u039b0). Classical Q Farey still open.",
+  "claims": {
+    "embedding_chart": "Theorem",
+    "embedding_dump": "Software fact",
+    "overlap_counts": "Software fact",
+    "not": "not Q\u222a{\u221e}\u21aaS\u00b2; not a bump of OP1"
+  },
+  "set": "L0",
+  "rule": "structure_group",
+  "graph": "notes/op1_runs/20260911_L0_book_default_exact_structure_group_graph.json",
+  "embedding": {
+    "name": "stereographic_from_north",
+    "formula": "z = (y1 + i y2) / (1 - y3)",
+    "north_pole_s2": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "image": {
+      "(0,0,1)": "inf",
+      "(0,0,-1)": "0",
+      "(1,0,0)": "1",
+      "(-1,0,0)": "-1",
+      "(0,1,0)": "i",
+      "(0,-1,0)": "-i"
+    },
+    "p1_set": [
+      "0",
+      "inf",
+      "1",
+      "-1",
+      "i",
+      "-i"
+    ],
+    "chart_claim": "Theorem",
+    "dump_claim": "Software fact",
+    "note": "Named slice on h(\u039b0), the 6 octahedron poles as {0, inf, \u00b11, \u00b1i} \u2282 P\u00b9(C). Chart is a Theorem; this dump is a Software fact. Not Q\u222a{\u221e}\u21aaS\u00b2 (veto 1 still holds for classical Farey over Q)."
+  },
+  "homogeneous": {
+    "0": {
+      "z": [
+        0.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        0.0
+      ]
+    },
+    "inf": {
+      "z": [
+        1.0,
+        0.0
+      ],
+      "w": [
+        0.0,
+        0.0
+      ]
+    },
+    "1": {
+      "z": [
+        1.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        0.0
+      ]
+    },
+    "-1": {
+      "z": [
+        -1.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        0.0
+      ]
+    },
+    "i": {
+      "z": [
+        0.0,
+        1.0
+      ],
+      "w": [
+        1.0,
+        0.0
+      ]
+    },
+    "-i": {
+      "z": [
+        0.0,
+        -1.0
+      ],
+      "w": [
+        1.0,
+        0.0
+      ]
+    }
+  },
+  "farey_condition": "|ad-bc|=1 over Z[i] (det is a unit \u00b11, \u00b1i)",
+  "n_model2_inter": 12,
+  "n_farey_on_set": 9,
+  "n_overlap": 8,
+  "n_miss": 4,
+  "model2_inter_labels": [
+    [
+      "inf",
+      "1"
+    ],
+    [
+      "inf",
+      "-i"
+    ],
+    [
+      "inf",
+      "i"
+    ],
+    [
+      "inf",
+      "-1"
+    ],
+    [
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "-i"
+    ],
+    [
+      "0",
+      "i"
+    ],
+    [
+      "0",
+      "-1"
+    ],
+    [
+      "1",
+      "-i"
+    ],
+    [
+      "1",
+      "i"
+    ],
+    [
+      "-1",
+      "-i"
+    ],
+    [
+      "-1",
+      "i"
+    ]
+  ],
+  "farey_pairs": [
+    [
+      "0",
+      "inf"
+    ],
+    [
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "-1"
+    ],
+    [
+      "0",
+      "i"
+    ],
+    [
+      "0",
+      "-i"
+    ],
+    [
+      "inf",
+      "1"
+    ],
+    [
+      "inf",
+      "-1"
+    ],
+    [
+      "inf",
+      "i"
+    ],
+    [
+      "inf",
+      "-i"
+    ]
+  ],
+  "overlap": [
+    [
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "-1"
+    ],
+    [
+      "0",
+      "i"
+    ],
+    [
+      "0",
+      "-i"
+    ],
+    [
+      "inf",
+      "1"
+    ],
+    [
+      "inf",
+      "-1"
+    ],
+    [
+      "inf",
+      "i"
+    ],
+    [
+      "inf",
+      "-i"
+    ]
+  ],
+  "miss": [
+    [
+      "1",
+      "i"
+    ],
+    [
+      "1",
+      "-i"
+    ],
+    [
+      "-1",
+      "i"
+    ],
+    [
+      "-1",
+      "-i"
+    ]
+  ],
+  "farey_not_in_model2": [
+    [
+      "0",
+      "inf"
+    ]
+  ],
+  "determinants": {
+    "0--inf": [
+      -1.0,
+      0.0
+    ],
+    "0--1": [
+      -1.0,
+      0.0
+    ],
+    "0---1": [
+      1.0,
+      0.0
+    ],
+    "0--i": [
+      0.0,
+      -1.0
+    ],
+    "0---i": [
+      0.0,
+      1.0
+    ],
+    "inf--1": [
+      1.0,
+      0.0
+    ],
+    "inf---1": [
+      1.0,
+      0.0
+    ],
+    "inf--i": [
+      1.0,
+      0.0
+    ],
+    "inf---i": [
+      1.0,
+      0.0
+    ],
+    "1---1": [
+      2.0,
+      0.0
+    ],
+    "1--i": [
+      1.0,
+      -1.0
+    ],
+    "1---i": [
+      1.0,
+      1.0
+    ],
+    "-1--i": [
+      -1.0,
+      -1.0
+    ],
+    "-1---i": [
+      -1.0,
+      1.0
+    ],
+    "i---i": [
+      0.0,
+      2.0
+    ]
+  },
+  "statement": "slice A on L0: 8/12 Gaussian-Farey overlap; equatorial square missed; antipode extra; not Q. 8 of 12 Model 2 inter-edges are Z[i] neighbors (|ad-bc|=1, units \u00b11, \u00b1i) under stereographic-from-north (polar stars 0\u2013equator and inf\u2013equator). The 4 misses are the equatorial square {\u00b11, \u00b1i} (dets 1\u00b1i, \u22121\u00b1i, norm 2). Farey-not-Model-2 is only {0, inf} (det \u22121, d_S=\u03c0). Model 2 on h(\u039b0) is the octahedron 1-skeleton, not the Gaussian Farey graph on the same six points. They share the two polar stars and differ on the equator and the axis. This is P\u00b9(C) with Z[i], not Hatcher's Q\u222a{\u221e}. OP1 stays Open."
+}

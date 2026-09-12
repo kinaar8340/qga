@@ -147,6 +147,20 @@ from flux_hopf_lib.quaternion.hurwitz import HURWITZ_UNITS as HURWITZ_UNITS
 
 assert len(HURWITZ_UNITS) == 24, len(HURWITZ_UNITS)
 
+# Theorem: the classical Hopf map sends the 24 Hurwitz units (vertices of the
+# 24-cell) to the 6 octahedron poles on S², four units per fiber.
+OCTAHEDRON_POLES_S2: Array = np.array(
+    [
+        [1.0, 0.0, 0.0],
+        [-1.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0],
+        [0.0, -1.0, 0.0],
+        [0.0, 0.0, 1.0],
+        [0.0, 0.0, -1.0],
+    ],
+    dtype=float,
+)
+
 
 def hopf_project_points(points: Array, *, convention: str = "classical") -> Array:
     """Map (N,4) unit quaternions to (N,3) base points on S².
@@ -162,6 +176,23 @@ def hopf_project_points(points: Array, *, convention: str = "classical") -> Arra
         )
     points = np.asarray(points, dtype=float)
     return np.stack([hopf_map(q) for q in points], axis=0)
+
+
+def bases_are_octahedron_poles(base: Array, *, tol: float = 1e-8) -> bool:
+    """True if unique rows of ``base`` are the 6 octahedron poles on S².
+
+    Realizes the Theorem that h(Λ0) is those six points; this function is a
+    numerical check (Software fact of the arrays).
+    """
+    base = np.asarray(base, dtype=float)
+    if base.ndim != 2 or base.shape[1] != 3:
+        return False
+    rounded = np.round(base, 8)
+    uniq = np.unique(rounded, axis=0)
+    if len(uniq) != 6:
+        return False
+    poles = {tuple(np.round(p, 8)) for p in OCTAHEDRON_POLES_S2}
+    return {tuple(row) for row in uniq} == poles
 
 
 def sample_structure_group_fiber(
@@ -284,6 +315,13 @@ def candidate_adjacency(
       on S2, excluding xi2-circle pairs.
 
     Use ``sample_structure_group_fiber`` when the object must be a Hopf fiber.
+
+    **Software fact** (``scripts/op1_adjacency``, 2026-09-11, book_default):
+    on ``Λ_ang`` this recovers the ξ₂-circle (`along_on_true_fiber = 0`,
+    `along_chart_only = 1`); on true-fiber samples it mis-labels most
+    U(1) neighbors as ``E_perp``; Hurwitz ``Λ_0`` has no along-edges and
+    its inter-edges are same-fiber. Frozen book default — do not retune
+    these thresholds to “find” fibers. See ``structure_group_adjacency``.
     """
     points = np.asarray(points, dtype=float)
     n = len(points)
@@ -324,6 +362,179 @@ def candidate_adjacency(
                 inter.append((i, j))
 
     return along, inter
+
+
+def _base_angle(yi: Array, yj: Array) -> float:
+    c = float(np.clip(np.dot(yi, yj), -1.0, 1.0))
+    return float(np.arccos(c))
+
+
+def structure_group_phase(q_ref: Array, q: Array) -> float:
+    r"""Phase \(\phi\) of the closest left-\(U(1)\) point \(e^{i\phi} q_{\mathrm{ref}}\) to \(q\)."""
+    q_ref = q_normalize(np.asarray(q_ref, dtype=float).reshape(4))
+    q = q_normalize(np.asarray(q, dtype=float).reshape(4))
+    i_ref = q_mult(structure_group_unit(0.5 * np.pi), q_ref)
+    return float(np.atan2(float(np.dot(i_ref, q)), float(np.dot(q_ref, q))))
+
+
+def hopf_fiber_clusters(
+    points: Array,
+    *,
+    same_fiber_base_tol: float = 1e-3,
+) -> list[list[int]]:
+    """Cluster sites whose Hopf images are within ``same_fiber_base_tol`` on S²."""
+    points = np.asarray(points, dtype=float)
+    n = len(points)
+    if n == 0:
+        return []
+    base = hopf_project_points(points)
+    same: list[tuple[int, int]] = []
+    for i in range(n):
+        for j in range(i + 1, n):
+            if _base_angle(base[i], base[j]) < same_fiber_base_tol:
+                same.append((i, j))
+    return _union_find_clusters(n, same)
+
+
+def consecutive_structure_group_along(
+    points: Array,
+    clusters: list[list[int]],
+) -> list[tuple[int, int]]:
+    """Undirected consecutive left-U(1) edges on each Hopf-base cluster (wrap included)."""
+    points = np.asarray(points, dtype=float)
+    along: list[tuple[int, int]] = []
+    for members in clusters:
+        if len(members) < 2:
+            continue
+        ref = members[0]
+        ordered = sorted(
+            members, key=lambda k: structure_group_phase(points[ref], points[k])
+        )
+        for a, b in zip(ordered, ordered[1:] + ordered[:1]):
+            if a == b:
+                continue
+            along.append((a, b) if a < b else (b, a))
+    return sorted(set(along))
+
+
+def _union_find_clusters(n: int, pairs: Iterable[tuple[int, int]]) -> list[list[int]]:
+    parent = list(range(n))
+
+    def find(x: int) -> int:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for a, b in pairs:
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+    groups: dict[int, list[int]] = {}
+    for i in range(n):
+        groups.setdefault(find(i), []).append(i)
+    return list(groups.values())
+
+
+def _spherical_gabriel_edges(base: Array) -> list[tuple[int, int]]:
+    """Undirected spherical Gabriel graph on rows of ``base`` (unit S² points)."""
+    m = len(base)
+    edges: list[tuple[int, int]] = []
+    for i in range(m):
+        for j in range(i + 1, m):
+            mid = base[i] + base[j]
+            nrm = float(np.linalg.norm(mid))
+            if nrm < 1e-15:
+                continue
+            mid = mid / nrm
+            r2 = float(np.dot(mid - base[i], mid - base[i]))
+            empty = True
+            for k in range(m):
+                if k == i or k == j:
+                    continue
+                if float(np.dot(mid - base[k], mid - base[k])) < r2 - 1e-14:
+                    empty = False
+                    break
+            if empty:
+                edges.append((i, j))
+    return edges
+
+
+def _spherical_delaunay_edges(base: Array) -> tuple[list[tuple[int, int]], str]:
+    """Edges of the spherical Delaunay triangulation (convex hull of S² points)."""
+    m = len(base)
+    if m <= 1:
+        return [], "none"
+    if m <= 3:
+        return [(i, j) for i in range(m) for j in range(i + 1, m)], "complete_small"
+    try:
+        from scipy.spatial import ConvexHull
+
+        hull = ConvexHull(base)
+        edges: set[tuple[int, int]] = set()
+        for simplex in hull.simplices:
+            a, b, c = (int(x) for x in simplex[:3])
+            for u, v in ((a, b), (b, c), (c, a)):
+                edges.add((u, v) if u < v else (v, u))
+        return sorted(edges), "spherical_delaunay_convexhull"
+    except Exception:
+        return _spherical_gabriel_edges(base), "spherical_gabriel_fallback"
+
+
+def structure_group_adjacency(
+    points: Array,
+    *,
+    same_fiber_base_tol: float = 1e-3,
+    gauge_section: str = "min_index",
+    inter_kind: str = "spherical_delaunay",
+) -> tuple[list[tuple[int, int]], list[tuple[int, int]]]:
+    r"""Second OP1 Model: true-fiber \(E_\parallel\) + spherical Delaunay \(E_\perp\).
+
+    **Not a replacement for** ``candidate_adjacency`` (frozen book default).
+
+    - Along: cluster by Hopf-base distance \(<\) ``same_fiber_base_tol``, then
+      connect consecutive left-\(U(1)\) phases on each cluster (including wrap).
+    - Inter: Delaunay (convex hull) or spherical Gabriel on distinct bases,
+      lifted by a stated gauge section (default: lowest index in each cluster).
+
+    Use: book figures and the golden test stay on ``candidate_adjacency``.
+    Analysis / flywheels / OP2 sandbox use this rule only, after the harness
+    JSON row for that sample is attached. Do not mix the two edge sets in one
+    topograph. Do not promote this Model into ``flux_hopf_lib`` or
+    ``qga_engine`` until a Farey slice exists.
+
+    Score with the OP1 harness; do not copy these edges into Ch. 3 as a theorem.
+    """
+    points = np.asarray(points, dtype=float)
+    n = len(points)
+    if n == 0:
+        return [], []
+    base = hopf_project_points(points)
+    clusters = hopf_fiber_clusters(points, same_fiber_base_tol=same_fiber_base_tol)
+    along = consecutive_structure_group_along(points, clusters)
+
+    if gauge_section != "min_index":
+        raise ValueError("structure_group_adjacency: only gauge_section='min_index' is implemented")
+    reps = [min(members) for members in clusters]
+    base_reps = np.stack([base[r] for r in reps], axis=0)
+    if inter_kind == "spherical_gabriel":
+        base_edges = _spherical_gabriel_edges(base_reps)
+        _kind = "spherical_gabriel"
+    elif inter_kind == "spherical_delaunay":
+        base_edges, _kind = _spherical_delaunay_edges(base_reps)
+    else:
+        raise ValueError(f"unknown inter_kind {inter_kind!r}")
+    del _kind
+    inter = []
+    along_set = set(along) | {(b, a) for a, b in along}
+    for ci, cj in base_edges:
+        a, b = reps[ci], reps[cj]
+        if a == b:
+            continue
+        e = (a, b) if a < b else (b, a)
+        if e not in along_set:
+            inter.append(e)
+    return along, sorted(set(inter))
 
 
 def discrete_flux_cycle(edge_indices: Iterable[tuple[int, int]], value: int = 1) -> dict[tuple[int, int], int]:

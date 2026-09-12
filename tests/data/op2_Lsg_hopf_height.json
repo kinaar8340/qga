@@ -1,0 +1,11 @@
+{
+  "set": "Lsg",
+  "rule": "structure_group",
+  "functional": "hopf_height",
+  "mode": "strict_sign",
+  "n_components": 4,
+  "n_separator_edges": 5,
+  "kirchhoff": true,
+  "claim": "Software fact",
+  "op2_status": "Open"
+}

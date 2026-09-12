@@ -57,8 +57,9 @@ qga/
 ├── START_HERE.md             # 20-minute door
 ├── lib/                      # pedagogical-only; not a second SoT; not on PyPI
 ├── scripts/                  # figure generators + md_to_latex + build_latex
+│                             # (+ lab harness op1_adjacency / op2_topograph)
 ├── refs/
-└── notes/
+└── notes/                    # open_problems; PIPELINES.md is the lab harness, not the book
 ```
 
 ### Build the PDF
@@ -71,6 +72,8 @@ python3 -m pip install -e ".[portal]"   # flux-hopf-lib (PyPI) + kingdom-come (g
 ```
 
 See `book/latex/README.md` for details.
+
+Two pipelines share vertices and `hopf_map`, not a graph. This README is the **manuscript**. The OP1/OP2 harness is the lab notebook [notes/PIPELINES.md](notes/PIPELINES.md). OP1 stays Open. OAM 2×2 tiles are not a step in either pipe.
 
 ## Status
 

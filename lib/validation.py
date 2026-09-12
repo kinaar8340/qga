@@ -315,14 +315,14 @@ def open_problems_status_table() -> list[dict[str, str]]:
             "problem": "Canonical quaternionic Farey structure",
             "home": "Ch. 3",
             "status": "Open — candidate_adjacency sandbox",
-            "next": "Refine adjacency; prove Farey reduction",
+            "next": "Model 2 is structure_group_adjacency; Farey slice still open",
         },
         {
             "id": "OP2",
             "problem": "Flux topograph axioms",
             "home": "Ch. 5",
             "status": "Open — flux_topograph sandbox",
-            "next": "Formal axiom system reducing to Hatcher",
+            "next": "Parked: equivariance matrix (not axioms, not OP3)",
         },
         {
             "id": "OP3",

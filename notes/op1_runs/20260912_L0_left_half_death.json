@@ -1,0 +1,3889 @@
+{
+  "schema": "op1_left_half_death_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "slice_status": "C-miniature: occupancy not left-invariant on 2T. Full C (other sections) still parked.",
+  "set": "L0",
+  "rule": "structure_group",
+  "resnap": "exact",
+  "side": "L",
+  "verdict": "Left half-units do not map occupancy 4-cycles to 4-cycles: each cycle splits 2+2 onto an antipodal pair of poles. along_kept=0 is occupancy failing left-invariance on a 2T-set, not only min_index section sensitivity. Lipschitz 8 maps each 4-cycle to one fiber and keeps all 24 along-edges. Software fact. OP1 stays Open.",
+  "n_lipschitz": 8,
+  "n_half": 16,
+  "lipschitz_all_cycles_single_fiber": true,
+  "lipschitz_along_kept": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "half_all_cycles_split_2_plus_2": true,
+  "half_along_kept": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "half_inter_kept": [
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667,
+    0.4166666666666667
+  ],
+  "lipschitz": [
+    {
+      "unit": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-1",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "1",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "-i",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "unit_name": "i",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "unit_name": "-j",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "unit_name": "j",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "unit_name": "-k",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "unit_name": "k",
+      "side": "L",
+      "along_kept": 1.0,
+      "inter_kept": 1.0,
+      "n_along_kept": 24,
+      "n_inter_kept": 12,
+      "cycles_map_to_single_fiber": true,
+      "cycles_split_2_plus_2_antipodes": false,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "0"
+          ],
+          "image_counts": {
+            "0": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "i"
+          ],
+          "image_counts": {
+            "i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "1"
+          ],
+          "image_counts": {
+            "1": 4
+          },
+          "along_recovered": 4,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ]
+      ]
+    }
+  ],
+  "half": [
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_----",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_---+",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_--+-",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_--++",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_-+--",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_-+-+",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_-++-",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        -0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_-+++",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_+---",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_+--+",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+-+-",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_+-++",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "unit_name": "half_++--",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "unit_name": "half_++-+",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "i": 2,
+            "-i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "unit_name": "half_+++-",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ]
+    },
+    {
+      "unit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "unit_name": "half_++++",
+      "side": "L",
+      "along_kept": 0.0,
+      "inter_kept": 0.4166666666666667,
+      "n_along_kept": 0,
+      "n_inter_kept": 5,
+      "cycles_map_to_single_fiber": false,
+      "cycles_split_2_plus_2_antipodes": true,
+      "cycles": [
+        {
+          "src_fiber": "inf",
+          "indices": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "1": 2,
+            "-1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "0",
+          "indices": [
+            4,
+            6,
+            5,
+            7
+          ],
+          "image_fibers": [
+            "1",
+            "-1"
+          ],
+          "image_counts": {
+            "-1": 2,
+            "1": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "1",
+          "indices": [
+            8,
+            18,
+            23,
+            13
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-i",
+          "indices": [
+            9,
+            16,
+            22,
+            15
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "0": 2,
+            "inf": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "i",
+          "indices": [
+            10,
+            12,
+            21,
+            19
+          ],
+          "image_fibers": [
+            "0",
+            "inf"
+          ],
+          "image_counts": {
+            "inf": 2,
+            "0": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        },
+        {
+          "src_fiber": "-1",
+          "indices": [
+            11,
+            14,
+            20,
+            17
+          ],
+          "image_fibers": [
+            "i",
+            "-i"
+          ],
+          "image_counts": {
+            "-i": 2,
+            "i": 2
+          },
+          "along_recovered": 0,
+          "n_along": 4
+        }
+      ],
+      "surviving_octahedron_edges": [
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-i"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "1",
+          "i"
+        ]
+      ]
+    }
+  ]
+}
