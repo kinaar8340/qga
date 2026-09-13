@@ -29,7 +29,7 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/kinaar8340/qga"
+Repository = "https://github.com/qga-lab/qga"
 
 [tool.setuptools.packages.find]
 include = ["lib*"]

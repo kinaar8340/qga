@@ -157,7 +157,7 @@ The six Open Problems are the main research edges. Advances on **OP1** (canonica
 
 Validation can proceed incrementally: a documented failure to reject the null for \(350/\pi\) in one domain, or a refined class-number invariant with better island prediction, both count as progress. Apply the same null-first discipline as Chapter 9 section 9.5: if a claim is *lock* or *recurrence*, define the null; if it is *algebraic structure*, report the discrete object; if it is *Model flow*, say so and do not upgrade it to geometry by rhetoric.
 
-The [qga](https://github.com/kinaar8340/qga) repository and Kingdom Come portal remain open for extension. **Book Mode** is live in the portal (chapter map → Hopf / Lattice / Flux / Observations mini demos and tab jumps; see `HOW_TO_USE.md` §6). Future work includes fuller composition / validation dashboards.
+The [qga](https://github.com/qga-lab/qga) repository and Kingdom Come portal remain open for extension. **Book Mode** is live in the portal (chapter map → Hopf / Lattice / Flux / Observations mini demos and tab jumps; see `HOW_TO_USE.md` §6). Future work includes fuller composition / validation dashboards.
 
 ---
 

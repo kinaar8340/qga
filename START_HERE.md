@@ -3,8 +3,8 @@
 This is the door into the QGA stack. Dense vision docs come second.
 
 Spine: `qga` — manuscript + pedagogical Python  
-Shared math: [`flux_hopf_lib`](https://github.com/kinaar8340/flux_hopf_lib)  
-Engine: [`qga_engine`](https://github.com/kinaar8340/qga_engine) (scenes, Rust math) · [`qga_gpu`](https://github.com/kinaar8340/qga_gpu) (frame)  
+Shared math: [`flux_hopf_lib`](https://github.com/qga-lab/flux_hopf_lib)  
+Engine: [`qga_engine`](https://github.com/qga-lab/qga_engine) (scenes, Rust math) · [`qga_gpu`](https://github.com/qga-lab/qga_gpu) (frame)  
 This repo: the book. Not a GPU runtime and not an empirical attack.
 
 ## 1. Claim labels (5 min)
@@ -28,7 +28,7 @@ python3 -m pip install -e ".[dev]"
 # → book/latex/main.pdf
 ```
 
-Public PDF: [Release draft D](https://github.com/kinaar8340/qga/releases/tag/draft-D) (`Kingdom_Come_QGA.pdf`). That is the book. It is not `qga_engine` / `qga_gpu` `v0.1.0`.
+Public PDF: [Release draft D](https://github.com/qga-lab/qga/releases/tag/draft-D) (`Kingdom_Come_QGA.pdf`). That is the book. It is not `qga_engine` / `qga_gpu` `v0.1.0`.
 
 Hatcher is the geometric backbone, cited separately from Kingdom Come models: [HATCHER_MAP.md](HATCHER_MAP.md).
 
@@ -46,7 +46,7 @@ python3 -m pytest tests/test_hopf_map.py tests/test_hurwitz_fixtures.py tests/te
 Either the public GPU demo or the tiny sculpture. Both are **Software fact**, not proofs of OP1–OP6.
 
 ```bash
-git clone https://github.com/kinaar8340/qga_gpu
+git clone https://github.com/qga-lab/qga_gpu
 cd qga_gpu
 make demo          # windowed; Esc prints UploadStats
 # or, no window / small box:

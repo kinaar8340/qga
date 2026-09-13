@@ -1,8 +1,8 @@
 # Kingdom Come: A Quaternionic Geometric Approach to Number Theory and Physics
 
 Spine: this repo — manuscript + pedagogical Python  
-Shared math: [`flux_hopf_lib`](https://github.com/kinaar8340/flux_hopf_lib) — SoT for Hopf / quaternion / Hurwitz 24  
-Engine: [`qga_engine`](https://github.com/kinaar8340/qga_engine) (scenes, Rust math) · [`qga_gpu`](https://github.com/kinaar8340/qga_gpu) (frame)  
+Shared math: [`flux_hopf_lib`](https://github.com/qga-lab/flux_hopf_lib) — SoT for Hopf / quaternion / Hurwitz 24  
+Engine: [`qga_engine`](https://github.com/qga-lab/qga_engine) (scenes, Rust math) · [`qga_gpu`](https://github.com/qga-lab/qga_gpu) (frame)  
 This repo: the book. Not a GPU runtime and not an empirical attack.
 
 **Start here:** [START_HERE.md](START_HERE.md)
@@ -34,7 +34,7 @@ It is **not** a modified reprint of Hatcher’s PDF. Hatcher is free to read and
 | Source | Role |
 |--------|------|
 | [Hatcher, *Topology of Numbers*](https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf) | Geometric backbone: Farey diagram, continued fractions, topographs, class groups |
-| [flux_hopf_lib](https://github.com/kinaar8340/flux_hopf_lib) | Shared Hopf / quaternion / conduit primitives |
+| [flux_hopf_lib](https://github.com/qga-lab/flux_hopf_lib) | Shared Hopf / quaternion / conduit primitives |
 | [kingdom_come](https://github.com/kinaar8340/kingdom_come) | Portal and figures for models and observations — not a theorem source |
 
 ## Core thesis (one paragraph)
@@ -80,7 +80,7 @@ Two pipelines share vertices and `hopf_map`, not a graph. This README is the **m
 - **Scaffold + TOC + mapping:** done
 - **Manuscript body:** **Complete draft Parts I–V (Ch. 0–10)**
 - **Code/figures:** pedagogical `lib/` (not a competing package) + figure generators under `book/figures/`
-- **GitHub:** https://github.com/kinaar8340/qga
+- **GitHub:** https://github.com/qga-lab/qga
 
 ## Quick links
 
@@ -89,9 +89,9 @@ Two pipelines share vertices and `hopf_map`, not a graph. This README is the **m
 - [Hatcher mapping](HATCHER_MAP.md)
 - [Synopsis & assessment](SYNOPSIS.md)
 - Hatcher TN: https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf
-- Shared primitives: https://github.com/kinaar8340/flux_hopf_lib
+- Shared primitives: https://github.com/qga-lab/flux_hopf_lib
 - Portal: https://github.com/kinaar8340/kingdom_come
-- This book: https://github.com/kinaar8340/qga
+- This book: https://github.com/qga-lab/qga
 
 X: [@kinaar8340](https://x.com/kinaar8340)
 

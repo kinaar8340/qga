@@ -6,7 +6,7 @@
 **Short name:** QGA  
 **Subtitle:** Extending Allen Hatcher’s visual number theory via quaternions and the Hopf fibration  
 **Status:** Full manuscript draft complete (Parts I–V · Chapters 0–10)  
-**Remote:** https://github.com/kinaar8340/qga
+**Remote:** https://github.com/qga-lab/qga
 
 *Parts I–II and IV: geometric/arithmetic spine (Theorems + labeled Models).  
 Part III: flux topographs (Model/OP); Z-map chemistry lives in Part V.  

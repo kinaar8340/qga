@@ -37,7 +37,7 @@ Interactive experiments live in the Kingdom Come repository and Hugging Face Spa
 
 | Resource | Location |
 |----------|----------|
-| Book manuscript (this repo) | [github.com/kinaar8340/qga](https://github.com/kinaar8340/qga) |
+| Book manuscript (this repo) | [github.com/qga-lab/qga](https://github.com/qga-lab/qga) |
 | Kingdom Come source / portal | [github.com/kinaar8340/kingdom_come](https://github.com/kinaar8340/kingdom_come) |
 | Shared Hopf / quaternion core | `flux_hopf_lib` |
 | Figures | `book/figures/` |

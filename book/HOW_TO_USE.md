@@ -30,7 +30,7 @@ Validation protocols for Hypotheses live in Chapter 10 (Table **T4**) and `lib/v
 | `lib/` | Pedagogical helpers (not a replacement for Kingdom Come) |
 | `scripts/generate_chN_figures.py` | Regenerate chapter figures |
 | `TOC.md` · `HATCHER_MAP.md` · `notes/open_problems.md` | Navigation and open research edges |
-| https://github.com/kinaar8340/qga | Canonical remote for this book |
+| https://github.com/qga-lab/qga | Canonical remote for this book |
 
 **Live portal and domain code** (separate repo):
 
