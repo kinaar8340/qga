@@ -21,6 +21,8 @@ This repo: the book. Not a GPU runtime and not an empirical attack.
 | **Hypothesis** | Observational claim that can fail | \(350/\pi\) (H1a–H1e); not a theorem |
 | **Software fact** | True of current code or figures | What a helper or portal function returns today |
 
+Short note: [`notes/spine/`](notes/spine/) (`QGA_Spine_Note.pdf`). The book remains Release `draft-D`.
+
 **Hatcher map.** Parallel reading: [HATCHER_MAP.md](HATCHER_MAP.md) · Hatcher’s *Topology of Numbers* ([PDF](https://pi.math.cornell.edu/~hatcher/TN/TNbook.pdf)).
 
 **Spine vs not.** This repo is the manuscript spine. Quaternion orders, Hopf, and the Hatcher lift stay theorems. Flux flywheels, flux topographs, the \(Z\mapsto\) map, \(350/\pi\), and the arena mix are Model or Hypothesis. [arena](https://github.com/kinaar8340/arena) is a labeled Model companion; it is not a second spine.

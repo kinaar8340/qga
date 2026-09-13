@@ -1,0 +1,90 @@
+% Spine note preamble — not the Kingdom Come book preamble.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.28}
+
+\usepackage[
+  a4paper,
+  margin=2.4cm,
+  headheight=15pt,
+  heightrounded
+]{geometry}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,format=hang,skip=6pt}
+
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codebg}{RGB}{248,249,250}
+\definecolor{codeframe}{RGB}{200,200,200}
+\definecolor{codekw}{RGB}{0,70,140}
+\lstdefinestyle{qga}{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  tabsize=2,
+  aboveskip=0.8em,
+  belowskip=0.8em,
+  keywordstyle=\color{codekw}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{teal},
+}
+\lstset{style=qga}
+
+\usepackage[
+  colorlinks=true,
+  linkcolor=black!70!blue,
+  citecolor=black!70!blue,
+  urlcolor=black!60!blue,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  pdfstartview=FitH,
+  pdftitle={QGA Spine Note: Quaternion Orders, Hopf, and the Hatcher Lift},
+  pdfauthor={Aaron Michael Kinder}
+]{hyperref}
+\usepackage{xurl}
+\urlstyle{tt}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\theoremstyle{definition}
+\newtheorem*{qgatheorem}{Theorem}
+\newtheorem*{qgamodel}{Model}
+\newtheorem*{qgahypothesis}{Hypothesis}
+\newtheorem*{qgasoftware}{Software fact}
+
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}

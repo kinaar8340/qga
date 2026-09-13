@@ -1,0 +1,36 @@
+% QGA Spine Note — not Kingdom Come, not Release draft-D.
+% Build from repo root: ./scripts/build_spine.sh
+% Two pdflatex passes. Do not use book/scripts/build_latex.sh --fast.
+\documentclass[12pt,a4paper]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries QGA Spine Note: Quaternion Orders, Hopf,\\[0.25em]
+  and the Hatcher Lift\par}
+  \vspace{0.8em}
+  {\large Aaron Michael Kinder\par}
+  \vspace{0.35em}
+  {\small\url{https://github.com/qga-lab/qga} \quad\texttt{notes/spine/}\par}
+  \vspace{0.5em}
+  {\small Not the book. Citable book PDF remains Release \texttt{draft-D}.\par}
+\end{center}
+\thispagestyle{plain}
+
+\vspace{0.6em}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{0.8em}
+
+\input{body}
+
+\clearpage
+\section*{Appendix --- Models and hypotheses}
+\addcontentsline{toc}{section}{Appendix --- Models and hypotheses}
+\markboth{Appendix --- Models and hypotheses}{}
+\renewcommand{\thesection}{A.\arabic{section}}
+\setcounter{section}{0}
+\input{appendix}
+
+\end{document}

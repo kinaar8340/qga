@@ -30,6 +30,8 @@ python3 -m pip install -e ".[dev]"
 
 Public PDF: [Release draft D](https://github.com/qga-lab/qga/releases/tag/draft-D) (`Kingdom_Come_QGA.pdf`). That is the book. It is not `qga_engine` / `qga_gpu` `v0.1.0`.
 
+Short note: [`notes/spine/`](notes/spine/) (`QGA_Spine_Note.pdf`). The book remains Release `draft-D`.
+
 Hatcher is the geometric backbone, cited separately from Kingdom Come models: [HATCHER_MAP.md](HATCHER_MAP.md).
 
 ## 3. Python labs: Hurwitz 24 and the Hopf map (5 min)

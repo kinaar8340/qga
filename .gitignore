@@ -51,6 +51,18 @@ book/latex/*.synctex.gz
 book/latex/*.nav
 book/latex/*.snm
 book/latex/*.vrb
+notes/spine/latex/*.aux
+notes/spine/latex/*.log
+notes/spine/latex/*.toc
+notes/spine/latex/*.out
+notes/spine/latex/*.lof
+notes/spine/latex/*.lot
+notes/spine/latex/*.fls
+notes/spine/latex/*.fdb_latexmk
+notes/spine/latex/*.synctex.gz
+notes/spine/latex/body.tex
+notes/spine/latex/appendix.tex
+notes/spine/latex/main.pdf
 # generated chapter .tex is regenerated from Markdown; track for offline builds
 # book/latex/chapters/*.tex  # tracked
 
