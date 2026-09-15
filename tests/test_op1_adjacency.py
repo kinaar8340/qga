@@ -499,6 +499,34 @@ def test_dump_graph_lsg_schema_and_closed_cycles(op1, tmp_path):
         )
 
 
+def test_dump_graph_lang_schema_product_sample(op1, tmp_path):
+    graph, row, _path = _write_graph(op1, tmp_path, "Lang", resnap="none")
+    e1 = row["experiment1"]
+    census = e1["fiber_census"]
+    assert graph["kind"] == "qga_adjacency_graph_v1"
+    assert "fibers" not in graph
+    assert graph["set"] == "Lang"
+    assert graph["rule"] == "structure_group"
+    assert len(graph["points"]) == e1["n_points"] == 256
+    assert len(graph["along"]) == e1["n_along"] == 256
+    assert len(graph["inter"]) == e1["n_inter"] == 90
+    assert graph["census"]["distinct_bases"] == 32
+    assert graph["census"]["multiplicity"] == 8
+    assert graph["census"]["along_kind"] == "consecutive_u1_steps_on_product_sample"
+    assert graph["census"]["along_kind"] == census["along_kind"]
+    assert _along_cycle_lengths(len(graph["points"]), graph["along"]) == [8] * 32
+    # Same integer 256 as occupancy necklace, different graph.
+    assert census["image"]["object"] == "angle_product_sample"
+    assert census["not_a_farey_diagram"] is True
+    lock = graph["claim_lock"]
+    assert lock["not_a_third_adjacency"] is True
+    assert lock["not_slice_A"] is True
+    assert lock["not_section_C"] is True
+    assert lock["not_occupancy_necklace"] is True
+    assert lock["op1_status"] == "Open"
+    assert lock["op3_entered"] is False
+
+
 def test_dump_graph_l0_schema_octahedron(op1, tmp_path):
     graph, row, _path = _write_graph(op1, tmp_path, "L0", resnap="exact")
     e1 = row["experiment1"]
@@ -533,15 +561,37 @@ LEDGER_GRAPHS = {
     / "notes"
     / "op1_runs"
     / "20260911_L0_book_default_exact_structure_group_graph.json",
+    "Lang": ROOT
+    / "notes"
+    / "op1_runs"
+    / "20260911_Lang_book_default_none_structure_group_graph.json",
 }
 
 
-@pytest.mark.parametrize("set_name", ["Lsg", "L0"])
+@pytest.mark.parametrize("set_name", ["Lsg", "L0", "Lang"])
 def test_ledger_graph_kind_is_not_hopf_fibers(set_name):
     """Explorer branch: qga_adjacency_graph_v1, never export_fiber_curves fibers[]."""
     graph = json.loads(LEDGER_GRAPHS[set_name].read_text(encoding="utf-8"))
     assert graph["kind"] == "qga_adjacency_graph_v1"
     assert "fibers" not in graph
+
+
+def test_lang_dump_lock_does_not_overwrite_row():
+    graph = json.loads(LEDGER_GRAPHS["Lang"].read_text(encoding="utf-8"))
+    row_path = ROOT / graph["op1_row"]
+    assert row_path.name == "20260911_Lang_book_default_none_structure_group.json"
+    row = json.loads(row_path.read_text(encoding="utf-8"))
+    assert row["set"] == "Lang"
+    assert row["schema"] == "op1_adjacency_v1"
+    lock = graph["claim_lock"]
+    assert lock["kind"] == "model2_witness"
+    assert lock["do_not_overwrite_op1_row"] is True
+    assert lock["not_slice_A"] is True
+    assert lock["not_section_C"] is True
+    md = LEDGER_GRAPHS["Lang"].with_suffix(".md").read_text(encoding="utf-8")
+    assert "Not slice A" in md
+    assert "Not section C" in md
+    assert "Do not run A or C on Lang" in md
 
 
 @pytest.mark.parametrize(
@@ -566,6 +616,16 @@ def test_ledger_graph_kind_is_not_hopf_fibers(set_name):
             6,
             "u1_occupancy_through_lambda0",
             [4, 4, 4, 4, 4, 4],
+        ),
+        (
+            "Lang",
+            "none",
+            256,
+            256,
+            90,
+            32,
+            "consecutive_u1_steps_on_product_sample",
+            [8] * 32,
         ),
     ],
 )

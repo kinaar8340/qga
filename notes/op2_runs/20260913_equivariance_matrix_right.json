@@ -1,0 +1,390 @@
+{
+  "schema": "op2_equivariance_matrix_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "op2_status": "Open",
+  "op3_status": "Open",
+  "do_not_call_model_2_gauge_equivariant": true,
+  "do_not_write_axioms": true,
+  "averaged": false,
+  "side": "R",
+  "left": "notes/op2_runs/20260913_equivariance_matrix.json",
+  "left_averaged": false,
+  "not_a_new_graph": true,
+  "not_op3": true,
+  "rows": [
+    "Lsg",
+    "L0",
+    "Lang"
+  ],
+  "columns": [
+    "right_i",
+    "right_j"
+  ],
+  "sources": {
+    "Lsg": {
+      "op2_left_scored": "notes/op2_runs/20260911_Lsg_structure_group.json",
+      "op1": "notes/op1_runs/20260911_Lsg_book_default_none_structure_group.json",
+      "graph": "structure_group (same Model 2 skeleton as 20260911, not a new adjacency)",
+      "gauge": "R"
+    },
+    "L0": {
+      "op2_left_scored": "notes/op2_runs/20260911_L0_structure_group.json",
+      "op1": "notes/op1_runs/20260911_L0_book_default_exact_structure_group.json",
+      "graph": "structure_group (same Model 2 skeleton as 20260911, not a new adjacency)",
+      "gauge": "R"
+    },
+    "Lang": {
+      "op2_left_scored": "notes/op2_runs/20260911_Lang_structure_group.json",
+      "op1": "notes/op1_runs/20260911_Lang_book_default_none_structure_group.json",
+      "graph": "structure_group (same Model 2 skeleton as 20260911, not a new adjacency)",
+      "gauge": "R"
+    }
+  },
+  "cells": {
+    "Lsg": {
+      "right_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 64,
+          "n_inter": 6,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "separator_component_count",
+          "n_components_before": 4,
+          "n_components_after": 4,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 5,
+          "n_separator_edges_after": 6,
+          "delta_n_separator_edges": 1,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 5.0,
+            "n_sep_edges_after": 6.0,
+            "n_components_before": 4.0,
+            "n_components_after": 4.0,
+            "edge_count_ratio": 1.2
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "separator_component_count",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      },
+      "right_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 64,
+          "n_inter": 6,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "separator_component_count",
+          "n_components_before": 4,
+          "n_components_after": 5,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 5,
+          "n_separator_edges_after": 7,
+          "delta_n_separator_edges": 2,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 5.0,
+            "n_sep_edges_after": 7.0,
+            "n_components_before": 4.0,
+            "n_components_after": 5.0,
+            "edge_count_ratio": 1.4
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "separator_component_count",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      }
+    },
+    "L0": {
+      "right_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 24,
+          "n_inter": 12,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      },
+      "right_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 24,
+          "n_inter": 12,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      }
+    },
+    "Lang": {
+      "right_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 0.8111111111111111,
+          "n_along": 256,
+          "n_inter": 90,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "unchanged",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "delta_n_separator_edges": 0,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 16.0,
+            "n_sep_edges_after": 16.0,
+            "n_components_before": 1.0,
+            "n_components_after": 1.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 37,
+          "delta_n_separator_edges": 0,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 37.0,
+            "n_sep_edges_after": 37.0,
+            "n_components_before": 8.0,
+            "n_components_after": 9.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        }
+      },
+      "right_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "R",
+          "along_kept": 1.0,
+          "inter_kept": 0.8333333333333334,
+          "n_along": 256,
+          "n_inter": 90,
+          "note": "OP1 Experiment 2 on this attach, right side only. Not averaged with left or with i/j. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "unchanged",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "delta_n_separator_edges": 0,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 16.0,
+            "n_sep_edges_after": 16.0,
+            "n_components_before": 1.0,
+            "n_components_after": 1.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 38,
+          "delta_n_separator_edges": 1,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 37.0,
+            "n_sep_edges_after": 38.0,
+            "n_components_before": 8.0,
+            "n_components_after": 9.0,
+            "edge_count_ratio": 1.027027027027027
+          },
+          "empty_cut_not_keep_rate_1": false
+        }
+      }
+    }
+  },
+  "known": {
+    "Lsg_hopf_height_right_j": "4\u21925",
+    "Lang_hopf_y1": "8\u21929",
+    "Lang_inter_kept_right": "i=0.811 j=0.833, not left 0.944/0.811",
+    "L0_empty_cut": "undefined_or_vacuous, not keep-rate 1.0",
+    "not_averaged_with_left": true
+  },
+  "claim_lock": {
+    "kind": "ledger_increment",
+    "not_an_axiom": true,
+    "model_2_gauge_equivariant": false,
+    "op3_entered": false,
+    "op3_status": "Open",
+    "gate": "do not enter OP3 here",
+    "not_a_new_graph": true,
+    "averaged": false,
+    "not_invariance": true,
+    "forbids": "Do not write OP2 axioms from these cells. Do not average with the left ledger. Do not fold the two files. Matching component integers (Lsg height j 4\u21925, Lang y1 8\u21929) and matching edge moves on those cuts (Lsg j 5\u21927, Lang y1 j 37\u219238) do not identify the ledgers. Lang inter_kept already differs (left 0.944/0.811 vs right 0.811/0.833). L0 stays vacuous because zeros are levels, not crossings."
+  },
+  "note": "Right-gauge ledger increment, not an axiom. Same Model 2 graphs as the 20260911 OP2 rows. Not averaged with left-i/left-j. Candidate edges refused. Do not enter OP3 here. This is not invariance."
+}

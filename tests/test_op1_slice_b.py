@@ -19,7 +19,9 @@ def test_b_is_index_not_new_matrix():
     assert "Do not rerun" in text
     assert LSG.name in text
     assert L0.name in text
-    assert "Lang / candidate" in text
+    assert "Lang dump" in text
+    assert "candidate" in text
+    assert "parked" in text
     for path, n_along, n_inter in ((LSG, 64, 6), (L0, 24, 12)):
         row = json.loads(path.read_text(encoding="utf-8"))
         assert row["rule"] == "structure_group"

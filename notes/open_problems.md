@@ -83,14 +83,24 @@ Model 2 structure_group_adjacency (not a status bump):
   OP1-B (indexed, not extended):
     notes/op1_runs/20260911_slice_B_keep_rate.md
     Model 2 Lsg/L0 24×2 tables already in the structure_group JSON rows.
-    Lang / candidate / open sample parked. Do not rerun run.py.
+    Lang dump is a graph witness of the 20260911 row
+    (notes/op1_runs/20260911_Lang_book_default_none_structure_group_graph.json).
+    Claim lock: same rule as Lsg/L0; not a third adjacency; not slice A;
+    not section C; 256 along is not occupancy-necklace 256. Do not
+    overwrite the 20260911 Lang JSON row. candidate / open sample parked.
+    Do not rerun run.py for B.
 
   L0 left-half death (Software fact, next to B; not full C):
     notes/op1_runs/20260912_L0_left_half_death.json
     Lipschitz 8: each occupancy 4-cycle maps to one fiber; along_kept=1.
     Left half-units (16): each 4-cycle splits 2+2 onto an antipodal pair;
     along_kept=0; inter_kept=5/12. Occupancy is not left-invariant on 2T.
-    Death is not only min_index. Full C (other sections) parked.
+    Death is not only min_index. OP1-C (other sections on the same L0
+    graph): notes/op1_runs/20260913_L0_section_C.json. Claim lock: same
+    graph; default remains min_index; do not fold C into slice A.
+    Along invariant; 8/12 overlap invariant; inter index lifts 3-way
+    distinct; left-half inter_kept section-dependent (max_real mixed).
+    Not a third graph.
 
 Use rule:
   Frozen default: candidate_adjacency — book figures, golden test.
@@ -103,12 +113,14 @@ Use rule:
 Public sentence: two adjacency Models; OP2 sandbox on Model 2 only;
 Kirchhoff support; strict-sign separators; periodicity vacuous on L0
 and gauge-unstable on Lsg height / Lang y1; slice A on L0: 8/12
-Gaussian-Farey overlap; equatorial square missed; antipode extra; not Q.
-OP1 Open. OP2 Open.
+Gaussian-Farey overlap; equatorial square missed; antipode extra; not Q;
+equivariance matrix is a ledger, not an axiom; do not call Model 2
+gauge-equivariant. OP1 Open. OP2 Open. OP3 not opened.
 
 Problem stays Open (book wording: Q∪{∞}). Narrow partial is slice A only.
 Vetoes still: no Q∪{∞} embedding; half-unit left keep-rates die;
-Lang inter_kept<1. B indexed, not extended. C parked. No third graph.
+Lang inter_kept<1. B indexed, not extended. C closed as ledger on the
+same L0 graph (not a problem bump). No third graph.
 ```
 
 These are Software facts of `scripts/op1_adjacency`. They do not resolve OP1.
@@ -127,6 +139,9 @@ OP2 status: Open
 Skeleton: Model 2 structure_group_adjacency (not a theorem; not candidate ξ2).
 Last harness: notes/op2_runs/20260911_Lsg_structure_group.json
   (also L0, Lang; each attaches the matching OP1 structure_group JSON)
+  Equivariance ledger (left): notes/op2_runs/20260913_equivariance_matrix.json
+  Equivariance ledger (right): notes/op2_runs/20260913_equivariance_matrix_right.json
+  Not averaged.
 
 Support: fiber_cycle_flux on U(1) occupancy cycles. Kirchhoff max|r|=0
   on Lsg, L0, Lang. Support ⊆ E_parallel ∪ E_perp of Model 2.
@@ -146,15 +161,27 @@ A/B/C on OP1 stay parked.
 
 Public sentence: two adjacency Models; OP2 sandbox on Model 2 only;
 Kirchhoff support; strict-sign separators; periodicity vacuous on L0
-and gauge-unstable on Lsg height / Lang y1. Increment closed; problem Open.
+and gauge-unstable on Lsg height / Lang y1; equivariance matrix is a
+ledger, not an axiom; do not call Model 2 gauge-equivariant.
+Increment closed; problem Open.
 
-Parked (not started) — equivariance matrix, not a new graph, not OP3:
-  Rows Lsg / L0 / Lang. Columns left-i, left-j (not averaged; right later).
-  Cells: separator_equivariance_score and periodicity_score deltas, plus
-  attached OP1 inter_kept. L0 empty cut stays undefined_or_vacuous under
-  gauge (not keep-rate 1.0). Ledger already knows Lsg height 4→5 under j
-  and Lang y1 8→9. Until that matrix exists, do not call Model 2
-  gauge-equivariant. A/B/C still parked. Candidate edges still refused.
+Equivariance matrix (ledger increment, not an axiom; not a new graph):
+  Left: notes/op2_runs/20260913_equivariance_matrix.json
+  Right: notes/op2_runs/20260913_equivariance_matrix_right.json
+  Claim lock: Model 2 is not gauge-equivariant. i/j not averaged.
+  Left and right are sibling tables, not one mixed matrix.
+  This increment does not enter OP3; the research problem OP3 remains Open
+  (gate: do not enter it here). Do not write OP2 axioms from these cells.
+  Lsg height moves 4→5 under left-j and under right-j (edges 5→7 on both);
+  Lang y1 moves 8→9 under both left and both right units (j edges 37→38
+  on both). Matching cut integers do not identify the tables. The split
+  that already differs is Lang inter_kept (left 0.944/0.811 vs right
+  0.811/0.833). Do not fold the two files.
+  L0 periodicity stays vacuous because zeros are levels, not crossings
+  (not keep-rate 1.0 — OP1 inter_kept=1 on Lipschitz i/j is a different object).
+  That is the ledger. It is not invariance.
+  A/B closed as ledgers; C closed as section ledger on the same L0 graph.
+  Candidate refused. OP3 not entered.
 ```
 
 ### OP3 — Class number ↔ Magic Island

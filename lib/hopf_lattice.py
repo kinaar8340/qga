@@ -481,6 +481,32 @@ def _spherical_delaunay_edges(base: Array) -> tuple[list[tuple[int, int]], str]:
         return _spherical_gabriel_edges(base), "spherical_gabriel_fallback"
 
 
+def _gauge_section_rep(
+    members: list[int],
+    points: Array,
+    gauge_section: str,
+) -> int:
+    """Pick one index in a fiber cluster. Default remains min_index.
+
+    Extra names are OP1-C sections on the same L0 graph, not a new adjacency.
+    Tie-break is smaller index.
+    """
+    members = [int(i) for i in members]
+    if not members:
+        raise ValueError("empty fiber cluster")
+    if gauge_section == "min_index":
+        return min(members)
+    if gauge_section == "max_index":
+        return max(members)
+    if gauge_section == "max_real":
+        return max(members, key=lambda i: (float(points[int(i), 0]), -int(i)))
+    raise ValueError(
+        "structure_group_adjacency: gauge_section must be "
+        "'min_index', 'max_index', or 'max_real' "
+        f"(got {gauge_section!r})"
+    )
+
+
 def structure_group_adjacency(
     points: Array,
     *,
@@ -513,9 +539,9 @@ def structure_group_adjacency(
     clusters = hopf_fiber_clusters(points, same_fiber_base_tol=same_fiber_base_tol)
     along = consecutive_structure_group_along(points, clusters)
 
-    if gauge_section != "min_index":
-        raise ValueError("structure_group_adjacency: only gauge_section='min_index' is implemented")
-    reps = [min(members) for members in clusters]
+    reps = [
+        _gauge_section_rep(members, points, gauge_section) for members in clusters
+    ]
     base_reps = np.stack([base[r] for r in reps], axis=0)
     if inter_kind == "spherical_gabriel":
         base_edges = _spherical_gabriel_edges(base_reps)

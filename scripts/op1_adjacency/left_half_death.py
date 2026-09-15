@@ -217,7 +217,7 @@ def run_table(graph: dict[str, Any]) -> dict[str, Any]:
         "op1_status": "Open",
         "slice_status": (
             "C-miniature: occupancy not left-invariant on 2T. "
-            "Full C (other sections) still parked."
+            "Full C ledger: notes/op1_runs/20260913_L0_section_C.json."
         ),
         "set": "L0",
         "rule": "structure_group",

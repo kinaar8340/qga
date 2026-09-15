@@ -78,6 +78,20 @@ Missing attach or wrong `kind`/`rule` → refuse.
 
 Strict-sign separators. L0 may be `undefined_or_vacuous`. Inventing crossings is illegal.
 
+### 6b EQUIVARIANCE LEDGER
+
+```bash
+python3 scripts/op2_topograph/run.py --matrix --rule structure_group
+```
+
+Assembles `notes/op2_runs/20260913_equivariance_matrix.json` from scored OP2 JSON. Not a new graph. L0 empty cut stays `undefined_or_vacuous`, not keep-rate 1.0. Do not call Model 2 gauge-equivariant. Do not open OP3.
+
+```bash
+python3 scripts/op2_topograph/run.py --matrix-right --rule structure_group
+```
+
+Sibling right-gauge ledger: `notes/op2_runs/20260913_equivariance_matrix_right.json`. Same Model 2 graphs. Not averaged with left. L0 empty cut still vacuous.
+
 ### 7 SLICE A
 
 ```bash
@@ -94,14 +108,24 @@ Rerunning the same matrix → noise.
 
 Left-half death on L0 sits **after** the gate as a diagnostic (`20260912_L0_left_half_death.json`): occupancy 4-cycles split 2+2 onto antipodal poles. It does not reroute the pipe. It only forbids “Model 2 is 2T-equivariant.”
 
+### 8b SECTION C (same L0 graph)
+
+```bash
+python3 scripts/op1_adjacency/section_c.py --set L0 --rule structure_group \
+  --attach notes/op1_runs/20260911_L0_book_default_exact_structure_group_graph.json
+```
+
+`notes/op1_runs/20260913_L0_section_C.json`. min_index / max_index / max_real. No third graph. 8/12 overlap invariant; inter lifts move; max_real left-half `inter_kept` mixed.
+
 ### 9 WITNESS
 
 ```bash
 python3 scripts/op1_adjacency/run.py --set Lsg --rule structure_group --dump-graph
 python3 scripts/op1_adjacency/run.py --set L0  --rule structure_group --dump-graph
+python3 scripts/op1_adjacency/run.py --set Lang --rule structure_group --dump-graph --no-edges
 ```
 
-`kind=qga_adjacency_graph_v1`, no `fibers[]`. Explorer file-picker: red along / blue inter. Putting `fibers[]` on that file → schema mix.
+`kind=qga_adjacency_graph_v1`, no `fibers[]`. Explorer file-picker: red along / blue inter. Putting `fibers[]` on that file → schema mix. Lang dump is a witness of the 20260911 row (256/256/90), not a new adjacency and not slice A/C.
 
 ### 10 ENGINE
 
@@ -121,11 +145,11 @@ sample Λ
    ├─ Model 1 → figures, golden, INIT only
    └─ Model 2 → GATE
                  ├─ fail (wrong circle / mixed / no attach) → STOP
-                 └─ pass → census → OP2 sandbox → slices A/B
+                 └─ pass → census → OP2 sandbox → slices A/B → C (same L0) → equivariance ledger
                               └─ still Open; no OP3
 ```
 
-Parked off the belt: C (section sensitivity), Lang dump, OP3, Model 2 in `flux_hopf_lib`.
+Parked off the belt: OP3, Model 2 in `flux_hopf_lib`.
 
 ## C. Stack around it (do not flatten)
 

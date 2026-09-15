@@ -1,0 +1,382 @@
+{
+  "schema": "op2_equivariance_matrix_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "op2_status": "Open",
+  "op3_status": "Open",
+  "do_not_call_model_2_gauge_equivariant": true,
+  "do_not_write_axioms": true,
+  "averaged": false,
+  "side": "L",
+  "right": "notes/op2_runs/20260913_equivariance_matrix_right.json",
+  "right_averaged": false,
+  "not_a_new_graph": true,
+  "not_op3": true,
+  "rows": [
+    "Lsg",
+    "L0",
+    "Lang"
+  ],
+  "columns": [
+    "left_i",
+    "left_j"
+  ],
+  "sources": {
+    "Lsg": {
+      "op2": "notes/op2_runs/20260911_Lsg_structure_group.json",
+      "op1": "notes/op1_runs/20260911_Lsg_book_default_none_structure_group.json"
+    },
+    "L0": {
+      "op2": "notes/op2_runs/20260911_L0_structure_group.json",
+      "op1": "notes/op1_runs/20260911_L0_book_default_exact_structure_group.json"
+    },
+    "Lang": {
+      "op2": "notes/op2_runs/20260911_Lang_structure_group.json",
+      "op1": "notes/op1_runs/20260911_Lang_book_default_none_structure_group.json"
+    }
+  },
+  "cells": {
+    "Lsg": {
+      "left_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 64,
+          "n_inter": 6,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "separator_component_count",
+          "n_components_before": 4,
+          "n_components_after": 4,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 5,
+          "n_separator_edges_after": 6,
+          "delta_n_separator_edges": 1,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 5.0,
+            "n_sep_edges_after": 6.0,
+            "n_components_before": 4.0,
+            "n_components_after": 4.0,
+            "edge_count_ratio": 1.2
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "separator_component_count",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      },
+      "left_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 64,
+          "n_inter": 6,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "separator_component_count",
+          "n_components_before": 4,
+          "n_components_after": 5,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 5,
+          "n_separator_edges_after": 7,
+          "delta_n_separator_edges": 2,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 5.0,
+            "n_sep_edges_after": 7.0,
+            "n_components_before": 4.0,
+            "n_components_after": 5.0,
+            "edge_count_ratio": 1.4
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "separator_component_count",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      }
+    },
+    "L0": {
+      "left_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 24,
+          "n_inter": 12,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      },
+      "left_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 1.0,
+          "n_along": 24,
+          "n_inter": 12,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        },
+        "hopf_y1": {
+          "ledger": "undefined_or_vacuous",
+          "periodicity_status": "undefined_or_vacuous",
+          "kind": "undefined_or_vacuous_if_empty_cut",
+          "n_components_before": 0,
+          "n_components_after": null,
+          "delta_n_components": null,
+          "n_separator_edges_before": 0,
+          "n_separator_edges_after": null,
+          "delta_n_separator_edges": null,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 0.0,
+            "n_sep_edges_after": 0.0,
+            "n_components_before": 0.0,
+            "n_components_after": 0.0,
+            "edge_count_ratio": null
+          },
+          "empty_cut_not_keep_rate_1": true
+        }
+      }
+    },
+    "Lang": {
+      "left_i": {
+        "op1": {
+          "unit_name": "i",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 0.9444444444444444,
+          "n_along": 256,
+          "n_inter": 90,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "unchanged",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "delta_n_separator_edges": 0,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 16.0,
+            "n_sep_edges_after": 16.0,
+            "n_components_before": 1.0,
+            "n_components_after": 1.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 37,
+          "delta_n_separator_edges": 0,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 37.0,
+            "n_sep_edges_after": 37.0,
+            "n_components_before": 8.0,
+            "n_components_after": 9.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        }
+      },
+      "left_j": {
+        "op1": {
+          "unit_name": "j",
+          "side": "L",
+          "along_kept": 1.0,
+          "inter_kept": 0.8111111111111111,
+          "n_along": 256,
+          "n_inter": 90,
+          "note": "OP1 Experiment 2 on this attach, left side only. Not averaged. Right is a sibling ledger. Empty OP2 cut is not keep-rate 1.0."
+        },
+        "hopf_height": {
+          "ledger": "unchanged",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 1,
+          "n_components_after": 1,
+          "delta_n_components": 0,
+          "n_separator_edges_before": 16,
+          "n_separator_edges_after": 16,
+          "delta_n_separator_edges": 0,
+          "changed": false,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 16.0,
+            "n_sep_edges_after": 16.0,
+            "n_components_before": 1.0,
+            "n_components_after": 1.0,
+            "edge_count_ratio": 1.0
+          },
+          "empty_cut_not_keep_rate_1": false
+        },
+        "hopf_y1": {
+          "ledger": "changed",
+          "periodicity_status": "finite",
+          "kind": "delaunay_periodicity",
+          "n_components_before": 8,
+          "n_components_after": 9,
+          "delta_n_components": 1,
+          "n_separator_edges_before": 37,
+          "n_separator_edges_after": 38,
+          "delta_n_separator_edges": 1,
+          "changed": true,
+          "not_farey_period": true,
+          "separator_equivariance": {
+            "n_sep_edges_before": 37.0,
+            "n_sep_edges_after": 38.0,
+            "n_components_before": 8.0,
+            "n_components_after": 9.0,
+            "edge_count_ratio": 1.027027027027027
+          },
+          "empty_cut_not_keep_rate_1": false
+        }
+      }
+    }
+  },
+  "known": {
+    "Lsg_hopf_height_left_j": "4\u21925",
+    "Lang_hopf_y1": "8\u21929",
+    "L0_empty_cut": "undefined_or_vacuous, not keep-rate 1.0"
+  },
+  "claim_lock": {
+    "kind": "ledger_increment",
+    "not_an_axiom": true,
+    "model_2_gauge_equivariant": false,
+    "op3_entered": false,
+    "op3_status": "Open",
+    "gate": "do not enter OP3 here",
+    "not_a_new_graph": true,
+    "averaged": false,
+    "not_invariance": true,
+    "forbids": "Do not write OP2 axioms from these cells. Lsg height moves under left-j; Lang y1 moves under both left units; L0 periodicity stays vacuous because zeros are levels, not crossings."
+  },
+  "note": "Ledger increment, not an axiom. Assembled from scored OP2 JSON. Candidate edges refused. A/B/C parked. Do not enter OP3 here. The research problem OP3 remains Open. This is not invariance. Right-gauge columns are a sibling ledger, not averaged into this table."
+}

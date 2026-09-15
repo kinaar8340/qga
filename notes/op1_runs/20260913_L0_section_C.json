@@ -1,0 +1,481 @@
+{
+  "schema": "op1_section_c_v1",
+  "claim": "Software fact",
+  "op1_status": "Open",
+  "op3_entered": false,
+  "slice": "C",
+  "set": "L0",
+  "rule": "structure_group",
+  "not_a_third_graph": true,
+  "graph": "notes/op1_runs/20260911_L0_book_default_exact_structure_group_graph.json",
+  "sections": [
+    "min_index",
+    "max_index",
+    "max_real"
+  ],
+  "baseline": "min_index",
+  "along_section_invariant": true,
+  "inter_index_sets_distinct": 3,
+  "overlap_invariant": true,
+  "overlap_values": [
+    8
+  ],
+  "miss_invariant": true,
+  "half_inter_kept_invariant": false,
+  "half_inter_kept_values": [
+    "0.416667",
+    "None"
+  ],
+  "rows": {
+    "min_index": {
+      "gauge_section": "min_index",
+      "n_along": 24,
+      "n_inter": 12,
+      "along_equals_graph": true,
+      "inter_index_equals_graph": true,
+      "inter_index_pairs": [
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "n_overlap": 8,
+      "n_miss": 4,
+      "overlap": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-i"
+        ]
+      ],
+      "miss": [
+        [
+          "1",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ],
+      "farey_not_in_model2": [
+        [
+          "0",
+          "inf"
+        ]
+      ],
+      "half_left": {
+        "n_half": 16,
+        "inter_kept": [
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667
+        ],
+        "n_inter_kept_unique": [
+          5
+        ],
+        "inter_kept_constant": true,
+        "inter_kept_value": 0.4166666666666667
+      }
+    },
+    "max_index": {
+      "gauge_section": "max_index",
+      "n_along": 24,
+      "n_inter": 12,
+      "along_equals_graph": true,
+      "inter_index_equals_graph": false,
+      "inter_index_pairs": [
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          23
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          21,
+          23
+        ],
+        [
+          22,
+          23
+        ]
+      ],
+      "n_overlap": 8,
+      "n_miss": 4,
+      "overlap": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-i"
+        ]
+      ],
+      "miss": [
+        [
+          "1",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ],
+      "farey_not_in_model2": [
+        [
+          "0",
+          "inf"
+        ]
+      ],
+      "half_left": {
+        "n_half": 16,
+        "inter_kept": [
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667,
+          0.4166666666666667
+        ],
+        "n_inter_kept_unique": [
+          5
+        ],
+        "inter_kept_constant": true,
+        "inter_kept_value": 0.4166666666666667
+      }
+    },
+    "max_real": {
+      "gauge_section": "max_real",
+      "n_along": 24,
+      "n_inter": 12,
+      "along_equals_graph": true,
+      "inter_index_equals_graph": false,
+      "inter_index_pairs": [
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          18,
+          19
+        ]
+      ],
+      "n_overlap": 8,
+      "n_miss": 4,
+      "overlap": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "i"
+        ],
+        [
+          "0",
+          "-i"
+        ],
+        [
+          "inf",
+          "1"
+        ],
+        [
+          "inf",
+          "-1"
+        ],
+        [
+          "inf",
+          "i"
+        ],
+        [
+          "inf",
+          "-i"
+        ]
+      ],
+      "miss": [
+        [
+          "1",
+          "i"
+        ],
+        [
+          "1",
+          "-i"
+        ],
+        [
+          "-1",
+          "i"
+        ],
+        [
+          "-1",
+          "-i"
+        ]
+      ],
+      "farey_not_in_model2": [
+        [
+          "0",
+          "inf"
+        ]
+      ],
+      "half_left": {
+        "n_half": 16,
+        "inter_kept": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "n_inter_kept_unique": [
+          0,
+          3
+        ],
+        "inter_kept_constant": false,
+        "inter_kept_value": null
+      }
+    }
+  },
+  "statement": "OP1-C on the same L0 Model 2 graph. Along occupancy is section-invariant. Inter index lifts: 3 distinct sets among ['min_index', 'max_index', 'max_real']. Slice-A overlap is invariant ([8] of 12). Left-half inter_kept is section-dependent (min_index=max_index=5/12; max_real mixed). Not a third graph. Not a bump of OP1. Do not enter OP3.",
+  "note": "Delaunay is on the six octahedron poles; the section only lifts which Hurwitz units carry those 12 base edges. Slice A labels by pole, so 8/12 can stay put while the index pairs move. Default structure_group_adjacency remains min_index.",
+  "claim_lock": {
+    "kind": "section_ledger",
+    "same_l0_graph": true,
+    "not_a_third_adjacency": true,
+    "no_new_base_edges": true,
+    "op1_status": "Open",
+    "op3_entered": false,
+    "default_gauge_section": "min_index",
+    "other_lifts": [
+      "max_index",
+      "max_real"
+    ],
+    "do_not_fold_into_slice_A": true,
+    "along_invariant": true,
+    "overlap_stays_8_of_12": true,
+    "index_lift_moves": true,
+    "half_keep_moves_only_under_max_real": true
+  }
+}

@@ -184,6 +184,201 @@ def test_book_periodicity_score_without_cut_still_returns_period_found():
     assert "status" not in sc
 
 
+def test_equivariance_matrix_is_ledger_not_axiom(op2):
+    for path in (OP1_LSG, OP1_L0, OP1_LANG):
+        if not path.is_file():
+            pytest.skip(f"missing {path.name}")
+    payload = op2.assemble_equivariance_matrix()
+    assert payload["schema"] == "op2_equivariance_matrix_v1"
+    assert payload["claim"] == "Software fact"
+    assert payload["op1_status"] == "Open"
+    assert payload["op2_status"] == "Open"
+    assert payload["op3_status"] == "Open"
+    assert payload["do_not_call_model_2_gauge_equivariant"] is True
+    assert payload["do_not_write_axioms"] is True
+    assert payload["averaged"] is False
+    lock = payload["claim_lock"]
+    assert lock["kind"] == "ledger_increment"
+    assert lock["not_an_axiom"] is True
+    assert lock["model_2_gauge_equivariant"] is False
+    assert lock["op3_entered"] is False
+    assert lock["op3_status"] == "Open"
+    assert lock["not_invariance"] is True
+    assert "zeros are levels" in lock["forbids"]
+    assert payload["side"] == "L"
+    assert payload["right"].endswith("equivariance_matrix_right.json")
+    assert payload["right_averaged"] is False
+    assert payload["not_a_new_graph"] is True
+    assert payload["not_op3"] is True
+    assert payload["rows"] == ["Lsg", "L0", "Lang"]
+    assert payload["columns"] == ["left_i", "left_j"]
+    assert "candidate" not in json.dumps(payload["sources"])
+
+
+def test_equivariance_matrix_l0_empty_cut_is_not_keep_rate(op2):
+    if not OP1_L0.is_file():
+        pytest.skip("OP1 L0 JSON missing")
+    payload = op2.assemble_equivariance_matrix()
+    for side in ("left_i", "left_j"):
+        cell = payload["cells"]["L0"][side]
+        assert cell["op1"]["inter_kept"] == 1.0
+        assert cell["op1"]["along_kept"] == 1.0
+        for fname in ("hopf_height", "hopf_y1"):
+            fn = cell[fname]
+            assert fn["ledger"] == "undefined_or_vacuous"
+            assert fn["periodicity_status"] == "undefined_or_vacuous"
+            assert fn["n_components_after"] is None
+            assert fn["empty_cut_not_keep_rate_1"] is True
+
+
+def test_equivariance_matrix_known_moves_not_averaged(op2):
+    if not OP1_LSG.is_file() or not OP1_LANG.is_file():
+        pytest.skip("OP1 JSON missing")
+    payload = op2.assemble_equivariance_matrix()
+    lsg_h = payload["cells"]["Lsg"]
+    assert lsg_h["left_i"]["hopf_height"]["n_components_before"] == 4
+    assert lsg_h["left_i"]["hopf_height"]["n_components_after"] == 4
+    assert lsg_h["left_j"]["hopf_height"]["n_components_before"] == 4
+    assert lsg_h["left_j"]["hopf_height"]["n_components_after"] == 5
+    assert lsg_h["left_j"]["hopf_height"]["ledger"] == "changed"
+    assert (
+        lsg_h["left_i"]["hopf_height"]["n_components_after"]
+        != lsg_h["left_j"]["hopf_height"]["n_components_after"]
+    )
+    lang_y = payload["cells"]["Lang"]
+    assert lang_y["left_i"]["hopf_y1"]["n_components_before"] == 8
+    assert lang_y["left_i"]["hopf_y1"]["n_components_after"] == 9
+    assert lang_y["left_j"]["hopf_y1"]["n_components_after"] == 9
+    assert lang_y["left_i"]["op1"]["inter_kept"] != lang_y["left_j"]["op1"]["inter_kept"]
+    assert lang_y["left_i"]["op1"]["inter_kept"] == pytest.approx(0.9444444444444444)
+    assert lang_y["left_j"]["op1"]["inter_kept"] == pytest.approx(0.8111111111111111)
+    lsg_y = payload["cells"]["Lsg"]["left_i"]["hopf_y1"]
+    assert lsg_y["ledger"] == "undefined_or_vacuous"
+
+
+def test_equivariance_matrix_ledger_file_exists(op2):
+    path = ROOT / "notes" / "op2_runs" / "20260913_equivariance_matrix.json"
+    if not path.is_file():
+        pytest.skip("matrix ledger not written")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    live = op2.assemble_equivariance_matrix()
+    assert data["schema"] == live["schema"]
+    assert data["do_not_call_model_2_gauge_equivariant"] is True
+    assert data["op3_status"] == "Open"
+    assert data["claim_lock"]["op3_entered"] is False
+    assert data["claim_lock"]["not_invariance"] is True
+    assert data["cells"]["Lsg"]["left_j"]["hopf_height"]["n_components_after"] == 5
+    assert data["cells"]["Lang"]["left_i"]["hopf_y1"]["n_components_after"] == 9
+    assert data["cells"]["L0"]["left_i"]["hopf_height"]["ledger"] == "undefined_or_vacuous"
+
+
+def test_equivariance_matrix_writes_ledger(op2, tmp_path):
+    if not OP1_LSG.is_file():
+        pytest.skip("OP1 JSON missing")
+    payload = op2.assemble_equivariance_matrix()
+    json_path, md_path = op2.write_matrix(payload, tmp_path, stem="equivariance_matrix")
+    loaded = json.loads(json_path.read_text(encoding="utf-8"))
+    md = md_path.read_text(encoding="utf-8")
+    assert loaded["do_not_call_model_2_gauge_equivariant"] is True
+    assert loaded["op3_status"] == "Open"
+    assert loaded["claim_lock"]["op3_entered"] is False
+    assert loaded["claim_lock"]["not_invariance"] is True
+    assert "Claim lock" in md
+    assert "ledger increment" in md
+    assert "gauge-equivariant" in md
+    assert "not averaged" in md.lower() or "Not averaged" in md or "not averaged" in md
+    assert "OP3 not entered" in md
+    assert "not invariance" in md
+    assert "undefined_or_vacuous" in md
+    assert "keep-rate 1.0" in md
+    notes = (ROOT / "notes" / "open_problems.md").read_text(encoding="utf-8")
+    assert "20260913_equivariance_matrix.json" in notes
+    assert "Parked (not started) — equivariance matrix" not in notes
+    assert "Do not open OP3" in notes or "do not enter" in notes.lower()
+
+
+def test_right_matrix_is_sibling_not_averaged(op2):
+    pytest.importorskip("yaml")
+    for path in (OP1_LSG, OP1_L0, OP1_LANG):
+        if not path.is_file():
+            pytest.skip(f"missing {path.name}")
+    left = op2.assemble_equivariance_matrix()
+    right = op2.assemble_equivariance_matrix_right()
+    assert right["schema"] == "op2_equivariance_matrix_v1"
+    assert right["side"] == "R"
+    assert right["columns"] == ["right_i", "right_j"]
+    assert right["averaged"] is False
+    assert right["left_averaged"] is False
+    assert right["not_a_new_graph"] is True
+    assert right["op3_status"] == "Open"
+    assert right["claim_lock"]["op3_entered"] is False
+    assert right["do_not_call_model_2_gauge_equivariant"] is True
+    assert right["left"].endswith("equivariance_matrix.json")
+    # L0 empty cut stays vacuous; OP1 R keep-rate 1 is a different object.
+    for side in ("right_i", "right_j"):
+        cell = right["cells"]["L0"][side]
+        assert cell["op1"]["side"] == "R"
+        assert cell["op1"]["inter_kept"] == 1.0
+        for fname in ("hopf_height", "hopf_y1"):
+            assert cell[fname]["ledger"] == "undefined_or_vacuous"
+            assert cell[fname]["empty_cut_not_keep_rate_1"] is True
+    # Lang R inter_kept is not the left pair, and i/j are not averaged.
+    lang_r = right["cells"]["Lang"]
+    lang_l = left["cells"]["Lang"]
+    assert lang_r["right_i"]["op1"]["inter_kept"] == pytest.approx(0.8111111111111111)
+    assert lang_r["right_j"]["op1"]["inter_kept"] == pytest.approx(0.8333333333333334)
+    assert lang_r["right_i"]["op1"]["inter_kept"] != lang_r["right_j"]["op1"]["inter_kept"]
+    assert lang_r["right_i"]["op1"]["inter_kept"] != lang_l["left_i"]["op1"]["inter_kept"]
+    # Same skeleton, not mixed into one table.
+    assert "left_i" not in right["cells"]["Lsg"]
+    assert "right_i" not in left["cells"]["Lsg"]
+    # Component moves on this dictionary (Software fact, not an identification with left).
+    assert right["cells"]["Lsg"]["right_j"]["hopf_height"]["n_components_after"] == 5
+    assert right["cells"]["Lang"]["right_i"]["hopf_y1"]["n_components_after"] == 9
+    assert right["cells"]["Lang"]["right_j"]["hopf_y1"]["n_separator_edges_after"] == 38
+    assert right["cells"]["Lang"]["right_i"]["hopf_y1"]["n_separator_edges_after"] == 37
+
+
+def test_right_ledger_file_exists(op2):
+    path = ROOT / "notes" / "op2_runs" / "20260913_equivariance_matrix_right.json"
+    if not path.is_file():
+        pytest.skip("right matrix ledger not written")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert data["side"] == "R"
+    assert data["do_not_call_model_2_gauge_equivariant"] is True
+    assert data["claim_lock"]["op3_entered"] is False
+    assert data["cells"]["L0"]["right_i"]["hopf_height"]["ledger"] == "undefined_or_vacuous"
+    assert data["cells"]["Lang"]["right_i"]["op1"]["inter_kept"] == pytest.approx(0.8111111111111111)
+    left = json.loads(
+        (ROOT / "notes" / "op2_runs" / "20260913_equivariance_matrix.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    # Matching j-cut integers do not identify the files.
+    assert left["cells"]["Lsg"]["left_j"]["hopf_height"]["n_separator_edges_after"] == 7
+    assert data["cells"]["Lsg"]["right_j"]["hopf_height"]["n_separator_edges_after"] == 7
+    assert left["cells"]["Lang"]["left_i"]["op1"]["inter_kept"] != data["cells"]["Lang"]["right_i"]["op1"]["inter_kept"]
+    lock = data["claim_lock"]["forbids"]
+    assert "Do not fold" in lock or "do not identify" in lock
+    assert "0.833" in lock or "0.811" in lock
+
+
+def test_right_matrix_writes_ledger(op2, tmp_path):
+    pytest.importorskip("yaml")
+    if not OP1_LSG.is_file():
+        pytest.skip("OP1 JSON missing")
+    payload = op2.assemble_equivariance_matrix_right()
+    json_path, md_path = op2.write_matrix(payload, tmp_path, stem="equivariance_matrix_right")
+    loaded = json.loads(json_path.read_text(encoding="utf-8"))
+    md = md_path.read_text(encoding="utf-8")
+    assert loaded["side"] == "R"
+    assert loaded["claim_lock"]["not_invariance"] is True
+    assert "not averaged" in md.lower()
+    assert "OP3 not entered" in md
+    assert "right-i" in md
+    assert "not invariance" in md
+
+
 def test_strict_sign_does_not_count_zero_zero():
     pts = HURWITZ_UNITS[:4]
     values = np.zeros(4)

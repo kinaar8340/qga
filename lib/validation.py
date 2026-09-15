@@ -322,7 +322,7 @@ def open_problems_status_table() -> list[dict[str, str]]:
             "problem": "Flux topograph axioms",
             "home": "Ch. 5",
             "status": "Open — flux_topograph sandbox",
-            "next": "Parked: equivariance matrix (not axioms, not OP3)",
+            "next": "Left/right ledgers 20260913 (not averaged, not axioms, not OP3)",
         },
         {
             "id": "OP3",

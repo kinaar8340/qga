@@ -5,8 +5,8 @@ Software facts on the candidate graph in ``lib.hopf_lattice``. Does not
 resolve OP1. Does not replace ``candidate_adjacency``.
 
 ``--dump-graph`` writes ``<stem>_graph.json`` (kind ``qga_adjacency_graph_v1``)
-beside the OP1 row. structure_group witness only; refused for candidate.
-Not ``export_fiber_curves``.
+beside the OP1 row (Lsg, L0, Lang). structure_group witness only; refused
+for candidate. Not ``export_fiber_curves``. Lang dump is not slice A/C.
 """
 
 from __future__ import annotations
@@ -954,7 +954,7 @@ def dump_graph_payload(
         multiplicity: Any = int(phases[0])
     else:
         multiplicity = [int(x) for x in phases]
-    return {
+    out = {
         "kind": GRAPH_KIND,
         "rule": rule,
         "set": set_name,
@@ -977,6 +977,21 @@ def dump_graph_payload(
             "along_kind": census["along_kind"],
         },
     }
+    if set_name == "Lang":
+        out["claim"] = "Software fact"
+        out["claim_lock"] = {
+            "kind": "model2_witness",
+            "same_rule_as": ["Lsg", "L0"],
+            "not_a_third_adjacency": True,
+            "not_slice_A": True,
+            "not_section_C": True,
+            "not_farey_diagram": True,
+            "not_occupancy_necklace": True,
+            "op1_status": "Open",
+            "op3_entered": False,
+            "do_not_overwrite_op1_row": True,
+        }
+    return out
 
 
 def run_one(
